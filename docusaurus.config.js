@@ -1,15 +1,6 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @format
- */
-
 module.exports = {
-	title: 'Testomato Help & Docs',
-	tagline: 'The tagline of my site',
+	title: 'Testomato',
+	tagline: 'Welcome to Testomato Help & Docs',
 	url: 'https://help.testomato.com',
 	baseUrl: '/',
 	favicon: 'img/favicon.ico',
@@ -22,7 +13,7 @@ module.exports = {
 			darkTheme: require('prism-react-renderer/themes/dracula'),
 		},
 		navbar: {
-			title: 'Help Testomato',
+			title: 'Help & Docs',
 			logo: {
 				alt: 'Testomato Logo',
 				src: 'img/logo.svg',
@@ -31,13 +22,13 @@ module.exports = {
 				{
 					to: 'docs/index',
 					activeBasePath: 'docs',
-					label: 'Docs',
+					label: 'Testomato',
 					position: 'left',
 				},
 				{
 					to: 'docs/api/introduction',
 					activeBasePath: 'docs/api',
-					label: 'API',
+					label: 'REST API',
 					position: 'left',
 				},
 				{
@@ -52,20 +43,19 @@ module.exports = {
 			style: 'dark',
 			links: [
 				{
-					title: 'Need help?',
+					title: 'Testomato',
 					items: [
 						{
 							label: 'Contact us',
 							href: 'https://testomato.com/contact',
 						},
 						{
-							label: 'support@testomato.com',
-							href: 'support@testomato.com',
+							label: 'About Testomato',
+							href: 'https://www.testomato.com/about',
 						},
 					],
 				},
 				{
-					title: 'Social media',
 					items: [
 						{
 							label: 'Blog',
@@ -86,12 +76,6 @@ module.exports = {
 					],
 				},
 			],
-			logo: {
-				alt: 'Testomato logo',
-				src: 'img/testomato-white.svg',
-				href: 'https://www.testomato.com/',
-			},
-			copyright: `Copyright © ${new Date().getFullYear()} Testomato s.r.o.`,
 		},
 	},
 	presets: [

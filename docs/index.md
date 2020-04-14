@@ -1,5 +1,4 @@
 ---
-id: homepage
-title: Help
-sidebar_label: aaaa
+id: index
+title: Introduction
 ---

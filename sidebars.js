@@ -1,7 +1,10 @@
 module.exports = {
 	someSidebar: {
 		"Testomato": [
-			'doc1'
+			'index',
+			'dashboard',
+			'project',
+			'subscription',
 		],
 		"API Reference": [
 			'api/introduction',
@@ -15,7 +18,6 @@ module.exports = {
 			'api/project-response-times',
 
 			'api/areas',
-
 
 		],
 	}
