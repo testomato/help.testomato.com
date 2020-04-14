@@ -1,15 +1,22 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @format
- */
-
 module.exports = {
-  someSidebar: {
-    Docusaurus: ['doc1', 'doc2', 'doc3'],
-    Features: ['mdx'],
-  },
+	someSidebar: {
+		"Testomato": [
+			'doc1'
+		],
+		"API Reference": [
+			'api/introduction',
+			'api/api-key',
+			'api/common-responses',
+
+			'api/project',
+			'api/project-start',
+			'api/project-simple-status',
+			'api/project-status',
+			'api/project-response-times',
+
+			'api/areas',
+
+
+		],
+	}
 };

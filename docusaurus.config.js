@@ -13,82 +13,75 @@ module.exports = {
 	url: 'https://help.testomato.com',
 	baseUrl: '/',
 	favicon: 'img/favicon.ico',
-	organizationName: 'facebook', // Usually your GitHub org/user name.
-	projectName: 'docusaurus', // Usually your repo name.
+	organizationName: 'testomato', // Usually your GitHub org/user name.
+	projectName: 'help-and-docs', // Usually your repo name.
 	themeConfig: {
 		disableDarkMode: true,
-
-		/*
-		announcementBar: {
-			id: 'support_us', // Any value that will identify this message
-			content: 'We are looking to revamp our docs, please fill <a target="_blank" rel="noopener noreferrer" href="#">this survey</a>',
-			backgroundColor: '#fafbfc', // Defaults to `#fff`
-			textColor: '#091E42', // Defaults to `#000`
-		},*/
+		prism: {
+			theme: require('prism-react-renderer/themes/github'),
+			darkTheme: require('prism-react-renderer/themes/dracula'),
+		},
 		navbar: {
 			title: 'Help Testomato',
 			logo: {
-				alt: 'Testomato logo',
+				alt: 'Testomato Logo',
 				src: 'img/logo.svg',
 			},
 			links: [
 				{
-					to: 'docs/doc1',
+					to: 'docs/index',
 					activeBasePath: 'docs',
 					label: 'Docs',
 					position: 'left',
 				},
-				{to: 'blog', label: 'Blog', position: 'left'},
-        {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
-        },
+				{
+					to: 'docs/api/introduction',
+					activeBasePath: 'docs/api',
+					label: 'API',
+					position: 'left',
+				},
+				{
+					href: 'https://github.com/testomato/help-and-docs',
+					label: 'GitHub',
+					position: 'right',
+				},
+
 			],
 		},
 		footer: {
 			style: 'dark',
 			links: [
 				{
-					title: 'Docs',
+					title: 'Need help?',
 					items: [
 						{
-							label: 'Style Guide',
-							to: 'docs/doc1',
+							label: 'Contact us',
+							href: 'https://testomato.com/contact',
 						},
 						{
-							label: 'Second Doc',
-							to: 'docs/doc2',
+							label: 'support@testomato.com',
+							href: 'support@testomato.com',
 						},
 					],
 				},
 				{
-					title: 'Community',
-					items: [
-						{
-							label: 'Stack Overflow',
-							href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-						},
-						{
-							label: 'Discord',
-							href: 'https://discordapp.com/invite/docusaurus',
-						},
-					],
-				},
-				{
-					title: 'Social',
+					title: 'Social media',
 					items: [
 						{
 							label: 'Blog',
-							to: 'blog',
+							href: 'https://blog.testomato.com',
 						},
 						{
 							label: 'GitHub',
-							href: 'https://github.com/facebook/docusaurus',
+							href: 'https://github.com/testomato',
+						},
+						{
+							label: "Facebook",
+							href: "https://www.facebook.com/testomato"
 						},
 						{
 							label: 'Twitter',
-							href: 'https://twitter.com/docusaurus',
+							href: 'https://twitter.com/testomatocom',
 						},
 					],
 				},
@@ -105,14 +98,21 @@ module.exports = {
 		[
 			'@docusaurus/preset-classic',
 			{
-				docs: {
-					sidebarPath: require.resolve('./sidebars.js'),
-					editUrl:
-						'https://github.com/facebook/docusaurus/edit/master/website/',
-				},
 				theme: {
 					customCss: require.resolve('./src/css/custom.css'),
 				},
+				docs: {
+					sidebarPath: require.resolve('./sidebars.js'),
+					editUrl: 'https://github.com/testomato/help-and-docs/edit/master/',
+					docsSideNavCollapsible: true,
+					showLastUpdateTime: true,
+				},
+				sitemap: {
+					cacheTime: 600 * 1000, // 600 sec - cache purge period
+					changefreq: 'weekly',
+					priority: 0.5,
+				},
+
 			},
 		],
 	],
