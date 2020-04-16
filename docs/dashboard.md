@@ -6,7 +6,7 @@ title: Dashboard
 **Dashboard** is meant to help you get a basic overview of what's
 going on in your projects in a quick way.
 
-![Dashboard](dashboard.png)
+![Dashboard](/img/dashboard.png)
 
 When you sign in to Testomato, we want you to be able to know if there
 are problems the minute you see your dashboard. That's why boxes will
@@ -26,10 +26,10 @@ There are only **4 possible colors** for check boxes:
 
 There is another mode called _compact_, this mode is useful for long projects.
 
-![Dashboard Compact](dashboard-compact.png)
+![Dashboard Compact](/img/dashboard-compact.png)
 
 ## Open selected Project
 
 By clicking on **Project Name** or **Checks** button.
 
-![](open-project.png)
+![](/img/open-project.png)

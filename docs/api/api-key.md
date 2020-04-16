@@ -9,8 +9,8 @@ unwanted access. An API key parameter is **mandatory** for all requests.
 
 You can find your API Key at the bottom of **Project Settings**
 
-![API key](./api-key-project.png)
+![API key](/img/api/api-key-project.png)
 
 You can also use user key from your [User Profile](https://www.testomato.com/user/profile): 
 
-![API key](./api-key-user.png)
+![API key](/img/api/api-key-user.png)
