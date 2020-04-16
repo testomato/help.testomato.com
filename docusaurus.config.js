@@ -3,7 +3,7 @@ module.exports = {
 	tagline: 'Welcome to Testomato Help & Docs',
 	favicon: 'img/favicon.ico',
 	url: 'https://help.testomato.com/',
-	baseUrl: '/',
+	baseUrl: '/help.testomato.com/',
 	organizationName: 'testomato', // Usually your GitHub org/user name.
 	projectName: 'help.testomato.com', // Usually your repo name.
 	themeConfig: {
