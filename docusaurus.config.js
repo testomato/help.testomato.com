@@ -2,8 +2,8 @@ module.exports = {
 	title: 'Testomato',
 	tagline: 'Welcome to Testomato Help & Docs',
 	favicon: 'img/favicon.ico',
-	url: 'https://testomato.github.io/help.testomato.com/',
-	baseUrl: '/help.testomato.com/',
+	url: 'https://help.testomato.com/',
+	baseUrl: '/',
 	organizationName: 'testomato', // Usually your GitHub org/user name.
 	projectName: 'help.testomato.com', // Usually your repo name.
 	themeConfig: {
