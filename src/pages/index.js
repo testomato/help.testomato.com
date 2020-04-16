@@ -11,7 +11,7 @@ const features = [
 		title: <>Testomato</>,
 		description: (
 			<>
-				Get basics information about Testomato application and functions.
+				Get basic information about Testomato application and functions.
 			</>
 		),
 		link: "/docs/index"
@@ -20,7 +20,7 @@ const features = [
 		title: <>REST API</>,
 		description: (
 			<>
-				Our REST API provides simple interfaces for accessing basics Testomato functionality.
+				Our REST API provides simple interfaces for accessing basic Testomato functionality.
 			</>
 		),
 		link: "/docs/api/introduction"
