@@ -32,7 +32,7 @@ module.exports = {
 					position: 'left',
 				},
 				{
-					href: 'https://github.com/testomato/help-and-docs',
+					href: 'https://github.com/testomato/help.testomato.com',
 					label: 'GitHub',
 					position: 'right',
 				},
@@ -87,7 +87,7 @@ module.exports = {
 				},
 				docs: {
 					sidebarPath: require.resolve('./sidebars.js'),
-					editUrl: 'https://github.com/testomato/help-and-docs/edit/master/',
+					editUrl: 'https://github.com/testomato/help.testomato.com/edit/master/',
 					docsSideNavCollapsible: true,
 					showLastUpdateTime: true,
 				},
