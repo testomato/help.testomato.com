@@ -1,6 +1,7 @@
 ---
 id: project-simple-status
-title: Project Simple Status
+title: GET Project Simple Status
+sidebar_label: "Project > Simple Status"
 --- 
 
 ## API Endpoint

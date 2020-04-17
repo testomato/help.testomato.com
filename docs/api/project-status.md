@@ -1,12 +1,13 @@
 ---
 id: project-status
-title: Project Status
+title: GET Project Status
+sidebar_label: "Project > Status"
 ---
 
 ## API Endpoint
 
 ```txt title="API endpoint"
-GET /api/project/[project ID]/status?apikey=[key]
+GET /api/project/[id]/status?apikey=[key]
 ```
 
 

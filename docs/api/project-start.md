@@ -1,6 +1,7 @@
 ---
 id: project-start
-title: Project Start
+title: GET Project Start
+sidebar_label: "Project > Starting"
 ---
 
 ## API Endpoint

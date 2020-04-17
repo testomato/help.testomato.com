@@ -1,19 +1,8 @@
 ---
 id: project
-title: Project
----
-
-# Testomato Project 
-
-This API endpoint allows to work [with project](#get-project-info) e.g. get [project results](#get-project-results),
-[simple status](#get-project-simple-status), [status](#get-project-status), [run all checks](#get-priject-start) in a project,
-share a project etc.
-
-```txt
-/api/project/[id](/*/)?apikey=[key]
-```
-
-# Project
+title: GET Project
+sidebar_label: Project
+--- 
 
 ## API Endpoint
 

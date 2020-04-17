@@ -1,6 +1,7 @@
 ---
 id: project-response-times
-title: Project Response Times
+title: GET Project Response Times
+sidebar_label: "Project > Response Times"
 ---
 # Project Response Times
 

@@ -1,9 +1,8 @@
 ---
 id: areas
-title: Areas
+title: Project Group
+sidebar_label: "Project > Group"
 ---
-
-## Project Areas info
 
 ### API Endpoint
 
