@@ -1,12 +1,11 @@
 ---
-id: areas
-title: Project Group
-sidebar_label: "Project > Group"
+id: project-groups
+title: Project Groups
 ---
 
 ### API Endpoint
 
-```txt title="API endpoint"
+```text
 GET /api/areas/[id]?apikey=[key]
 ```
 

@@ -1,13 +1,12 @@
 ---
 id: project-response-times
-title: GET Project Response Times
-sidebar_label: "Project > Response Times"
+title: Project Response Times
 ---
 # Project Response Times
 
 ## API Endpoint
 
-```txt title="API endpoint"
+```text
 GET /api/project/[id]/responseTimes?start=[date]&time=[date]apikey=[key]
 ```
 
@@ -43,5 +42,6 @@ curl "https://www.testomato.com/api/project/5e95ddf7a39e5a44428b4581/responseTim
 	[ 1586880000, 0.1, 1, 5.8, 0, 31.1, 3.1, 42.1],
 	[ 1586885000, 0.1, 1, 5.9, 0, 32, 3, 42.3 ],
 	[ 1586890000, 0, 0.9, 5.8, 0, 33.6, 3.1, 44.3]
+    // ...
 ]
 ```

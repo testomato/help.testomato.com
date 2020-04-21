@@ -13,16 +13,24 @@ formatted response.
 
 ## `/api/project/*`
 
-* [GET project](project.md) - return basic project information
-* [GET start project](project-start.md) - run all checks in Project
-* [GET project response times](project-response-times.md) - return response times in select time period
-* [GET project simple status](project-simple-status.md) - return simplify project status
-* [GET project status](project-status.md) - return project status
+| Method | Name  | Entrypoint | Description |
+| ------ | ----- | ---------- | ----------- |
+| [GET](project.md) | Project | `/api/project/[id]` | Getting basic Project information |
+| [GET](project-start.md) | Starting | `/api/project/[id]/start` | run all checks in Project |
+| [GET](project-results.md) | Results | `/api/project/[id]/job/[jobid]/results` | Return results of selected job |
+| [GET](project-simple-status.md) | Simple Status |`/api/project/[id]/simple-status` | Simplify project status |
+| [GET](project-status.md) | Status | `/api/project/[id]/status` | Full project status |  
+| [GET](project-response-times.md) | Response times | `/api/project/[id]/responseTimes` | Response times in select time period | 
+| [GET](project-users.md) | Users | `/api/project/[id]/responseTimes` | Project Users | 
+| [GET](project-group.md) | Group | `/api/project/[id]/responseTimes` | Project Users | 
 
 
-## `/api/areas/*`
 
-* [GET areas](areas.md) - getting information about project groups
+## `/api/project/*`
+
+| Method | Name  | Entrypoint | Description |
+| ------ | ----- | ---------- | ----------- |
+| [GET](user-projects.md) | Project | `/api/user/[id]/projects` | Getting list of user projects |
 
 ## Others
 

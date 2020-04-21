@@ -1,12 +1,11 @@
 ---
 id: project
-title: GET Project
-sidebar_label: Project
+title: Project
 --- 
 
 ## API Endpoint
 
-```txt title="API endpoint"
+```text title="API endpoint"
 GET /api/project/[id]?apikey=[key]
 ```
 
