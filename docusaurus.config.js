@@ -20,7 +20,7 @@ module.exports = {
 			},
 			links: [
 				{
-					to: 'docs/index',
+					to: 'docs/introduction',
 					activeBasePath: 'docs',
 					label: 'Testomato',
 					position: 'left',

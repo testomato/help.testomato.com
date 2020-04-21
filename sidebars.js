@@ -2,12 +2,19 @@ module.exports = {
 	docs:
 		{
 			"Testomato": [
-				'index',
+				'introduction',
 				'dashboard',
-				'project',
+
+				{
+					"Project": [
+						"project",
+						"common-server-errors"
+					]
+				},
 				'account',
 				'invoices',
 				'payment',
+				'uptime',
 				'subscription',
 			],
 			"API Reference": [

@@ -37,6 +37,11 @@
 	float: left;
 }
 
+.markdown ol img, .markdown ul img {
+	margin: 10px;
+	display: block;
+}
+
 .markdown p img[src*='#right'] {
 	float: right;
 }

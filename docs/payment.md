@@ -52,4 +52,4 @@ subscription-based businesses, and merchants that key in all of their credit car
 ## What should I do if my bill payment fails?
 
 If your bill payment fails, then you can try re-enter your credit card under [Your Profile > Billing & Payment > Billing Information](https://www.testomato.com/user/payments/billing) 
-If you continue to have issues processing the payment, then contact your bank for assistance.
+If you continue to have issues processing the payment, then contact us to <support@testomato.com>. 
