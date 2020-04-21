@@ -7,6 +7,7 @@ module.exports = {
 				'project',
 				'account',
 				'invoices',
+				'payment',
 				'subscription',
 			],
 			"API Reference": [

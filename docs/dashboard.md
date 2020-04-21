@@ -1,6 +1,7 @@
 ---
 id: dashboard
-title: Dashboard
+title: Testomato Dashboard
+sidebar_label: Dashboard
 ---
 
 **Dashboard** is meant to help you get a basic overview of what's
