@@ -26,7 +26,7 @@ formatted response.
 
 
 
-## `/api/project/*`
+## `/api/user/*`
 
 | Method | Name  | Entrypoint | Description |
 | ------ | ----- | ---------- | ----------- |
