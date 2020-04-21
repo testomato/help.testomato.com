@@ -3,4 +3,4 @@ id: subscription
 title: Subscription
 ---
 
-## Cancel subscription
+### Cancel subscription

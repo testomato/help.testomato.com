@@ -5,6 +5,8 @@ module.exports = {
 				'index',
 				'dashboard',
 				'project',
+				'account',
+				'invoices',
 				'subscription',
 			],
 			"API Reference": [
