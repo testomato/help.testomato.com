@@ -4,11 +4,10 @@ module.exports = {
 			"Testomato": [
 				'introduction',
 				'dashboard',
-
 				{
 					"Project": [
 						"project",
-						"common-server-errors"
+						"common-server-errors",
 					]
 				},
 				'account',
@@ -16,6 +15,7 @@ module.exports = {
 				'payment',
 				'uptime',
 				'subscription',
+				"http",
 			],
 			"API Reference": [
 
