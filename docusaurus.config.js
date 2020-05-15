@@ -20,13 +20,13 @@ module.exports = {
 			},
 			links: [
 				{
-					to: 'docs/introduction',
+					to: '/introduction',
 					activeBasePath: 'docs',
 					label: 'Testomato',
 					position: 'left',
 				},
 				{
-					to: 'docs/api/introduction',
+					to: '/api/introduction',
 					activeBasePath: 'docs/api',
 					label: 'REST API',
 					position: 'left',
@@ -86,6 +86,8 @@ module.exports = {
 					customCss: require.resolve('./src/css/custom.css'),
 				},
 				docs: {
+					// docs only https://v2.docusaurus.io/docs/docs/#docs-only-mode
+					routeBasePath: '/',
 					sidebarPath: require.resolve('./sidebars.js'),
 					editUrl: 'https://github.com/testomato/help.testomato.com/edit/master/',
 					docsSideNavCollapsible: true,
