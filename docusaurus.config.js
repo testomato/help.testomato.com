@@ -54,6 +54,10 @@ module.exports = {
 							href: 'https://testomato.com/contact',
 						},
 						{
+							label: 'Testomato Team',
+							href: 'https://www.testomato.com/team',
+						},
+						{
 							label: 'About Testomato',
 							href: 'https://www.testomato.com/about',
 						},

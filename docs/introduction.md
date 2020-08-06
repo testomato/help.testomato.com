@@ -58,7 +58,7 @@ All website monitoring results are organized and stored in easy-to-read
 reports, allowing you to identify error patterns and make responsible
 decisions based on reliable data.
 
-[Team Testomato](https://www.testomato.com/about) is always working
+[Team Testomato](https://www.testomato.com/team) is always working
 hard to improve and expand the features we have available.
 
 If you would like to participate in the future development of our

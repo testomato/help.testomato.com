@@ -26,7 +26,7 @@ taken as attempt to DDoS attack.
 All Testomato servers always use same IP addresses, these addresses can by whitelisted on your Firewall. 
 
 :::info
-   Get list of all Testomato addresses: https://www.testomato.com/bot
+   Get list of all TestomatoBot IP addresses: https://www.testomato.com/bot
 :::
 
 ## Advanced DDoS Protection by Cloudflare
