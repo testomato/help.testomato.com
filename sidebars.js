@@ -1,6 +1,7 @@
 module.exports = {
 	docs:
 		{
+
 			"Testomato": [
 				'introduction',
 				'dashboard',
@@ -14,9 +15,16 @@ module.exports = {
 				'invoices',
 				'payment',
 				'uptime',
+				{
+					"TestomatoBot": [
+						'bot/about',
+						'bot/ddos',
+					]
+				},
 				'subscription',
 				"http",
 			],
+
 			"API Reference": [
 
 				'api/introduction',

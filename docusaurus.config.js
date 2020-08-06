@@ -7,10 +7,13 @@ module.exports = {
 	organizationName: 'testomato', // Usually your GitHub org/user name.
 	projectName: 'help.testomato.com', // Usually your repo name.
 	themeConfig: {
-		disableDarkMode: true,
 		prism: {
 			theme: require('prism-react-renderer/themes/github'),
 			darkTheme: require('prism-react-renderer/themes/dracula'),
+		},
+		colorMode: {
+			defaultMode: 'light',
+			disableSwitch: true,
 		},
 		navbar: {
 			title: 'Help & Docs',
@@ -18,7 +21,7 @@ module.exports = {
 				alt: 'Testomato Logo',
 				src: 'img/logo.svg',
 			},
-			links: [
+			items: [
 				{
 					to: '/introduction',
 					activeBasePath: 'docs',
@@ -33,12 +36,13 @@ module.exports = {
 				},
 				{
 					href: 'https://github.com/testomato/help.testomato.com',
-					label: 'GitHub',
 					position: 'right',
+					className: 'header-github-link',
+					'aria-label': 'GitHub repository',
 				},
-
 			],
 		},
+
 		footer: {
 			style: 'dark',
 			links: [
@@ -56,6 +60,7 @@ module.exports = {
 					],
 				},
 				{
+					title: 'Social networks',
 					items: [
 						{
 							label: 'Blog',
@@ -90,7 +95,6 @@ module.exports = {
 					routeBasePath: '/',
 					sidebarPath: require.resolve('./sidebars.js'),
 					editUrl: 'https://github.com/testomato/help.testomato.com/edit/master/',
-					docsSideNavCollapsible: true,
 					showLastUpdateTime: true,
 				},
 				sitemap: {
