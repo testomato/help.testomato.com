@@ -11,6 +11,14 @@ module.exports = {
 						"common-server-errors",
 					]
 				},
+
+				{
+					"Checks": [
+						"checks/introduction",
+						"checks/semantic",
+					]
+				},
+
 				'account',
 				'invoices',
 				'payment',
