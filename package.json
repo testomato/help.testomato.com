@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-alpha.67",
+    "@docusaurus/plugin-google-analytics": "^2.0.0-alpha.68",
     "@docusaurus/preset-classic": "^2.0.0-alpha.67",
     "classnames": "^2.2.6",
     "react": "^17.0.1",

@@ -6,7 +6,11 @@ module.exports = {
 	baseUrl: '/',
 	organizationName: 'testomato', // Usually your GitHub org/user name.
 	projectName: 'help.testomato.com', // Usually your repo name.
+	// plugins: ['@docusaurus/plugin-google-analytics'],  // GA support
 	themeConfig: {
+		googleAnalytics: {
+			trackingID: 'UA-141789564-1',
+		},
 		prism: {
 			theme: require('prism-react-renderer/themes/github'),
 			darkTheme: require('prism-react-renderer/themes/dracula'),
