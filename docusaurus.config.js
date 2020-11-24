@@ -9,7 +9,7 @@ module.exports = {
 	// plugins: ['@docusaurus/plugin-google-analytics'],  // GA support
 	themeConfig: {
 		googleAnalytics: {
-			trackingID: 'UA-141789564-1',
+			trackingID: 'UA-31717225-1',
 		},
 		prism: {
 			theme: require('prism-react-renderer/themes/github'),
