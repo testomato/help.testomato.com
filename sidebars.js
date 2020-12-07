@@ -15,6 +15,7 @@ module.exports = {
 				{
 					"Checks": [
 						"checks/introduction",
+						"checks/string-checks",
 						"checks/semantic",
 					]
 				},
