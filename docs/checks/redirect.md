@@ -72,9 +72,7 @@ Edit new **Page check**:
 
 ### Check Redirect location URL
 
-You can also check exact Redirect location URL. 
-
-Click on the pencil to edit **Page check**:
+You can also check exact Redirect location URL. Click on the pencil to edit **Page check**:
 
 ![Edit new Page check](/img/checks/redirect-edit-new-check.png)
 
