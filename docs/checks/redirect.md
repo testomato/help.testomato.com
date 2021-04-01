@@ -10,7 +10,7 @@ Every page on the Internet has an address called a URL - which stands for `Unifo
 Sometimes, content moves from one URL to another URL. That’s when you need a redirect.
 A redirect automatically makes a browser go from one URL to another URL.
 
-Testomato allow check redirect location and response codes.
+Testomato allows you to check redirect location and response codes.
 
 ### Types of Redirects
 
@@ -42,11 +42,11 @@ Testomato can't detect Meta refreshes redirects.
 
 ### Create new Page check
 
-First you have to create new **Page check**:
+First you have to create a new **Page check**:
 
 ![Add new Page check](/img/checks/redirect-add-page-check.png)
 
-Enter URL that you wanna check:
+Enter the URL you want to check:
 
 ![Enter URL for check](/img/checks/redirect-enter-url.png)
 
@@ -68,7 +68,6 @@ Edit new **Page check**:
 2. Add expected response code
 3. Turn off **Follow redirects** 
 4. Save changes
-
 
 ### Check Redirect location URL
 
