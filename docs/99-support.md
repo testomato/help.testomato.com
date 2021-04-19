@@ -1,6 +1,6 @@
 ---
 id: support
-title: Support
+title: Contact Support
 ---
 
 If you would like to participate in the future development of our

@@ -1,5 +1,4 @@
 ---
-id: project-groups
 title: Project Groups
 ---
 

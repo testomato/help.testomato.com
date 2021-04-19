@@ -1,6 +1,5 @@
 ---
-id: project-start
-title: Project Start
+title: Starting Project
 ---
 
 ## API Endpoint

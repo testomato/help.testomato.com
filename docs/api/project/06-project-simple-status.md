@@ -1,5 +1,4 @@
 ---
-id: project-simple-status
 title: Project Simple Status
 --- 
 

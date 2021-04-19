@@ -1,5 +1,4 @@
 ---
-id: http
 title: Hypertext Transfer Protocol
 ---
 

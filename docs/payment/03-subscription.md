@@ -1,7 +1,6 @@
 ---
 id: subscription
-title: Testomato Subscription
-sidebar_label: Subscription
+title: Subscriptions FAQ
 ---
 
 ## How do I cancel my subscription?

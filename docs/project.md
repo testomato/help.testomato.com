@@ -1,4 +1,0 @@
----
-id: project
-title: Project
----

@@ -1,6 +1,5 @@
 ---
-id: project
-title: Project
+title: Get Project
 --- 
 
 ## API Endpoint
