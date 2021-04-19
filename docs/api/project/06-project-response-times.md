@@ -1,7 +1,6 @@
 ---
 title: Project Response Times
 ---
-# Project Response Times
 
 ## API Endpoint
 

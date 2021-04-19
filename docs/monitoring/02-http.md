@@ -65,7 +65,7 @@ administrator is working on the problem and that the server will be available la
 A `404` page is an page that appears when you click on a link that is broken 
 and is therefore no longer (or in fact, never was) available.
 
-Testomato is **generate this check automatically** for new [Project](/project) and
+Testomato is **generate this check automatically** for new Project and
 watch that your server response with correct `404  Not Found` response code.
 Because some servers might response with `200 OK` response codes even
 for non existing pages and that's harm SEO.
