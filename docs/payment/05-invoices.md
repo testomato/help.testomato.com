@@ -1,6 +1,5 @@
 ---
-id: invoices
-title: Testomato Invoices
+title: Invoices
 sidebar_label: Invoices
 ---
 
@@ -9,7 +8,7 @@ sidebar_label: Invoices
 Yes. Testomato is always sending you an invoice copy to your email. You can add three additional emails that also getting invoice copy.
 Just change you preferences at [Your Profile > Billing & Payment > Billing Information](https://www.testomato.com/user/payments/billing)
 
-![Invoice emails](/img/invoice-emails.png)  
+![Invoice emails](/img/payment/invoice-emails.png)  
 
 ##  Where can I find my invoices?
  

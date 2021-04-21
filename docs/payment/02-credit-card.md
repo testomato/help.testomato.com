@@ -1,16 +1,15 @@
 ---
-id: payment
-title: Testomato Payment
-sidebar_label: Payment
+title: Credit card payment
 ---
 
-## Which payment methods are accepted?
+## Are my credit cards safe with Testomato?
 
-Testomato currently accepting follow payment methods:
+Yes. We are using [BraintreePayments gateway](https://www.braintreepayments.com/) for processing and storing your credit card information.
 
-* [Credit card payment](02-credit-card.md) (preferred)
-* [PayPal payment](03-paypal-payments.md) 
-* [International Bank Transfer](04-bank-transfer.md)
+> **Braintree Payments** is a merchant account provider based in Chicago, Illinois.
+Founded in 2007, Braintree markets its services primarily to e-commerce merchants,
+subscription-based businesses, and merchants that key in all of their credit card transactions.
+[About Braintree](https://www.braintreepayments.com/cz/about-braintree)
 
 ## What should I do if my bill payment fails?
 

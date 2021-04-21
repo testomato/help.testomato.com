@@ -1,9 +1,8 @@
 ---
-id: subscription
 title: Subscriptions FAQ
 ---
 
-## How do I cancel my subscription?
+## How to cancel a subscription?
 
 If you decide to cancel your Testomato Subscription, please contact us by sending a message to: <support@testomato.com> with any of following details:
                                                      
