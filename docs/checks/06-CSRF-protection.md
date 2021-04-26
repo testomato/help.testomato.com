@@ -2,6 +2,19 @@
 title: CSRF protection
 ---
 
+## Testomato & CSRF protecion
+
+Can Testomato hadle forms with CSRF protecion. The simply answer is NO.
+If is your application protected from cross-site request forgery attacks it's also 
+preventing Testomato from sending requests with [minicralwer](https://github.com/testomato/minicrawler), but
+we try bridge simplest type of protection by doubling request.
+
+* **The first request** Testomato ignore HTTP response code - usually it's there some sort of unautorized request response,
+  but we update all hidden form params values and save session.
+* **The second request** is submitted with same session and hope that one of then hidden params was valid CSRF token
+
+## What's CSRF protecion
+
 [Cross-site request forgeries](https://en.wikipedia.org/wiki/Cross-site_request_forgery) are a
 type of malicious exploit whereby unauthorized commands are performed on behalf of an authenticated user. 
 
@@ -23,8 +36,7 @@ application's `/user/email` route and submits the malicious user's own email add
 </script>
 ```
 
-
-## Preventing CSRF Requests
+### Preventing CSRF Requests
 
 You can generate CSRF "token" for each active user session managed by the application.
 This token is used to verify that the authenticated user is the person actually making 
@@ -58,6 +70,8 @@ if (!empty($_POST['token'])) {
 }
 ```
 
+### Per-Form Tokens
+
 You can go even further and generate Per-Form Tokens for every single 
 form on your application:
 
@@ -78,21 +92,10 @@ You can also changing name of the token variable or invalidate token
 periodically in time. If you have a security requirement that each 
 CSRF token is allowed to be usable exactly once, the simplest 
 strategy regenerate it after each successful validation. 
-However, doing so will invalidate every previous token 
-which doesn't mix well with people who browse multiple tabs at once.
+However, doing so will invalidate every previous token which doesn't
+mix well with people who browse multiple tabs at once.
 
-## It's possible testing that type of forms?
-
-The simply answer is NO. If is your application protected from cross-site request forgery attacks it's also 
-preventing Testomato from sending requests with [minicralwer](https://github.com/testomato/minicrawler), but
-we try bridge simplest type of protection by doubling request.
-
-* **The first request** Testomato ignore HTTP response code - usually it's there some sort of unautorized request response,
-  but we update all hidden form params values and save session.
-* **The second request** is submitted with same session and hope that one of then hidden params was valid CSRF token
-
-
-## Other resources
+## Resources
 
 * [Cross-site request forgeries](https://en.wikipedia.org/wiki/Cross-site_request_forgery)
 * [CSRF Protection with Laravel](https://laravel.com/docs/8.x/csrf#csrf-explanation)
