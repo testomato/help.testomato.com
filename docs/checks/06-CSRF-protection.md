@@ -5,18 +5,19 @@ title: CSRF protection
 ## Testomato & CSRF protecion
 
 Can Testomato hadle forms with CSRF protecion. The simply answer is NO.
-If is your application protected from cross-site request forgery attacks it's also 
-preventing Testomato from sending requests with [minicralwer](https://github.com/testomato/minicrawler), but
-we try bridge simplest type of protection by doubling request.
+If your application is protected from cross-site request forgery attacks, it's also
+preventing Testomato from sending requests with [minicralwer](https://github.com/testomato/minicrawler), but we can try to 
+bridge the simplest type of protection by doubling the request.
 
-* **The first request** Testomato ignore HTTP response code - usually it's there some sort of unautorized request response,
-  but we update all hidden form params values and save session.
-* **The second request** is submitted with same session and hope that one of then hidden params was valid CSRF token
+* **During the first request**, Testomato ignores HTTP response code - 
+  usually there’s some sort of unauthorized request response,
+  but we update all hidden form params values and save the session.
+* **The second request** is submitted within the same session in the hopes that one of the hidden params has a valid CSRF token
 
 ## What's CSRF protecion
 
-[Cross-site request forgeries](https://en.wikipedia.org/wiki/Cross-site_request_forgery) are a
-type of malicious exploit whereby unauthorized commands are performed on behalf of an authenticated user. 
+[Cross-site request forgeries](https://en.wikipedia.org/wiki/Cross-site_request_forgery) are a type of malicious
+exploit where unauthorized commands are performed on behalf of an authenticated user.
 
 In case you're not familiar with cross-site request forgeries, let's discuss an example of how this
 vulnerability can be exploited. Imagine your application has a `/user/email` route that accepts a 
@@ -88,10 +89,10 @@ if (hash_equals($calc, $_POST['token'])) {
 }
 ```
 
-You can also changing name of the token variable or invalidate token 
-periodically in time. If you have a security requirement that each 
-CSRF token is allowed to be usable exactly once, the simplest 
-strategy regenerate it after each successful validation. 
+You can also change the name of the token variable or invalidate a token
+periodically in time. If you have a security requirement that each CSRF 
+token is allowed to be usable exactly once, the simplest strategy
+is to regenerate it after each successful validation. 
 However, doing so will invalidate every previous token which doesn't
 mix well with people who browse multiple tabs at once.
 
