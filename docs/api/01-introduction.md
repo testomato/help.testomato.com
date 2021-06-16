@@ -24,11 +24,19 @@ formatted response.
 | [GET](project/07-project-users.md) | Users | `/api/project/[id]/responseTimes` | Project Users | 
 | [GET](project/08-project-group.md) | Group | `/api/project/[id]/responseTimes` | Project Users | 
 
+
+## `/api/incident/*`
+
+| Method | Name  | Entrypoint | Description |
+| ------ | ----- | ---------- | ----------- |
+| [GET](06-incident.md) | Incidents | `/api/incident/byInterval` | Getting list of incidents |
+
+
 ## `/api/user/*`
 
 | Method | Name  | Entrypoint | Description |
 | ------ | ----- | ---------- | ----------- |
-| [GET](06-user-projects.md) | Project | `/api/user/[id]/projects` | Getting list of user projects |
+| [GET](07-user-projects.md) | Project | `/api/user/[id]/projects` | Getting list of user projects |
 
 ## Others
 
