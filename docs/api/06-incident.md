@@ -12,8 +12,8 @@ GET /api/incident/byInterval?apikey=[key]
 
 | Parameter   | Description |  Mandatory | 
 | ----------- | ------------ | ---------- | 
-| `start`     | Your project ID | required |
-| `end`       | Your project ID | required |
+| `start`     | Date in ISO 8601 | required |
+| `end`       | Date in ISO 8601 | required |
 | `projectId` | Your project ID | required |
 | `apikey`    | An API key unique to each project | required |
 
