@@ -12,6 +12,23 @@ Testomato currently accepting follow payment methods:
 * [PayPal payment](03-paypal-payments.md) 
 * [International Bank Transfer](04-bank-transfer.md)
 
+### Required billing information
+
+If you decide pay Testomato subscriprion via [Bank Transfer](04-bank-transfer.md) or [PayPall](03-paypal-payments.md) we will require following billing information:
+
+* **First name**
+* **Last name**
+* **Street address**
+* **City**
+* **Postal code**
+* **Country**
+
+and optional also
+
+* **Company name**
+* **VAT number**
+* **Registration number**
+
 ## What should I do if my bill payment fails?
 
 If your bill payment fails, then you can try re-enter your credit card under [Your Profile > Billing & Payment > Billing Information](https://www.testomato.com/user/payments/billing) 
