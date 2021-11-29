@@ -1,5 +1,5 @@
 ---
-title: Credit card payment
+title: Credit card payments
 ---
 
 ## Are my credit cards safe with Testomato?
@@ -10,24 +10,25 @@ Yes. We are using [BraintreePayments gateway](https://www.braintreepayments.com/
 Founded in 2007, Braintree markets its services primarily to e-commerce merchants,
 subscription-based businesses, and merchants that key in all of their credit card transactions.
 [About Braintree](https://www.braintreepayments.com/cz/about-braintree)
+ 
 
-## What should I do if my bill payment fails?
+## Pay with credit card
 
-If your bill payment fails, then you can try re-enter your credit card under [Your Profile > Billing & Payment > Billing Information](https://www.testomato.com/user/payments/billing) 
-If you continue to have issues processing the payment, then contact us to <support@testomato.com>. 
+Chose **Card** from **Payment method**: 
 
-## What is the difference between annual and monthly billing
+![](/img/payment/payment-methods.png)
 
-The difference between annual and monthly billing is the frequency at which the provided billing information will be charged.
-You can look at our [pricing page](https://www.testomato.com/pricing) for more details on our plan options. 
+Enter credit card information:
 
-### Annual billing
+![](/img/payment/credit-card.png)
 
-When you are on annual billing, subscriptions are charged once for the balance of one full year, and will not be charged again (assuming not alterations to the number of users in the Pipedrive account) until the year is over.
-Being on the annual billing cycle will give you a discount compared to if you had opted for monthly billing. 
+If you and the Business are based in the EU, the payment may require Strong Customer Authentication (SCA) first.
+You’ll receive a push notification, a text message or another method chosen by your bank,
+complete this authentication and your credit card payment will now begin processing.
 
-### Monthly billing
+### Which Credit Cards Are accepted?
 
-When you are on monthly billing, subscriptions are charged on the same date each month every month, for as long as that subscription is active.
-
-<!-- You can cancel your account at any time, taking effect at the next payment date. -->
+* [Visa](https://usa.visa.com/)
+* [Mastercard](https://www.mastercard.us/en-us.html)
+* [Discover](https://www.discover.com/)
+* [Maestro]((https://www.mastercard.us/en-us.html))

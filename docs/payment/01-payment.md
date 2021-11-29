@@ -1,33 +1,16 @@
 ---
 id: payment
-title: Testomato Payment
-sidebar_label: Payment
+title: Testomato payment methods
+sidebar_label: Payment methods
 ---
 
 ## Which payment methods are accepted?
 
-Testomato currently accepting follow payment methods:
+Testomato accepts **automatic payments** by credit/debit card or PayPal or **manual payments** by check, wire/bank transfer.
 
-* [Credit card payment](02-credit-card.md) (preferred)
+* [Credit card payment](02-credit-card.md)
 * [PayPal payment](03-paypal-payments.md) 
-* [International Bank Transfer](04-bank-transfer.md)
-
-### Required billing information
-
-If you decide pay Testomato subscriprion via [Bank Transfer](04-bank-transfer.md) or [PayPall](03-paypal-payments.md) we will require following billing information:
-
-* **First name**
-* **Last name**
-* **Street address**
-* **City**
-* **Postal code**
-* **Country**
-
-and optional also
-
-* **Company name**
-* **VAT number**
-* **Registration number**
+* [Manual payments](04-manual-payments.md)
 
 ## What should I do if my bill payment fails?
 

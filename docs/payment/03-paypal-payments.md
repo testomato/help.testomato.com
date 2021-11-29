@@ -2,6 +2,15 @@
 title: PayPal payments
 ---
 
-After opening the Invoice from your email, click on button **Pay by PayPal** and follow steps on PayPal page.
+Testomato accepts [PayPal](https://paypal.com/), in addition to Visa, Mastercard and Discover. You can change your payment 
+method to PayPal at any time through the Testomato website at [Your Profile > Billing & Payment > Billing Information](https://www.testomato.com/user/payments/billing).
 
-![](/img/payment/pay-pal.png) 
+## Pay with PayPal
+
+Chose **PayPal** from **Payment method**:
+
+![](/img/payment/payment-methods.png)
+
+Click to PayPayl checkout button and follow PayPal instructions.
+
+![](/img/payment/paypal.png)
