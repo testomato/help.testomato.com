@@ -29,6 +29,6 @@ complete this authentication and your credit card payment will now begin process
 ### Which Credit Cards Are accepted?
 
 * [Visa](https://usa.visa.com/)
-* [Mastercard](https://www.mastercard.us/en-us.html)
+* [Mastercard](https://www.mastercard.us)
 * [Discover](https://www.discover.com/)
-* [Maestro]((https://www.mastercard.us/en-us.html))
+* [Maestro](https://www.mastercard.us)
