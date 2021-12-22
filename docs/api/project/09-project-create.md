@@ -53,12 +53,12 @@ You are getting from us valid JSON response with following content:
 }
 ```
 
-Now you have [SESSION_ID](http://php.net/manual/en/function.session-id.php). The SESSION_ID need to be used in `/api/project/create` request.
+Now you have [SESSION_ID](http://php.net/manual/en/function.session-id.php). The `SESSION_ID` need to be used in `/api/project/create` POST request
 
 ```php
 $url = sprintf("https://www.testomato.com/api/project/create?%s", http_build_query(['period' => $period]));
 
-$data = json_encode(['urls' => $urls, 'blank' => $blank]);
+$data = json_encode(['urls' => ['https://example.com'], 'blank' => $blank]);
 
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, $url);
