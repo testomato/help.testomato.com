@@ -104,7 +104,7 @@ class TestomatoApi {
 			isset($response->session->id) && $response->session->id &&
 			isset($response->isLoggedIn) && $response->isLoggedIn
 		) {
-			//static::$session_id = $response->session->id;
+			static::$session_id = $response->session->id;
 			return $response;
 		} else {
 			throw new Exception('Login was not successful!' . isset($response->messsage) ? ' ' . $response->message : null);
