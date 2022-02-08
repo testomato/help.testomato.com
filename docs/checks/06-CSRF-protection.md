@@ -45,6 +45,7 @@ the requests to the application. Since this token is stored in the user's sessio
 and changes each time the session is regenerated, a malicious application is unable to access it.
 
 ```php
+<?php
 session_start();
 if (empty($_SESSION['token'])) {
     $_SESSION['token'] = bin2hex(random_bytes(32));
@@ -77,12 +78,12 @@ You can go even further and generate Per-Form Tokens for every single
 form on your application:
 
 ```php
-$second_token = hash_hmac('sha256', '/my_form.php', $_SESSION['second_token']);
-?>
+<?php $second_token = hash_hmac('sha256', '/my_form.php', $_SESSION['second_token']); ?>
 <input type="hidden" name="token" value="<?php echo $second_token ?>" />
 ```
 
 ```php
+<?php
 $calc = hash_hmac('sha256', '/my_form.php', $_SESSION['second_token']);
 if (hash_equals($calc, $_POST['token'])) {
     // Continue...
