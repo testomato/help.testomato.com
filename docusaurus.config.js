@@ -7,9 +7,6 @@ module.exports = {
 	organizationName: 'testomato', // Usually your GitHub org/user name.
 	projectName: 'help.testomato.com', // Usually your repo name.
 	themeConfig: {
-		gtag: {
-			trackingID: 'GTM-MPZ59VM',
-		},
 		prism: {
 			theme: require('prism-react-renderer/themes/github'),
 			darkTheme: require('prism-react-renderer/themes/dracula'),
@@ -90,12 +87,18 @@ module.exports = {
 			],
 		},
 	},
+	plugins: [
+	'docusaurus-lunr-search'
+	],
 	presets: [
 		[
 			'@docusaurus/preset-classic',
 			{
 				theme: {
 					customCss: require.resolve('./src/css/custom.css'),
+				},
+				gtag: {
+					trackingID: 'GTM-MPZ59VM',
 				},
 				docs: {
 					// docs only https://v2.docusaurus.io/docs/docs/#docs-only-mode
@@ -106,8 +109,7 @@ module.exports = {
 				},
 				sitemap: {
 					changefreq: 'weekly',
-					priority: 0.5,
-					trailingSlash: false,
+					priority: 0.5
 				},
 
 			},
