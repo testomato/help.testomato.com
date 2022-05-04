@@ -1,5 +1,5 @@
 ---
-title: Subscriptions FAQ
+title: Subscriptions
 ---
 
 ## How to cancel a subscription?
