@@ -2,6 +2,10 @@
 title: Subscriptions
 ---
 
+## Can I cancel my subscription plan?
+
+You are free to cancel your subscription at any time but the cancellation will be effective at the end of the current billing cycle.
+
 ## How to cancel a subscription?
 
 You can cancel your active Testomato subscriptions at any time from [Your Profile > Billing & Payment > Billing Information](https://www.testomato.com/user/payments/billing).
