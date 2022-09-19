@@ -17,3 +17,15 @@ If you are paying by [manual payments](/payment/04-manual-payments.md), please c
 * Subscription ID (if you know it)
 * Your account id or email
 * Your last invoice number
+
+##  How much I'll pay for Testomato?
+
+The Testomato price list and payment plans feature table can be found at https://www.testomato.com/pricing
+
+| Pricing plan        | Monthly (USD) | Yearly (USD) |
+|---------------------|---------------|--------------|
+| Starter plan        | $21           | $180         |
+| Professional plan   | $49           | $468         |
+| Business plan       | $129          | $1 428       |
+| Enterprise plan     | $239          | $2 748       |
+| Free Trial plan     | $0            | $0           |
