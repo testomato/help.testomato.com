@@ -4,8 +4,10 @@ module.exports = {
 	favicon: 'img/favicon.ico',
 	url: 'https://help.testomato.com/',
 	baseUrl: '/',
-	organizationName: 'testomato', // Usually your GitHub org/user name.
-	projectName: 'help.testomato.com', // Usually your repo name.
+	organizationName: 'testomato',
+	projectName: 'help.testomato.com',
+	onBrokenLinks: "warn",
+	onBrokenMarkdownLinks: "warn",
 	themeConfig: {
 		prism: {
 			theme: require('prism-react-renderer/themes/github'),
@@ -29,9 +31,9 @@ module.exports = {
 					position: 'left',
 				},
 				{
-					to: '/api/introduction',
-					activeBasePath: 'docs/api',
-					label: 'REST API',
+					to: '/api',
+					activeBasePath: 'api',
+					label: 'API',
 					position: 'left',
 				},
 				{
@@ -75,8 +77,8 @@ module.exports = {
 							href: 'https://github.com/testomato',
 						},
 						{
-							label: "Facebook",
-							href: "https://www.facebook.com/testomato"
+							label: 'Facebook',
+							href: 'https://www.facebook.com/testomato',
 						},
 						{
 							label: 'Twitter',
@@ -85,6 +87,7 @@ module.exports = {
 					],
 				},
 			],
+			copyright: `Copyright © ${new Date().getFullYear()} Testomato`,
 		},
 	},
 	plugins: [
@@ -109,10 +112,30 @@ module.exports = {
 				},
 				sitemap: {
 					changefreq: 'weekly',
-					priority: 0.5
+					priority: 0.5,
 				},
 
 			},
 		],
+
+		[
+			'redocusaurus',
+			{
+				// Plugin Options for loading OpenAPI files
+				specs: [
+					{
+						spec: 'docs/api/testomato.yaml',
+						route: '/api/',
+					},
+				],
+				// Theme Options for modifying how redoc renders them
+				theme: {
+					// Change with your site colors
+					primaryColor: '#1890ff',
+				},
+			},
+		],
+
 	],
+	themes: ['docusaurus-theme-openapi-docs'],
 };

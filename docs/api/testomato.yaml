@@ -1,0 +1,185 @@
+openapi: 3.0.1
+
+info:
+  title: "Testomato API"
+  description: ""
+  version: 1.0.0
+  contact:
+    email: support@testomato.com
+
+servers:
+  - url: https://testomato.com/api/
+    description: Testomato
+
+paths:
+  /project/{id}:
+    get:
+      operationId: Get Project
+      description: Get project
+      security:
+        - ApiKey: [ ]
+      tags:
+        - Project
+      parameters:
+        - name: id
+          required: true
+          description: Project ID
+          in: path
+          schema:
+            type: string
+
+      responses:
+        200:
+          description: Successfully operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Project"
+
+  /project/{id}/start:
+    get:
+      description: Start all Project's checks
+      operationId: Starts project
+      tags:
+        - Project
+      parameters:
+        - name: id
+          required: true
+          description: Project ID
+          in: path
+          schema:
+            type: string
+      responses:
+        200:
+          description: 'OL'
+
+  /api/project/{id}/job/{jobid}/results:
+    get:
+      description: Retrieve latest Project's checks results
+      operationId: Get project results
+      tags:
+        - Project
+      parameters:
+        - name: id
+          required: true
+          description: Project ID
+          in: path
+          schema:
+            type: string
+        - name: jobid
+          required: true
+          description: Job ID
+          in: path
+          schema:
+            type: string
+      responses:
+        200:
+          description: "Ok"
+
+  /api/project/create:
+    post:
+      description: Create a new Project
+      operationId: New Project
+      tags:
+        - Project
+      responses:
+        200:
+          description: "ok"
+
+  /tests/{id}:
+    get:
+      tags:
+        - Checks
+      parameters:
+        - name: id
+          description: Test ID
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        200:
+          description: Test response
+          content:
+            application/json:
+              schema:
+                $ref : "#/components/schemas/Test"
+
+components:
+
+  securitySchemes:
+
+    ApiKey:
+      description: Project or User API key
+      type: apiKey
+      name: apiKey
+      in: query
+
+  schemas:
+
+    Project:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: string
+        title:
+          type: string
+        url:
+          type: string
+        apiKey:
+          type: string
+          description: apiKey that can be used for the project operations
+        payerId:
+          type: integer
+          description: Who is owner of the project?
+        location:
+          type: string
+          enum: [ eu, de, gb, ca, us, tx, dc, sg, hk ]
+
+        checkDefaultErrors:
+          type: boolean
+        created:
+          type: string
+          format: date-time
+        delay:
+          type: integer
+          format: int64
+          default: 50
+        uptimeEnabled:
+          type: string
+        userIds:
+          type: array
+          description: Array of users ID's with access to the project
+          items:
+            type: integer
+        permissions:
+          type: object
+          description: Project permissions for current user
+          properties:
+            read:
+              type: boolean
+              description: Can current user view results?
+            run:
+              type: boolean
+              description: Can current user run checks?
+            editTest:
+              type: boolean
+            edit:
+              type: boolean
+              description: Can current user edit project settings?
+            manageUsers:
+              description: Can current user manage others?
+              type: boolean
+            apiKey:
+              description: Can current user view apiKey?
+              type: boolean
+            leave:
+              description: Can current user leave project?
+              type: boolean
+    Test:
+      type: object
+      properties:
+        id:
+          type: string
