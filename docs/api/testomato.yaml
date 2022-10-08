@@ -15,7 +15,7 @@ paths:
   /project/{id}:
     get:
       operationId: Get Project
-      description: Get project
+      description: Retrieve project by `id`
       security:
         - ApiKey: [ ]
       tags:
@@ -29,6 +29,8 @@ paths:
             type: string
 
       responses:
+        404:
+          $ref: "#/components/responses/NotFound"
         200:
           description: Successfully operation
           content:
@@ -103,7 +105,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref : "#/components/schemas/Test"
+                $ref: "#/components/schemas/Test"
 
 components:
 
@@ -115,8 +117,62 @@ components:
       name: apiKey
       in: query
 
-  schemas:
+  responses:
+    SuccessMessage:
+      description: Common success massage
+      content:
+        application/json:
+          schema:
+            properties:
+              message:
+                type: string
+              code:
+                type: integer
+                default: 200
+              ok:
+                type: boolean
+                default: true
+              error:
+                type: boolean
+                default: false
+    ErrorMessage:
+      description: Common error message
+      content:
+        application/json:
+          schema:
+            properties:
+              message:
+                type: string
+                description: Error message text
+              code:
+                type: integer
+                default: 404
+              ok:
+                type: boolean
+                default: false
+              error:
+                type: boolean
+                default: true
 
+    NotFound:
+      description: Common error message
+      content:
+        application/json:
+          schema:
+            properties:
+              message:
+                type: string
+                description: Error message text
+              code:
+                type: integer
+                default: 404
+              ok:
+                type: boolean
+                default: false
+              error:
+                type: boolean
+                default: true
+  schemas:
     Project:
       type: object
       properties:
@@ -127,23 +183,26 @@ components:
         title:
           type: string
         url:
+          description: Project base URL
           type: string
         apiKey:
-          type: string
           description: apiKey that can be used for the project operations
+          type: string
         payerId:
+          description: Identification of the project owner.
           type: integer
-          description: Who is owner of the project?
         location:
+          description: Project check location
           type: string
           enum: [ eu, de, gb, ca, us, tx, dc, sg, hk ]
-
         checkDefaultErrors:
           type: boolean
         created:
+          description: Date and time of project creation
           type: string
           format: date-time
         delay:
+          description: Delay between requests
           type: integer
           format: int64
           default: 50
