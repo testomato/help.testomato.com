@@ -9,7 +9,7 @@ servers:
   - url: https://testomato.com/api/
     description: Testomato
 paths:
-  /api/project/create:
+  /project/create:
     post:
       operationId: Create Project
       description: >-
@@ -130,7 +130,7 @@ paths:
       responses:
         '200':
           description: OL
-  /api/project/{id}/job/{jobid}/results:
+  /project/{id}/job/{jobid}/results:
     get:
       description: Retrieve latest Project's checks results
       operationId: Get project results
@@ -141,7 +141,7 @@ paths:
       responses:
         '200':
           description: Ok
-  /api/project/{id}/regenerateApiKey:
+  /project/{id}/regenerateApiKey:
     description: Regenerate project API key
     parameters:
       - name: id
