@@ -98,7 +98,7 @@ paths:
         - Project
       responses:
         404:
-          $ref: "#/NotFound"
+          $ref: "#/components/responses/NotFound"
       security:
         - ApiKey: [ ]
       parameters:
