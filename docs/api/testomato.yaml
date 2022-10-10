@@ -114,7 +114,7 @@ paths:
                             type: boolean
 
     put:
-      operationId: Update project
+      operationId: Update Project
       description: Update selected project
       tags:
         - Project
@@ -150,26 +150,76 @@ paths:
 
   /project/{id}/status:
     get:
-      description: Get project status
+      operationId: Get Project status
+      description: Get Project status
       tags:
         - Project
       parameters:
         - $ref: "#/components/parameters/ProjectId"
       responses:
         200:
-          description: Project statu
+          description: Successful response - full project status
+          content:
+            application/json:
+              schema:
+                properties:
+                  project:
+                    type: object
+                    description: Basic project information
+                    properties:
+                      id:
+                        type: string
+                        description: Project ID
+                      lastRun:
+                        type: integer
+                        description: Unix timestamp of last run
+                        example: 1665407081
+                      lastChange:
+                        type: integer
+                        description: Unix timestamp of last change
+                        example: 1665263416
+                      reported:
+                        type: string
+                        description: Was reported
+                        example: ok
+                      status:
+                        type: string
+                      msg:
+                        type: string
+                        description: Longer message about project status
+                        example: Server returned HTTP status 200
+                      shortMessage:
+                        type: string
+                        description: Short project status message
+                        example: 200
+                  total:
+                    type: integer
+                    description: Total count of checks
+                    example: 12
+                  failed:
+                    type: integer
+                    description: How much check has failed
+                    example: 0
+                  now:
+                    type: integer
+                    description: Current date time unix timestamp
+                    example: 1665407098
+                  tests:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Test'
 
   /project/{id}/simple-status:
     get:
-      operationId: Get project status - simplify
-      description: Get simplify project status
+      operationId: Get Project status - simplify
+      description: Get simplify Project status
       tags:
         - Project
       parameters:
         - $ref: "#/components/parameters/ProjectId"
       responses:
         200:
-          description: Successful response
+          description: Successful response - simplify project status
           content:
             application/json:
               schema:
@@ -185,7 +235,7 @@ paths:
                           type: string
                         status:
                           type: string
-                          enum: [OK, Error message]
+                          enum: [ OK, Error message ]
                     example:
                       - name: Homepage
                         url: https://www.testomato.com
@@ -204,8 +254,8 @@ paths:
 
   /project/{id}/start:
     get:
-      description: Start all checks in project
       operationId: Starts project checks
+      description: Start all checks in project
       tags:
         - Project
       parameters:
@@ -339,12 +389,12 @@ components:
                 type: boolean
                 default: true
   schemas:
-
     Project:
       type: object
       properties:
         id:
           description: Project ID
+          example: 50a9f72f14db3be812000233
           type: string
         title:
           description: Project title
@@ -403,8 +453,89 @@ components:
           description: Project name was replaced by Project title
           type: string
           deprecated: true
+
+    Rule:
+      type: object
+      properties:
+        type:
+          type: string
+          example: text
+          description: Type of check
+          enum: [ text html status header location title meta-description meta-og:title meta-og:description meta-og:image meta-og:image meta-og:image meta-og:type meta-og:url meta-og:site_name meta-og:locale meta-og:updated_time meta-og:logo meta-article:modified_time meta-article:published_time meta-article:publisher meta-article:section meta-article:tag meta-twitter:title meta-twitter:image meta-twitter:image meta-twitter:description meta-twitter:card meta-twitter:site meta-twitter:creator meta-itemprop:name meta-itemprop:author meta-itemprop:description meta-itemprop:image ]
+        op:
+          type: string
+          enum: [ eq, sub, '!sub', match, '!match', xpath ]
+          example: sub
+          description: >
+            Operators can be: `eq` is equal to, `sub` contains, `!sub` does not contains, 
+            `match` for exact match, `!match` for does not match and `xpath` for Xpath checks.
+        val:
+          type: string
+          example: 123456
+          description: Value that will be used for check
+        origin:
+          type: string
+          example: check
+          description: Original of the check
+        templateId:
+          type: string
+          description: Optional parameter if check use a Template
+        order:
+          type: integer
+          description: Order of the check
+
+    TestResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        timing:
+          type: array
+          items:
+
     Test:
       type: object
       properties:
         id:
           type: string
+          example: 50a9f73014db3ae812000234
+          description: Check id
+        enabled:
+          type: boolean
+          default: true
+        areaId:
+          description: Area ID
+        name:
+          type: string
+          description: Name of check
+        url:
+          type: string
+          description: URL of check
+        notice:
+          type: string
+          description: Check notice
+        type:
+          type: string
+          example: simple
+          enum: [ homepage, simple, favicon, robots ]
+        run:
+          type: string
+          example: completed
+          enum: [ completed, running ]
+        flags:
+          type: array
+          description: Test flags e.g. `configured`
+        status:
+          type: object
+          properties:
+            status:
+              type: string
+              example: ok
+            failures:
+              type: array
+            rules:
+              type: array
+              items:
+                $ref: '#/components/schemas/Rule'
+            response:
+              $ref: '#/components/schemas/TestResponse'
