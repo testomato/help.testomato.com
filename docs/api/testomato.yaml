@@ -24,11 +24,12 @@ paths:
       parameters:
         - name: period
           required: false
-          description: Check period interval `5 minutes`, `30 minutes`, `1 hour`, `8 hours` ,`1 day` or `7 days`
+          description: Check period interval as string
           in: query
           schema:
             type: string
             enum: [ 5 minutes, 30 minutes, 1 hour, 8 hours, 1 day, 7 days, false ]
+            default: 5 minutes
       requestBody:
         content:
           application/json:
@@ -45,9 +46,9 @@ paths:
 
       responses:
         400:
-          description: Error when trying to create more than 30 projects at once.
+          description: Error when trying to *create more than 30 projects* at once or `period` parameters is invalid.
         403:
-          description: Error when you have reached your project limit.
+          description: Error when you have reached your **subscription project limit**.
         406:
           description: When you try send invalid or not supported URL
         500:
