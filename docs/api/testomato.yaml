@@ -16,7 +16,9 @@ paths:
   /project/create:
     post:
       operationId: Create Project
-      description: Create a new Project from array of URLs. Successful response will be streamed as JSONP format response
+      description: >
+        Create a new Project from array of URLs. Successful response will be formatted as [JSONP](https://en.wikipedia.org/wiki/JSONP) stream.         
+        You can add **up to 30 URLs** at once.
       tags:
         - Project
       requestBody:
@@ -30,13 +32,13 @@ paths:
                   example: [ "https://www.example.com", "https://testomato.com" ]
       responses:
         400:
-          description: Sorry! You can only add 30 projects at a time.
+          description: Error when trying to create more than 30 projects at once.
         403:
-          description: You have reached your project limit.
+          description: Error when you have reached your project limit.
         406:
-          description: Invalid or not supported URL
+          description: When you try send invalid or not supported URL
         500:
-          description: Project creation failed with fatal error.
+          description: Project creation failed with fatal error (please contact us at support@testomato.com).
         200:
           description: There Successfully created projects. Response is <a href="https://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> payload with individual projects.
           content:
@@ -258,34 +260,6 @@ components:
                 default: true
   schemas:
 
-    ProjectPermissions:
-      type: object
-      properties:
-        permissions:
-          type: object
-          description: Project permissions for current user
-          properties:
-            read:
-              type: boolean
-              description: Can current user view results?
-            run:
-              type: boolean
-              description: Can current user run checks?
-            editTest:
-              type: boolean
-            edit:
-              type: boolean
-              description: Can current user edit project settings?
-            manageUsers:
-              description: Can current user manage others?
-              type: boolean
-            apiKey:
-              description: Can current user view apiKey?
-              type: boolean
-            leave:
-              description: Can current user leave project?
-              type: boolean
-
     Project:
       type: object
       properties:
@@ -344,6 +318,34 @@ components:
           description: Project name was replaced by Project title
           type: string
           deprecated: true
+
+    ProjectPermissions:
+      type: object
+      properties:
+        permissions:
+          type: object
+          description: Project permissions for current user
+          properties:
+            read:
+              type: boolean
+              description: Can current user view results?
+            run:
+              type: boolean
+              description: Can current user run checks?
+            editTest:
+              type: boolean
+            edit:
+              type: boolean
+              description: Can current user edit project settings?
+            manageUsers:
+              description: Can current user manage others?
+              type: boolean
+            apiKey:
+              description: Can current user view apiKey?
+              type: boolean
+            leave:
+              description: Can current user leave project?
+              type: boolean
 
     Test:
       type: object
