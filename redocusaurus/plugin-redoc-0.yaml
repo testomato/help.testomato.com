@@ -12,11 +12,29 @@ paths:
   /project/create:
     post:
       operationId: Create Project
-      description: >-
+      description: >
         Create a new Project from array of URLs. Successful response will be
-        streamed as JSONP format response
+        formatted as [JSONP](https://en.wikipedia.org/wiki/JSONP)
+        stream.          You can add **up to 30 URLs** at once.
       tags:
         - Project
+      parameters:
+        - name: period
+          required: false
+          description: >-
+            Check period interval `5 minutes`, `30 minutes`, `1 hour`, `8 hours`
+            ,`1 day` or `7 days`
+          in: query
+          schema:
+            type: string
+            enum:
+              - 5 minutes
+              - 30 minutes
+              - 1 hour
+              - 8 hours
+              - 1 day
+              - 7 days
+              - false
       requestBody:
         content:
           application/json:
@@ -28,6 +46,10 @@ paths:
                   example:
                     - https://www.example.com
                     - https://testomato.com
+                blank:
+                  type: boolean
+                  default: false
+                  description: Create empty project (`true`) or preset project (`false`)
       responses:
         '200':
           description: >-
@@ -45,13 +67,15 @@ paths:
                         description: Original URL that was processed
                         type: string
         '400':
-          description: Sorry! You can only add 30 projects at a time.
+          description: Error when trying to create more than 30 projects at once.
         '403':
-          description: You have reached your project limit.
+          description: Error when you have reached your project limit.
         '406':
-          description: Invalid or not supported URL
+          description: When you try send invalid or not supported URL
         '500':
-          description: Project creation failed with fatal error.
+          description: >-
+            Project creation failed with fatal error (please contact us at
+            support@testomato.com).
   /project/{id}:
     get:
       operationId: Get Project
@@ -70,7 +94,32 @@ paths:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/Project'
-                  - $ref: '#/components/schemas/ProjectPermissions'
+                  - type: object
+                    properties:
+                      permissions:
+                        type: object
+                        description: Project permissions for current user
+                        properties:
+                          read:
+                            type: boolean
+                            description: Can current user view results?
+                          run:
+                            type: boolean
+                            description: Can current user run checks?
+                          editTest:
+                            type: boolean
+                          edit:
+                            type: boolean
+                            description: Can current user edit project settings?
+                          manageUsers:
+                            description: Can current user manage others?
+                            type: boolean
+                          apiKey:
+                            description: Can current user view apiKey?
+                            type: boolean
+                          leave:
+                            description: Can current user leave project?
+                            type: boolean
         '404':
           $ref: '#/components/responses/NotFound'
     put:
@@ -242,33 +291,6 @@ components:
                 type: boolean
                 default: true
   schemas:
-    ProjectPermissions:
-      type: object
-      properties:
-        permissions:
-          type: object
-          description: Project permissions for current user
-          properties:
-            read:
-              type: boolean
-              description: Can current user view results?
-            run:
-              type: boolean
-              description: Can current user run checks?
-            editTest:
-              type: boolean
-            edit:
-              type: boolean
-              description: Can current user edit project settings?
-            manageUsers:
-              description: Can current user manage others?
-              type: boolean
-            apiKey:
-              description: Can current user view apiKey?
-              type: boolean
-            leave:
-              description: Can current user leave project?
-              type: boolean
     Project:
       type: object
       properties:
