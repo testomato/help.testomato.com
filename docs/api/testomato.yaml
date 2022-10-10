@@ -21,6 +21,14 @@ paths:
         You can add **up to 30 URLs** at once.
       tags:
         - Project
+      parameters:
+        - name: period
+          required: false
+          description: Check period interval `5 minutes`, `30 minutes`, `1 hour`, `8 hours` ,`1 day` or `7 days`
+          in: query
+          schema:
+            type: string
+            enum: [ 5 minutes, 30 minutes, 1 hour, 8 hours, 1 day, 7 days, false ]
       requestBody:
         content:
           application/json:
@@ -30,6 +38,11 @@ paths:
                   type: array
                   description: Array of URLs
                   example: [ "https://www.example.com", "https://testomato.com" ]
+                blank:
+                  type: boolean
+                  default: false
+                  description: Create empty project (`true`) or preset project (`false`)
+
       responses:
         400:
           description: Error when trying to create more than 30 projects at once.
@@ -72,7 +85,32 @@ paths:
               schema:
                 allOf:
                   - $ref: "#/components/schemas/Project"
-                  - $ref: "#/components/schemas/ProjectPermissions"
+                  - type: object
+                    properties:
+                      permissions:
+                        type: object
+                        description: Project permissions for current user
+                        properties:
+                          read:
+                            type: boolean
+                            description: Can current user view results?
+                          run:
+                            type: boolean
+                            description: Can current user run checks?
+                          editTest:
+                            type: boolean
+                          edit:
+                            type: boolean
+                            description: Can current user edit project settings?
+                          manageUsers:
+                            description: Can current user manage others?
+                            type: boolean
+                          apiKey:
+                            description: Can current user view apiKey?
+                            type: boolean
+                          leave:
+                            description: Can current user leave project?
+                            type: boolean
 
     put:
       operationId: Update project
@@ -318,35 +356,6 @@ components:
           description: Project name was replaced by Project title
           type: string
           deprecated: true
-
-    ProjectPermissions:
-      type: object
-      properties:
-        permissions:
-          type: object
-          description: Project permissions for current user
-          properties:
-            read:
-              type: boolean
-              description: Can current user view results?
-            run:
-              type: boolean
-              description: Can current user run checks?
-            editTest:
-              type: boolean
-            edit:
-              type: boolean
-              description: Can current user edit project settings?
-            manageUsers:
-              description: Can current user manage others?
-              type: boolean
-            apiKey:
-              description: Can current user view apiKey?
-              type: boolean
-            leave:
-              description: Can current user leave project?
-              type: boolean
-
     Test:
       type: object
       properties:
