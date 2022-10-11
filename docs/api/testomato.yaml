@@ -489,9 +489,64 @@ components:
       properties:
         status:
           type: string
+          example: 200
+        httpStatus:
+          type: string
+          example: 200
+        baseUrl:
+          type: string
+          example: https://testomato.com
+        contentType:
+          type: string
+          example: text/html
+        httpHeader:
+          type: string
+          example: ":status: 200\r\nserver: nginx\r\ndate: Mon, 10 Oct 2022 15:04:05 GMT\r\ncontent-type: text/html;"
+        processTime:
+          type: number
+          example: 0.037
+        size:
+          type: number
+          description: Size of responsion in case of check error
+          example: false
+        redirects:
+          type: array
+          description: List of redirections
         timing:
           type: array
           items:
+            properties:
+              metrics:
+                type: string
+              value:
+                type: integer
+            example:
+              metrics: DNS Lookup
+              value: 1
+
+    TestOptions:
+      type: object
+      properties:
+        2:
+          type: boolean
+          default: false
+          description: Allow HTTP/1 requests only
+        6:
+          type: boolean
+          default: false
+          description: Allow only IPv6 request
+        g:
+          type: boolean
+          default: false
+          description: Do not accept gzip encoding
+        l:
+          type: boolean
+          default: false
+          description: Do not follow redirects
+        w:
+          type: string
+          default: ''
+          description: Extra HTTP headers
 
     Test:
       type: object
@@ -502,17 +557,22 @@ components:
           description: Check id
         enabled:
           type: boolean
+          example: true
           default: true
         areaId:
+          example: '55ae166c25b395537a8b6030'
           description: Area ID
         name:
           type: string
+          example: 'Homepage'
           description: Name of check
         url:
           type: string
+          example: 'https://testomato.com'
           description: URL of check
         notice:
           type: string
+          example: ''
           description: Check notice
         type:
           type: string
@@ -524,6 +584,7 @@ components:
           enum: [ completed, running ]
         flags:
           type: array
+          example: [ configured ]
           description: Test flags e.g. `configured`
         status:
           type: object
@@ -539,3 +600,12 @@ components:
                 $ref: '#/components/schemas/Rule'
             response:
               $ref: '#/components/schemas/TestResponse'
+        templateId:
+          type: string
+          description: Template ID if any
+          example: ''
+        templateVars:
+          type: array
+          description: Template variables if any
+        options:
+          $ref: '#/components/schemas/TestOptions'
