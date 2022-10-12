@@ -19,6 +19,8 @@ paths:
       description: >
         Create a new Project from array of URLs. Successful response will be formatted as [JSONP](https://en.wikipedia.org/wiki/JSONP) stream.         
         You can add **up to 30 URLs** at once.
+      security:
+        - ApiKey: [ ]
       tags:
         - Project
       parameters:
@@ -154,6 +156,8 @@ paths:
       description: Get Project status
       tags:
         - Project
+      security:
+        - ApiKey: [ ]
       parameters:
         - $ref: "#/components/parameters/ProjectId"
       responses:
@@ -215,6 +219,8 @@ paths:
       description: Get simplify Project status
       tags:
         - Project
+      security:
+        - ApiKey: [ ]
       parameters:
         - $ref: "#/components/parameters/ProjectId"
       responses:
@@ -257,31 +263,35 @@ paths:
       description: Start all checks in project
       tags:
         - Project
+      security:
+        - ApiKey: [ ]
       parameters:
         - $ref: "#/components/parameters/ProjectId"
       responses:
         200:
-          description: 'Project successfully started'
-          content:
-            application/json:
-              schema:
-                properties:
-                  projectId:
-                    type: string
-                    description: A unique project ID
-                    example: 5e95ddf7a39e5a44428b4581
-                  jobId:
-                    type: string
-                    description: A unique ID for each project job
-                    example: 5e9602e7a39e5a46428b457f
-                  start:
-                    type: string
-                    description: Value `ok` means your tests have successfully started
-                    example: ok
-                  results:
-                    type: string
-                    description: The URL where you can view your results
-                    example: https://www.testomato.com/api/project/5e95ddf7a39e5a44428b4581/job/5e9602e7a39e5a46428b457f/results?apikey=4PJAOwTK
+          $ref: '#/components/responses/JobStartsSuccessfully'
+
+  /project/{ProjectId}/start/area/{AreaId}:
+    get:
+      operationId: Start Group checks in Project
+      description: Starts only specific group of Tests from Project
+      tags:
+        - Project
+        - Group
+      security:
+        - ApiKey: [ ]
+      parameters:
+        - name: ProjectId
+          required: true
+          description: A unique Project ID
+          in: path
+        - name: AreaId
+          required: true
+          description: A unique Group ID
+          in: path
+      responses:
+        200:
+          $ref: '#/components/responses/JobStartsSuccessfully'
 
   /project/{id}/job/{jobid}/results:
     get:
@@ -289,24 +299,71 @@ paths:
       operationId: Get project results
       tags:
         - Project
+      security:
+        - ApiKey: [ ]
       parameters:
         - $ref: "#/components/parameters/ProjectId"
       responses:
         200:
-          description: "Ok"
-
+          description: Project results
+          content:
+            application/json:
+              schema:
+                properties:
+                  jobId:
+                    type: string
+                    description: A unique ID for each project job
+                    example: 6346802f314d328b4a8b4579
+                  total:
+                    type: integer
+                    description: Total number of tests
+                    example: 28
+                  failed:
+                    type: integer
+                    description: Number of failing tests
+                    example: 0
+                  processed:
+                    type: boolean
+                    description: Has this job already been processed
+                    example: true
+                  persist:
+                    type: boolean
+                    description: Is this job temporary of persist
+                    example: true
+                  startedAt:
+                    type: integer
+                    description: Unix timestamp of job start
+                    example: 1665564719
+                  duration:
+                    type: number
+                    description: Duration of all checks in seconds
+                    example: 2.1946158409119
+                  mode:
+                    type: number
+                    example: 0
+                  areas:
+                    type: array
 
   /project/{id}/regenerateApiKey:
-    description: Regenerate project API key
-
-    parameters:
-      - name: id
-        required: true
-        description: Project ID
-        in: path
-        schema:
-          type: string
-
+    post:
+      tags:
+        - Project
+      security:
+        - ApiKey: [ ]
+      description: Regenerate project API key
+      parameters:
+        - $ref: "#/components/parameters/ProjectId"
+      responses:
+        200:
+          description: Successfully regenerated Project API key
+          content:
+            application/json:
+              schema:
+                properties:
+                  apiKey:
+                    type: string
+                    example: 123456
+                    description: New API key
 
   /tests/{id}:
     get:
@@ -351,6 +408,7 @@ components:
       in: query
 
   responses:
+
     SuccessMessage:
       description: Common success massage
       content:
@@ -368,6 +426,7 @@ components:
               error:
                 type: boolean
                 default: false
+
     ErrorMessage:
       description: Common error message
       content:
@@ -407,6 +466,30 @@ components:
               error:
                 type: boolean
                 default: true
+
+    JobStartsSuccessfully:
+      description: Job starts successfully
+      content:
+        application/json:
+          schema:
+            properties:
+              projectId:
+                type: string
+                description: A unique Project ID
+                example: 5e95ddf7a39e5a44428b4581
+              jobId:
+                type: string
+                description: A unique ID for each Job
+                example: 5e9602e7a39e5a46428b457f
+              start:
+                type: string
+                description: Value `ok` means your tests have successfully started
+                example: ok
+              results:
+                type: string
+                description: The URL where you can view your results
+                example: https://www.testomato.com/api/project/5e95ddf7a39e5a44428b4581/job/5e9602e7a39e5a46428b457f/results?apikey=4PJAOwTK
+
   schemas:
     Project:
       type: object
@@ -569,6 +652,7 @@ components:
 
     Test:
       type: object
+      description: A group of individual checks
       properties:
         id:
           type: string
@@ -628,3 +712,49 @@ components:
           description: Template variables if any
         options:
           $ref: '#/components/schemas/TestOptions'
+
+    Area:
+      type: object
+      description: A group of tests
+      properties:
+        name:
+          type: string
+          description: Name of group
+          example: Public
+        projectId:
+          type: string
+          description: Parent Project ID
+          example: 50a9f72f14db3be812000233
+        public:
+          type: boolean
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/Rule'
+        form:
+          type: object
+          description: Password-protected areas may have a saved login form
+          properties:
+            checksum:
+              type: string
+            enabled:
+              type: boolean
+            action:
+              type: string
+            originalAction:
+              type: string
+            relativeAction:
+              type: string
+            method:
+              type: string
+            params:
+              type: string
+            html:
+              type: string
+            baseUrl:
+              type: string
+            identifier:
+              type: string
+        httpAuth:
+          type: object
+          description: Password-protected areas may have a saved HTTP auth authentications
