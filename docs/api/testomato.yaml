@@ -267,14 +267,21 @@ paths:
         - ApiKey: [ ]
       parameters:
         - $ref: "#/components/parameters/ProjectId"
+        - name: tests
+          description: Array of
+          in: query
+          required: false
+          schema:
+            type: array
+
       responses:
         200:
           $ref: '#/components/responses/JobStartsSuccessfully'
 
   /project/{ProjectId}/start/area/{AreaId}:
     get:
-      operationId: Start Group checks in Project
-      description: Starts only specific group of Tests from Project
+      operationId: Starting Project Group
+      description: Starting only specific group of Tests from Project
       tags:
         - Project
         - Group
@@ -282,13 +289,40 @@ paths:
         - ApiKey: [ ]
       parameters:
         - name: ProjectId
-          required: true
           description: A unique Project ID
-          in: path
-        - name: AreaId
           required: true
-          description: A unique Group ID
           in: path
+          schema:
+            type: string
+            example: 50a9f72f14db3be812000233
+        - name: AreaId
+          description: A unique Group ID
+          required: true
+          in: path
+          schema:
+            type: string
+            example: 6346b330314d3296738b456f
+        - name: keep-alive
+          description: Maintain the connection after starting the tests
+          required: false
+          in: query
+          schema:
+            type: boolean
+            example: false
+        - name: continue
+          description: Send the partial result and move on?
+          required: false
+          in: query
+          schema:
+            type: boolean
+            example: false
+        - name: tests
+          description: Array of selected Test IDs to run
+          required: false
+          in: query
+          schema:
+            type: array
+            example: [ ]
       responses:
         200:
           $ref: '#/components/responses/JobStartsSuccessfully'
@@ -316,11 +350,11 @@ paths:
                     example: 6346802f314d328b4a8b4579
                   total:
                     type: integer
-                    description: Total number of tests
+                    description: The total number of tests performed
                     example: 28
                   failed:
                     type: integer
-                    description: Number of failing tests
+                    description: The number of failed tests
                     example: 0
                   processed:
                     type: boolean
@@ -332,17 +366,23 @@ paths:
                     example: true
                   startedAt:
                     type: integer
-                    description: Unix timestamp of job start
+                    description: Time when job started (unix timestamp)
                     example: 1665564719
                   duration:
                     type: number
-                    description: Duration of all checks in seconds
+                    description: Duration of the job in seconds
                     example: 2.1946158409119
                   mode:
                     type: number
                     example: 0
                   areas:
+                    description: List of areas
                     type: array
+                  results:
+                    description: Array of test results -- each result has a testId, testName etc.
+                    type: array
+
+
 
   /project/{id}/regenerateApiKey:
     post:
@@ -713,6 +753,31 @@ components:
         options:
           $ref: '#/components/schemas/TestOptions'
 
+    Form:
+      type: object
+      description: HTML Form
+      properties:
+        checksum:
+          type: string
+        enabled:
+          type: boolean
+        action:
+          type: string
+        originalAction:
+          type: string
+        relativeAction:
+          type: string
+        method:
+          type: string
+        params:
+          type: string
+        html:
+          type: string
+        baseUrl:
+          type: string
+        identifier:
+          type: string
+
     Area:
       type: object
       description: A group of tests
@@ -732,29 +797,7 @@ components:
           items:
             $ref: '#/components/schemas/Rule'
         form:
-          type: object
-          description: Password-protected areas may have a saved login form
-          properties:
-            checksum:
-              type: string
-            enabled:
-              type: boolean
-            action:
-              type: string
-            originalAction:
-              type: string
-            relativeAction:
-              type: string
-            method:
-              type: string
-            params:
-              type: string
-            html:
-              type: string
-            baseUrl:
-              type: string
-            identifier:
-              type: string
+          $ref: '#/components/schemas/Form'
         httpAuth:
           type: object
           description: Password-protected areas may have a saved HTTP auth authentications

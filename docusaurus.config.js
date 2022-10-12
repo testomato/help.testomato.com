@@ -6,8 +6,8 @@ module.exports = {
 	baseUrl: '/',
 	organizationName: 'testomato',
 	projectName: 'help.testomato.com',
-	onBrokenLinks: "warn",
-	onBrokenMarkdownLinks: "warn",
+	onBrokenLinks: 'warn',
+	onBrokenMarkdownLinks: 'warn',
 	themeConfig: {
 		prism: {
 			theme: require('prism-react-renderer/themes/github'),
@@ -87,11 +87,11 @@ module.exports = {
 					],
 				},
 			],
-			copyright: `Copyright © ${new Date().getFullYear()} Testomato`,
+			copyright: `Copyright © ${new Date().getFullYear()} Testomato s.r.o.`,
 		},
 	},
 	plugins: [
-	'docusaurus-lunr-search'
+		'docusaurus-lunr-search',
 	],
 	presets: [
 		[
@@ -132,6 +132,7 @@ module.exports = {
 				theme: {
 					// Change with your site colors
 					primaryColor: '#1890ff',
+					options: {disableSearch: true},
 				},
 			},
 		],
