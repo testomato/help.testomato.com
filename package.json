@@ -13,7 +13,7 @@
 		"prettier:diff": "prettier --config .prettierrc --list-different \"**/*.{js,md}\"",
 		"api": "docusaurus gen-api-docs all",
 		"api.clean": "docusaurus clean-api-docs all",
-		"api.regenerate": "yarn api:clan && yarn api"
+		"api.regenerate": "yarn api.clean && yarn api"
 	},
 	"dependencies": {
 		"@docusaurus/core": "^2.1.0",
