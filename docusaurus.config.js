@@ -1,3 +1,6 @@
+const theme = require('prism-react-renderer/themes/github');
+const darkTheme = require('prism-react-renderer/themes/dracula');
+
 module.exports = {
 	title: 'Testomato',
 	tagline: 'Welcome to Testomato Help & Docs',
@@ -8,11 +11,52 @@ module.exports = {
 	projectName: 'help.testomato.com',
 	onBrokenLinks: 'warn',
 	onBrokenMarkdownLinks: 'warn',
+	presets: [
+		[
+			'@docusaurus/preset-classic',
+			{
+				docs: {
+					// docs only https://v2.docusaurus.io/docs/docs/#docs-only-mode
+					routeBasePath: '/',
+					sidebarPath: require.resolve('./sidebars.js'),
+					editUrl: 'https://github.com/testomato/help.testomato.com/edit/master/',
+					// API Docs config
+					docLayoutComponent: '@theme/DocPage',
+					docItemComponent: '@theme/ApiItem',
+					showLastUpdateTime: true,
+				},
+				sitemap: {
+					changefreq: 'weekly',
+					priority: 0.5,
+				},
+				theme: {
+					customCss: require.resolve('./src/css/custom.css'),
+				},
+				gtag: {
+					trackingID: 'GTM-MPZ59VM',
+				},
+			},
+		],
+	],
 	themeConfig: {
-		prism: {
-			theme: require('prism-react-renderer/themes/github'),
-			darkTheme: require('prism-react-renderer/themes/dracula'),
-		},
+		prism: {theme, darkTheme},
+		languageTabs: [
+			{
+				highlight: 'bash',
+				language: 'curl',
+				logoClass: 'bash',
+			},
+			{
+				highlight: 'javascript',
+				language: 'nodejs',
+				logoClass: 'nodejs',
+			},
+			{
+				highlight: 'php',
+				language: 'php',
+				logoClass: 'php',
+			},
+		],
 		colorMode: {
 			defaultMode: 'light',
 			disableSwitch: false,
@@ -90,36 +134,10 @@ module.exports = {
 			copyright: `Copyright © ${new Date().getFullYear()} Testomato s.r.o.`,
 		},
 	},
-	presets: [
-		[
-			'@docusaurus/preset-classic',
-			{
-				theme: {
-					customCss: require.resolve('./src/css/custom.css'),
-				},
-				gtag: {
-					trackingID: 'GTM-MPZ59VM',
-				},
-				docs: {
-					// docs only https://v2.docusaurus.io/docs/docs/#docs-only-mode
-					routeBasePath: '/',
-					sidebarPath: require.resolve('./sidebars.js'),
-					editUrl: 'https://github.com/testomato/help.testomato.com/edit/master/',
-					// API Docs config
-					docLayoutComponent: '@theme/DocPage',
-					docItemComponent: '@theme/ApiItem',
-					showLastUpdateTime: true,
-				},
-				sitemap: {
-					changefreq: 'weekly',
-					priority: 0.5,
-				},
-			},
-		],
-	],
 	plugins: [
 		'docusaurus-lunr-search',
 		[
+			// @see https://github.com/PaloAltoNetworks/docusaurus-openapi-docs
 			'docusaurus-plugin-openapi-docs',
 			{
 				id: 'openapi',
@@ -128,9 +146,10 @@ module.exports = {
 					'testomato': {
 						specPath: 'src/testomato.yaml',
 						outputDir: 'docs/api',
+						//baseUrl: '/api',
 						sidebarOptions: {
 							groupPathsBy: 'tag',
-							categoryLinkSource: 'tag'
+							categoryLinkSource: 'tag',
 						},
 					},
 				},

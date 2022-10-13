@@ -3,7 +3,13 @@ openapi: 3.0.1
 
 info:
   title: "Testomato API"
-  description: ""
+  description: |
+    ### Authenticate
+    
+    If you would like to participate in the future development of our
+    roadmap, please don't be shy! We'd love to hear your suggestions:
+    support@testomato.com
+
   version: 1.0.0
   contact:
     email: support@testomato.com
@@ -753,6 +759,7 @@ components:
         templateVars:
           type: array
           description: Template variables if any
+          example: [ ]
         options:
           $ref: '#/components/schemas/TestOptions'
 

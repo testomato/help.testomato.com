@@ -31,7 +31,7 @@ module.exports = {
 			type: 'category',
 			label: 'API Reference',
 			items: [
-				'api/introduction', require('./docs/api/sidebar.js')
+				 require('./docs/api/sidebar.js')
 			],
 		},
 
