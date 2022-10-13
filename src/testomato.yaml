@@ -329,8 +329,8 @@ paths:
 
   /project/{id}/job/{jobid}/results:
     get:
+      operationId: Get Project results
       description: Retrieve latest Project's checks results
-      operationId: Get project results
       tags:
         - Project
       security:
@@ -386,11 +386,12 @@ paths:
 
   /project/{id}/regenerateApiKey:
     post:
+      operationId: Regenerate API Key
+      description: Regenerate project API key
       tags:
         - Project
       security:
         - ApiKey: [ ]
-      description: Regenerate project API key
       parameters:
         - $ref: "#/components/parameters/ProjectId"
       responses:
@@ -407,6 +408,8 @@ paths:
 
   /tests/{id}:
     get:
+      operationId: Get Test
+      description: Retrieve test
       tags:
         - Checks
       parameters:

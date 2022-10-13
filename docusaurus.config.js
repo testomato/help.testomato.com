@@ -15,7 +15,7 @@ module.exports = {
 		},
 		colorMode: {
 			defaultMode: 'light',
-			disableSwitch: true,
+			disableSwitch: false,
 		},
 		navbar: {
 			title: 'Help & Docs',
@@ -90,9 +90,6 @@ module.exports = {
 			copyright: `Copyright © ${new Date().getFullYear()} Testomato s.r.o.`,
 		},
 	},
-	plugins: [
-		'docusaurus-lunr-search',
-	],
 	presets: [
 		[
 			'@docusaurus/preset-classic',
@@ -108,35 +105,37 @@ module.exports = {
 					routeBasePath: '/',
 					sidebarPath: require.resolve('./sidebars.js'),
 					editUrl: 'https://github.com/testomato/help.testomato.com/edit/master/',
+					// API Docs config
+					docLayoutComponent: '@theme/DocPage',
+					docItemComponent: '@theme/ApiItem',
 					showLastUpdateTime: true,
 				},
 				sitemap: {
 					changefreq: 'weekly',
 					priority: 0.5,
 				},
-
 			},
 		],
-
+	],
+	plugins: [
+		'docusaurus-lunr-search',
 		[
-			'redocusaurus',
+			'docusaurus-plugin-openapi-docs',
 			{
-				// Plugin Options for loading OpenAPI files
-				specs: [
-					{
-						spec: 'docs/api/testomato.yaml',
-						route: '/api/',
+				id: 'openapi',
+				docsPluginId: 'classic',
+				config: {
+					'testomato': {
+						specPath: 'src/testomato.yaml',
+						outputDir: 'docs/api',
+						sidebarOptions: {
+							groupPathsBy: 'tag',
+							categoryLinkSource: 'tag'
+						},
 					},
-				],
-				// Theme Options for modifying how redoc renders them
-				theme: {
-					// Change with your site colors
-					primaryColor: '#1890ff',
-					options: {disableSearch: true},
 				},
 			},
 		],
-
 	],
 	themes: ['docusaurus-theme-openapi-docs'],
 };

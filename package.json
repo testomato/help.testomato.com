@@ -1,51 +1,53 @@
 {
-  "name": "help",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "docusaurus start",
-    "build": "docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "ci": "yarn lint && yarn prettier:diff",
-    "lint": "eslint --cache \"**/*.js\" && stylelint \"**/*.css\"",
-    "prettier": "prettier --config .prettierrc --write \"**/*.{js,md}\"",
-    "prettier:diff": "prettier --config .prettierrc --list-different \"**/*.{js,md}\""
-  },
-  "dependencies": {
-    "@docusaurus/core": "^2.1.0",
-    "@docusaurus/preset-classic": "^2.1.0",
-    "classnames": "^2.3.2",
-    "docusaurus-lunr-search": "^2.2.0",
-    "docusaurus-plugin-openapi-docs": "^1.2.2",
-    "docusaurus-theme-openapi-docs": "^1.2.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "redocusaurus": "^1.4.0"
-  },
-  "devDependencies": {
-    "babel-eslint": "^10.0.3",
-    "eslint": "^8.25.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-header": "^3.1.1",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.31.9",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "prettier": "^2.7.1",
-    "stylelint": "^14.13.0"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "help",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"start": "docusaurus start",
+		"build": "docusaurus build",
+		"swizzle": "docusaurus swizzle",
+		"deploy": "docusaurus deploy",
+		"ci": "yarn lint && yarn prettier:diff",
+		"lint": "eslint --cache \"**/*.js\" && stylelint \"**/*.css\"",
+		"prettier": "prettier --config .prettierrc --write \"**/*.{js,md}\"",
+		"prettier:diff": "prettier --config .prettierrc --list-different \"**/*.{js,md}\"",
+		"api": "docusaurus gen-api-docs all",
+		"api.clean": "docusaurus clean-api-docs all",
+		"api.regenerate": "yarn api:clan && yarn api"
+	},
+	"dependencies": {
+		"@docusaurus/core": "^2.1.0",
+		"@docusaurus/preset-classic": "^2.1.0",
+		"classnames": "^2.3.2",
+		"docusaurus-lunr-search": "^2.2.0",
+		"docusaurus-plugin-openapi-docs": "^1.2.2",
+		"docusaurus-theme-openapi-docs": "^1.2.2",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"babel-eslint": "^10.0.3",
+		"eslint": "^8.25.0",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-header": "^3.1.1",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-jsx-a11y": "^6.6.1",
+		"eslint-plugin-react": "^7.31.10",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"prettier": "^2.7.1",
+		"stylelint": "^14.13.0"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }

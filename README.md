@@ -39,3 +39,11 @@ Some common defaults for linting/formatting have been set for you. If you integr
 ```
 $ yarn ci
 ```
+
+### Open API generate
+
+```shell
+yarn api # generate OpenAPI docs to Markdown files
+yarn api.clean # Delete OpenAPI generated files
+yarn api.regenerate # Delete and Recreate 
+```
