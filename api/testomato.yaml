@@ -1,16 +1,21 @@
+# https://swagger.io/docs/specification/about/
 openapi: 3.0.1
+
 info:
-  title: Testomato API
+  title: "Testomato API"
   description: |
     If you would like to participate in the future development of our
     roadmap, please don't be shy! We'd love to hear your suggestions:
     support@testomato.com
+
   version: 1.0.0
   contact:
     email: support@testomato.com
+
 servers:
-  - url: 'https://testomato.com/api/'
+  - url: https://testomato.com/api/
     description: Testomato
+
 paths:
   /project/create:
     post:
@@ -20,7 +25,7 @@ paths:
         formatted as [JSONP](https://en.wikipedia.org/wiki/JSONP) stream.
         You can add **up to 30 URLs** at once.
       security:
-        - ApiKey: []
+        - ApiKey: [ ]
       tags:
         - Project
       parameters:
@@ -30,14 +35,7 @@ paths:
           in: query
           schema:
             type: string
-            enum:
-              - 5 minutes
-              - 30 minutes
-              - 1 hour
-              - 8 hours
-              - 1 day
-              - 7 days
-              - false
+            enum: [ 5 minutes, 30 minutes, 1 hour, 8 hours, 1 day, 7 days, false ]
             default: 5 minutes
       requestBody:
         content:
@@ -47,16 +45,23 @@ paths:
                 urls:
                   type: array
                   description: Array of URLs
-                  example:
-                    - 'https://www.example.com'
-                    - 'https://testomato.com'
+                  example: [ "https://www.example.com", "https://testomato.com" ]
                 blank:
                   type: boolean
                   default: false
                   description: Create empty project (`true`) or preset project (`false`)
+
       responses:
-        '200':
-          description: 'There Successfully created projects. Response is <a href="https://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> payload with individual projects.'
+        400:
+          description: Error when trying to *create more than 30 projects* at once or `period` parameters is invalid.
+        403:
+          description: Error when you have reached your **subscription project limit**.
+        406:
+          description: When you try send invalid or not supported URL
+        500:
+          description: Project creation failed with fatal error (please contact us at support@testomato.com).
+        200:
+          description: There Successfully created projects. Response is <a href="https://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> payload with individual projects.
           content:
             application/json:
               schema:
@@ -67,32 +72,27 @@ paths:
                       originalUrl:
                         description: Original URL that was processed
                         type: string
-        '400':
-          description: Error when trying to *create more than 30 projects* at once or `period` parameters is invalid.
-        '403':
-          description: Error when you have reached your **subscription project limit**.
-        '406':
-          description: When you try send invalid or not supported URL
-        '500':
-          description: Project creation failed with fatal error (please contact us at support@testomato.com).
-  '/project/{id}':
+
+  /project/{id}:
     get:
       operationId: Get Project
       description: Retrieve project by `Project ID`
       security:
-        - ApiKey: []
+        - ApiKey: [ ]
       tags:
         - Project
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - $ref: "#/components/parameters/ProjectId"
       responses:
-        '200':
+        404:
+          $ref: "./responses/NotFound.yaml"
+        200:
           description: Successful operation
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/Project'
+                  - $ref: "./schemas/Project.yaml"
                   - type: object
                     properties:
                       permissions:
@@ -119,86 +119,54 @@ paths:
                           leave:
                             description: Can current user leave project?
                             type: boolean
-        '404':
-          description: Object not found error
-          content:
-            application/json:
-              schema:
-                properties:
-                  message:
-                    description: Error message text
-                    default: Object not found
-                    type: string
-                  code:
-                    description: Error code number
-                    default: 404
-                    type: integer
-                  ok:
-                    type: boolean
-                    default: false
-                  error:
-                    type: boolean
-                    default: true
+
     put:
       operationId: Update Project
       description: Update selected project
       tags:
         - Project
       security:
-        - ApiKey: []
+        - ApiKey: [ ]
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Project'
+              $ref: './schemas/Project.yaml'
       responses:
-        '200':
-          description: Common success massage
-          content:
-            application/json:
-              schema:
-                properties:
-                  message:
-                    type: string
-                  code:
-                    type: integer
-                    default: 200
-                  ok:
-                    type: boolean
-                    default: true
-                  error:
-                    type: boolean
-                    default: false
-        '404':
-          $ref: '#/paths/~1project~1%7Bid%7D/get/responses/404'
+        200:
+          $ref: './responses/SuccessMessage.yaml'
+        404:
+          $ref: "./responses/NotFound.yaml"
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - $ref: "#/components/parameters/ProjectId"
+
     delete:
       operationId: Delete Project
       description: Delete selected Project
       tags:
         - Project
       responses:
-        '200':
-          $ref: '#/paths/~1project~1%7Bid%7D/put/responses/200'
-        '404':
-          $ref: '#/paths/~1project~1%7Bid%7D/get/responses/404'
+        200:
+          $ref: './responses/SuccessMessage.yaml'
+        404:
+          $ref: "./responses/NotFound.yaml"
       security:
-        - ApiKey: []
+        - ApiKey: [ ]
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
-  '/project/{id}/status':
+        - $ref: "#/components/parameters/ProjectId"
+
+  /project/{id}/status:
     get:
       operationId: Get Project status
       description: Get Project status
       tags:
         - Project
       security:
-        - ApiKey: []
+        - ApiKey: [ ]
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - $ref: "#/components/parameters/ProjectId"
       responses:
-        '200':
+        200:
           description: Successful response - full project status
           content:
             application/json:
@@ -248,19 +216,20 @@ paths:
                   tests:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Test'
-  '/project/{id}/simple-status':
+                      $ref: './schemas/Test.yaml'
+
+  /project/{id}/simple-status:
     get:
       operationId: Get Project status - simplify
       description: Get simplify Project status
       tags:
         - Project
       security:
-        - ApiKey: []
+        - ApiKey: [ ]
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - $ref: "#/components/parameters/ProjectId"
       responses:
-        '200':
+        200:
           description: Successful response - simplify project status
           content:
             application/json:
@@ -277,15 +246,13 @@ paths:
                           type: string
                         status:
                           type: string
-                          enum:
-                            - OK
-                            - Error message
+                          enum: [ OK, Error message ]
                     example:
                       - name: Homepage
-                        url: 'https://www.testomato.com'
+                        url: https://www.testomato.com
                         status: OK
                       - name: Contact
-                        url: 'https://www.testomato.com/contact'
+                        url: https://www.testomato.com/contact
                         status: Missing "example" in Website TEXT
                   total:
                     description: Total count of checks
@@ -294,26 +261,29 @@ paths:
                   failed:
                     description: Count of failing checks
                     example: 1
-  '/project/{id}/start':
+
+  /project/{id}/start:
     get:
       operationId: Starting Project
       description: Start all checks in project
       tags:
         - Project
       security:
-        - ApiKey: []
+        - ApiKey: [ ]
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - $ref: "#/components/parameters/ProjectId"
         - name: tests
           description: Array of
           in: query
           required: false
           schema:
             type: array
+
       responses:
-        '200':
+        200:
           $ref: '#/components/responses/JobStartsSuccessfully'
-  '/project/{ProjectId}/start/area/{AreaId}':
+
+  /project/{ProjectId}/start/area/{AreaId}:
     get:
       operationId: Starting Project Group
       description: Starting only specific group of Tests from Project
@@ -321,7 +291,7 @@ paths:
         - Project
         - Group
       security:
-        - ApiKey: []
+        - ApiKey: [ ]
       parameters:
         - name: ProjectId
           description: A unique Project ID
@@ -357,22 +327,23 @@ paths:
           in: query
           schema:
             type: array
-            example: []
+            example: [ ]
       responses:
-        '200':
+        200:
           $ref: '#/components/responses/JobStartsSuccessfully'
-  '/project/{id}/job/{jobid}/results':
+
+  /project/{id}/job/{jobid}/results:
     get:
       operationId: Get Project results
       description: Retrieve latest Project's checks results
       tags:
         - Project
       security:
-        - ApiKey: []
+        - ApiKey: [ ]
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - $ref: "#/components/parameters/ProjectId"
       responses:
-        '200':
+        200:
           description: Project results
           content:
             application/json:
@@ -413,20 +384,21 @@ paths:
                     description: List of areas
                     type: array
                   results:
-                    description: 'Array of test results -- each result has a testId, testName etc.'
+                    description: Array of test results -- each result has a testId, testName etc.
                     type: array
-  '/project/{id}/regenerateApiKey':
+
+  /project/{id}/regenerateApiKey:
     post:
       operationId: Regenerate API Key
       description: Regenerate project API key
       tags:
         - Project
       security:
-        - ApiKey: []
+        - ApiKey: [ ]
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - $ref: "#/components/parameters/ProjectId"
       responses:
-        '200':
+        200:
           description: Successfully regenerated Project API key
           content:
             application/json:
@@ -436,23 +408,27 @@ paths:
                     type: string
                     example: 123456
                     description: New API key
-  '/tests/{id}':
+
+  /tests/{id}:
     get:
       operationId: Get Test
       description: Retrieve test
       tags:
         - Checks
       parameters:
-        - $ref: '#/components/parameters/TestId'
+        - $ref: "#/components/parameters/TestId"
       responses:
-        '200':
+        200:
           description: Test response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Test'
+                $ref: "#/components/schemas/Test"
+
 components:
+
   parameters:
+
     ProjectId:
       description: Project ID
       in: path
@@ -460,6 +436,7 @@ components:
       required: true
       schema:
         type: string
+
     TestId:
       description: Test ID
       in: path
@@ -467,13 +444,17 @@ components:
       required: true
       schema:
         type: string
+
   securitySchemes:
+
     ApiKey:
       description: Project or User API key
       type: apiKey
       name: apiKey
       in: query
+
   responses:
+
     ErrorMessage:
       description: Common error message
       content:
@@ -492,6 +473,7 @@ components:
               error:
                 type: boolean
                 default: true
+
     JobStartsSuccessfully:
       description: Job starts successfully
       content:
@@ -513,252 +495,9 @@ components:
               results:
                 type: string
                 description: The URL where you can view your results
-                example: 'https://www.testomato.com/api/project/5e95ddf7a39e5a44428b4581/job/5e9602e7a39e5a46428b457f/results?apikey=4PJAOwTK'
+                example: https://www.testomato.com/api/project/5e95ddf7a39e5a44428b4581/job/5e9602e7a39e5a46428b457f/results?apikey=4PJAOwTK
   schemas:
     Project:
-      type: object
-      properties:
-        id:
-          description: Project ID
-          example: 50a9f72f14db3be812000233
-          type: string
-        title:
-          description: Project title
-          type: string
-        url:
-          description: Project base URL
-          example: 'https://testomato.com'
-          type: string
-        period:
-          description: Period of test checking - `false` means never check Test automatically.
-          default: 5 minutes
-          enum:
-            - 5 minutes
-            - 30 minutes
-            - 1 hour
-            - 8 hours
-            - 1 day
-            - 7 days
-            - false
-          type: string
-        uptimeUrl:
-          description: Uptime URL
-          type: string
-        uptimeEnabled:
-          description: Uptime period in seconds - `false` means uptime is disabled
-          type: string
-          enum:
-            - false
-            - 15
-            - 30
-            - 60
-        apiKey:
-          description: apiKey that can be used for the project operations
-          example: 123456
-          type: string
-        payerId:
-          description: Identification of the project owner.
-          type: integer
-        location:
-          description: Project check location
-          type: string
-          enum:
-            - eu
-            - de
-            - gb
-            - ca
-            - us
-            - tx
-            - dc
-            - sg
-            - hk
-        checkDefaultErrors:
-          type: boolean
-          default: true
-        created:
-          description: Date and time of project creation
-          type: string
-          format: date-time
-        userAgent:
-          description: User agent
-          default: 'Testomatobot/1.0 (Linux x86_64; +https://www.testomato.com/testomatobot) minicrawler/5.2.2'
-          type: string
-        timeout:
-          description: Cumulated project timeout in seconds
-          type: integer
-          default: 3
-        delay:
-          description: Bulk request delay in miliseconds
-          type: integer
-          format: int64
-          default: 50
-        userIds:
-          type: array
-          description: Array of users ID's with access to the project
-          items:
-            type: integer
-        name:
-          description: Project name was replaced by Project title
-          type: string
-          deprecated: true
+      $ref: './schemas/Project.yaml'
     Test:
-      type: object
-      description: A group of individual checks
-      properties:
-        id:
-          type: string
-          example: 50a9f73014db3ae812000234
-          description: Check id
-        enabled:
-          type: boolean
-          example: true
-          default: true
-        areaId:
-          example: 55ae166c25b395537a8b6030
-          description: Area ID
-        name:
-          type: string
-          example: Homepage
-          description: Name of check
-        url:
-          type: string
-          example: 'https://testomato.com'
-          description: URL of check
-        notice:
-          type: string
-          example: ''
-          description: Check notice
-        type:
-          type: string
-          example: simple
-          enum:
-            - homepage
-            - simple
-            - favicon
-            - robots
-        run:
-          type: string
-          example: completed
-          enum:
-            - completed
-            - running
-        flags:
-          type: array
-          example:
-            - configured
-          description: Test flags e.g. `configured`
-        status:
-          type: object
-          properties:
-            status:
-              type: string
-              example: ok
-            failures:
-              type: array
-            rules:
-              type: array
-              items:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: text
-                    description: Type of check
-                    enum:
-                      - 'text html status header location title meta-description meta-og:title meta-og:description meta-og:image meta-og:image meta-og:image meta-og:type meta-og:url meta-og:site_name meta-og:locale meta-og:updated_time meta-og:logo meta-article:modified_time meta-article:published_time meta-article:publisher meta-article:section meta-article:tag meta-twitter:title meta-twitter:image meta-twitter:image meta-twitter:description meta-twitter:card meta-twitter:site meta-twitter:creator meta-itemprop:name meta-itemprop:author meta-itemprop:description meta-itemprop:image'
-                  op:
-                    type: string
-                    enum:
-                      - eq
-                      - sub
-                      - '!sub'
-                      - match
-                      - '!match'
-                      - xpath
-                    example: sub
-                    description: |
-                      Operators can be: `eq` is equal to, `sub` contains, `!sub` does not contains,  `match` for exact match, `!match` for does not match and `xpath` for Xpath checks.
-                  val:
-                    type: string
-                    example: 123456
-                    description: Value that will be used for check
-                  origin:
-                    type: string
-                    example: check
-                    description: Original of the check
-                  templateId:
-                    type: string
-                    description: Optional parameter if check use a Template
-                  order:
-                    type: integer
-                    description: Order of the check
-            response:
-              type: object
-              properties:
-                status:
-                  type: string
-                  example: 200
-                httpStatus:
-                  type: string
-                  example: 200
-                baseUrl:
-                  type: string
-                  example: 'https://testomato.com'
-                contentType:
-                  type: string
-                  example: text/html
-                httpHeader:
-                  type: string
-                  example: ":status: 200\r\nserver: nginx\r\ndate: Mon, 10 Oct 2022 15:04:05 GMT\r\ncontent-type: text/html;"
-                processTime:
-                  type: number
-                  example: 0.037
-                size:
-                  type: number
-                  description: Size of response in case of check error
-                  example: false
-                redirects:
-                  type: array
-                  description: List of redirections
-                timing:
-                  type: array
-                  items:
-                    properties:
-                      metrics:
-                        type: string
-                      value:
-                        type: integer
-                    example:
-                      metrics: DNS Lookup
-                      value: 1
-        templateId:
-          type: string
-          description: Template ID if any
-          example: ''
-        templateVars:
-          type: array
-          description: Template variables if any
-          example: []
-        options:
-          type: object
-          properties:
-            '2':
-              type: boolean
-              default: false
-              description: Allow HTTP/1 requests only
-            '6':
-              type: boolean
-              default: false
-              description: Allow only IPv6 request
-            g:
-              type: boolean
-              default: false
-              description: Do not accept gzip encoding
-            l:
-              type: boolean
-              default: false
-              description: Do not follow redirects
-            w:
-              type: string
-              default: ''
-              description: Extra HTTP headers
+      $ref: './schemas/Test.yaml'

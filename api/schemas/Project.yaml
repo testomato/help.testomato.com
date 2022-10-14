@@ -1,0 +1,65 @@
+type: object
+properties:
+  id:
+    description: Project ID
+    example: 50a9f72f14db3be812000233
+    type: string
+  title:
+    description: Project title
+    type: string
+  url:
+    description: Project base URL
+    example: https://testomato.com
+    type: string
+  period:
+    description: Period of test checking - `false` means never check Test automatically.
+    default: 5 minutes
+    enum: [ 5 minutes, 30 minutes, 1 hour, 8 hours, 1 day, 7 days, false ]
+    type: string
+  uptimeUrl:
+    description: Uptime URL
+    type: string
+  uptimeEnabled:
+    description: Uptime period in seconds - `false` means uptime is disabled
+    type: string
+    enum: [ false, 15, 30, 60 ]
+  apiKey:
+    description: apiKey that can be used for the project operations
+    example: 123456
+    type: string
+  payerId:
+    description: Identification of the project owner.
+    type: integer
+  location:
+    description: Project check location
+    type: string
+    enum: [ eu, de, gb, ca, us, tx, dc, sg, hk ]
+  checkDefaultErrors:
+    type: boolean
+    default: true
+  created:
+    description: Date and time of project creation
+    type: string
+    format: date-time
+  userAgent:
+    description: User agent
+    default: Testomatobot/1.0 (Linux x86_64; +https://www.testomato.com/testomatobot) minicrawler/5.2.2
+    type: string
+  timeout:
+    description: Cumulated project timeout in seconds
+    type: integer
+    default: 3
+  delay:
+    description: Bulk request delay in miliseconds
+    type: integer
+    format: int64
+    default: 50
+  userIds:
+    type: array
+    description: Array of users ID's with access to the project
+    items:
+      type: integer
+  name:
+    description: Project name was replaced by Project title
+    type: string
+    deprecated: true

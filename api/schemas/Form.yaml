@@ -1,0 +1,23 @@
+type: object
+description: HTML Form
+properties:
+  checksum:
+    type: string
+  enabled:
+    type: boolean
+  action:
+    type: string
+  originalAction:
+    type: string
+  relativeAction:
+    type: string
+  method:
+    type: string
+  params:
+    type: string
+  html:
+    type: string
+  baseUrl:
+    type: string
+  identifier:
+    type: string

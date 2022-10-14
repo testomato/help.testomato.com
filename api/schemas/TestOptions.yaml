@@ -1,0 +1,22 @@
+type: object
+properties:
+  2:
+    type: boolean
+    default: false
+    description: Allow HTTP/1 requests only
+  6:
+    type: boolean
+    default: false
+    description: Allow only IPv6 request
+  g:
+    type: boolean
+    default: false
+    description: Do not accept gzip encoding
+  l:
+    type: boolean
+    default: false
+    description: Do not follow redirects
+  w:
+    type: string
+    default: ''
+    description: Extra HTTP headers

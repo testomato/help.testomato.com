@@ -1,0 +1,22 @@
+type: object
+description: A group of tests
+properties:
+  name:
+    type: string
+    description: Name of group
+    example: Public
+  projectId:
+    type: string
+    description: Parent Project ID
+    example: 50a9f72f14db3be812000233
+  public:
+    type: boolean
+  rules:
+    type: array
+    items:
+      $ref: ''
+  form:
+    $ref: './Form.yaml'
+  httpAuth:
+    type: object
+    description: Password-protected areas may have a saved HTTP auth authentications

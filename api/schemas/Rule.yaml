@@ -1,0 +1,28 @@
+type: object
+properties:
+  type:
+    type: string
+    example: text
+    description: Type of check
+    enum: [ text html status header location title meta-description meta-og:title meta-og:description meta-og:image meta-og:image meta-og:image meta-og:type meta-og:url meta-og:site_name meta-og:locale meta-og:updated_time meta-og:logo meta-article:modified_time meta-article:published_time meta-article:publisher meta-article:section meta-article:tag meta-twitter:title meta-twitter:image meta-twitter:image meta-twitter:description meta-twitter:card meta-twitter:site meta-twitter:creator meta-itemprop:name meta-itemprop:author meta-itemprop:description meta-itemprop:image ]
+  op:
+    type: string
+    enum: [ eq, sub, '!sub', match, '!match', xpath ]
+    example: sub
+    description: >
+      Operators can be: `eq` is equal to, `sub` contains, `!sub` does not contains, 
+      `match` for exact match, `!match` for does not match and `xpath` for Xpath checks.
+  val:
+    type: string
+    example: 123456
+    description: Value that will be used for check
+  origin:
+    type: string
+    example: check
+    description: Original of the check
+  templateId:
+    type: string
+    description: Optional parameter if check use a Template
+  order:
+    type: integer
+    description: Order of the check

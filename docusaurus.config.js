@@ -144,7 +144,7 @@ module.exports = {
 				docsPluginId: 'classic',
 				config: {
 					'testomato': {
-						specPath: 'src/testomato.yaml',
+						specPath: 'api/testomato.yaml',
 						outputDir: 'docs/api',
 						//baseUrl: '/api',
 						sidebarOptions: {

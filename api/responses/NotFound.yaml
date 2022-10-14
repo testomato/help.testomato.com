@@ -1,0 +1,19 @@
+description: Object not found error
+content:
+  application/json:
+    schema:
+      properties:
+        message:
+          description: Error message text
+          default: Object not found
+          type: string
+        code:
+          description: Error code number
+          default: 404
+          type: integer
+        ok:
+          type: boolean
+          default: false
+        error:
+          type: boolean
+          default: true

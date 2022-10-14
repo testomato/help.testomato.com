@@ -1,0 +1,38 @@
+type: object
+properties:
+  status:
+    type: string
+    example: 200
+  httpStatus:
+    type: string
+    example: 200
+  baseUrl:
+    type: string
+    example: https://testomato.com
+  contentType:
+    type: string
+    example: text/html
+  httpHeader:
+    type: string
+    example: ":status: 200\r\nserver: nginx\r\ndate: Mon, 10 Oct 2022 15:04:05 GMT\r\ncontent-type: text/html;"
+  processTime:
+    type: number
+    example: 0.037
+  size:
+    type: number
+    description: Size of response in case of check error
+    example: false
+  redirects:
+    type: array
+    description: List of redirections
+  timing:
+    type: array
+    items:
+      properties:
+        metrics:
+          type: string
+        value:
+          type: integer
+      example:
+        metrics: DNS Lookup
+        value: 1

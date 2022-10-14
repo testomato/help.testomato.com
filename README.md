@@ -45,5 +45,7 @@ $ yarn ci
 ```shell
 yarn api # generate OpenAPI docs to Markdown files
 yarn api.clean # Delete OpenAPI generated files
-yarn api.regenerate # Delete and Recreate 
+yarn api.regenerate # Delete and Recreate
+yarn api.bundle # Bundle all OpenAPI files to one
+yarn api.validate # Validate OpenAPI schema 
 ```
