@@ -44,6 +44,8 @@ paths:
               properties:
                 urls:
                   type: array
+                  items:
+                    type: string
                   description: Array of URLs
                   example: [ "https://www.example.com", "https://testomato.com" ]
                 blank:
@@ -82,7 +84,11 @@ paths:
       tags:
         - Project
       parameters:
-        - $ref: "#/components/parameters/ProjectId"
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
       responses:
         404:
           $ref: "./responses/NotFound.yaml"
@@ -271,13 +277,19 @@ paths:
       security:
         - ApiKey: [ ]
       parameters:
-        - $ref: "#/components/parameters/ProjectId"
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
         - name: tests
           description: Array of
           in: query
           required: false
           schema:
             type: array
+            items:
+              type: string
 
       responses:
         200:
@@ -328,6 +340,7 @@ paths:
           schema:
             type: array
             example: [ ]
+            items:
       responses:
         200:
           $ref: '#/components/responses/JobStartsSuccessfully'

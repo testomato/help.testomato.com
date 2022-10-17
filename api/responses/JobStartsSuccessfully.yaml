@@ -1,0 +1,21 @@
+description: Job starts successfully
+content:
+  application/json:
+    schema:
+      properties:
+        projectId:
+          type: string
+          description: A unique Project ID
+          example: 5e95ddf7a39e5a44428b4581
+        jobId:
+          type: string
+          description: A unique ID for each Job
+          example: 5e9602e7a39e5a46428b457f
+        start:
+          type: string
+          description: Value `ok` means your tests have successfully started
+          example: ok
+        results:
+          type: string
+          description: The URL where you can view your results
+          example: https://www.testomato.com/api/project/5e95ddf7a39e5a44428b4581/job/5e9602e7a39e5a46428b457f/results?apikey=4PJAOwTK
