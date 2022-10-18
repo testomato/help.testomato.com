@@ -64,7 +64,7 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/Project'
+                  - $ref: '#/paths/~1project~1%7Bid%7D/put/requestBody/content/application~1json/schema'
                   - type: object
                     properties:
                       originalUrl:
@@ -142,7 +142,7 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/Project'
+                  - $ref: '#/paths/~1project~1%7Bid%7D/put/requestBody/content/application~1json/schema'
                   - type: object
                     properties:
                       permissions:
@@ -200,7 +200,91 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Project'
+              type: object
+              properties:
+                id:
+                  description: Project ID
+                  example: 50a9f72f14db3be812000233
+                  type: string
+                title:
+                  description: Project title
+                  type: string
+                url:
+                  description: Project base URL
+                  example: 'https://testomato.com'
+                  type: string
+                period:
+                  description: Period of test checking - `false` means never check Test automatically.
+                  default: 5 minutes
+                  enum:
+                    - 5 minutes
+                    - 30 minutes
+                    - 1 hour
+                    - 8 hours
+                    - 1 day
+                    - 7 days
+                    - false
+                  type: string
+                uptimeUrl:
+                  description: Uptime URL
+                  type: string
+                uptimeEnabled:
+                  description: Uptime period in seconds - `false` means uptime is disabled
+                  type: string
+                  enum:
+                    - false
+                    - 15
+                    - 30
+                    - 60
+                apiKey:
+                  description: apiKey that can be used for the project operations
+                  example: 123456
+                  type: string
+                payerId:
+                  description: Identification of the project owner.
+                  type: integer
+                location:
+                  description: Project check location
+                  type: string
+                  enum:
+                    - eu
+                    - de
+                    - gb
+                    - ca
+                    - us
+                    - tx
+                    - dc
+                    - sg
+                    - hk
+                checkDefaultErrors:
+                  type: boolean
+                  default: true
+                created:
+                  description: Date and time of project creation
+                  type: string
+                  format: date-time
+                userAgent:
+                  description: User agent
+                  default: 'Testomatobot/1.0 (Linux x86_64; +https://www.testomato.com/testomatobot) minicrawler/5.2.2'
+                  type: string
+                timeout:
+                  description: Cumulated project timeout in seconds
+                  type: integer
+                  default: 3
+                delay:
+                  description: Bulk request delay in miliseconds
+                  type: integer
+                  format: int64
+                  default: 50
+                userIds:
+                  type: array
+                  description: Array of users ID's with access to the project
+                  items:
+                    type: integer
+                name:
+                  description: Project name was replaced by Project title
+                  type: string
+                  deprecated: true
       responses:
         '200':
           description: Common success massage
@@ -301,7 +385,7 @@ paths:
                   tests:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Test'
+                      $ref: '#/paths/~1tests~1%7Bid%7D/get/responses/200/content/application~1json/schema'
   '/project/{id}/simple-status':
     parameters:
       - in: path
@@ -578,7 +662,166 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Test'
+                type: object
+                description: A group of individual checks
+                properties:
+                  id:
+                    type: string
+                    example: 50a9f73014db3ae812000234
+                    description: Check id
+                  enabled:
+                    type: boolean
+                    example: true
+                    default: true
+                  areaId:
+                    example: 55ae166c25b395537a8b6030
+                    description: Area ID
+                  name:
+                    type: string
+                    example: Homepage
+                    description: Name of check
+                  url:
+                    type: string
+                    example: 'https://testomato.com'
+                    description: URL of check
+                  notice:
+                    type: string
+                    example: ''
+                    description: Check notice
+                  type:
+                    type: string
+                    example: simple
+                    enum:
+                      - homepage
+                      - simple
+                      - favicon
+                      - robots
+                  run:
+                    type: string
+                    example: completed
+                    enum:
+                      - completed
+                      - running
+                  flags:
+                    type: array
+                    example:
+                      - configured
+                    description: Test flags e.g. `configured`
+                  status:
+                    type: object
+                    properties:
+                      status:
+                        type: string
+                        example: ok
+                      failures:
+                        type: array
+                      rules:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                              example: text
+                              description: Type of check
+                              enum:
+                                - 'text html status header location title meta-description meta-og:title meta-og:description meta-og:image meta-og:image meta-og:image meta-og:type meta-og:url meta-og:site_name meta-og:locale meta-og:updated_time meta-og:logo meta-article:modified_time meta-article:published_time meta-article:publisher meta-article:section meta-article:tag meta-twitter:title meta-twitter:image meta-twitter:image meta-twitter:description meta-twitter:card meta-twitter:site meta-twitter:creator meta-itemprop:name meta-itemprop:author meta-itemprop:description meta-itemprop:image'
+                            op:
+                              type: string
+                              enum:
+                                - eq
+                                - sub
+                                - '!sub'
+                                - match
+                                - '!match'
+                                - xpath
+                              example: sub
+                              description: |
+                                Operators can be: `eq` is equal to, `sub` contains, `!sub` does not contains,  `match` for exact match, `!match` for does not match and `xpath` for Xpath checks.
+                            val:
+                              type: string
+                              example: 123456
+                              description: Value that will be used for check
+                            origin:
+                              type: string
+                              example: check
+                              description: Original of the check
+                            templateId:
+                              type: string
+                              description: Optional parameter if check use a Template
+                            order:
+                              type: integer
+                              description: Order of the check
+                      response:
+                        type: object
+                        properties:
+                          status:
+                            type: string
+                            example: 200
+                          httpStatus:
+                            type: string
+                            example: 200
+                          baseUrl:
+                            type: string
+                            example: 'https://testomato.com'
+                          contentType:
+                            type: string
+                            example: text/html
+                          httpHeader:
+                            type: string
+                            example: ":status: 200\r\nserver: nginx\r\ndate: Mon, 10 Oct 2022 15:04:05 GMT\r\ncontent-type: text/html;"
+                          processTime:
+                            type: number
+                            example: 0.037
+                          size:
+                            type: number
+                            description: Size of response in case of check error
+                            example: false
+                          redirects:
+                            type: array
+                            description: List of redirections
+                          timing:
+                            type: array
+                            items:
+                              properties:
+                                metrics:
+                                  type: string
+                                value:
+                                  type: integer
+                              example:
+                                metrics: DNS Lookup
+                                value: 1
+                  templateId:
+                    type: string
+                    description: Template ID if any
+                    example: ''
+                  templateVars:
+                    type: array
+                    description: Template variables if any
+                    example: []
+                  options:
+                    type: object
+                    properties:
+                      '2':
+                        type: boolean
+                        default: false
+                        description: Allow HTTP/1 requests only
+                      '6':
+                        type: boolean
+                        default: false
+                        description: Allow only IPv6 request
+                      g:
+                        type: boolean
+                        default: false
+                        description: Do not accept gzip encoding
+                      l:
+                        type: boolean
+                        default: false
+                        description: Do not follow redirects
+                      w:
+                        type: string
+                        default: ''
+                        description: Extra HTTP headers
 components:
   securitySchemes:
     ApiKey:
@@ -586,252 +829,3 @@ components:
       type: apiKey
       name: apiKey
       in: query
-  parameters: null
-  schemas:
-    Project:
-      type: object
-      properties:
-        id:
-          description: Project ID
-          example: 50a9f72f14db3be812000233
-          type: string
-        title:
-          description: Project title
-          type: string
-        url:
-          description: Project base URL
-          example: 'https://testomato.com'
-          type: string
-        period:
-          description: Period of test checking - `false` means never check Test automatically.
-          default: 5 minutes
-          enum:
-            - 5 minutes
-            - 30 minutes
-            - 1 hour
-            - 8 hours
-            - 1 day
-            - 7 days
-            - false
-          type: string
-        uptimeUrl:
-          description: Uptime URL
-          type: string
-        uptimeEnabled:
-          description: Uptime period in seconds - `false` means uptime is disabled
-          type: string
-          enum:
-            - false
-            - 15
-            - 30
-            - 60
-        apiKey:
-          description: apiKey that can be used for the project operations
-          example: 123456
-          type: string
-        payerId:
-          description: Identification of the project owner.
-          type: integer
-        location:
-          description: Project check location
-          type: string
-          enum:
-            - eu
-            - de
-            - gb
-            - ca
-            - us
-            - tx
-            - dc
-            - sg
-            - hk
-        checkDefaultErrors:
-          type: boolean
-          default: true
-        created:
-          description: Date and time of project creation
-          type: string
-          format: date-time
-        userAgent:
-          description: User agent
-          default: 'Testomatobot/1.0 (Linux x86_64; +https://www.testomato.com/testomatobot) minicrawler/5.2.2'
-          type: string
-        timeout:
-          description: Cumulated project timeout in seconds
-          type: integer
-          default: 3
-        delay:
-          description: Bulk request delay in miliseconds
-          type: integer
-          format: int64
-          default: 50
-        userIds:
-          type: array
-          description: Array of users ID's with access to the project
-          items:
-            type: integer
-        name:
-          description: Project name was replaced by Project title
-          type: string
-          deprecated: true
-    Test:
-      type: object
-      description: A group of individual checks
-      properties:
-        id:
-          type: string
-          example: 50a9f73014db3ae812000234
-          description: Check id
-        enabled:
-          type: boolean
-          example: true
-          default: true
-        areaId:
-          example: 55ae166c25b395537a8b6030
-          description: Area ID
-        name:
-          type: string
-          example: Homepage
-          description: Name of check
-        url:
-          type: string
-          example: 'https://testomato.com'
-          description: URL of check
-        notice:
-          type: string
-          example: ''
-          description: Check notice
-        type:
-          type: string
-          example: simple
-          enum:
-            - homepage
-            - simple
-            - favicon
-            - robots
-        run:
-          type: string
-          example: completed
-          enum:
-            - completed
-            - running
-        flags:
-          type: array
-          example:
-            - configured
-          description: Test flags e.g. `configured`
-        status:
-          type: object
-          properties:
-            status:
-              type: string
-              example: ok
-            failures:
-              type: array
-            rules:
-              type: array
-              items:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    example: text
-                    description: Type of check
-                    enum:
-                      - 'text html status header location title meta-description meta-og:title meta-og:description meta-og:image meta-og:image meta-og:image meta-og:type meta-og:url meta-og:site_name meta-og:locale meta-og:updated_time meta-og:logo meta-article:modified_time meta-article:published_time meta-article:publisher meta-article:section meta-article:tag meta-twitter:title meta-twitter:image meta-twitter:image meta-twitter:description meta-twitter:card meta-twitter:site meta-twitter:creator meta-itemprop:name meta-itemprop:author meta-itemprop:description meta-itemprop:image'
-                  op:
-                    type: string
-                    enum:
-                      - eq
-                      - sub
-                      - '!sub'
-                      - match
-                      - '!match'
-                      - xpath
-                    example: sub
-                    description: |
-                      Operators can be: `eq` is equal to, `sub` contains, `!sub` does not contains,  `match` for exact match, `!match` for does not match and `xpath` for Xpath checks.
-                  val:
-                    type: string
-                    example: 123456
-                    description: Value that will be used for check
-                  origin:
-                    type: string
-                    example: check
-                    description: Original of the check
-                  templateId:
-                    type: string
-                    description: Optional parameter if check use a Template
-                  order:
-                    type: integer
-                    description: Order of the check
-            response:
-              type: object
-              properties:
-                status:
-                  type: string
-                  example: 200
-                httpStatus:
-                  type: string
-                  example: 200
-                baseUrl:
-                  type: string
-                  example: 'https://testomato.com'
-                contentType:
-                  type: string
-                  example: text/html
-                httpHeader:
-                  type: string
-                  example: ":status: 200\r\nserver: nginx\r\ndate: Mon, 10 Oct 2022 15:04:05 GMT\r\ncontent-type: text/html;"
-                processTime:
-                  type: number
-                  example: 0.037
-                size:
-                  type: number
-                  description: Size of response in case of check error
-                  example: false
-                redirects:
-                  type: array
-                  description: List of redirections
-                timing:
-                  type: array
-                  items:
-                    properties:
-                      metrics:
-                        type: string
-                      value:
-                        type: integer
-                    example:
-                      metrics: DNS Lookup
-                      value: 1
-        templateId:
-          type: string
-          description: Template ID if any
-          example: ''
-        templateVars:
-          type: array
-          description: Template variables if any
-          example: []
-        options:
-          type: object
-          properties:
-            '2':
-              type: boolean
-              default: false
-              description: Allow HTTP/1 requests only
-            '6':
-              type: boolean
-              default: false
-              description: Allow only IPv6 request
-            g:
-              type: boolean
-              default: false
-              description: Do not accept gzip encoding
-            l:
-              type: boolean
-              default: false
-              description: Do not follow redirects
-            w:
-              type: string
-              default: ''
-              description: Extra HTTP headers

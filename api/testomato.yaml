@@ -110,7 +110,7 @@ paths:
             application/json:
               schema:
                 allOf:
-                  - $ref: '#/components/schemas/Project'
+                  - $ref: schemas/Project.yaml
                   - type: object
                     properties:
                       originalUrl:
@@ -430,21 +430,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Test"
+                $ref: schemas/Test.yaml
 
 components:
   securitySchemes:
-
     ApiKey:
       description: Project or User API key
       type: apiKey
       name: apiKey
       in: query
-
-  parameters:
-
-  schemas:
-    Project:
-      $ref: './schemas/Project.yaml'
-    Test:
-      $ref: './schemas/Test.yaml'
