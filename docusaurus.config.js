@@ -76,7 +76,7 @@ module.exports = {
 					position: 'left',
 				},
 				{
-					to: '/api',
+					to: '/api/testomato-api',
 					activeBasePath: 'api',
 					label: 'API',
 					position: 'left',
