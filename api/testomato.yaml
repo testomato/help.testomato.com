@@ -377,8 +377,35 @@ paths:
                     type: array
                     items:
                       type: string
-  
-  
+
+  /project/{id}/areas:
+    parameters:
+      - name: id
+        description: A unique Project ID
+        example: 5e9602e7a39e5a46428b457f
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
+    get:
+      operationId: Get Project Groups
+      description: Return list of project Groups/Areas
+      security:
+        - ApiKey: [ ]
+      tags:
+        - Project
+        - Group
+      responses:
+        200:
+          description: List of Project Areas/Groups
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: schemas/Area.yaml
+
   /project/{id}/regenerateApiKey:
     parameters:
       - name: id

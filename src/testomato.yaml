@@ -613,6 +613,100 @@ paths:
                     type: array
                     items:
                       type: string
+  '/project/{id}/areas':
+    parameters:
+      - name: id
+        description: A unique Project ID
+        example: 5e9602e7a39e5a46428b457f
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
+    get:
+      operationId: Ger Project Groups
+      description: Return list of project Groups/Areas
+      security:
+        - ApiKey: []
+      tags:
+        - Project
+        - Group
+      responses:
+        '200':
+          description: List of Project Groups
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  description: A group of tests
+                  properties:
+                    id:
+                      type: string
+                      description: A unique Areas/Group ID
+                      example: 54c0fe237c3391ac488b4567
+                    projectId:
+                      type: string
+                      description: A unique parent Project ID
+                      example: 50a9f72f14db3be812000233
+                    name:
+                      type: string
+                      description: Name of group
+                      example: Public
+                    public:
+                      description: 'Are the Test target URLs in the Group accessible without password protected or HTTP authentication? Value `true` means they are freely accessible `false` means yes, they are protected.'
+                      type: boolean
+                      default: true
+                    rules:
+                      description: Group rules that are applied to all tests in the Group.
+                      type: array
+                      example: []
+                      items:
+                        type: array
+                        items:
+                          $ref: '#/paths/~1tests~1%7Bid%7D/get/responses/200/content/application~1json/schema/properties/status/properties/rules/items'
+                    form:
+                      type: object
+                      description: HTML Form
+                      properties:
+                        checksum:
+                          type: string
+                        enabled:
+                          type: boolean
+                        action:
+                          type: string
+                        originalAction:
+                          type: string
+                        relativeAction:
+                          type: string
+                        method:
+                          type: string
+                        params:
+                          type: string
+                        html:
+                          type: string
+                        baseUrl:
+                          type: string
+                        identifier:
+                          type: string
+                    httpAuth:
+                      type: object
+                      required: false
+                      description: Password-protected areas may have a saved HTTP auth authentications
+                      example:
+                        user: nice
+                        password: test
+                        url: 'https://www.testomato.com/httpauth'
+                      properties:
+                        user:
+                          type: string
+                        password:
+                          description: HTTP
+                          type: string
+                        url:
+                          description: HTTP Auth URL address
+                          type: string
   '/project/{id}/regenerateApiKey':
     parameters:
       - name: id

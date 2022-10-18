@@ -1,7 +1,0 @@
-description: A unique Area/Group ID
-in: path
-name: AreaId
-example: 5e9602e7a40e5a46428b457f
-allowEmptyValue: false
-schema:
-  type: string

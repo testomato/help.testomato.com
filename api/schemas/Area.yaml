@@ -1,22 +1,77 @@
 type: object
 description: A group of tests
 properties:
+  id:
+    type: string
+    description: A unique Areas/Group ID
+    example: 54c0fe237c3391ac488b4567
+  projectId:
+    type: string
+    description: A unique parent Project ID
+    example: 50a9f72f14db3be812000233
   name:
     type: string
     description: Name of group
     example: Public
-  projectId:
-    type: string
-    description: Parent Project ID
-    example: 50a9f72f14db3be812000233
   public:
+    description: |
+      Are the Test target URLs in the Group accessible without password protected or HTTP authentication?
+      
+      * `true` means they are freely accessible
+      * `false` means yes, they are protected.
     type: boolean
+    default: true
   rules:
+    description: Group rules that are applied to all tests in the **Group**. This is mostly empty array.
     type: array
+    example: [ ]
     items:
-      $ref: ''
+      type: array
+      items:
+        $ref: Rule.yaml
   form:
-    $ref: './Form.yaml'
+    $ref: Form.yaml
   httpAuth:
     type: object
+    required: false
     description: Password-protected areas may have a saved HTTP auth authentications
+    example:
+      user: nice
+      password: test
+      url: https://www.testomato.com/httpauth
+    properties:
+      user:
+        type: string
+      password:
+        description: HTTP
+        type: string
+      url:
+        description: HTTP Auth URL address
+        type: string
+  period:
+    type: string
+    description: Check period interval as string (mostly se to `true` - same as parent Project)
+    enum: [ 5 minutes, 30 minutes, 1 hour, 8 hours, 1 day, 7 days, true ]
+    default: true
+  result:
+    type: object
+    description: Response object (optional) show only when some some **Rules** are evaluated as an error
+    default: null
+    properties:
+      prop:
+        type: string
+  options:
+    type: object
+    properties:
+      w:
+        type: string
+        description: Extra HTTP headers
+        default: ''
+  nextRun:
+    type: integer
+    description: Next run in seconds (Can be negative if we don't have new results yet)
+    example: 150
+  periodInt:
+    type: integer
+    description: Period of automatic startup in seconds
+    example: 300

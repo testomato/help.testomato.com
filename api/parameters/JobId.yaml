@@ -1,7 +1,0 @@
-description: A unique Job ID
-in: path
-name: JobId
-example: 5e9602e7a40e5a46428b457f
-allowEmptyValue: false
-schema:
-  type: string
