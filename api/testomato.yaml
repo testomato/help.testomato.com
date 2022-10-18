@@ -370,11 +370,25 @@ paths:
                   areas:
                     description: List of areas
                     type: array
+                    items:
+                      type: string
                   results:
                     description: Array of test results -- each result has a testId, testName etc.
                     type: array
-
+                    items:
+                      type: string
+  
+  
   /project/{id}/regenerateApiKey:
+    parameters:
+      - name: id
+        description: A unique Project ID
+        example: 5e9602e7a39e5a46428b457f
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
     post:
       operationId: Regenerate API Key
       description: Regenerate project API key
@@ -382,8 +396,6 @@ paths:
         - Project
       security:
         - ApiKey: [ ]
-      parameters:
-        - $ref: "#/components/parameters/ProjectId"
       responses:
         200:
           description: Successfully regenerated Project API key
@@ -397,13 +409,21 @@ paths:
                     description: New API key
 
   /tests/{id}:
+    parameters:
+      - name: id
+        description: A unique Test ID
+        example: 5e9602e7a39e5a46428b457f
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
+
     get:
       operationId: Get Test
       description: Retrieve test
       tags:
         - Checks
-      parameters:
-        - $ref: "#/components/parameters/TestId"
       responses:
         200:
           description: Test response
@@ -422,14 +442,6 @@ components:
       in: query
 
   parameters:
-    ProjectId:
-      $ref: parameters/ProjectId.yaml
-    TestId:
-      $ref: parameters/TestId.yaml
-    AreaId:
-      $ref: parameters/AreaId.yaml
-    JobId:
-      $ref: parameters/JobId.yaml
 
   schemas:
     Project:
