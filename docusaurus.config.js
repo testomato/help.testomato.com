@@ -11,6 +11,7 @@ module.exports = {
 	projectName: 'help.testomato.com',
 	onBrokenLinks: 'warn',
 	onBrokenMarkdownLinks: 'warn',
+	trailingSlash: false,
 	presets: [
 		[
 			'@docusaurus/preset-classic',
