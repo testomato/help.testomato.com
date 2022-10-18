@@ -1,0 +1,7 @@
+- description: A unique Project ID
+  in: path
+  name: id
+  example: 5e9602e7a39e5a46428b457f
+  allowEmptyValue: false
+  schema:
+    type: string

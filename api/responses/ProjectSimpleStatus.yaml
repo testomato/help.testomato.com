@@ -1,0 +1,31 @@
+description: Successful response - simplify project status
+content:
+  application/json:
+    schema:
+      properties:
+        tests:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              url:
+                type: string
+              status:
+                type: string
+                enum: [ OK, Error message ]
+          example:
+            - name: Homepage
+              url: https://www.testomato.com
+              status: OK
+            - name: Contact
+              url: https://www.testomato.com/contact
+              status: Missing "example" in Website TEXT
+        total:
+          description: Total count of checks
+          type: integer
+          example: 2
+        failed:
+          description: Count of failing checks
+          example: 1

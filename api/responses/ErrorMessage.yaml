@@ -1,0 +1,17 @@
+description: Common success massage
+content:
+  application/json:
+    schema:
+      properties:
+        message:
+          description: Error message text
+          type: string
+        code:
+          type: integer
+          default: 500
+        ok:
+          type: boolean
+          default: false
+        error:
+          type: boolean
+          default: true

@@ -1,10 +1,11 @@
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   title: Testomato API
   description: |
     If you would like to participate in the future development of our
     roadmap, please don't be shy! We'd love to hear your suggestions:
     support@testomato.com
+  termsOfService: 'https://www.testomato.com/terms-of-service'
   version: 1.0.0
   contact:
     email: support@testomato.com
@@ -46,6 +47,8 @@ paths:
               properties:
                 urls:
                   type: array
+                  items:
+                    type: string
                   description: Array of URLs
                   example:
                     - 'https://www.example.com'
@@ -69,22 +72,69 @@ paths:
                         type: string
         '400':
           description: Error when trying to *create more than 30 projects* at once or `period` parameters is invalid.
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: Sorry! You can only add 30 projects at a time.
+                  error:
+                    type: boolean
+                    default: true
         '403':
           description: Error when you have reached your **subscription project limit**.
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: You have reached your project limit.
+                  error:
+                    type: boolean
+                    default: true
         '406':
           description: When you try send invalid or not supported URL
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: 'Oops, we''re sorry! The URL "xxx" is not valid'
+                  error:
+                    type: boolean
+                    default: true
         '500':
           description: Project creation failed with fatal error (please contact us at support@testomato.com).
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: 'Oops, we''re sorry! Project creation failed. Please try later or contact us.'
+                  error:
+                    type: boolean
+                    default: true
   '/project/{id}':
+    parameters:
+      - name: id
+        description: A unique Project ID
+        example: 5e9602e7a39e5a46428b457f
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
     get:
       operationId: Get Project
-      description: Retrieve project by `Project ID`
+      description: Retrieve Project by ID
       security:
         - ApiKey: []
       tags:
         - Project
-      parameters:
-        - $ref: '#/components/parameters/ProjectId'
       responses:
         '200':
           description: Successful operation
@@ -141,7 +191,7 @@ paths:
                     default: true
     put:
       operationId: Update Project
-      description: Update selected project
+      description: Update selected Project
       tags:
         - Project
       security:
@@ -171,23 +221,28 @@ paths:
                     default: false
         '404':
           $ref: '#/paths/~1project~1%7Bid%7D/get/responses/404'
-      parameters:
-        - $ref: '#/components/parameters/ProjectId'
     delete:
       operationId: Delete Project
       description: Delete selected Project
       tags:
         - Project
+      security:
+        - ApiKey: []
       responses:
         '200':
           $ref: '#/paths/~1project~1%7Bid%7D/put/responses/200'
         '404':
           $ref: '#/paths/~1project~1%7Bid%7D/get/responses/404'
-      security:
-        - ApiKey: []
-      parameters:
-        - $ref: '#/components/parameters/ProjectId'
   '/project/{id}/status':
+    parameters:
+      - name: id
+        description: A unique Project ID
+        example: 5e9602e7a39e5a46428b457f
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
     get:
       operationId: Get Project status
       description: Get Project status
@@ -195,8 +250,6 @@ paths:
         - Project
       security:
         - ApiKey: []
-      parameters:
-        - $ref: '#/components/parameters/ProjectId'
       responses:
         '200':
           description: Successful response - full project status
@@ -210,7 +263,7 @@ paths:
                     properties:
                       id:
                         type: string
-                        description: Project ID
+                        description: A unique Project ID
                       lastRun:
                         type: integer
                         description: Unix timestamp of last run
@@ -250,6 +303,11 @@ paths:
                     items:
                       $ref: '#/components/schemas/Test'
   '/project/{id}/simple-status':
+    parameters:
+      - in: path
+        required: true
+        name: id
+        description: A unique Project ID
     get:
       operationId: Get Project status - simplify
       description: Get simplify Project status
@@ -257,8 +315,6 @@ paths:
         - Project
       security:
         - ApiKey: []
-      parameters:
-        - $ref: '#/components/parameters/ProjectId'
       responses:
         '200':
           description: Successful response - simplify project status
@@ -303,17 +359,66 @@ paths:
       security:
         - ApiKey: []
       parameters:
-        - $ref: '#/components/parameters/ProjectId'
+        - name: id
+          description: A unique Project ID
+          example: 5e9602e7a39e5a46428b457f
+          allowEmptyValue: false
+          required: true
+          in: path
+          schema:
+            type: string
         - name: tests
           description: Array of
           in: query
           required: false
+          example:
+            - 55ae166c25b395537a8b6029
+            - 510fa4a3bd96e74c0200000b
           schema:
             type: array
+            items:
+              type: string
       responses:
         '200':
-          $ref: '#/components/responses/JobStartsSuccessfully'
+          description: Job starts successfully
+          content:
+            application/json:
+              schema:
+                properties:
+                  projectId:
+                    type: string
+                    description: A unique Project ID
+                    example: 5e95ddf7a39e5a44428b4581
+                  jobId:
+                    type: string
+                    description: A unique ID for each Job
+                    example: 5e9602e7a39e5a46428b457f
+                  start:
+                    type: string
+                    description: Value `ok` means your tests have successfully started
+                    example: ok
+                  results:
+                    type: string
+                    description: The URL where you can view your results
+                    example: 'https://www.testomato.com/api/project/5e95ddf7a39e5a44428b4581/job/5e9602e7a39e5a46428b457f/results?apikey=4PJAOwTK'
   '/project/{ProjectId}/start/area/{AreaId}':
+    parameters:
+      - name: ProjectId
+        description: A unique Project ID
+        example: 5e9602e7a39e5a46428b457f
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
+      - name: AreaId
+        description: A unique Area/Group ID
+        example: 55ae166c25b395537a8b6029
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
     get:
       operationId: Starting Project Group
       description: Starting only specific group of Tests from Project
@@ -323,45 +428,52 @@ paths:
       security:
         - ApiKey: []
       parameters:
-        - name: ProjectId
-          description: A unique Project ID
-          required: true
-          in: path
-          schema:
-            type: string
-            example: 50a9f72f14db3be812000233
-        - name: AreaId
-          description: A unique Group ID
-          required: true
-          in: path
-          schema:
-            type: string
-            example: 6346b330314d3296738b456f
         - name: keep-alive
           description: Maintain the connection after starting the tests
           required: false
+          example: false
           in: query
           schema:
             type: boolean
-            example: false
         - name: continue
           description: Send the partial result and move on?
           required: false
+          example: false
           in: query
           schema:
             type: boolean
-            example: false
         - name: tests
           description: Array of selected Test IDs to run
           required: false
           in: query
           schema:
             type: array
-            example: []
+            example:
+              - 6123aa3f136d2ab8038b4587
+              - 51e6541cbd96e7f173000029
+            items:
+              type: string
       responses:
         '200':
-          $ref: '#/components/responses/JobStartsSuccessfully'
-  '/project/{id}/job/{jobid}/results':
+          $ref: '#/paths/~1project~1%7Bid%7D~1start/get/responses/200'
+  '/project/{ProjectId}/job/{JobId}/results':
+    parameters:
+      - name: ProjectId
+        description: A unique Project ID
+        example: 5e9602e7a39e5a46428b457f
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
+      - name: JobId
+        description: A unique Job ID
+        example: 55ae166c25b395537a8b6029
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
     get:
       operationId: Get Project results
       description: Retrieve latest Project's checks results
@@ -369,8 +481,6 @@ paths:
         - Project
       security:
         - ApiKey: []
-      parameters:
-        - $ref: '#/components/parameters/ProjectId'
       responses:
         '200':
           description: Project results
@@ -452,68 +562,45 @@ paths:
               schema:
                 $ref: '#/components/schemas/Test'
 components:
-  parameters:
-    ProjectId:
-      description: Project ID
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
-    TestId:
-      description: Test ID
-      in: path
-      name: id
-      required: true
-      schema:
-        type: string
   securitySchemes:
     ApiKey:
       description: Project or User API key
       type: apiKey
       name: apiKey
       in: query
-  responses:
-    ErrorMessage:
-      description: Common error message
-      content:
-        application/json:
-          schema:
-            properties:
-              message:
-                type: string
-                description: Error message text
-              code:
-                type: integer
-                default: 404
-              ok:
-                type: boolean
-                default: false
-              error:
-                type: boolean
-                default: true
-    JobStartsSuccessfully:
-      description: Job starts successfully
-      content:
-        application/json:
-          schema:
-            properties:
-              projectId:
-                type: string
-                description: A unique Project ID
-                example: 5e95ddf7a39e5a44428b4581
-              jobId:
-                type: string
-                description: A unique ID for each Job
-                example: 5e9602e7a39e5a46428b457f
-              start:
-                type: string
-                description: Value `ok` means your tests have successfully started
-                example: ok
-              results:
-                type: string
-                description: The URL where you can view your results
-                example: 'https://www.testomato.com/api/project/5e95ddf7a39e5a44428b4581/job/5e9602e7a39e5a46428b457f/results?apikey=4PJAOwTK'
+  parameters:
+    ProjectId:
+      - description: A unique Project ID
+        in: path
+        name: id
+        example: 5e9602e7a39e5a46428b457f
+        allowEmptyValue: false
+        schema:
+          type: string
+    TestId:
+      description: A unique Test ID
+      in: path
+      name: TestId
+      example: 5e9602e7a39e5a46428b457f
+      allowEmptyValue: false
+      schema:
+        type: string
+    AreaId:
+      description: A unique Area/Group ID
+      in: path
+      name: AreaId
+      example: 5e9602e7a40e5a46428b457f
+      allowEmptyValue: false
+      schema:
+        type: string
+    JobId:
+      description: A unique Job ID
+      in: path
+      name: JobId
+      example: 5e9602e7a40e5a46428b457f
+      allowEmptyValue: false
+      schema:
+        type: string
   schemas:
     Project:
       type: object

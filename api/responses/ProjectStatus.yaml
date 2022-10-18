@@ -1,0 +1,50 @@
+description: Successful response - full project status
+content:
+  application/json:
+    schema:
+      properties:
+        project:
+          type: object
+          description: Basic project information
+          properties:
+            id:
+              type: string
+              description: A unique Project ID
+            lastRun:
+              type: integer
+              description: Unix timestamp of last run
+              example: 1665407081
+            lastChange:
+              type: integer
+              description: Unix timestamp of last change
+              example: 1665263416
+            reported:
+              type: string
+              description: Was reported
+              example: ok
+            status:
+              type: string
+            msg:
+              type: string
+              description: Longer message about project status
+              example: Server returned HTTP status 200
+            shortMessage:
+              type: string
+              description: Short project status message
+              example: 200
+        total:
+          type: integer
+          description: Total count of checks
+          example: 12
+        failed:
+          type: integer
+          description: How much check has failed
+          example: 0
+        now:
+          type: integer
+          description: Current date time unix timestamp
+          example: 1665407098
+        tests:
+          type: array
+          items:
+            $ref: ../schemas/Test.yaml
