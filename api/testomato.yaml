@@ -1,5 +1,6 @@
 # https://swagger.io/docs/specification/about/
 # https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md
+# https://openapi.tools/
 openapi: 3.0.3
 
 info:
@@ -174,9 +175,9 @@ paths:
         - ApiKey: [ ]
       responses:
         200:
-          $ref: './responses/SuccessMessage.yaml'
+          $ref: responses/SuccessMessage.yaml
         404:
-          $ref: "./responses/NotFound.yaml"
+          $ref: responses/NotFound.yaml
 
   /project/{id}/status:
     parameters:
@@ -405,6 +406,33 @@ paths:
                 type: array
                 items:
                   $ref: schemas/Area.yaml
+
+  /project/{id}/users:
+    parameters:
+      - name: id
+        description: A unique Project ID
+        example: 5e9602e7a39e5a46428b457f
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
+    get:
+      operationId: Get Project users
+      description: Return list of Users with access to the Project
+      security:
+        - ApiKey: [ ]
+      tags:
+        - Project
+      responses:
+        200:
+          description: Return array of User objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: schemas/User.yaml
 
   /project/{id}/regenerateApiKey:
     parameters:

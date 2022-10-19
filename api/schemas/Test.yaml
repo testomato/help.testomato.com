@@ -34,8 +34,10 @@ properties:
     enum: [ completed, running ]
   flags:
     type: array
-    example: [ configured ]
     description: Test flags e.g. `configured`
+    example: [ configured ]
+    items:
+      type: string
   status:
     type: object
     properties:
@@ -44,12 +46,14 @@ properties:
         example: ok
       failures:
         type: array
+        items:
+          type: string
       rules:
         type: array
         items:
-          $ref: './Rule.yaml'
+          $ref: Rule.yaml
       response:
-        $ref: './TestResponse.yaml'
+        $ref: TestResponse.yaml
   templateId:
     type: string
     description: Template ID if any
@@ -58,5 +62,7 @@ properties:
     type: array
     description: Template variables if any
     example: [ ]
+    items:
+      type: string
   options:
-    $ref: './TestOptions.yaml'
+    $ref: TestOptions.yaml

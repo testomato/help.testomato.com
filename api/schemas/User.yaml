@@ -1,0 +1,84 @@
+type: object
+properties:
+  email:
+    type: string
+    description: Main user email
+    example: roman@testomato.com
+  phone:
+    type: string
+    format: nullable
+    description: A phone number (optional) and not required
+  confirmTokenExpiration:
+    type: string
+    default: null
+    format: nullable
+    description: Date and time when current common confirm token expires
+  name:
+    type: string
+    description: User name
+    example: John Tomatoseeds
+  confirmed:
+    description: Was user email confirmed?
+    type: boolean
+  timezone:
+    type: string
+    description: User time zone name
+    example: Europe/Prague
+  reportPeriod:
+    type: string
+    enum:
+      - 
+    example: week
+  notificationEmail:
+    type: string
+    example: 'roman+notifications@testomato.com'
+    format: nullable
+  notificationDelay:
+    type: integer
+    format: int32
+    example: 2
+  apiKey:
+    description: User API Key
+    type: string
+    example: 123456
+  id:
+    type: string
+    example: 7
+  role:
+    type: object
+    properties:
+      users_id:
+        type: string
+        format: nullable
+      name:
+        type: string
+        example: project admin
+      id:
+        type: string
+        example: 4
+      permissions:
+        type: array
+        items:
+          type: string
+          example: read
+      systemRole:
+        type: boolean
+      permissionsSwitches:
+        type: object
+        properties:
+          read:
+            type: boolean
+          run:
+            type: boolean
+          editTests:
+            type: boolean
+          edit:
+            type: boolean
+          manageUsers:
+            type: boolean
+          apiKey:
+            type: boolean
+  isPayer:
+    type: boolean
+  canBeRemoved:
+    type: boolean

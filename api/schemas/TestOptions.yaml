@@ -19,4 +19,4 @@ properties:
   w:
     type: string
     default: ''
-    description: Extra HTTP headers
+    description: Extra HTTP headers separated

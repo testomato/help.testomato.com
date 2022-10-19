@@ -25,6 +25,8 @@ properties:
   redirects:
     type: array
     description: List of redirections
+    items:
+      type: string
   timing:
     type: array
     items:
