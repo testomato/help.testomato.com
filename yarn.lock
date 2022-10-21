@@ -7024,10 +7024,10 @@ mkdirp@0.3.0:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.3.0.tgz#1bbf5ab1ba827af23575143490426455f481fe1e"
   integrity sha512-OHsdUcVAQ6pOtg5JYWpCBo9W/GySVuwvP9hueRMW7UqshC0tbfzLv8wjySTPm3tfUZ/21CE9E1pJagOA91Pxew==
 
-mock-to-openapi@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/mock-to-openapi/-/mock-to-openapi-1.0.3.tgz#266adbbadffebb146811a628b46fe86119c55c6a"
-  integrity sha512-MKLe4Lo/YbRVbnWWwvcIz6Kp/T507nMfskUESH65evbOK9+iQ5KiYqVodbSwgmgki9bp7MYMRQqwTRbjpNJlng==
+mock-to-openapi@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/mock-to-openapi/-/mock-to-openapi-1.0.5.tgz#1d4351e5c43cca707d07a0602b353b94187dac98"
+  integrity sha512-7O598dbeCC28AfMVgYsAagM+bi6d+Tk6LM+m5JOa4cqXfMnWIzUZcUICvxFMPBi0FnzpvQZUKwRdETCaAnsnKw==
   dependencies:
     chalk "^5.1.2"
     globby "^13.1.2"
