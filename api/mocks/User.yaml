@@ -1,0 +1,47 @@
+type: object
+properties:
+  id:
+    type: string
+    example: "7"
+  email:
+    type: string
+    example: roman@testomato.com
+  phone:
+    type: string
+    format: nullable
+  confirmTokenExpiration:
+    type: object
+    properties:
+      date:
+        type: string
+        format: date-time
+        example: 2022-10-21 13:26:14.000000
+      timezone_type:
+        type: integer
+        format: int32
+        example: 3
+      timezone:
+        type: string
+        example: Europe/Prague
+  name:
+    type: string
+    example: Roman Ožana
+  confirmed:
+    type: boolean
+    example: true
+  reportPeriod:
+    type: string
+    example: week
+  notificationEmail:
+    type: string
+    format: nullable
+  notificationDelay:
+    type: integer
+    format: int32
+    example: 1
+  timezone:
+    type: string
+    example: UTC
+  apiKey:
+    type: string
+    example: xkagjci

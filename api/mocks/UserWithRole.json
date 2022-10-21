@@ -1,0 +1,39 @@
+{
+	"id": "7",
+	"email": "roman@testomato.com",
+	"phone": null,
+	"confirmTokenExpiration": {
+		"date": "2022-10-21 13:26:14.000000",
+		"timezone_type": 3,
+		"timezone": "Europe/Prague"
+	},
+	"name": "Roman Ožana",
+	"confirmed": true,
+	"reportPeriod": "week",
+	"notificationEmail": null,
+	"notificationDelay": 1,
+	"timezone": "UTC",
+	"apiKey": "xkagjci",
+	"role": {
+		"users_id": null,
+		"name": "project developer",
+		"id": "5",
+		"permissions": [
+			"read",
+			"run",
+			"editTests",
+			"apiKey"
+		],
+		"systemRole": true,
+		"permissionsSwitches": {
+			"read": true,
+			"run": true,
+			"editTests": true,
+			"edit": false,
+			"manageUsers": false,
+			"apiKey": true
+		}
+	},
+	"isPayer": false,
+	"canBeRemoved": true
+}

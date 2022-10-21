@@ -6516,6 +6516,11 @@ lunr@^2.3.8:
   resolved "https://registry.yarnpkg.com/lunr/-/lunr-2.3.9.tgz#18b123142832337dd6e964df1a5a7707b25d35e1"
   integrity sha512-zTU3DaZaF3Rt9rhN3uBMGQD3dD2/vFQqnvZCDv4dl5iOzq2IZQqTxu90r4E5J+nP70J3ilqVCrbho2eWaeW8Ow==
 
+luxon@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/luxon/-/luxon-3.0.4.tgz#d179e4e9f05e092241e7044f64aaa54796b03929"
+  integrity sha512-aV48rGUwP/Vydn8HT+5cdr26YYQiUZ42NM6ToMoaGKwYfWbfLeRkEu1wXWMHBZT6+KyLfcbbtVcoQFCbbPjKlw==
+
 make-dir@^3.0.0, make-dir@^3.0.2, make-dir@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-3.1.0.tgz#415e967046b3a7f1d185277d84aa58203726a13f"
@@ -7024,13 +7029,14 @@ mkdirp@0.3.0:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.3.0.tgz#1bbf5ab1ba827af23575143490426455f481fe1e"
   integrity sha512-OHsdUcVAQ6pOtg5JYWpCBo9W/GySVuwvP9hueRMW7UqshC0tbfzLv8wjySTPm3tfUZ/21CE9E1pJagOA91Pxew==
 
-mock-to-openapi@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/mock-to-openapi/-/mock-to-openapi-1.0.7.tgz#f18fd1993da91c81bc09e881e79dadb0d1eeea39"
-  integrity sha512-mGZ4IaXetXw5RKKyJEusSslC/rXJdpI5s0gyx052t/fGg3cKDjiIlnG5hKfuUYpY/e+s1X3oeUWDVc5n1HiI+A==
+mock-to-openapi@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/mock-to-openapi/-/mock-to-openapi-1.0.8.tgz#44ed6aa36c6a35f34a1ad9d16e23f4be853dd812"
+  integrity sha512-DNcl8S304xqaNE0900IDhfU9ffgdmI7M64Bg2enjYLDMWjjiz5U9yItmfkE6WfWBcC+JS+BZyH3e7uOYbEs5fg==
   dependencies:
     chalk "^5.1.2"
     globby "^13.1.2"
+    luxon "^3.0.4"
     meow "^11.0.0"
     yaml "^2.1.3"
 

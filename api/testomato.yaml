@@ -417,6 +417,7 @@ paths:
         in: path
         schema:
           type: string
+
     get:
       operationId: Get Project users
       description: Return list of Users with access to the Project
@@ -433,6 +434,39 @@ paths:
                 type: array
                 items:
                   $ref: schemas/User.yaml
+
+    post:
+      operationId: Add User to Project
+      description: Add new user to project
+      security:
+        - ApiKey: [ ]
+      tags:
+        - Project
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: User email
+                  required: true
+                  example: "admin@testomato.com"
+                role:
+                  type: string
+                  required: true
+                  enum: [ 4, 5, 6 ]
+                  description: |
+                    `4` - Project Admin
+                    `5` - Project Developer
+                    `6` - Project Guest
+      responses:
+        200:
+          description: User was successfully add to the project
+          content:
+            application/json:
+              schema:
+                $ref: schemas/User.yaml
 
   /project/{id}/regenerateApiKey:
     parameters:

@@ -1,22 +1,21 @@
 type: object
 properties:
+  id:
+    type: string
+    example: "7"
   email:
     type: string
-    description: Main user email
     example: roman@testomato.com
   phone:
     type: string
     format: nullable
-    description: A phone number (optional) and not required
   confirmTokenExpiration:
-    description: Date and time when current common confirm token expires
     type: object
-    format: nullable
     properties:
       date:
         type: string
         format: date-time
-        example: 2022-10-21 13:10:35.000000
+        example: 2022-10-21 13:26:14.000000
       timezone_type:
         type: integer
         format: int32
@@ -26,46 +25,38 @@ properties:
         example: Europe/Prague
   name:
     type: string
-    description: User name
-    example: John Tomatoseeds
+    example: Roman Ožana
   confirmed:
-    description: Was user email confirmed?
     type: boolean
-  timezone:
-    type: string
-    description: User time zone name
-    example: Europe/Prague
+    example: true
   reportPeriod:
     type: string
-    enum: [ week ]
     example: week
   notificationEmail:
     type: string
     format: nullable
-    example: 'roman+notifications@testomato.com'
   notificationDelay:
     type: integer
     format: int32
     example: 1
+  timezone:
+    type: string
+    example: UTC
   apiKey:
-    description: User API Key
     type: string
-    example: 123456
-  id:
-    type: string
-    example: 7
+    example: xkagjci
   role:
     type: object
     properties:
-      id:
-        type: string
-        example: 4
       users_id:
         type: string
         format: nullable
       name:
         type: string
-        example: project admin
+        example: project developer
+      id:
+        type: string
+        example: "5"
       permissions:
         type: array
         items:
@@ -88,15 +79,14 @@ properties:
             example: true
           edit:
             type: boolean
-            example: true
+            example: false
           manageUsers:
             type: boolean
-            example: true
+            example: false
           apiKey:
             type: boolean
             example: true
   isPayer:
-    description: Is user owner of the Project?
     type: boolean
     example: false
   canBeRemoved:
