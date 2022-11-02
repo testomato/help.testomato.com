@@ -1,0 +1,20 @@
+type: object
+properties:
+  read:
+    type: boolean
+    example: true
+  run:
+    type: boolean
+    example: true
+  editTests:
+    type: boolean
+    example: true
+  edit:
+    type: boolean
+    example: true
+  manageUsers:
+    type: boolean
+    example: true
+  apiKey:
+    type: boolean
+    example: true

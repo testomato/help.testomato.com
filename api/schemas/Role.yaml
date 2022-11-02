@@ -1,0 +1,21 @@
+type: object
+properties:
+  id:
+    type: string
+    example: 4
+  users_id:
+    type: string
+    format: nullable
+  name:
+    type: string
+    example: project admin
+  permissions:
+    type: array
+    items:
+      type: string
+      example: read
+  systemRole:
+    type: boolean
+    example: true
+  permissionsSwitches:
+    $ref: Permissions.yaml

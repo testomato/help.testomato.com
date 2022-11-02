@@ -1,26 +1,26 @@
 type: object
+description: Project permissions for current user
 properties:
-  permissions:
-    type: object
-    description: Project permissions for current user
-    properties:
-      read:
-        type: boolean
-        description: Can current user view results?
-      run:
-        type: boolean
-        description: Can current user run checks?
-      editTest:
-        type: boolean
-      edit:
-        type: boolean
-        description: Can current user edit project settings?
-      manageUsers:
-        description: Can current user manage others?
-        type: boolean
-      apiKey:
-        description: Can current user view apiKey?
-        type: boolean
-      leave:
-        description: Can current user leave project?
-        type: boolean
+  read:
+    type: boolean
+    description: Can current user view results?
+  run:
+    type: boolean
+    description: Can current user run checks?
+  editTest:
+    type: boolean
+  edit:
+    type: boolean
+    description: Can current user edit project settings?
+  manageUsers:
+    description: Can current user manage others?
+    type: boolean
+    default: true
+  apiKey:
+    type: boolean
+    description: Can current user view apiKey?
+    default: true
+  leave:
+    description: Can current user leave project?
+    type: boolean
+    default: true

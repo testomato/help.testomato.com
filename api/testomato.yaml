@@ -146,8 +146,10 @@ paths:
               schema:
                 allOf:
                   - $ref: schemas/Project.yaml
-                  - $ref: schemas/Permissions.yaml
-
+                  - type: object
+                    properties:
+                      permissions:
+                        $ref: schemas/Permissions.yaml
     put:
       operationId: Update Project
       description: Update selected Project
@@ -494,8 +496,34 @@ paths:
                 properties:
                   apiKey:
                     type: string
-                    example: 123456
+                    example: abcdef
                     description: New API key
+
+  /project/{id}/permissions:
+    parameters:
+      - name: id
+        description: A unique Project ID
+        example: 5e9602e7a39e5a46428b457f
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
+    get:
+      operationId: Get project Permissions
+      description: Return user related permissions for selected Project
+      tags:
+        - Project
+      security:
+        - ApiKey: [ ]
+      responses:
+        200:
+          description: Return user permissions
+          content:
+            application/json:
+              schema:
+                $ref: schemas/Permissions.yaml
+
 
   /tests/{id}:
     parameters:

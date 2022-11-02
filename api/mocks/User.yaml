@@ -44,4 +44,4 @@ properties:
     example: UTC
   apiKey:
     type: string
-    example: xkagjci
+    example: abcdef
