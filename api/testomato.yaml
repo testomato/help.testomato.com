@@ -22,9 +22,9 @@ servers:
 paths:
   /project/create:
     post:
-      operationId: Create Project
+      operationId: Create project
       description: |
-        Create a new Project from array of URLs. Successful response will be
+        Create a new project from array of URLs. Successful response will be
         formatted as [JSONP](https://en.wikipedia.org/wiki/JSONP) stream.
         You can add **up to 30 URLs** at once.
       security:
@@ -121,7 +121,7 @@ paths:
   /project/{id}:
     parameters:
       - name: id
-        description: A unique Project ID
+        description: A unique project ID
         example: 5e9602e7a39e5a46428b457f
         allowEmptyValue: false
         required: true
@@ -130,8 +130,8 @@ paths:
           type: string
 
     get:
-      operationId: Get Project
-      description: Retrieve Project by ID
+      operationId: Get project
+      description: Retrieve project by ID
       security:
         - ApiKey: [ ]
       tags:
@@ -151,8 +151,8 @@ paths:
                       permissions:
                         $ref: schemas/Permissions.yaml
     put:
-      operationId: Update Project
-      description: Update selected Project
+      operationId: Update project
+      description: Update selected project
       tags:
         - Project
       security:
@@ -169,8 +169,8 @@ paths:
           $ref: responses/NotFound.yaml
 
     delete:
-      operationId: Delete Project
-      description: Delete selected Project
+      operationId: Delete project
+      description: Delete selected project
       tags:
         - Project
       security:
@@ -184,7 +184,7 @@ paths:
   /project/{id}/status:
     parameters:
       - name: id
-        description: A unique Project ID
+        description: A unique project ID
         example: 5e9602e7a39e5a46428b457f
         allowEmptyValue: false
         required: true
@@ -192,8 +192,8 @@ paths:
         schema:
           type: string
     get:
-      operationId: Get Project status
-      description: Get Project status
+      operationId: Get project status
+      description: Get project status
       tags:
         - Project
       security:
@@ -207,11 +207,11 @@ paths:
       - in: path
         required: true
         name: id
-        description: A unique Project ID
+        description: A unique project ID
 
     get:
-      operationId: Get Project status - simplify
-      description: Get simplify Project status
+      operationId: Get project status - simplify
+      description: Get simplify project status
       tags:
         - Project
       security:
@@ -222,7 +222,7 @@ paths:
 
   /project/{id}/start:
     get:
-      operationId: Starting Project
+      operationId: Starting project
       description: Start all checks in project
       tags:
         - Project
@@ -230,7 +230,7 @@ paths:
         - ApiKey: [ ]
       parameters:
         - name: id
-          description: A unique Project ID
+          description: A unique project ID
           example: 5e9602e7a39e5a46428b457f
           allowEmptyValue: false
           required: true
@@ -254,7 +254,7 @@ paths:
   /project/{ProjectId}/start/area/{AreaId}:
     parameters:
       - name: ProjectId
-        description: A unique Project ID
+        description: A unique project ID
         example: 5e9602e7a39e5a46428b457f
         allowEmptyValue: false
         required: true
@@ -262,7 +262,7 @@ paths:
         schema:
           type: string
       - name: AreaId
-        description: A unique Area/Group ID
+        description: A unique area/group ID
         example: 55ae166c25b395537a8b6029
         allowEmptyValue: false
         required: true
@@ -271,8 +271,8 @@ paths:
           type: string
 
     get:
-      operationId: Starting Project Group
-      description: Starting only specific group of Tests from Project
+      operationId: Starting project group
+      description: Starting only specific group of Tests from project
       tags:
         - Project
         - Group
@@ -309,7 +309,7 @@ paths:
   /project/{ProjectId}/job/{JobId}/results:
     parameters:
       - name: ProjectId
-        description: A unique Project ID
+        description: A unique project ID
         example: 5e9602e7a39e5a46428b457f
         allowEmptyValue: false
         required: true
@@ -326,65 +326,20 @@ paths:
           type: string
 
     get:
-      operationId: Get Project results
-      description: Retrieve latest Project's checks results
+      operationId: Get project results
+      description: Retrieve latest project's checks results
       tags:
         - Project
       security:
         - ApiKey: [ ]
       responses:
         200:
-          description: Project results
-          content:
-            application/json:
-              schema:
-                properties:
-                  jobId:
-                    type: string
-                    description: A unique ID for each project job
-                    example: 6346802f314d328b4a8b4579
-                  total:
-                    type: integer
-                    description: The total number of tests performed
-                    example: 28
-                  failed:
-                    type: integer
-                    description: The number of failed tests
-                    example: 0
-                  processed:
-                    type: boolean
-                    description: Has this job already been processed
-                    example: true
-                  persist:
-                    type: boolean
-                    description: Is this job temporary of persist
-                    example: true
-                  startedAt:
-                    type: integer
-                    description: Time when job started (unix timestamp)
-                    example: 1665564719
-                  duration:
-                    type: number
-                    description: Duration of the job in seconds
-                    example: 2.1946158409119
-                  mode:
-                    type: number
-                    example: 0
-                  areas:
-                    description: List of areas
-                    type: array
-                    items:
-                      type: string
-                  results:
-                    description: Array of test results -- each result has a testId, testName etc.
-                    type: array
-                    items:
-                      type: string
+          $ref: responses/ProjectJobResults.yaml
 
   /project/{id}/areas:
     parameters:
       - name: id
-        description: A unique Project ID
+        description: A unique project ID
         example: 5e9602e7a39e5a46428b457f
         allowEmptyValue: false
         required: true
@@ -392,8 +347,8 @@ paths:
         schema:
           type: string
     get:
-      operationId: Get Project Groups
-      description: Return list of project Groups/Areas
+      operationId: Get project groups
+      description: Return list of project groups/areas
       security:
         - ApiKey: [ ]
       tags:
@@ -401,7 +356,7 @@ paths:
         - Group
       responses:
         200:
-          description: List of Project Areas/Groups
+          description: List of project areas/groups
           content:
             application/json:
               schema:
@@ -412,7 +367,7 @@ paths:
   /project/{id}/users:
     parameters:
       - name: id
-        description: A unique Project ID
+        description: A unique project ID
         example: 5e9602e7a39e5a46428b457f
         allowEmptyValue: false
         required: true
@@ -421,8 +376,8 @@ paths:
           type: string
 
     get:
-      operationId: Get Project users
-      description: Return list of Users with access to the Project
+      operationId: Get project users
+      description: Return list of Users with access to the project
       security:
         - ApiKey: [ ]
       tags:
@@ -438,7 +393,7 @@ paths:
                   $ref: schemas/User.yaml
 
     post:
-      operationId: Add User to Project
+      operationId: Add user to project
       description: Add new user to project
       security:
         - ApiKey: [ ]
@@ -473,7 +428,7 @@ paths:
   /project/{id}/roles:
     parameters:
       - name: id
-        description: A unique Project ID
+        description: A unique project ID
         example: 5e9602e7a39e5a46428b457f
         allowEmptyValue: false
         required: true
@@ -481,26 +436,20 @@ paths:
         schema:
           type: string
     get:
-      operationId: Get Project roles
-      description: Get array of Project roles
+      operationId: Get project roles
+      description: Get array of project roles
       tags:
         - Project
       security:
-        - ApiKey: []
+        - ApiKey: [ ]
       responses:
         200:
-          description: List of Project Areas/Groups
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: schemas/Role.yaml
+          $ref: responses/ProjectRolesList.yaml
 
   /project/{id}/regenerateApiKey:
     parameters:
       - name: id
-        description: A unique Project ID
+        description: A unique project ID
         example: 5e9602e7a39e5a46428b457f
         allowEmptyValue: false
         required: true
@@ -516,7 +465,7 @@ paths:
         - ApiKey: [ ]
       responses:
         200:
-          description: Successfully regenerated Project API key
+          description: Successfully regenerated project API key
           content:
             application/json:
               schema:
@@ -529,7 +478,7 @@ paths:
   /project/{id}/permissions:
     parameters:
       - name: id
-        description: A unique Project ID
+        description: A unique project ID
         example: 5e9602e7a39e5a46428b457f
         allowEmptyValue: false
         required: true
@@ -537,8 +486,8 @@ paths:
         schema:
           type: string
     get:
-      operationId: Get project Permissions
-      description: Return user related permissions for selected Project
+      operationId: Get project permissions
+      description: Return user related permissions for selected project
       tags:
         - Project
       security:
@@ -555,7 +504,7 @@ paths:
   /tests/{id}:
     parameters:
       - name: id
-        description: A unique Test ID
+        description: A unique test ID
         example: 5e9602e7a39e5a46428b457f
         allowEmptyValue: false
         required: true
@@ -564,8 +513,8 @@ paths:
           type: string
 
     get:
-      operationId: Get Test
-      description: Retrieve test
+      operationId: Get test
+      description: Retrieve test by unique test ID
       tags:
         - Checks
       responses:

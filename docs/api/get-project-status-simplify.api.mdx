@@ -1,11 +1,11 @@
 ---
 id: get-project-status-simplify
-title: "Get Project status - simplify"
-description: "Get simplify Project status"
-sidebar_label: Get Project status - simplify
+title: "Get project status - simplify"
+description: "Get simplify project status"
+sidebar_label: Get project status - simplify
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"Get Project status - simplify","description":"Get simplify Project status","tags":["Project"],"security":[{"ApiKey":[]}],"responses":{"200":{"description":"Successful response - simplify project status","content":{"application/json":{"schema":{"properties":{"tests":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"url":{"type":"string"},"status":{"type":"string","enum":["OK","Error message"]}}},"example":[{"name":"Homepage","url":"https://www.testomato.com","status":"OK"},{"name":"Contact","url":"https://www.testomato.com/contact","status":"Missing \"example\" in Website TEXT"}]},"total":{"description":"Total count of checks","type":"integer","example":2},"failed":{"description":"Count of failing checks","example":1}}}}}}},"parameters":[{"in":"path","required":true,"name":"id","description":"A unique Project ID"}],"method":"get","path":"/project/{id}/simple-status","servers":[{"url":"https://testomato.com/api/","description":"Testomato"}],"securitySchemes":{"ApiKey":{"description":"Project or User API key","type":"apiKey","name":"apiKey","in":"query"}},"info":{"title":"Testomato API","description":"If you would like to participate in the future development of our\nroadmap, please don't be shy! We'd love to hear your suggestions:\nsupport@testomato.com\n","termsOfService":"https://www.testomato.com/terms-of-service","version":"1.0.0","contact":{"email":"support@testomato.com"}},"postman":{"name":"Get Project status - simplify","description":{"content":"Get simplify Project status","type":"text/plain"},"url":{"path":["project",":id","simple-status"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) A unique Project ID","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"apiKey","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"query","key":"in"}]}}}
+api: {"operationId":"Get project status - simplify","description":"Get simplify project status","tags":["Project"],"security":[{"ApiKey":[]}],"responses":{"200":{"description":"Successful response - simplify project status","content":{"application/json":{"schema":{"properties":{"tests":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"url":{"type":"string"},"status":{"type":"string","enum":["OK","Error message"]}}},"example":[{"name":"Homepage","url":"https://www.testomato.com","status":"OK"},{"name":"Contact","url":"https://www.testomato.com/contact","status":"Missing \"example\" in Website TEXT"}]},"total":{"description":"Total count of checks","type":"integer","example":2},"failed":{"description":"Count of failing checks","example":1}}}}}}},"parameters":[{"in":"path","required":true,"name":"id","description":"A unique project ID"}],"method":"get","path":"/project/{id}/simple-status","servers":[{"url":"https://testomato.com/api/","description":"Testomato"}],"securitySchemes":{"ApiKey":{"description":"Project or User API key","type":"apiKey","name":"apiKey","in":"query"}},"info":{"title":"Testomato API","description":"If you would like to participate in the future development of our\nroadmap, please don't be shy! We'd love to hear your suggestions:\nsupport@testomato.com\n","termsOfService":"https://www.testomato.com/terms-of-service","version":"1.0.0","contact":{"email":"support@testomato.com"}},"postman":{"name":"Get project status - simplify","description":{"content":"Get simplify project status","type":"text/plain"},"url":{"path":["project",":id","simple-status"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) A unique project ID","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"apikey","apikey":[{"type":"any","value":"apiKey","key":"key"},{"type":"any","value":"<API Key>","key":"value"},{"type":"any","value":"query","key":"in"}]}}}
 sidebar_class_name: "get api-method"
 info_path: api/testomato-api
 ---
@@ -19,13 +19,13 @@ import SchemaTabs from "@theme/SchemaTabs";
 import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import TabItem from "@theme/TabItem";
 
-## Get Project status - simplify
+## Get project status - simplify
 
 
 
-Get simplify Project status
+Get simplify project status
 
-<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"path","required":true,"name":"id","description":"A unique Project ID"}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"in":"path","required":true,"name":"id","description":"A unique project ID"}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
 
 Successful response - simplify project status
 

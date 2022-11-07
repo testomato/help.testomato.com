@@ -1,0 +1,7 @@
+description: List of Project Areas/Groups
+content:
+  application/json:
+    schema:
+      type: array
+      items:
+        $ref: ../schemas/Role.yaml

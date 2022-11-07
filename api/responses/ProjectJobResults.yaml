@@ -1,0 +1,46 @@
+description: Project results
+content:
+  application/json:
+    schema:
+      properties:
+        jobId:
+          type: string
+          description: A unique ID for each project job
+          example: 6346802f314d328b4a8b4579
+        total:
+          type: integer
+          description: The total number of tests performed
+          example: 28
+        failed:
+          type: integer
+          description: The number of failed tests
+          example: 0
+        processed:
+          type: boolean
+          description: Has this job already been processed
+          example: true
+        persist:
+          type: boolean
+          description: Is this job temporary of persist
+          example: true
+        startedAt:
+          type: integer
+          description: Time when job started (unix timestamp)
+          example: 1665564719
+        duration:
+          type: number
+          description: Duration of the job in seconds
+          example: 2.1946158409119
+        mode:
+          type: number
+          example: 0
+        areas:
+          description: List of areas
+          type: array
+          items:
+            type: string
+        results:
+          description: Array of test results -- each result has a testId, testName etc.
+          type: array
+          items:
+            type: string
