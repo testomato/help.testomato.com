@@ -1,0 +1,40 @@
+type: object
+properties:
+  users_id:
+    type: string
+    format: nullable
+  name:
+    type: string
+    example: project admin
+  id:
+    type: string
+    example: "4"
+  permissions:
+    type: array
+    items:
+      type: string
+      example: read
+  systemRole:
+    type: boolean
+    example: true
+  permissionsSwitches:
+    type: object
+    properties:
+      read:
+        type: boolean
+        example: true
+      run:
+        type: boolean
+        example: true
+      editTests:
+        type: boolean
+        example: true
+      edit:
+        type: boolean
+        example: true
+      manageUsers:
+        type: boolean
+        example: true
+      apiKey:
+        type: boolean
+        example: true

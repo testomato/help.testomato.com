@@ -13,7 +13,7 @@ properties:
     type: array
     items:
       type: string
-      example: read
+      example: [read, run, editTests, edit, manageUsers, apiKey]
   systemRole:
     type: boolean
     example: true

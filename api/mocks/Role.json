@@ -1,0 +1,22 @@
+{
+	"users_id": null,
+	"name": "project admin",
+	"id": "4",
+	"permissions": [
+		"read",
+		"run",
+		"editTests",
+		"edit",
+		"manageUsers",
+		"apiKey"
+	],
+	"systemRole": true,
+	"permissionsSwitches": {
+		"read": true,
+		"run": true,
+		"editTests": true,
+		"edit": true,
+		"manageUsers": true,
+		"apiKey": true
+	}
+}
