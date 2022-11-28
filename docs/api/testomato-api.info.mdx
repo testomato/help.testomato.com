@@ -1,10 +1,7 @@
 ---
 id: testomato-api
 title: "Testomato API"
-description: "If you would like to participate in the future development of our
-roadmap, please don't be shy! We'd love to hear your suggestions:
-support@testomato.com
-"
+description: "If you would like to participate in the future development of our"
 sidebar_label: Introduction
 sidebar_position: 0
 hide_title: true
@@ -26,9 +23,14 @@ roadmap, please don't be shy! We'd love to hear your suggestions:
 support@testomato.com
 
 
-<div style={{"marginBottom":"2rem"}}><h2 id={"authentication"} style={{"marginBottom":"1rem"}}>Authentication</h2><Tabs><TabItem label={"API Key"} value={"ApiKey"}>
+<div style={{"marginBottom":"2rem"}}><h2 id={"authentication"} style={{"marginBottom":"1rem"}}>Authentication</h2><Tabs><TabItem label={"API Key"} value={"ApiToken"}>
 
-Project or User API key
+The Testomato API Token can be obtained from the [User Profile](https://www.testomato.com/user/profile) 
+or directly through the API by a `POST` request send to `/api/authenticate` visit 
+[Get API token](/api/get-api-token) for more information.
 
-<div><table><tbody><tr><th>Security Scheme Type:</th><td>apiKey</td></tr><tr><th>Header parameter name:</th><td>apiKey</td></tr></tbody></table></div></TabItem></Tabs></div><div style={{"display":"flex","flexDirection":"column","marginBottom":"var(--ifm-paragraph-margin-bottom)"}}><h3 style={{"marginBottom":"0.25rem"}}>Contact</h3><span><a href={"mailto:support@testomato.com"}>support@testomato.com</a></span></div><div style={{"marginBottom":"var(--ifm-paragraph-margin-bottom)"}}><h3 style={{"marginBottom":"0.25rem"}}>Terms of Service</h3><a href={"https://www.testomato.com/terms-of-service"}>https://www.testomato.com/terms-of-service</a></div>
+Testomato API token use [JWT schema](https://jwt.io/).
+
+
+<div><table><tbody><tr><th>Security Scheme Type:</th><td>http</td></tr><tr><th>HTTP Authorization Scheme:</th><td>bearer</td></tr><tr><th>Bearer format:</th><td>JWT</td></tr></tbody></table></div></TabItem></Tabs></div><div style={{"display":"flex","flexDirection":"column","marginBottom":"var(--ifm-paragraph-margin-bottom)"}}><h3 style={{"marginBottom":"0.25rem"}}>Contact</h3><span><a href={"mailto:support@testomato.com"}>support@testomato.com</a></span></div><div style={{"marginBottom":"var(--ifm-paragraph-margin-bottom)"}}><h3 style={{"marginBottom":"0.25rem"}}>Terms of Service</h3><a href={"https://www.testomato.com/terms-of-service"}>https://www.testomato.com/terms-of-service</a></div>
       

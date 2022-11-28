@@ -20,6 +20,34 @@ servers:
     description: Testomato
 
 paths:
+  /authenticate:
+    post:
+      operationId: Get API token
+      description: Generate API Token
+      tags:
+        - Authenticate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                email:
+                  type: string
+                  description: User email
+                password:
+                  type: string
+                  description: User password
+                exp:
+                  type: string
+                  default: '+1 hour'
+                  description: Expiration string
+    get:
+      operationId: Verify API token
+      description: Verify API token
+      tags:
+        - Authenticate
+      security:
+        - ApiToken: [ ]
   /project/create:
     post:
       operationId: Create project
@@ -28,7 +56,7 @@ paths:
         formatted as [JSONP](https://en.wikipedia.org/wiki/JSONP) stream.
         You can add **up to 30 URLs** at once.
       security:
-        - ApiKey: [ ]
+        - ApiToken: [ ]
       tags:
         - Project
       parameters:
@@ -133,7 +161,7 @@ paths:
       operationId: Get project
       description: Retrieve project by ID
       security:
-        - ApiKey: [ ]
+        - ApiToken: [ ]
       tags:
         - Project
       responses:
@@ -156,7 +184,7 @@ paths:
       tags:
         - Project
       security:
-        - ApiKey: [ ]
+        - ApiToken: [ ]
       requestBody:
         content:
           application/json:
@@ -167,14 +195,13 @@ paths:
           $ref: responses/SuccessMessage.yaml
         404:
           $ref: responses/NotFound.yaml
-
     delete:
       operationId: Delete project
       description: Delete selected project
       tags:
         - Project
       security:
-        - ApiKey: [ ]
+        - ApiToken: [ ]
       responses:
         200:
           $ref: responses/SuccessMessage.yaml
@@ -197,7 +224,7 @@ paths:
       tags:
         - Project
       security:
-        - ApiKey: [ ]
+        - ApiToken: [ ]
       responses:
         200:
           $ref: responses/ProjectStatus.yaml
@@ -215,7 +242,7 @@ paths:
       tags:
         - Project
       security:
-        - ApiKey: [ ]
+        - ApiToken: [ ]
       responses:
         200:
           $ref: responses/ProjectSimpleStatus.yaml
@@ -227,7 +254,7 @@ paths:
       tags:
         - Project
       security:
-        - ApiKey: [ ]
+        - ApiToken: [ ]
       parameters:
         - name: id
           description: A unique project ID
@@ -277,7 +304,7 @@ paths:
         - Project
         - Group
       security:
-        - ApiKey: [ ]
+        - ApiToken: [ ]
       parameters:
         - name: keep-alive
           description: Maintain the connection after starting the tests
@@ -331,7 +358,7 @@ paths:
       tags:
         - Project
       security:
-        - ApiKey: [ ]
+        - ApiToken: [ ]
       responses:
         200:
           $ref: responses/ProjectJobResults.yaml
@@ -350,7 +377,7 @@ paths:
       operationId: Get project groups
       description: Return list of project groups/areas
       security:
-        - ApiKey: [ ]
+        - ApiToken: [ ]
       tags:
         - Project
         - Group
@@ -379,7 +406,7 @@ paths:
       operationId: Get project users
       description: Return list of Users with access to the project
       security:
-        - ApiKey: [ ]
+        - ApiToken: [ ]
       tags:
         - Project
       responses:
@@ -396,7 +423,7 @@ paths:
       operationId: Add user to project
       description: Add new user to project
       security:
-        - ApiKey: [ ]
+        - ApiToken: [ ]
       tags:
         - Project
       requestBody:
@@ -407,11 +434,9 @@ paths:
                 email:
                   type: string
                   description: User email
-                  required: true
                   example: "admin@testomato.com"
                 role:
                   type: string
-                  required: true
                   enum: [ 4, 5, 6 ]
                   description: |
                     `4` - Project Admin
@@ -441,12 +466,12 @@ paths:
       tags:
         - Project
       security:
-        - ApiKey: [ ]
+        - ApiToken: [ ]
       responses:
         200:
           $ref: responses/ProjectRolesList.yaml
 
-  /project/{id}/regenerateApiKey:
+  /project/{id}/notifications:
     parameters:
       - name: id
         description: A unique project ID
@@ -456,24 +481,9 @@ paths:
         in: path
         schema:
           type: string
-    post:
-      operationId: Regenerate API Key
-      description: Regenerate project API key
-      tags:
-        - Project
-      security:
-        - ApiKey: [ ]
-      responses:
-        200:
-          description: Successfully regenerated project API key
-          content:
-            application/json:
-              schema:
-                properties:
-                  apiKey:
-                    type: string
-                    example: abcdef
-                    description: New API key
+    get:
+      operationId: Project notifications
+      description: Get project notifications settings for user
 
   /project/{id}/permissions:
     parameters:
@@ -491,7 +501,7 @@ paths:
       tags:
         - Project
       security:
-        - ApiKey: [ ]
+        - ApiToken: [ ]
       responses:
         200:
           description: Return user permissions
@@ -499,8 +509,6 @@ paths:
             application/json:
               schema:
                 $ref: schemas/Permissions.yaml
-
-
   /tests/{id}:
     parameters:
       - name: id
@@ -527,8 +535,13 @@ paths:
 
 components:
   securitySchemes:
-    ApiKey:
-      description: Project or User API key
-      type: apiKey
-      name: apiKey
-      in: query
+    ApiToken:
+      description: |
+        The Testomato API Token can be obtained from the [User Profile](https://www.testomato.com/user/profile) 
+        or directly through the API by a `POST` request send to `/api/authenticate` visit 
+        [Get API token](/api/get-api-token) for more information.
+        
+        Testomato API token use [JWT schema](https://jwt.io/).
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,29 @@
+---
+id: verify-api-token
+title: "Verify API token"
+description: "Verify API token"
+sidebar_label: "Verify API token"
+hide_title: true
+hide_table_of_contents: true
+api: {"operationId":"Verify API token","description":"Verify API token","tags":["Authenticate"],"security":[{"ApiToken":[]}],"method":"get","path":"/authenticate","servers":[{"url":"https://testomato.com/api/","description":"Testomato"}],"securitySchemes":{"ApiToken":{"description":"The Testomato API Token can be obtained from the [User Profile](https://www.testomato.com/user/profile) \nor directly through the API by a `POST` request send to `/api/authenticate` visit \n[Get API token](/api/get-api-token) for more information.\n\nTestomato API token use [JWT schema](https://jwt.io/).\n","type":"http","scheme":"bearer","bearerFormat":"JWT"}},"info":{"title":"Testomato API","description":"If you would like to participate in the future development of our\nroadmap, please don't be shy! We'd love to hear your suggestions:\nsupport@testomato.com\n","termsOfService":"https://www.testomato.com/terms-of-service","version":"1.0.0","contact":{"email":"support@testomato.com"}},"postman":{"name":"Verify API token","description":{"content":"Verify API token","type":"text/plain"},"url":{"path":["authenticate"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"method":"GET","auth":{"type":"bearer","bearer":[{"type":"any","value":"<Bearer Token>","key":"token"}]}}}
+sidebar_class_name: "get api-method"
+info_path: api/testomato-api
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Verify API token
+
+
+
+Verify API token
+
+
+      

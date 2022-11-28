@@ -1,0 +1,29 @@
+---
+id: project-notifications
+title: "Project notifications"
+description: "Get project notifications settings for user"
+sidebar_label: "Project notifications"
+hide_title: true
+hide_table_of_contents: true
+api: {"operationId":"Project notifications","description":"Get project notifications settings for user","parameters":[{"name":"id","description":"A unique project ID","example":"5e9602e7a39e5a46428b457f","allowEmptyValue":false,"required":true,"in":"path","schema":{"type":"string"}}],"method":"get","path":"/project/{id}/notifications","servers":[{"url":"https://testomato.com/api/","description":"Testomato"}],"securitySchemes":{"ApiToken":{"description":"The Testomato API Token can be obtained from the [User Profile](https://www.testomato.com/user/profile) \nor directly through the API by a `POST` request send to `/api/authenticate` visit \n[Get API token](/api/get-api-token) for more information.\n\nTestomato API token use [JWT schema](https://jwt.io/).\n","type":"http","scheme":"bearer","bearerFormat":"JWT"}},"info":{"title":"Testomato API","description":"If you would like to participate in the future development of our\nroadmap, please don't be shy! We'd love to hear your suggestions:\nsupport@testomato.com\n","termsOfService":"https://www.testomato.com/terms-of-service","version":"1.0.0","contact":{"email":"support@testomato.com"}},"postman":{"name":"Project notifications","description":{"content":"Get project notifications settings for user","type":"text/plain"},"url":{"path":["project",":id","notifications"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) A unique project ID","type":"text/plain"},"type":"any","value":"","key":"id"}]},"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: api/testomato-api
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Project notifications
+
+
+
+Get project notifications settings for user
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","description":"A unique project ID","example":"5e9602e7a39e5a46428b457f","allowEmptyValue":false,"required":true,"in":"path","schema":{"type":"string"}}}></ParamsItem></ul></div></details>
+      
