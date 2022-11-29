@@ -40,7 +40,20 @@ paths:
                 exp:
                   type: string
                   default: '+1 hour'
-                  description: Expiration string
+                  description: | 
+                    Expiration string. We do not recommend using long expirations,
+                    it is always safer to request a new API token.
+                    
+                    Accept same values as PHP [datetime modify function](https://www.php.net/manual/en/datetime.modify.php)
+
+      responses:
+        200:
+          description: Successfully generated access token
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
     get:
       operationId: Verify API token
       description: Verify API token
@@ -48,6 +61,49 @@ paths:
         - Authenticate
       security:
         - ApiToken: [ ]
+      responses:
+        200:
+          description: Successfully authenticate with API token
+          content:
+            application/json:
+              schema:
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: John Testomato
+                  email:
+                    type: string
+                    example: user@email.com
+                  exp:
+                    type: integer
+                    example: 1825840726
+                  tid:
+                    type: string
+                    example: "e2ew1g30xl"
+                  iat:
+                    type: integer
+                    example: 1668074326
+                  nbf:
+                    type: string
+                    example: 1668074326
+
+  /auth:
+    get:
+      operationId: Current user
+      description: Getting information about the currently logged-in user
+      tags:
+        - Authenticate
+      responses:
+        200:
+          description: Current logged in user
+          content:
+            application/json:
+              schema:
+                $ref: schemas/Auth.yaml
+
   /project/create:
     post:
       operationId: Create project
