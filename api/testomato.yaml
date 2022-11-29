@@ -40,7 +40,7 @@ paths:
                 exp:
                   type: string
                   default: '+1 hour'
-                  description: | 
+                  description: |
                     Expiration string. We do not recommend using long expirations,
                     it is always safer to request a new API token.
                     
@@ -70,25 +70,36 @@ paths:
                 properties:
                   id:
                     type: integer
+                    description: User ID
                     example: 1
                   name:
                     type: string
+                    description: User name
                     example: John Testomato
                   email:
                     type: string
+                    description: User email
                     example: user@email.com
                   exp:
                     type: integer
+                    description: Expiration date
                     example: 1825840726
                   tid:
                     type: string
+                    description: Token identifier
                     example: "e2ew1g30xl"
                   iat:
                     type: integer
                     example: 1668074326
+                    description: |
+                      The "iat" (issued at) claim identifies the time at which the JWT was
+                      issued.  This claim can be used to determine the age of the JWT.
                   nbf:
                     type: string
                     example: 1668074326
+                    description: |
+                      The "nbf" (not before) claim identifies the time before which the JWT
+                      MUST NOT be accepted for processing.
 
   /auth:
     get:
