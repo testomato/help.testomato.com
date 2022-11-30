@@ -1,0 +1,21 @@
+type: object
+properties:
+  severity:
+    type: integer
+    format: int32
+    example: 1
+  email:
+    type: boolean
+    example: true
+  pagerduty:
+    type: boolean
+    example: true
+  pushover:
+    type: boolean
+    example: true
+  pushbullet:
+    type: boolean
+    example: true
+  slack:
+    type: boolean
+    example: true

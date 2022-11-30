@@ -1,0 +1,30 @@
+type: object
+properties:
+  severity:
+    type: integer
+    format: int32
+    default: 1
+    example: 1
+    description: |
+      * `1` - only errors (default)
+      * `3` - error and timeouts
+  email:
+    type: boolean
+    example: true
+    description: Send email notifications or not
+  pagerduty:
+    type: boolean
+    example: true
+    description: Send [PagerDuty](https://www.pagerduty.com/) notifications
+  pushover:
+    type: boolean
+    example: true
+    description: Send [PushHover](https://pushover.net/) notifications
+  pushbullet:
+    type: boolean
+    example: true
+    description: Send [PushBullet](https://www.pushbullet.com/) notifications
+  slack:
+    type: boolean
+    example: true
+    description: Send [Slack](https://slack.com/) notifications

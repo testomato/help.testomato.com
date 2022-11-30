@@ -56,7 +56,9 @@ paths:
                 example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
     get:
       operationId: Verify API token
-      description: Verify API token
+      description: |
+        By calling this API endpoint you can verify the validity of your token.
+        Response contains user information like `email` and user `id`.
       tags:
         - Authenticate
       security:
@@ -101,19 +103,7 @@ paths:
                       The "nbf" (not before) claim identifies the time before which the JWT
                       MUST NOT be accepted for processing.
 
-  /auth:
-    get:
-      operationId: Current user
-      description: Getting information about the currently logged-in user
-      tags:
-        - Authenticate
-      responses:
-        200:
-          description: Current logged in user
-          content:
-            application/json:
-              schema:
-                $ref: schemas/Auth.yaml
+
 
   /project/create:
     post:
@@ -550,7 +540,39 @@ paths:
           type: string
     get:
       operationId: Project notifications
-      description: Get project notifications settings for user
+      description: Get project notifications settings for current user
+      tags:
+        - Project
+      security:
+        - ApiToken: [ ]
+
+      responses:
+        200:
+          description: Notification settings response
+          content:
+            application/json:
+              schema:
+                $ref: schemas/Notifications.yaml
+    post:
+      operationId: Update notifications
+      description: Update Project notifications settings for current user
+      tags:
+        - Project
+      security:
+        - ApiToken: [ ]
+      responses:
+        200:
+          description: Notification settings response
+          content:
+            application/json:
+              schema:
+                $ref: schemas/Notifications.yaml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: schemas/Notifications.yaml
+
 
   /project/{id}/permissions:
     parameters:

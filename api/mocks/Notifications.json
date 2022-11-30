@@ -1,0 +1,8 @@
+{
+	"severity": 1,
+	"email": true,
+	"pagerduty": true,
+	"pushover": true,
+	"pushbullet": true,
+	"slack": true
+}
