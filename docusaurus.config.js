@@ -57,6 +57,11 @@ module.exports = {
 				language: 'php',
 				logoClass: 'php',
 			},
+			{
+				highlight: 'python',
+				language: 'python',
+				logoClass: 'python',
+			},
 		],
 		colorMode: {
 			defaultMode: 'light',

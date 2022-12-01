@@ -573,6 +573,72 @@ paths:
             schema:
               $ref: schemas/Notifications.yaml
 
+  /project/{id}/responseTimes:
+    parameters:
+      - name: id
+        description: A unique project ID
+        example: 5e9602e7a39e5a46428b457f
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
+
+      - name: start
+        description: Period start date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format
+        example: 2022-10-31T00:00:00.000+01:00
+        required: true
+        in: query
+        schema:
+          type: string
+
+      - name: end
+        description: |
+          Period end date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format (default `now`)
+        example: 2022-10-31T00:00:00.000+01:00
+        required: false
+        in: query
+        schema:
+          type: string
+    get:
+      operationId: Response times
+      description: Return response times of project in selected period
+      tags:
+        - Project
+      security:
+        - ApiToken: [ ]
+      responses:
+        405:
+          description: |
+            Start time is empty or invalid (use [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date format)
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    description: Error message
+                    default: Start time is empty or invalid (use ISO8601 date format)
+                  success:
+                    type: boolean
+                    default: false
+                  ok:
+                    type: boolean
+                    default: false
+                  error:
+                    type: boolean
+                    default: true
+        200:
+          description: |
+            Array of response times - first record are array keys
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - [ "Time", "DNS Lookup", "Initial connection", "SSL", "Request", "Waiting", "Content download", "Total" ]
+                  - [ 1667210000, 2.3, 16.9, 30.5, 0, 39.7, 7.5, 98.2 ]
+                  - [ 1667210000, 2.1, 16.8, 30, 0, 39.7, 7.5, 98.2 ]
 
   /project/{id}/permissions:
     parameters:
