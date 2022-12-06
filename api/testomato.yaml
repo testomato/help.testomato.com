@@ -640,6 +640,47 @@ paths:
                   - [ 1667210000, 2.3, 16.9, 30.5, 0, 39.7, 7.5, 98.2 ]
                   - [ 1667210000, 2.1, 16.8, 30, 0, 39.7, 7.5, 98.2 ]
 
+  /project/{id}/uptime:
+    parameters:
+      - name: id
+        description: A unique project ID
+        example: 5e9602e7a39e5a46428b457f
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
+
+      - name: start
+        description: Period start date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format
+        example: 2022-10-31T00:00:00.000+01:00
+        required: true
+        in: query
+        schema:
+          type: string
+
+      - name: end
+        description: |
+          Period end date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format (default `now`)
+        example: 2022-10-31T00:00:00.000+01:00
+        required: false
+        in: query
+        schema:
+          type: string
+    get:
+      operationId: Get Uptime
+      description: Return uptimes by days
+      tags:
+        - Project
+      security:
+        - ApiToken: [ ]
+      responses:
+        200:
+          description: Response times
+          content:
+            application/json:
+              schema:
+                $ref: schemas/Uptime.yaml
   /project/{id}/permissions:
     parameters:
       - name: id

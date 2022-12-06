@@ -1,0 +1,45 @@
+type: object
+properties:
+  from:
+    type: string
+    format: date-time
+    example: 2022-11-25T00:00:00+01:00
+  to:
+    type: string
+    format: date-time
+    example: 2022-12-01T14:10:08+01:00
+  daysCount:
+    type: integer
+    format: int32
+    example: 6
+  uptime:
+    type: object
+    properties:
+      up:
+        type: number
+        example: 97.856313311777
+      down:
+        type: number
+        example: 1.2870556603245
+      timeout:
+        type: number
+        example: 0.85663102789809
+  uptimeByDays:
+    type: array
+    items:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+          example: 2022-11-25T00:00:00+01:00
+        up:
+          type: number
+          example: 99.853140098274
+        down:
+          type: number
+          example: 0.14685990172585
+        timeout:
+          type: integer
+          format: int32
+          example: 0
