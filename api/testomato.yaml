@@ -16,7 +16,7 @@ info:
     email: support@testomato.com
 
 servers:
-  - url: https://testomato.com/api/
+  - url: https://testomato.com/api
     description: Testomato
 
 paths:

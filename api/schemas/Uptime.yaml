@@ -9,10 +9,16 @@ properties:
     format: date-time
     example: 2022-12-01T14:10:08+01:00
   daysCount:
+    description: Number of days in the period
     type: integer
     format: int32
     example: 6
+  isUptimeEnabled:
+    description: Is uptime enabled for this project
+    type: boolean
+    example: true
   uptime:
+    description: Uptime for the whole period
     type: object
     properties:
       up:
@@ -25,6 +31,7 @@ properties:
         type: number
         example: 0.85663102789809
   uptimeByDays:
+    description: Uptime by days (can be empty if uptime data is not available)
     type: array
     items:
       type: object
