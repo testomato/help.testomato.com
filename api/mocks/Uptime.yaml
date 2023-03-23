@@ -12,6 +12,9 @@ properties:
     type: integer
     format: int32
     example: 6
+  isUptimeEnabled:
+    type: boolean
+    example: true
   uptime:
     type: object
     properties:

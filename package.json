@@ -17,28 +17,28 @@
 		"api.regenerate": "yarn api.clean && yarn api"
 	},
 	"dependencies": {
-		"@docusaurus/core": "^2.2.0",
-		"@docusaurus/preset-classic": "^2.2.0",
+		"@docusaurus/core": "^2.3.1",
+		"@docusaurus/preset-classic": "^2.3.1",
 		"classnames": "^2.3.2",
 		"docusaurus-lunr-search": "^2.3.2",
-		"docusaurus-plugin-openapi-docs": "^1.4.5",
-		"docusaurus-theme-openapi-docs": "^1.4.5",
+		"docusaurus-plugin-openapi-docs": "^1.7.0",
+		"docusaurus-theme-openapi-docs": "^1.7.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
 		"babel-eslint": "^10.0.3",
-		"eslint": "^8.28.0",
+		"eslint": "^8.36.0",
 		"eslint-config-airbnb": "^19.0.4",
-		"eslint-config-prettier": "^8.5.0",
+		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-header": "^3.1.1",
-		"eslint-plugin-import": "^2.26.0",
-		"eslint-plugin-jsx-a11y": "^6.6.1",
-		"eslint-plugin-react": "^7.31.11",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-jsx-a11y": "^6.7.1",
+		"eslint-plugin-react": "^7.32.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"mock-to-openapi": "^1.0.9",
-		"prettier": "^2.8.0",
-		"stylelint": "^14.15.0"
+		"prettier": "^2.8.6",
+		"stylelint": "^15.3.0"
 	},
 	"browserslist": {
 		"production": [
