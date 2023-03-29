@@ -1,0 +1,34 @@
+type: object
+properties:
+  responseDate:
+    type: string
+    description: Response date
+    example: "2023-03-23T12:53:20+00:00"
+  dnsLookupTime:
+    type: number
+    description: DNS lookup time
+    example: 3
+  initialConnectionTime:
+    type: number
+    description: Initial connection time
+    example: 17
+  sslTime:
+    type: number
+    description: SSL time
+    example: 26
+  requestTime:
+    type: number
+    description: Request time
+    example: 0
+  waitingTime:
+    type: number
+    description: Waiting time
+    example: 39
+  contentDownloadTime:
+    type: number
+    description: Content download time
+    example: 7
+  totalResponseTime:
+    type: number
+    description: Total response time
+    example: 89
