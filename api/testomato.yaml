@@ -636,9 +636,9 @@ paths:
               schema:
                 type: array
                 example:
-                  - [ "Time", "DNS Lookup", "Initial connection", "SSL", "Request", "Waiting", "Content download", "Total" ]
-                  - [ 1667210000, 2.3, 16.9, 30.5, 0, 39.7, 7.5, 98.2 ]
-                  - [ 1667210000, 2.1, 16.8, 30, 0, 39.7, 7.5, 98.2 ]
+                  - { "responseDate": "2023-03-23T12:53:20+00:00", "dnsLookupTime": 3, "initialConnectionTime": 17, "sslTime": 26, "requestTime": 0, "waitingTime": 39, "contentDownloadTime": 7, "totalResponseTime": 89 }
+                  - { "responseDate": "2023-03-23T13:10:00+00:00", "dnsLookupTime": 3.5882352941176, "initialConnectionTime": 17.352941176471, "sslTime": 30.529411764706, "requestTime": 0, "waitingTime": 42.411764705882, "contentDownloadTime": 7.6470588235294, "totalResponseTime": 101.05882352941 }
+                  - { "responseDate": "2023-03-23T13:26:40+00:00", "dnsLookupTime": 3.5625, "initialConnectionTime": 18.5625, "sslTime": 30.25, "requestTime": 0, "waitingTime": 41.375, "contentDownloadTime": 7.25, "totalResponseTime": 99.1875 }
 
   /project/{id}/uptime:
     parameters:

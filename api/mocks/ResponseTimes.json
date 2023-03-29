@@ -1,0 +1,22 @@
+[
+	{
+		"responseDate": "2023-03-23T12:53:20+00:00",
+		"dnsLookupTime": 3,
+		"initialConnectionTime": 17,
+		"sslTime": 26,
+		"requestTime": 0,
+		"waitingTime": 39,
+		"contentDownloadTime": 7,
+		"totalResponseTime": 89
+	},
+	{
+		"responseDate": "2023-03-23T13:10:00+00:00",
+		"dnsLookupTime": 3.5882352941176,
+		"initialConnectionTime": 17.352941176471,
+		"sslTime": 30.529411764706,
+		"requestTime": 0,
+		"waitingTime": 42.411764705882,
+		"contentDownloadTime": 7.6470588235294,
+		"totalResponseTime": 101.05882352941
+	}
+]

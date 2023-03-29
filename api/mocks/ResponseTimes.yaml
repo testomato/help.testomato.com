@@ -1,0 +1,36 @@
+type: array
+items:
+  type: object
+  properties:
+    responseDate:
+      type: string
+      format: date-time
+      example: 2023-03-23T12:53:20+00:00
+    dnsLookupTime:
+      type: integer
+      format: int32
+      example: 3
+    initialConnectionTime:
+      type: integer
+      format: int32
+      example: 17
+    sslTime:
+      type: integer
+      format: int32
+      example: 26
+    requestTime:
+      type: integer
+      format: int32
+      example: 0
+    waitingTime:
+      type: integer
+      format: int32
+      example: 39
+    contentDownloadTime:
+      type: integer
+      format: int32
+      example: 7
+    totalResponseTime:
+      type: integer
+      format: int32
+      example: 89
