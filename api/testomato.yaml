@@ -294,7 +294,7 @@ paths:
         description: A unique project ID
 
     get:
-      operationId: Get project status - simplify
+      operationId: Simplify project status
       description: Get simplify project status
       tags:
         - Project
@@ -518,7 +518,7 @@ paths:
         schema:
           type: string
     get:
-      operationId: Get project roles
+      operationId: Project roles
       description: Get array of project roles
       tags:
         - Project
@@ -693,7 +693,7 @@ paths:
         schema:
           type: string
     get:
-      operationId: Get project permissions
+      operationId: Project permissions
       description: Return user related permissions for selected project
       tags:
         - Project
