@@ -107,7 +107,7 @@ paths:
 
   /project/create:
     post:
-      operationId: Create project
+      operationId: New project
       description: |
         Create a new project from array of URLs. Successful response will be
         formatted as [JSONP](https://en.wikipedia.org/wiki/JSONP) stream.
@@ -236,7 +236,7 @@ paths:
                       permissions:
                         $ref: schemas/Permissions.yaml
     put:
-      operationId: Update project
+      operationId: Project update
       description: Update selected project
       tags:
         - Project
@@ -253,7 +253,7 @@ paths:
         404:
           $ref: responses/NotFound.yaml
     delete:
-      operationId: Delete project
+      operationId: Project delete
       description: Delete selected project
       tags:
         - Project
@@ -276,8 +276,8 @@ paths:
         schema:
           type: string
     get:
-      operationId: Get project status
-      description: Get project status
+      operationId: Project status
+      description: Return project status
       tags:
         - Project
       security:
@@ -410,7 +410,7 @@ paths:
           type: string
 
     get:
-      operationId: Get project results
+      operationId: Project results
       description: Retrieve latest project's checks results
       tags:
         - Project
@@ -431,7 +431,7 @@ paths:
         schema:
           type: string
     get:
-      operationId: Get project groups
+      operationId: Project groups
       description: Return list of project groups/areas
       security:
         - ApiToken: [ ]
@@ -460,7 +460,7 @@ paths:
           type: string
 
     get:
-      operationId: Get project users
+      operationId: Project users
       description: Return list of Users with access to the project
       security:
         - ApiToken: [ ]
@@ -669,7 +669,7 @@ paths:
         schema:
           type: string
     get:
-      operationId: Get Uptime
+      operationId: Uptime
       description: Return uptimes by days
       tags:
         - Project
