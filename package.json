@@ -17,8 +17,8 @@
 		"api.regenerate": "yarn api.clean && yarn api"
 	},
 	"dependencies": {
-		"@docusaurus/core": "^2.4.0",
-		"@docusaurus/preset-classic": "^2.4.0",
+		"@docusaurus/core": "^2.4.1",
+		"@docusaurus/preset-classic": "^2.4.1",
 		"classnames": "^2.3.2",
 		"docusaurus-lunr-search": "^2.3.2",
 		"docusaurus-plugin-openapi-docs": "2.0.0-beta.2",
@@ -28,7 +28,7 @@
 	},
 	"devDependencies": {
 		"babel-eslint": "^10.0.3",
-		"eslint": "^8.37.0",
+		"eslint": "^8.44.0",
 		"eslint-config-airbnb": "^19.0.4",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-header": "^3.1.1",
@@ -37,8 +37,8 @@
 		"eslint-plugin-react": "^7.32.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"mock-to-openapi": "^1.0.9",
-		"prettier": "^2.8.7",
-		"stylelint": "^15.3.0"
+		"prettier": "^3.0.0",
+		"stylelint": "^15.10.1"
 	},
 	"browserslist": {
 		"production": [
