@@ -1,5 +1,5 @@
-const baseTheme = require('prism-react-renderer').themes.github;
-const darkTheme = require('prism-react-renderer').themes.dracula;
+const lightCodeTheme = require('prism-react-renderer').themes.github;
+const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
 
 module.exports = {
@@ -10,8 +10,8 @@ module.exports = {
   baseUrl: '/',
   organizationName: 'testomato',
   projectName: 'help.testomato.com',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
   trailingSlash: false,
   presets: [
     [
@@ -42,7 +42,10 @@ module.exports = {
     ],
   ],
   themeConfig: {
-    prism: {theme: baseTheme, darkTheme},
+    prism: {
+      theme: lightCodeTheme,
+      darkTheme: darkCodeTheme,
+    },
     languageTabs: [
       {
         highlight: 'bash',
@@ -143,6 +146,7 @@ module.exports = {
     },
   },
   plugins: [
+    "@docusaurus/plugin-ideal-image",
     'docusaurus-lunr-search',
     [
       // @see https://github.com/PaloAltoNetworks/docusaurus-openapi-docs
