@@ -15,7 +15,7 @@ Testomato accepts **automatic payments** by credit/debit card or PayPal or **man
 ## What should I do if my bill payment fails?
 
 If your bill payment fails, then you can try re-enter your credit card under [Your Profile > Billing & Payment > Billing Information](https://www.testomato.com/user/payments/billing) 
-If you continue to have issues processing the payment, then contact us to <support@testomato.com>. 
+If you continue to have issues processing the payment, then contact us to support@testomato.com. 
 
 ## What is the difference between annual and monthly billing
 

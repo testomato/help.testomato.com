@@ -17,11 +17,11 @@ change color according to the status of each check.
 
 There are only **4 possible colors** for check boxes:
 
-1.  **Green**: This page passed all checks.
-2.  **Red**: This page failed some checks.
-3.  **Orange**: This page timed out.
-4.  **Gray**: This page has not been configured yet, has been *turned
-    off*, or the results are not available.
+1. **Green**: This page passed all checks.
+2. **Red**: This page failed some checks.
+3. **Orange**: This page timed out.
+4. **Gray**: This page has not been configured yet, has been *turned
+   off*, or the results are not available.
 
 ## Compact mode
 

@@ -5,7 +5,7 @@ description: "Retrieve test by unique test ID"
 sidebar_label: "Get test"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"Get test","description":"Retrieve test by unique test ID","tags":["Checks"],"responses":{"200":{"description":"Test response","content":{"application/json":{"schema":{"type":"object","description":"A group of individual checks","properties":{"id":{"type":"string","example":"50a9f73014db3ae812000234","description":"Check id"},"enabled":{"type":"boolean","example":true,"default":true},"areaId":{"example":"55ae166c25b395537a8b6030","description":"Area ID"},"name":{"type":"string","example":"Homepage","description":"Name of check"},"url":{"type":"string","example":"https://testomato.com","description":"URL of check"},"notice":{"type":"string","example":"","description":"Check notice"},"type":{"type":"string","example":"simple","enum":["homepage","simple","favicon","robots"]},"run":{"type":"string","example":"completed","enum":["completed","running"]},"flags":{"type":"array","description":"Test flags e.g. `configured`","example":["configured"],"items":{"type":"string"}},"status":{"type":"object","properties":{"status":{"type":"string","example":"ok"},"failures":{"type":"array","items":{"type":"string"}},"rules":{"type":"array","items":{"type":"object","properties":{"type":{"type":"string","default":"text","description":"Type of check","enum":["text html status header location title meta-description meta-og:title meta-og:description meta-og:image meta-og:image meta-og:image meta-og:type meta-og:url meta-og:site_name meta-og:locale meta-og:updated_time meta-og:logo meta-article:modified_time meta-article:published_time meta-article:publisher meta-article:section meta-article:tag meta-twitter:title meta-twitter:image meta-twitter:image meta-twitter:description meta-twitter:card meta-twitter:site meta-twitter:creator meta-itemprop:name meta-itemprop:author meta-itemprop:description meta-itemprop:image"],"example":"text"},"op":{"type":"string","enum":["eq","sub","!sub","match","!match","xpath"],"example":"sub","description":"Operators can be: `eq` is equal to, `sub` contains, `!sub` does not contains,  `match` for exact match, `!match` for does not match and `xpath` for Xpath checks.\n"},"val":{"type":"string","example":123456,"description":"Value that will be used for check"},"origin":{"type":"string","example":"check","description":"Original of the check"},"templateId":{"type":"string","description":"Optional parameter if check use a Template"},"order":{"type":"integer","description":"Order of the check"}},"title":"Rule"}},"response":{"type":"object","properties":{"status":{"type":"string","example":200},"httpStatus":{"type":"string","example":200},"baseUrl":{"type":"string","example":"https://testomato.com"},"contentType":{"type":"string","example":"text/html"},"httpHeader":{"type":"string","example":":status: 200\r\nserver: nginx\r\ndate: Mon, 10 Oct 2022 15:04:05 GMT\r\ncontent-type: text/html;"},"processTime":{"type":"number","example":0.037},"size":{"type":"number","description":"Size of response in case of check error","example":false},"redirects":{"type":"array","description":"List of redirections","items":{"type":"string"}},"timing":{"type":"array","items":{"properties":{"metrics":{"type":"string"},"value":{"type":"integer"}},"example":{"metrics":"DNS Lookup","value":1}}}},"title":"TestResponse"}}},"templateId":{"type":"string","description":"Template ID if any","example":""},"templateVars":{"type":"array","description":"Template variables if any","example":[],"items":{"type":"string"}},"options":{"type":"object","properties":{"2":{"type":"boolean","default":false,"description":"Allow HTTP/1 requests only"},"6":{"type":"boolean","default":false,"description":"Allow only IPv6 request"},"g":{"type":"boolean","default":false,"description":"Do not accept gzip encoding"},"l":{"type":"boolean","default":false,"description":"Do not follow redirects"},"w":{"type":"string","default":"","description":"Extra HTTP headers separated"}},"title":"TestOptions"}},"title":"Test"}}}}},"parameters":[{"name":"id","description":"A unique test ID","example":"5e9602e7a39e5a46428b457f","allowEmptyValue":false,"required":true,"in":"path","schema":{"type":"string"}}],"method":"get","path":"/tests/{id}","servers":[{"url":"https://testomato.com/api","description":"Testomato"}],"securitySchemes":{"ApiToken":{"description":"The Testomato API Token can be obtained from the [User Profile](https://www.testomato.com/user/profile) \nor directly through the API by a `POST` request send to `/api/authenticate` visit \n[Get API token](/api/get-api-token) for more information.\n\nTestomato API token use [JWT schema](https://jwt.io/).\n","type":"http","scheme":"bearer","bearerFormat":"JWT"}},"info":{"title":"Testomato API","description":"If you would like to participate in the future development of our\nroadmap, please don't be shy! We'd love to hear your suggestions:\nsupport@testomato.com\n","termsOfService":"https://www.testomato.com/terms-of-service","version":"1.0.0","contact":{"email":"support@testomato.com"}},"postman":{"name":"Get test","description":{"content":"Retrieve test by unique test ID","type":"text/plain"},"url":{"path":["tests",":id"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) A unique test ID","type":"text/plain"},"type":"any","value":"","key":"id"}]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+api: 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
 sidebar_class_name: "get api-method"
 info_path: api/testomato-api
 custom_edit_url: null
@@ -13,25 +13,612 @@ custom_edit_url: null
 
 import ApiTabs from "@theme/ApiTabs";
 import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import MethodEndpoint from "@theme/ApiDemoPanel/MethodEndpoint";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-<h1 className={"openapi__heading"}>Get test</h1>
+<h1
+  className={"openapi__heading"}
+>
+  Get test
+</h1>
 
-<MethodEndpoint method={"get"} path={"/tests/{id}"}></MethodEndpoint>
+<MethodEndpoint
+  method={"get"}
+  path={"/tests/{id}"}
+>
+  
+</MethodEndpoint>
 
 
 
 Retrieve test by unique test ID
 
-<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"id","description":"A unique test ID","example":"5e9602e7a39e5a46428b457f","allowEmptyValue":false,"required":true,"in":"path","schema":{"type":"string"}}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+## Request
 
-Test response
-
-</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":"50a9f73014db3ae812000234","description":"Check id"}}></SchemaItem><SchemaItem collapsible={false} name={"enabled"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","example":true,"default":true}}></SchemaItem><SchemaItem collapsible={false} name={"areaId"} required={false} schemaName={""} qualifierMessage={undefined} schema={{"example":"55ae166c25b395537a8b6030","description":"Area ID"}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":"Homepage","description":"Name of check"}}></SchemaItem><SchemaItem collapsible={false} name={"url"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":"https://testomato.com","description":"URL of check"}}></SchemaItem><SchemaItem collapsible={false} name={"notice"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":"","description":"Check notice"}}></SchemaItem><SchemaItem collapsible={false} name={"type"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`homepage`, `simple`, `favicon`, `robots`]"} schema={{"type":"string","example":"simple","enum":["homepage","simple","favicon","robots"]}}></SchemaItem><SchemaItem collapsible={false} name={"run"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`completed`, `running`]"} schema={{"type":"string","example":"completed","enum":["completed","running"]}}></SchemaItem><SchemaItem collapsible={false} name={"flags"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","description":"Test flags e.g. `configured`","example":["configured"],"items":{"type":"string"}}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><strong>status</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"status"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":"ok"}}></SchemaItem><SchemaItem collapsible={false} name={"failures"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","items":{"type":"string"}}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><strong>rules</strong><span style={{"opacity":"0.6"}}> object[]</span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"type"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`text html status header location title meta-description meta-og:title meta-og:description meta-og:image meta-og:image meta-og:image meta-og:type meta-og:url meta-og:site_name meta-og:locale meta-og:updated_time meta-og:logo meta-article:modified_time meta-article:published_time meta-article:publisher meta-article:section meta-article:tag meta-twitter:title meta-twitter:image meta-twitter:image meta-twitter:description meta-twitter:card meta-twitter:site meta-twitter:creator meta-itemprop:name meta-itemprop:author meta-itemprop:description meta-itemprop:image`]"} schema={{"type":"string","default":"text","description":"Type of check","enum":["text html status header location title meta-description meta-og:title meta-og:description meta-og:image meta-og:image meta-og:image meta-og:type meta-og:url meta-og:site_name meta-og:locale meta-og:updated_time meta-og:logo meta-article:modified_time meta-article:published_time meta-article:publisher meta-article:section meta-article:tag meta-twitter:title meta-twitter:image meta-twitter:image meta-twitter:description meta-twitter:card meta-twitter:site meta-twitter:creator meta-itemprop:name meta-itemprop:author meta-itemprop:description meta-itemprop:image"],"example":"text"}}></SchemaItem><SchemaItem collapsible={false} name={"op"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** [`eq`, `sub`, `!sub`, `match`, `!match`, `xpath`]"} schema={{"type":"string","enum":["eq","sub","!sub","match","!match","xpath"],"example":"sub","description":"Operators can be: `eq` is equal to, `sub` contains, `!sub` does not contains,  `match` for exact match, `!match` for does not match and `xpath` for Xpath checks.\n"}}></SchemaItem><SchemaItem collapsible={false} name={"val"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":123456,"description":"Value that will be used for check"}}></SchemaItem><SchemaItem collapsible={false} name={"origin"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":"check","description":"Original of the check"}}></SchemaItem><SchemaItem collapsible={false} name={"templateId"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Optional parameter if check use a Template"}}></SchemaItem><SchemaItem collapsible={false} name={"order"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","description":"Order of the check"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><strong>response</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"status"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":200}}></SchemaItem><SchemaItem collapsible={false} name={"httpStatus"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":200}}></SchemaItem><SchemaItem collapsible={false} name={"baseUrl"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":"https://testomato.com"}}></SchemaItem><SchemaItem collapsible={false} name={"contentType"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":"text/html"}}></SchemaItem><SchemaItem collapsible={false} name={"httpHeader"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":":status: 200\r\nserver: nginx\r\ndate: Mon, 10 Oct 2022 15:04:05 GMT\r\ncontent-type: text/html;"}}></SchemaItem><SchemaItem collapsible={false} name={"processTime"} required={false} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number","example":0.037}}></SchemaItem><SchemaItem collapsible={false} name={"size"} required={false} schemaName={"number"} qualifierMessage={undefined} schema={{"type":"number","description":"Size of response in case of check error","example":false}}></SchemaItem><SchemaItem collapsible={false} name={"redirects"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","description":"List of redirections","items":{"type":"string"}}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><strong>timing</strong><span style={{"opacity":"0.6"}}> undefined[]</span></summary><div style={{"marginLeft":"1rem"}}><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}>Array [</div></li><SchemaItem collapsible={false} name={"metrics"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"value"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer"}}></SchemaItem><li><div style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}>]</div></li></div></details></SchemaItem></div></details></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={false} name={"templateId"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Template ID if any","example":""}}></SchemaItem><SchemaItem collapsible={false} name={"templateVars"} required={false} schemaName={"string[]"} qualifierMessage={undefined} schema={{"type":"array","description":"Template variables if any","example":[],"items":{"type":"string"}}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><strong>options</strong><span style={{"opacity":"0.6"}}> object</span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"2"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","default":false,"description":"Allow HTTP/1 requests only"}}></SchemaItem><SchemaItem collapsible={false} name={"6"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","default":false,"description":"Allow only IPv6 request"}}></SchemaItem><SchemaItem collapsible={false} name={"g"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","default":false,"description":"Do not accept gzip encoding"}}></SchemaItem><SchemaItem collapsible={false} name={"l"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean","default":false,"description":"Do not follow redirects"}}></SchemaItem><SchemaItem collapsible={false} name={"w"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","default":"","description":"Extra HTTP headers separated"}}></SchemaItem></div></details></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": \"50a9f73014db3ae812000234\",\n  \"enabled\": true,\n  \"areaId\": \"55ae166c25b395537a8b6030\",\n  \"name\": \"Homepage\",\n  \"url\": \"https://testomato.com\",\n  \"notice\": \"\",\n  \"type\": \"simple\",\n  \"run\": \"completed\",\n  \"flags\": [\n    \"configured\"\n  ],\n  \"status\": {\n    \"status\": \"ok\",\n    \"failures\": [\n      \"string\"\n    ],\n    \"rules\": [\n      {\n        \"type\": \"text\",\n        \"op\": \"sub\",\n        \"val\": 123456,\n        \"origin\": \"check\",\n        \"templateId\": \"string\",\n        \"order\": 0\n      }\n    ],\n    \"response\": {\n      \"status\": 200,\n      \"httpStatus\": 200,\n      \"baseUrl\": \"https://testomato.com\",\n      \"contentType\": \"text/html\",\n      \"httpHeader\": \":status: 200\\r\\nserver: nginx\\r\\ndate: Mon, 10 Oct 2022 15:04:05 GMT\\r\\ncontent-type: text/html;\",\n      \"processTime\": 0.037,\n      \"size\": false,\n      \"redirects\": [\n        \"string\"\n      ],\n      \"timing\": [\n        {\n          \"metrics\": \"DNS Lookup\",\n          \"value\": 1\n        }\n      ]\n    }\n  },\n  \"templateId\": \"\",\n  \"templateVars\": [],\n  \"options\": {\n    \"2\": false,\n    \"6\": false,\n    \"g\": false,\n    \"l\": false,\n    \"w\": \"string\"\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"id","description":"A unique test ID","example":"5e9602e7a39e5a46428b457f","allowEmptyValue":false,"required":true,"in":"path","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Test response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","example":"50a9f73014db3ae812000234","description":"Check id"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"enabled"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean","example":true,"default":true}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"areaId"}
+                        required={false}
+                        schemaName={""}
+                        qualifierMessage={undefined}
+                        schema={{"example":"55ae166c25b395537a8b6030","description":"Area ID"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"name"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","example":"Homepage","description":"Name of check"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"url"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","example":"https://testomato.com","description":"URL of check"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"notice"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","example":"","description":"Check notice"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"type"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`homepage`, `simple`, `favicon`, `robots`]"}
+                        schema={{"type":"string","example":"simple","enum":["homepage","simple","favicon","robots"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"run"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`completed`, `running`]"}
+                        schema={{"type":"string","example":"completed","enum":["completed","running"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"flags"}
+                        required={false}
+                        schemaName={"string[]"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"array","description":"Test flags e.g. `configured`","example":["configured"],"items":{"type":"string"}}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                status
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"status"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","example":"ok"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"failures"}
+                              required={false}
+                              schemaName={"string[]"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"array","items":{"type":"string"}}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      rules
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object[]
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <li>
+                                    <div
+                                      style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                                    >
+                                      Array [
+                                    </div>
+                                  </li><SchemaItem
+                                    collapsible={false}
+                                    name={"type"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={"**Possible values:** [`text html status header location title meta-description meta-og:title meta-og:description meta-og:image meta-og:image meta-og:image meta-og:type meta-og:url meta-og:site_name meta-og:locale meta-og:updated_time meta-og:logo meta-article:modified_time meta-article:published_time meta-article:publisher meta-article:section meta-article:tag meta-twitter:title meta-twitter:image meta-twitter:image meta-twitter:description meta-twitter:card meta-twitter:site meta-twitter:creator meta-itemprop:name meta-itemprop:author meta-itemprop:description meta-itemprop:image`]"}
+                                    schema={{"type":"string","default":"text","description":"Type of check","enum":["text html status header location title meta-description meta-og:title meta-og:description meta-og:image meta-og:image meta-og:image meta-og:type meta-og:url meta-og:site_name meta-og:locale meta-og:updated_time meta-og:logo meta-article:modified_time meta-article:published_time meta-article:publisher meta-article:section meta-article:tag meta-twitter:title meta-twitter:image meta-twitter:image meta-twitter:description meta-twitter:card meta-twitter:site meta-twitter:creator meta-itemprop:name meta-itemprop:author meta-itemprop:description meta-itemprop:image"],"example":"text"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"op"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={"**Possible values:** [`eq`, `sub`, `!sub`, `match`, `!match`, `xpath`]"}
+                                    schema={{"type":"string","enum":["eq","sub","!sub","match","!match","xpath"],"example":"sub","description":"Operators can be: `eq` is equal to, `sub` contains, `!sub` does not contains,  `match` for exact match, `!match` for does not match and `xpath` for Xpath checks.\n"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"val"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","example":123456,"description":"Value that will be used for check"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"origin"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","example":"check","description":"Original of the check"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"templateId"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","description":"Optional parameter if check use a Template"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"order"}
+                                    required={false}
+                                    schemaName={"integer"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"integer","description":"Order of the check"}}
+                                  >
+                                    
+                                  </SchemaItem><li>
+                                    <div
+                                      style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                                    >
+                                      ]
+                                    </div>
+                                  </li>
+                                </div>
+                              </details>
+                            </SchemaItem><SchemaItem
+                              collapsible={true}
+                              className={"schemaItem"}
+                            >
+                              <details
+                                style={{}}
+                                className={"openapi-markdown__details"}
+                              >
+                                <summary
+                                  style={{}}
+                                >
+                                  <span
+                                    className={"openapi-schema__container"}
+                                  >
+                                    <strong
+                                      className={"openapi-schema__property"}
+                                    >
+                                      response
+                                    </strong><span
+                                      className={"openapi-schema__name"}
+                                    >
+                                       object
+                                    </span>
+                                  </span>
+                                </summary><div
+                                  style={{"marginLeft":"1rem"}}
+                                >
+                                  <SchemaItem
+                                    collapsible={false}
+                                    name={"status"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","example":200}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"httpStatus"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","example":200}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"baseUrl"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","example":"https://testomato.com"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"contentType"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","example":"text/html"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"httpHeader"}
+                                    required={false}
+                                    schemaName={"string"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"string","example":":status: 200\r\nserver: nginx\r\ndate: Mon, 10 Oct 2022 15:04:05 GMT\r\ncontent-type: text/html;"}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"processTime"}
+                                    required={false}
+                                    schemaName={"number"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"number","example":0.037}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"size"}
+                                    required={false}
+                                    schemaName={"number"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"number","description":"Size of response in case of check error","example":false}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={false}
+                                    name={"redirects"}
+                                    required={false}
+                                    schemaName={"string[]"}
+                                    qualifierMessage={undefined}
+                                    schema={{"type":"array","description":"List of redirections","items":{"type":"string"}}}
+                                  >
+                                    
+                                  </SchemaItem><SchemaItem
+                                    collapsible={true}
+                                    className={"schemaItem"}
+                                  >
+                                    <details
+                                      style={{}}
+                                      className={"openapi-markdown__details"}
+                                    >
+                                      <summary
+                                        style={{}}
+                                      >
+                                        <span
+                                          className={"openapi-schema__container"}
+                                        >
+                                          <strong
+                                            className={"openapi-schema__property"}
+                                          >
+                                            timing
+                                          </strong><span
+                                            className={"openapi-schema__name"}
+                                          >
+                                             undefined[]
+                                          </span>
+                                        </span>
+                                      </summary><div
+                                        style={{"marginLeft":"1rem"}}
+                                      >
+                                        <li>
+                                          <div
+                                            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                                          >
+                                            Array [
+                                          </div>
+                                        </li><SchemaItem
+                                          collapsible={false}
+                                          name={"metrics"}
+                                          required={false}
+                                          schemaName={"string"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"string"}}
+                                        >
+                                          
+                                        </SchemaItem><SchemaItem
+                                          collapsible={false}
+                                          name={"value"}
+                                          required={false}
+                                          schemaName={"integer"}
+                                          qualifierMessage={undefined}
+                                          schema={{"type":"integer"}}
+                                        >
+                                          
+                                        </SchemaItem><li>
+                                          <div
+                                            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                                          >
+                                            ]
+                                          </div>
+                                        </li>
+                                      </div>
+                                    </details>
+                                  </SchemaItem>
+                                </div>
+                              </details>
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"templateId"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"Template ID if any","example":""}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"templateVars"}
+                        required={false}
+                        schemaName={"string[]"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"array","description":"Template variables if any","example":[],"items":{"type":"string"}}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                options
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"2"}
+                              required={false}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean","default":false,"description":"Allow HTTP/1 requests only"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"6"}
+                              required={false}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean","default":false,"description":"Allow only IPv6 request"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"g"}
+                              required={false}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean","default":false,"description":"Do not accept gzip encoding"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"l"}
+                              required={false}
+                              schemaName={"boolean"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"boolean","default":false,"description":"Do not follow redirects"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"w"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string","default":"","description":"Extra HTTP headers separated"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"id\": \"50a9f73014db3ae812000234\",\n  \"enabled\": true,\n  \"areaId\": \"55ae166c25b395537a8b6030\",\n  \"name\": \"Homepage\",\n  \"url\": \"https://testomato.com\",\n  \"notice\": \"\",\n  \"type\": \"simple\",\n  \"run\": \"completed\",\n  \"flags\": [\n    \"configured\"\n  ],\n  \"status\": {\n    \"status\": \"ok\",\n    \"failures\": [\n      \"string\"\n    ],\n    \"rules\": [\n      {\n        \"type\": \"text\",\n        \"op\": \"sub\",\n        \"val\": 123456,\n        \"origin\": \"check\",\n        \"templateId\": \"string\",\n        \"order\": 0\n      }\n    ],\n    \"response\": {\n      \"status\": 200,\n      \"httpStatus\": 200,\n      \"baseUrl\": \"https://testomato.com\",\n      \"contentType\": \"text/html\",\n      \"httpHeader\": \":status: 200\\r\\nserver: nginx\\r\\ndate: Mon, 10 Oct 2022 15:04:05 GMT\\r\\ncontent-type: text/html;\",\n      \"processTime\": 0.037,\n      \"size\": false,\n      \"redirects\": [\n        \"string\"\n      ],\n      \"timing\": [\n        {\n          \"metrics\": \"DNS Lookup\",\n          \"value\": 1\n        }\n      ]\n    }\n  },\n  \"templateId\": \"\",\n  \"templateVars\": [],\n  \"options\": {\n    \"2\": false,\n    \"6\": false,\n    \"g\": false,\n    \"l\": false,\n    \"w\": \"string\"\n  }\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

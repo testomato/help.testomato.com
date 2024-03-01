@@ -5,7 +5,7 @@ description: "By calling this API endpoint you can verify the validity of your t
 sidebar_label: "Verify API token"
 hide_title: true
 hide_table_of_contents: true
-api: {"operationId":"Verify API token","description":"By calling this API endpoint you can verify the validity of your token.\nResponse contains user information like `email` and user `id`.\n","tags":["Authenticate"],"security":[{"ApiToken":[]}],"responses":{"200":{"description":"Successfully authenticate with API token","content":{"application/json":{"schema":{"properties":{"id":{"type":"integer","description":"User ID","example":1},"name":{"type":"string","description":"User name","example":"John Testomato"},"email":{"type":"string","description":"User email","example":"user@email.com"},"exp":{"type":"integer","description":"Expiration date","example":1825840726},"tid":{"type":"string","description":"Token identifier","example":"e2ew1g30xl"},"iat":{"type":"integer","example":1668074326,"description":"The \"iat\" (issued at) claim identifies the time at which the JWT was\nissued.  This claim can be used to determine the age of the JWT.\n"},"nbf":{"type":"string","example":1668074326,"description":"The \"nbf\" (not before) claim identifies the time before which the JWT\nMUST NOT be accepted for processing.\n"}}}}}}},"method":"get","path":"/authenticate","servers":[{"url":"https://testomato.com/api","description":"Testomato"}],"securitySchemes":{"ApiToken":{"description":"The Testomato API Token can be obtained from the [User Profile](https://www.testomato.com/user/profile) \nor directly through the API by a `POST` request send to `/api/authenticate` visit \n[Get API token](/api/get-api-token) for more information.\n\nTestomato API token use [JWT schema](https://jwt.io/).\n","type":"http","scheme":"bearer","bearerFormat":"JWT"}},"info":{"title":"Testomato API","description":"If you would like to participate in the future development of our\nroadmap, please don't be shy! We'd love to hear your suggestions:\nsupport@testomato.com\n","termsOfService":"https://www.testomato.com/terms-of-service","version":"1.0.0","contact":{"email":"support@testomato.com"}},"postman":{"name":"Verify API token","description":{"content":"By calling this API endpoint you can verify the validity of your token.\nResponse contains user information like `email` and user `id`.\n","type":"text/plain"},"url":{"path":["authenticate"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET","auth":{"type":"bearer","bearer":[{"type":"any","value":"<Bearer Token>","key":"token"}]}}}
+api: eJzNVd9vIjcQ/lemfrlEIkC4ay5CVXU59XrKSW2iQpoHQMLsDqwvu7Zre/khxP/eGZs7lpC2eWweAtjjmW9mvvlmK4xFJ4My+jYXffEnOjXfwM39LQTzhFq0RI4+c8qyCRl83EAmy1LpBYRC+WiJOrdG6QAbU9OthmXyEgqEpSxVrsIGzJyvXXLbHus/0FujPUJmdJBKe6g9OlB6blwVAUGpnhCmWElVTkHqPFlMVT6l94QsyIUX/ZG4qSmSDiqTAcWkJTxmtaOYdLcVN1YNYyb90WRHl24fl15uRa/b5Y/jFAd1lqH387osNyAbvmGlQnFUG8ZOt+xDWluyFfnofPXsaCt8VhB6/mYd1zmoFFbl/D9sLFI4Khwu0J1U+oGTvf2FznEtK1uS7eWuJbSssPHaB0e9ePlxNG08F19MoWGIPhiqsBHkLRb3le6SbdMf9+NDPG5npor+1vYVqX1aW5VIBzn3rJnide/H63fd970r8haOCvUP2GJ3QeXcpbmK0Q4IsYery8Xb7rpkdEqGF9Edol9dXXffv3vbuzqJQlwes4OxgDPlfY05yHAOWSlVdYjuI+mDqpBuYVWorIgnXx6HsJJ+rNPTNsCQpye95pGZIbM7J2ZBjgFdpTTGl3KBPDt7J0x8JsFs/lJhXp0Hvec8tAkUmAYO/y2RZHGczFj/9jAYwu93Q0YuaWBsIPRkCER1Hh9CFMGmv5aoMBSGJWaBgaBaGQr60WnOl+DRdSQePk5u7YiZogjB+n6nE77RlqnWkVadEuFA7IYIDHgG09gdpOD5yHNVvj+PE55Yte+MmbFCcX7OVLEEozgR987MVYmTs28gV6tV+xgoj0jHJrtzGGsqUK4cZqFkfXSmXqSacswZyQ1M7+8Gwyk4/KsmR+BJXJkUU075qFpTWCqvAvkcfcZwkKXJWTSlMl/Q50U8O4+dqbiNDYGl/oz1cdrRmpkII6ZsErBDfl9Xoa1M53yvv4l+fMmti4Wm3zOULo5V+vJrDMfq8zgUzARGENmrQpzRIwQnXb2NewNWpi7ztBHI0ErS0kxZFmWlYwHndagpvRyXWBpbUZV4bGjjjLUzMq+kbQHNhqTUcqPfMPHBF5sf4BHfkGOzjI4Lgpz2lK8XCwJGIHx/rH1trXHhw1FzUxFoVv3dfEDEVRk2CHvKhWh6YeYXfm/cEkz2lOdlu9vu7leKzKJO7cVZvBg8ltIaHyoZCZ32wn8u8O1hZ/2/dnniUsB16FiSoihzUQG2e60YCflszxeUPZ9vtzNq64Mrdzs+psFxvPvp61I6JWfMMlr+9ABlTsxkcXlCMhE3Ubi4D7KsOf7JFmcp+S5dnz8NyZZhNNT3Gd2j9/2V1JuG758+RoMkLT/TRcKQ2rSbkEr+DY5XUQI=
 sidebar_class_name: "get api-method"
 info_path: api/testomato-api
 custom_edit_url: null
@@ -13,17 +13,29 @@ custom_edit_url: null
 
 import ApiTabs from "@theme/ApiTabs";
 import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import MethodEndpoint from "@theme/ApiDemoPanel/MethodEndpoint";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
 import MimeTabs from "@theme/MimeTabs";
 import ParamsItem from "@theme/ParamsItem";
 import ResponseSamples from "@theme/ResponseSamples";
 import SchemaItem from "@theme/SchemaItem";
 import SchemaTabs from "@theme/SchemaTabs";
+import Markdown from "@theme/Markdown";
+import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 
-<h1 className={"openapi__heading"}>Verify API token</h1>
+<h1
+  className={"openapi__heading"}
+>
+  Verify API token
+</h1>
 
-<MethodEndpoint method={"get"} path={"/authenticate"}></MethodEndpoint>
+<MethodEndpoint
+  method={"get"}
+  path={"/authenticate"}
+>
+  
+</MethodEndpoint>
 
 
 
@@ -31,9 +43,143 @@ By calling this API endpoint you can verify the validity of your token.
 Response contains user information like `email` and user `id`.
 
 
-<div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+## Request
 
-Successfully authenticate with API token
-
-</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"id"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","description":"User ID","example":1}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"User name","example":"John Testomato"}}></SchemaItem><SchemaItem collapsible={false} name={"email"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"User email","example":"user@email.com"}}></SchemaItem><SchemaItem collapsible={false} name={"exp"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","description":"Expiration date","example":1825840726}}></SchemaItem><SchemaItem collapsible={false} name={"tid"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","description":"Token identifier","example":"e2ew1g30xl"}}></SchemaItem><SchemaItem collapsible={false} name={"iat"} required={false} schemaName={"integer"} qualifierMessage={undefined} schema={{"type":"integer","example":1668074326,"description":"The \"iat\" (issued at) claim identifies the time at which the JWT was\nissued.  This claim can be used to determine the age of the JWT.\n"}}></SchemaItem><SchemaItem collapsible={false} name={"nbf"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string","example":1668074326,"description":"The \"nbf\" (not before) claim identifies the time before which the JWT\nMUST NOT be accepted for processing.\n"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"id\": 1,\n  \"name\": \"John Testomato\",\n  \"email\": \"user@email.com\",\n  \"exp\": 1825840726,\n  \"tid\": \"e2ew1g30xl\",\n  \"iat\": 1668074326,\n  \"nbf\": 1668074326\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>
+<div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"200"}
+        value={"200"}
+      >
+        <div>
+          
+          
+          Successfully authenticate with API token
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={false}
+                        schemaName={"integer"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","description":"User ID","example":1}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"name"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"User name","example":"John Testomato"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"email"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"User email","example":"user@email.com"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"exp"}
+                        required={false}
+                        schemaName={"integer"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","description":"Expiration date","example":1825840726}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"tid"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","description":"Token identifier","example":"e2ew1g30xl"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"iat"}
+                        required={false}
+                        schemaName={"integer"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","example":1668074326,"description":"The \"iat\" (issued at) claim identifies the time at which the JWT was\nissued.  This claim can be used to determine the age of the JWT.\n"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"nbf"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","example":1668074326,"description":"The \"nbf\" (not before) claim identifies the time before which the JWT\nMUST NOT be accepted for processing.\n"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"id\": 1,\n  \"name\": \"John Testomato\",\n  \"email\": \"user@email.com\",\n  \"exp\": 1825840726,\n  \"tid\": \"e2ew1g30xl\",\n  \"iat\": 1668074326,\n  \"nbf\": 1668074326\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
       

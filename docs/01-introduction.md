@@ -62,4 +62,4 @@ hard to improve and expand the features we have available.
 
 If you would like to participate in the future development of our
 roadmap, please don't be shy! We'd love to hear your suggestions:
-<support@testomato.com>.
+support@testomato.com.
