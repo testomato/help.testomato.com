@@ -41,30 +41,6 @@ module.exports = {
   ],
   themeConfig: {
     prism: {theme, darkTheme},
-    languageTabs: [
-      {
-        highlight: "bash",
-        language: "curl",
-        logoClass: "bash",
-      },
-      {
-        highlight: "javascript",
-        language: "nodejs",
-        logoClass: "nodejs",
-        variant: "axios",
-      },
-      {
-        highlight: "php",
-        language: "php",
-        logoClass: "php",
-      },
-      {
-        highlight: "python",
-        language: "python",
-        logoClass: "python",
-        variant: "requests",
-      },
-    ],
     colorMode: {
       defaultMode: 'light',
       disableSwitch: false,
