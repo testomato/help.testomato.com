@@ -99,3 +99,13 @@
 	content: "head";
 	background-color: var(--ifm-color-secondary-darkest);
 }
+
+.theme-doc-version-badge p,
+table th p, table td p {
+	padding: 0;
+	margin: 0;
+}
+
+.theme-doc-version-badge {
+	margin-bottom: 10px;
+}

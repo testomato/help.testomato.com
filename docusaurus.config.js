@@ -2,7 +2,7 @@ const lightCodeTheme = require('prism-react-renderer').themes.github;
 const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
 
-module.exports = {
+const config = {
   title: 'Testomato',
   tagline: 'Welcome to Testomato Help & Docs',
   favicon: 'img/favicon.ico',
@@ -13,6 +13,28 @@ module.exports = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'throw',
   trailingSlash: false,
+  plugins: [
+    "@docusaurus/plugin-ideal-image",
+    'docusaurus-lunr-search',
+    [
+      // @see https://github.com/PaloAltoNetworks/docusaurus-openapi-docs
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: 'api',
+        docsPluginId: 'classic',
+        config: {
+          testomato: {
+            specPath: 'api/testomato.yaml',
+            outputDir: 'docs/api',
+            sidebarOptions: {
+              groupPathsBy: 'tag',
+              categoryLinkSource: 'tag',
+            },
+          },
+        },
+      },
+    ],
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -21,9 +43,8 @@ module.exports = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/testomato/help.testomato.com/edit/master/',
-          // API Docs config
-          //docLayoutComponent: '@theme/DocPage',
-          //docItemComponent: '@theme/ApiItem',
+          docRootComponent: "@theme/DocRoot",
+          docItemComponent: '@theme/DocItem',
           showLastUpdateTime: true,
         },
         // docs only https://docusaurus.io/docs/docs-introduction
@@ -37,41 +58,23 @@ module.exports = {
         },
         gtag: {
           trackingID: 'GTM-MPZ59VM',
+          anonymizeIP: true,
         },
       },
     ],
   ],
+  themes: ['docusaurus-theme-openapi-docs'],
   themeConfig: {
-    prism: {
-      theme: lightCodeTheme,
-      darkTheme: darkCodeTheme,
-    },
-    languageTabs: [
-      {
-        highlight: 'bash',
-        language: 'curl',
-        logoClass: 'bash',
-      },
-      {
-        highlight: 'javascript',
-        language: 'nodejs',
-        logoClass: 'nodejs',
-      },
-      {
-        highlight: 'php',
-        language: 'php',
-        logoClass: 'php',
-      },
-      {
-        highlight: 'python',
-        language: 'python',
-        logoClass: 'python',
-      },
-    ],
+
     colorMode: {
       defaultMode: 'light',
       disableSwitch: false,
     },
+    prism: {
+      theme: lightCodeTheme,
+      darkTheme: darkCodeTheme,
+    },
+
     navbar: {
       title: 'Help & Docs',
       logo: {
@@ -144,29 +147,33 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Testomato s.r.o.`,
     },
+
+    // TODO - add language tabs
+    // languageTabs: [
+    //   {
+    //     highlight: 'bash',
+    //     language: 'curl',
+    //     logoClass: 'bash',
+    //   },
+    //   {
+    //     highlight: 'javascript',
+    //     language: 'nodejs',
+    //     logoClass: 'nodejs',
+    //   },
+    //   {
+    //     highlight: 'php',
+    //     language: 'php',
+    //     logoClass: 'php',
+    //   },
+    //   {
+    //     highlight: 'python',
+    //     language: 'python',
+    //     logoClass: 'python',
+    //   },
+    // ],
   },
-  plugins: [
-    "@docusaurus/plugin-ideal-image",
-    'docusaurus-lunr-search',
-    [
-      // @see https://github.com/PaloAltoNetworks/docusaurus-openapi-docs
-      'docusaurus-plugin-openapi-docs',
-      {
-        id: 'openapi',
-        docsPluginId: 'classic',
-        config: {
-          'testomato': {
-            specPath: 'api/testomato.yaml',
-            outputDir: 'docs/api',
-            //baseUrl: '/api',
-            sidebarOptions: {
-              groupPathsBy: 'tag',
-              categoryLinkSource: 'tag',
-            },
-          },
-        },
-      },
-    ],
-  ],
-  themes: ['docusaurus-theme-openapi-docs'],
+
+
 };
+
+module.exports = config;
