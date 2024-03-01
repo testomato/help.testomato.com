@@ -10,5 +10,5 @@ roadmap, please don't be shy!
 * [Facebook](https://www.facebook.com/testomato)
 * [YouTube](https://www.youtube.com/user/testomatocom)
 
-We'd love to hear your suggestions: <support@testomato.com> You can
+We'd love to hear your suggestions: support@testomato.com You can
 email us anytime!

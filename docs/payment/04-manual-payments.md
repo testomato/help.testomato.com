@@ -20,7 +20,7 @@ and optional also
 * **VAT number**
 * **Registration number**
 
-Please contact us first at <support@testomato.com>, we have to prepare everything for you.
+Please contact us first at support@testomato.com, we have to prepare everything for you.
 
 
 ## Pay received invoice

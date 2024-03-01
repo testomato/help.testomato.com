@@ -17,7 +17,7 @@ Additionally, a copy of your invoices is always sent to the email address regist
 
 ## My invoice is wrong. What should I do?
 
-If you have any concerns on your invoice, please contact us by sending a message to: <support@testomato.com> with following details:
+If you have any concerns on your invoice, please contact us by sending a message to: support@testomato.com with following details:
  
 * Invoice Number
 * Your account id or email
