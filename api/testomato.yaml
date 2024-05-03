@@ -136,7 +136,7 @@ paths:
                     type: string
                   description: Array of URLs
                   example: [ "https://www.example.com", "https://testomato.com" ]
-                blank:
+                addPresetChecks:
                   type: boolean
                   default: false
                   description: Create empty project (`true`) or preset project (`false`)
