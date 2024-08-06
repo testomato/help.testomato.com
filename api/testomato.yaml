@@ -116,68 +116,57 @@ paths:
         - ApiToken: [ ]
       tags:
         - Project
-      parameters:
-        - name: period
-          required: false
-          description: Check period interval as string
-          in: query
-          schema:
-            type: string
-            enum: [ 5 minutes, 30 minutes, 1 hour, 8 hours, 1 day, 7 days, false ]
-            default: 5 minutes
       requestBody:
         content:
           application/json:
             schema:
+              required:
+                - url
               properties:
-                urls:
-                  type: array
-                  items:
-                    type: string
-                  description: Array of URLs
-                  example: [ "https://www.example.com", "https://testomato.com" ]
+                url:
+                  type: string
+                  description: URL to be checked
+                  example: "https://www.example.com"
                 addPresetChecks:
                   type: boolean
-                  default: false
                   description: Create empty project (`true`) or preset project (`false`)
+                  default: false
+                checkInterval:
+                  type: string
+                  enum: [ 5 minutes, 30 minutes, 1 hour, 8 hours, 1 day, 7 days, false ]
+                  description: |
+                    Check interval as string (`false` for no interval, run manually)
+                    - **not set** - default value by subscription plan
+                    - `5 minutes` - every 5 minutes
+                    - `30 minutes` - every 30 minutes
+                    - `1 hour` - every hour
+                    - `8 hours` - every 8 hours
+                    - `1 day` - every day
+                    - `7 days` - every week
+                    - `false` - run manually
+                urls:
+                  type: array
+                  description: Deprecated, use `url` instead
+                  deprecated: true
+                  items:
+                    type: string
+                    example: [ "https://www.example.com","https://www.example2.com" ]
+                blank:
+                  type: boolean
+                  deprecated: true
+                  default: false
+                  description: Deprecated, use `addPresetChecks` instead
 
       responses:
-        400:
-          description: Error when trying to *create more than 30 projects* at once or `period` parameters is invalid.
+        4XX:
+          description: Project creation failed with error message
           content:
             application/json:
               schema:
                 properties:
                   message:
                     type: string
-                    default: Sorry! You can only add 30 projects at a time.
-                  error:
-                    type: boolean
-                    default: true
-        403:
-          description: Error when you have reached your **subscription project limit**.
-          content:
-            application/json:
-              schema:
-                properties:
-                  message:
-                    type: string
-                    default: You have reached your project limit.
-                  error:
-                    type: boolean
-                    default: true
-        406:
-          description: When you try send invalid or not supported URL
-          content:
-            application/json:
-              schema:
-                properties:
-                  message:
-                    type: string
-                    default: Oops, we're sorry! The URL "xxx" is not valid
-                  error:
-                    type: boolean
-                    default: true
+                    default: Error message description
         500:
           description: Project creation failed with fatal error (please contact us at support@testomato.com).
           content:
@@ -187,9 +176,6 @@ paths:
                   message:
                     type: string
                     default: Oops, we're sorry! Project creation failed. Please try later or contact us.
-                  error:
-                    type: boolean
-                    default: true
         200:
           description: There Successfully created projects. Response is <a href="https://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> payload with individual projects.
           content:
