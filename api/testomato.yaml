@@ -134,7 +134,7 @@ paths:
                   enum: [ 5 minutes, 30 minutes, 1 hour, 8 hours, 1 day, 7 days, false ]
                   description: |
                     Check interval as string (`false` for no interval, run manually)
-                    - **not set** - default value by subscription plan
+                    - `not set` - default value by subscription plan
                     - `5 minutes` - every 5 minutes
                     - `30 minutes` - every 30 minutes
                     - `1 hour` - every hour
