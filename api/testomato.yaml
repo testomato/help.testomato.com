@@ -132,8 +132,7 @@ paths:
                 checkInterval:
                   type: string
                   enum: [ 5 minutes, 30 minutes, 1 hour, 8 hours, 1 day, 7 days, false ]
-                  description: |
-                    Check interval as string (`false` for no interval, run manually)
+                  description: |                    
                     - `not set` - default value by subscription plan
                     - `5 minutes` - every 5 minutes
                     - `30 minutes` - every 30 minutes
@@ -141,7 +140,7 @@ paths:
                     - `8 hours` - every 8 hours
                     - `1 day` - every day
                     - `7 days` - every week
-                    - `false` - run manually
+                    - `false` - run manually, no schedule
                 urls:
                   type: array
                   description: Deprecated, use `url` instead
