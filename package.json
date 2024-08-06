@@ -21,23 +21,24 @@
     "api.regenerate": "yarn api.clean && yarn api"
   },
   "dependencies": {
-    "@docusaurus/core": "2.4.3",
-    "@docusaurus/preset-classic": "2.4.3",
-    "@mdx-js/react": "^1.6.22",
+    "@docusaurus/core": "3.4.0",
+    "@docusaurus/plugin-sitemap": "^3.4.0",
+    "@docusaurus/preset-classic": "3.4.0",
+    "@mdx-js/react": "^3.0.1",
     "classnames": "^2.3.2",
-    "docusaurus-lunr-search": "^2.3.2",
-    "docusaurus-plugin-openapi-docs": "v2.0.4",
-    "docusaurus-theme-openapi-docs": "v2.0.4",
-    "prism-react-renderer": "^1.3.5",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "docusaurus-lunr-search": "^3.4.0",
+    "docusaurus-plugin-openapi-docs": "3.0.1",
+    "docusaurus-theme-openapi-docs": "3.0.1",
+    "prism-react-renderer": "^2.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.4.3",
-    "@tsconfig/docusaurus": "^1.0.5",
-    "mock-to-openapi": "^1.0.9",
-    "prettier": "^3.0.0",
-    "typescript": "^4.7.4"
+    "@docusaurus/module-type-aliases": "3.4.0",
+    "@tsconfig/docusaurus": "^2.0.3",
+    "mock-to-openapi": "^1.1.2",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
   },
   "browserslist": {
     "production": [
