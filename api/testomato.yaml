@@ -109,9 +109,7 @@ paths:
     post:
       operationId: New project
       description: |
-        Create a new project from array of URLs. Successful response will be
-        formatted as [JSONP](https://en.wikipedia.org/wiki/JSONP) stream.
-        You can add **up to 30 URLs** at once.
+        Create a new project from given URL. Response will be a new project object or error message.
       security:
         - ApiToken: [ ]
       tags:
