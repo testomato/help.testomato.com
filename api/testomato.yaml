@@ -174,17 +174,12 @@ paths:
                     type: string
                     default: Oops, we're sorry! Project creation failed. Please try later or contact us.
         200:
-          description: There Successfully created projects. Response is <a href="https://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP</a> payload with individual projects.
+          description: Project was successfully created.
           content:
             application/json:
               schema:
                 allOf:
                   - $ref: schemas/Project.yaml
-                  - type: object
-                    properties:
-                      originalUrl:
-                        description: Original URL that was processed
-                        type: string
 
   /project/{id}:
     parameters:
