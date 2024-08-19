@@ -132,7 +132,7 @@ paths:
                 checkInterval:
                   type: string
                   enum: [ 5 minutes, 30 minutes, 1 hour, 8 hours, 1 day, 7 days, false ]
-                  description: |                    
+                  description: |
                     - `not set` - default value by subscription plan
                     - `5 minutes` - every 5 minutes
                     - `30 minutes` - every 30 minutes
@@ -155,15 +155,60 @@ paths:
                   description: Deprecated, use `addPresetChecks` instead
 
       responses:
-        4XX:
-          description: Project creation failed with error message
+        402:
+          description: You have reached the project limit of your subscription limit. Please upgrade your subscription before adding more projects.
           content:
             application/json:
               schema:
                 properties:
                   message:
                     type: string
-                    default: Error message description
+                    default: You have reached the project limit of your subscription limit. Please upgrade your subscription before adding more projects.
+        410:
+          description: We're sorry! The URL https://url seems to be invalid.
+          content:
+              application/json:
+                schema:
+                    properties:
+                      message:
+                          type: string
+                          default: We're sorry! The URL https://url seems to be invalid.
+        432:
+          description: Deprecated parameter "urls", please use "url" instead.
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: Deprecated parameter "urls", please use "url" instead.
+        433:
+          description: Deprecated parameter "blank", please use "addPresetChecks" instead.
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: Deprecated parameter "blank", please use "addPresetChecks" instead.
+        434:
+          description: Missing mandatory parameter "url"
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: Missing mandatory parameter "url"
+        400:
+          description: Project creation failed with validation error.
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: Oops, we're sorry! Project creation failed. Please try later or contact us.
         500:
           description: Project creation failed with fatal error (please contact us at support@testomato.com).
           content:
