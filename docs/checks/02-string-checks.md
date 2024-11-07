@@ -4,12 +4,12 @@ title: String checks
 sidebar_label: String checks
 ---
 
-Testomato allow create string checks for two type of page content. Those simple checks can be created for:
+Testomato allow create string checks for two types of page content. Those simple checks can be created for:
 
 ![String checks](/img/checks/string-checks.png)
 
 1. `HTML on page` - represents raw source code that we downloaded from given URL
-2. `Text on page` - represents just readeable text from given URL
+2. `Text on page` - represents just readable text from given URL
 
 Then you can use following **operators**:
 
@@ -32,11 +32,11 @@ regex and also add following [Pattern Modifiers](https://www.php.net/manual/en/r
 * `u` pattern and subject strings are treated as UTF-8. An invalid subject will cause the preg_* function to match nothing;
 * `m` subject strings are treated as multi-line string
 
-You can debug your regex with https://www.phpliveregex.com/
+You can debug your regex with https://www.phpliveregex.com/ or https://phphub.net/regex/ 
 
 ### When use `Text on page` when `HTML on page`?
 
-`HTML on page` is content as we downloaded from given url, only encoded to `utf8` - it's usefull for checking whole content including
+`HTML on page` is content as we downloaded from given url, only encoded to `utf8` - it's useful for checking whole content including
  HTML tags or meta information in `<head></head>`. 
  
  `Text on page` is subset of `HTML on page` - we just remove all markup (HTML tags,
