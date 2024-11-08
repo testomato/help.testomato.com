@@ -21,24 +21,24 @@
     "api.regenerate": "yarn api.clean && yarn api"
   },
   "dependencies": {
-    "@docusaurus/core": "3.4.0",
-    "@docusaurus/plugin-sitemap": "^3.4.0",
-    "@docusaurus/preset-classic": "3.4.0",
-    "@mdx-js/react": "^3.0.1",
+    "@docusaurus/core": "3.6.0",
+    "@docusaurus/plugin-sitemap": "^3.6.0",
+    "@docusaurus/preset-classic": "3.6.0",
+    "@mdx-js/react": "^3.1.0",
     "classnames": "^2.3.2",
-    "docusaurus-lunr-search": "^3.4.0",
-    "docusaurus-plugin-openapi-docs": "3.0.1",
-    "docusaurus-theme-openapi-docs": "3.0.1",
-    "prism-react-renderer": "^2.3.1",
+    "docusaurus-lunr-search": "^3.5.0",
+    "docusaurus-plugin-openapi-docs": "4.2.0",
+    "docusaurus-theme-openapi-docs": "4.2.0",
+    "prism-react-renderer": "^2.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.4.0",
+    "@docusaurus/module-type-aliases": "3.6.0",
     "@tsconfig/docusaurus": "^2.0.3",
     "mock-to-openapi": "^1.1.2",
     "prettier": "^3.3.3",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.3"
   },
   "browserslist": {
     "production": [
