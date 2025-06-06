@@ -113,7 +113,7 @@ module.exports = {
 							href: 'https://www.facebook.com/testomato',
 						},
 						{
-							label: 'X',
+							label: 'Twitter',
 							href: 'https://x.com/testomatocom',
 						},
 					],
