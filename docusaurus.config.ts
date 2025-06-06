@@ -1,8 +1,8 @@
-import type {Config} from '@docusaurus/types';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from "@docusaurus/preset-classic";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
-import {themes} from "prism-react-renderer";
+import { themes } from "prism-react-renderer";
 
 const lightTheme = themes.github;
 const darkTheme = themes.dracula;
@@ -105,10 +105,6 @@ module.exports = {
 					title: 'Social networks',
 					items: [
 						{
-							label: 'Blog',
-							href: 'https://blog.testomato.com',
-						},
-						{
 							label: 'GitHub',
 							href: 'https://github.com/testomato',
 						},
@@ -117,8 +113,8 @@ module.exports = {
 							href: 'https://www.facebook.com/testomato',
 						},
 						{
-							label: 'Twitter',
-							href: 'https://twitter.com/testomatocom',
+							label: 'X',
+							href: 'https://x.com/testomatocom',
 						},
 					],
 				},
