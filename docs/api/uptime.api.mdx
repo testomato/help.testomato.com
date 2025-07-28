@@ -11,19 +11,13 @@ info_path: api/testomato-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
-import Markdown from "@theme/Markdown";
-import Heading from "@theme/Heading";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
 <Heading
   as={"h1"}
@@ -35,6 +29,7 @@ import TabItem from "@theme/TabItem";
 <MethodEndpoint
   method={"get"}
   path={"/project/{id}/uptime"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
@@ -51,318 +46,26 @@ Return uptimes by days
 >
 </Heading>
 
-<details
-  style={{"marginBottom":"1rem"}}
-  className={"openapi-markdown__details"}
-  data-collapsed={false}
-  open={true}
+<ParamsDetails
+  parameters={[{"name":"id","description":"A unique project ID","example":"5e9602e7a39e5a46428b457f","allowEmptyValue":false,"required":true,"in":"path","schema":{"type":"string"}},{"name":"start","description":"Period start date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format","example":"2022-10-31T00:00:00.000+01:00","required":true,"in":"query","schema":{"type":"string"}},{"name":"end","description":"Period end date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format (default `now`)\n","example":"2022-10-31T00:00:00.000+01:00","required":false,"in":"query","schema":{"type":"string"}}]}
 >
-  <summary
-    style={{}}
-  >
-    <h3
-      className={"openapi-markdown__details-summary-header-params"}
-    >
-      Path Parameters
-    </h3>
-  </summary><div>
-    <ul>
-      <ParamsItem
-        className={"paramsItem"}
-        param={{"name":"id","description":"A unique project ID","example":"5e9602e7a39e5a46428b457f","allowEmptyValue":false,"required":true,"in":"path","schema":{"type":"string"}}}
-      >
-        
-      </ParamsItem>
-    </ul>
-  </div>
-</details><details
-  style={{"marginBottom":"1rem"}}
-  className={"openapi-markdown__details"}
-  data-collapsed={false}
-  open={true}
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
 >
-  <summary
-    style={{}}
-  >
-    <h3
-      className={"openapi-markdown__details-summary-header-params"}
-    >
-      Query Parameters
-    </h3>
-  </summary><div>
-    <ul>
-      <ParamsItem
-        className={"paramsItem"}
-        param={{"name":"start","description":"Period start date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format","example":"2022-10-31T00:00:00.000+01:00","required":true,"in":"query","schema":{"type":"string"}}}
-      >
-        
-      </ParamsItem><ParamsItem
-        className={"paramsItem"}
-        param={{"name":"end","description":"Period end date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format (default `now`)\n","example":"2022-10-31T00:00:00.000+01:00","required":false,"in":"query","schema":{"type":"string"}}}
-      >
-        
-      </ParamsItem>
-    </ul>
-  </div>
-</details><div>
-  <div>
-    <ApiTabs
-      label={undefined}
-      id={undefined}
-    >
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          Response times
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"from"}
-                        required={false}
-                        schemaName={"date-time"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string","format":"date-time","example":"2022-11-25T00:00:00+01:00"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"to"}
-                        required={false}
-                        schemaName={"date-time"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string","format":"date-time","example":"2022-12-01T14:10:08+01:00"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"daysCount"}
-                        required={false}
-                        schemaName={"int32"}
-                        qualifierMessage={undefined}
-                        schema={{"description":"Number of days in the period","type":"integer","format":"int32","example":6}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"isUptimeEnabled"}
-                        required={false}
-                        schemaName={"boolean"}
-                        qualifierMessage={undefined}
-                        schema={{"description":"Is uptime enabled for this project","type":"boolean","example":true}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={true}
-                        className={"schemaItem"}
-                      >
-                        <details
-                          style={{}}
-                          className={"openapi-markdown__details"}
-                        >
-                          <summary
-                            style={{}}
-                          >
-                            <span
-                              className={"openapi-schema__container"}
-                            >
-                              <strong
-                                className={"openapi-schema__property"}
-                              >
-                                uptime
-                              </strong><span
-                                className={"openapi-schema__name"}
-                              >
-                                 object
-                              </span>
-                            </span>
-                          </summary><div
-                            style={{"marginLeft":"1rem"}}
-                          >
-                            <div
-                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
-                            >
-                              
-                              
-                              Uptime for the whole period
-                              
-                              
-                            </div><SchemaItem
-                              collapsible={false}
-                              name={"up"}
-                              required={false}
-                              schemaName={"number"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"number","example":97.856313311777}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"down"}
-                              required={false}
-                              schemaName={"number"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"number","example":1.2870556603245}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"timeout"}
-                              required={false}
-                              schemaName={"number"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"number","example":0.85663102789809}}
-                            >
-                              
-                            </SchemaItem>
-                          </div>
-                        </details>
-                      </SchemaItem><SchemaItem
-                        collapsible={true}
-                        className={"schemaItem"}
-                      >
-                        <details
-                          style={{}}
-                          className={"openapi-markdown__details"}
-                        >
-                          <summary
-                            style={{}}
-                          >
-                            <span
-                              className={"openapi-schema__container"}
-                            >
-                              <strong
-                                className={"openapi-schema__property"}
-                              >
-                                uptimeByDays
-                              </strong><span
-                                className={"openapi-schema__name"}
-                              >
-                                 object[]
-                              </span>
-                            </span>
-                          </summary><div
-                            style={{"marginLeft":"1rem"}}
-                          >
-                            <div
-                              style={{"marginTop":".5rem","marginBottom":".5rem"}}
-                            >
-                              
-                              
-                              Uptime by days (can be empty if uptime data is not available)
-                              
-                              
-                            </div><li>
-                              <div
-                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
-                              >
-                                Array [
-                              </div>
-                            </li><SchemaItem
-                              collapsible={false}
-                              name={"date"}
-                              required={false}
-                              schemaName={"date-time"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"string","format":"date-time","example":"2022-11-25T00:00:00+01:00"}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"up"}
-                              required={false}
-                              schemaName={"number"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"number","example":99.853140098274}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"down"}
-                              required={false}
-                              schemaName={"number"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"number","example":0.14685990172585}}
-                            >
-                              
-                            </SchemaItem><SchemaItem
-                              collapsible={false}
-                              name={"timeout"}
-                              required={false}
-                              schemaName={"int32"}
-                              qualifierMessage={undefined}
-                              schema={{"type":"integer","format":"int32","example":0}}
-                            >
-                              
-                            </SchemaItem><li>
-                              <div
-                                style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
-                              >
-                                ]
-                              </div>
-                            </li>
-                          </div>
-                        </details>
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"from\": \"2022-11-25T00:00:00+01:00\",\n  \"to\": \"2022-12-01T14:10:08+01:00\",\n  \"daysCount\": 6,\n  \"isUptimeEnabled\": true,\n  \"uptime\": {\n    \"up\": 97.856313311777,\n    \"down\": 1.2870556603245,\n    \"timeout\": 0.85663102789809\n  },\n  \"uptimeByDays\": [\n    {\n      \"date\": \"2022-11-25T00:00:00+01:00\",\n      \"up\": 99.853140098274,\n      \"down\": 0.14685990172585,\n      \"timeout\": 0\n    }\n  ]\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Response times","content":{"application/json":{"schema":{"type":"object","properties":{"from":{"type":"string","format":"date-time","example":"2022-11-25T00:00:00+01:00"},"to":{"type":"string","format":"date-time","example":"2022-12-01T14:10:08+01:00"},"daysCount":{"description":"Number of days in the period","type":"integer","format":"int32","example":6},"isUptimeEnabled":{"description":"Is uptime enabled for this project","type":"boolean","example":true},"uptime":{"description":"Uptime for the whole period","type":"object","properties":{"up":{"type":"number","example":97.856313311777},"down":{"type":"number","example":1.2870556603245},"timeout":{"type":"number","example":0.85663102789809}}},"uptimeByDays":{"description":"Uptime by days (can be empty if uptime data is not available)","type":"array","items":{"type":"object","properties":{"date":{"type":"string","format":"date-time","example":"2022-11-25T00:00:00+01:00"},"up":{"type":"number","example":99.853140098274},"down":{"type":"number","example":0.14685990172585},"timeout":{"type":"integer","format":"int32","example":0}}}}},"title":"Uptime"}}}}}}
+>
+  
+</StatusCodes>
+
+
       

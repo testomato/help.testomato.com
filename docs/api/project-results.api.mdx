@@ -11,19 +11,13 @@ info_path: api/testomato-api
 custom_edit_url: null
 ---
 
-import ApiTabs from "@theme/ApiTabs";
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
 import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
-import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
-import MimeTabs from "@theme/MimeTabs";
-import ParamsItem from "@theme/ParamsItem";
-import ResponseSamples from "@theme/ResponseSamples";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
-import Markdown from "@theme/Markdown";
-import Heading from "@theme/Heading";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
 
 <Heading
   as={"h1"}
@@ -35,6 +29,7 @@ import TabItem from "@theme/TabItem";
 <MethodEndpoint
   method={"get"}
   path={"/project/{ProjectId}/job/{JobId}/results"}
+  context={"endpoint"}
 >
   
 </MethodEndpoint>
@@ -51,197 +46,26 @@ Retrieve latest project's checks results
 >
 </Heading>
 
-<details
-  style={{"marginBottom":"1rem"}}
-  className={"openapi-markdown__details"}
-  data-collapsed={false}
-  open={true}
+<ParamsDetails
+  parameters={[{"name":"ProjectId","description":"A unique project ID","example":"5e9602e7a39e5a46428b457f","allowEmptyValue":false,"required":true,"in":"path","schema":{"type":"string"}},{"name":"JobId","description":"A unique Job ID","example":"55ae166c25b395537a8b6029","allowEmptyValue":false,"required":true,"in":"path","schema":{"type":"string"}}]}
 >
-  <summary
-    style={{}}
-  >
-    <h3
-      className={"openapi-markdown__details-summary-header-params"}
-    >
-      Path Parameters
-    </h3>
-  </summary><div>
-    <ul>
-      <ParamsItem
-        className={"paramsItem"}
-        param={{"name":"ProjectId","description":"A unique project ID","example":"5e9602e7a39e5a46428b457f","allowEmptyValue":false,"required":true,"in":"path","schema":{"type":"string"}}}
-      >
-        
-      </ParamsItem><ParamsItem
-        className={"paramsItem"}
-        param={{"name":"JobId","description":"A unique Job ID","example":"55ae166c25b395537a8b6029","allowEmptyValue":false,"required":true,"in":"path","schema":{"type":"string"}}}
-      >
-        
-      </ParamsItem>
-    </ul>
-  </div>
-</details><div>
-  <div>
-    <ApiTabs
-      label={undefined}
-      id={undefined}
-    >
-      <TabItem
-        label={"200"}
-        value={"200"}
-      >
-        <div>
-          
-          
-          Project results
-          
-          
-        </div><div>
-          <MimeTabs
-            className={"openapi-tabs__mime"}
-            schemaType={"response"}
-          >
-            <TabItem
-              label={"application/json"}
-              value={"application/json"}
-            >
-              <SchemaTabs
-                className={"openapi-tabs__schema"}
-              >
-                <TabItem
-                  label={"Schema"}
-                  value={"Schema"}
-                >
-                  <details
-                    style={{}}
-                    className={"openapi-markdown__details response"}
-                    data-collapsed={false}
-                    open={true}
-                  >
-                    <summary
-                      style={{}}
-                      className={"openapi-markdown__details-summary-response"}
-                    >
-                      <strong>
-                        Schema
-                      </strong>
-                    </summary><div
-                      style={{"textAlign":"left","marginLeft":"1rem"}}
-                    >
-                      
-                    </div><ul
-                      style={{"marginLeft":"1rem"}}
-                    >
-                      <SchemaItem
-                        collapsible={false}
-                        name={"jobId"}
-                        required={false}
-                        schemaName={"string"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"string","description":"A unique ID for each project job","example":"6346802f314d328b4a8b4579"}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"total"}
-                        required={false}
-                        schemaName={"integer"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"integer","description":"The total number of tests performed","example":28}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"failed"}
-                        required={false}
-                        schemaName={"integer"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"integer","description":"The number of failed tests","example":0}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"processed"}
-                        required={false}
-                        schemaName={"boolean"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"boolean","description":"Has this job already been processed","example":true}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"persist"}
-                        required={false}
-                        schemaName={"boolean"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"boolean","description":"Is this job temporary of persist","example":true}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"startedAt"}
-                        required={false}
-                        schemaName={"integer"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"integer","description":"Time when job started (unix timestamp)","example":1665564719}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"duration"}
-                        required={false}
-                        schemaName={"number"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"number","description":"Duration of the job in seconds","example":2.1946158409119}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"mode"}
-                        required={false}
-                        schemaName={"number"}
-                        qualifierMessage={undefined}
-                        schema={{"type":"number","example":0}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"areas"}
-                        required={false}
-                        schemaName={"string[]"}
-                        qualifierMessage={undefined}
-                        schema={{"description":"List of areas","type":"array","items":{"type":"string"}}}
-                      >
-                        
-                      </SchemaItem><SchemaItem
-                        collapsible={false}
-                        name={"results"}
-                        required={false}
-                        schemaName={"string[]"}
-                        qualifierMessage={undefined}
-                        schema={{"description":"Array of test results -- each result has a testId, testName etc.","type":"array","items":{"type":"string"}}}
-                      >
-                        
-                      </SchemaItem>
-                    </ul>
-                  </details>
-                </TabItem><TabItem
-                  label={"Example (from schema)"}
-                  value={"Example (from schema)"}
-                >
-                  <ResponseSamples
-                    responseExample={"{\n  \"jobId\": \"6346802f314d328b4a8b4579\",\n  \"total\": 28,\n  \"failed\": 0,\n  \"processed\": true,\n  \"persist\": true,\n  \"startedAt\": 1665564719,\n  \"duration\": 2.1946158409119,\n  \"mode\": 0,\n  \"areas\": [\n    \"string\"\n  ],\n  \"results\": [\n    \"string\"\n  ]\n}"}
-                    language={"json"}
-                  >
-                    
-                  </ResponseSamples>
-                </TabItem>
-              </SchemaTabs>
-            </TabItem>
-          </MimeTabs>
-        </div>
-      </TabItem>
-    </ApiTabs>
-  </div>
-</div>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Project results","content":{"application/json":{"schema":{"properties":{"jobId":{"type":"string","description":"A unique ID for each project job","example":"6346802f314d328b4a8b4579"},"total":{"type":"integer","description":"The total number of tests performed","example":28},"failed":{"type":"integer","description":"The number of failed tests","example":0},"processed":{"type":"boolean","description":"Has this job already been processed","example":true},"persist":{"type":"boolean","description":"Is this job temporary of persist","example":true},"startedAt":{"type":"integer","description":"Time when job started (unix timestamp)","example":1665564719},"duration":{"type":"number","description":"Duration of the job in seconds","example":2.1946158409119},"mode":{"type":"number","example":0},"areas":{"description":"List of areas","type":"array","items":{"type":"string"}},"results":{"description":"Array of test results -- each result has a testId, testName etc.","type":"array","items":{"type":"string"}}}}}}}}}
+>
+  
+</StatusCodes>
+
+
       
