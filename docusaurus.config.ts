@@ -15,8 +15,6 @@ module.exports = {
 	baseUrl: '/',
 	organizationName: 'testomato',
 	projectName: 'help.testomato.com',
-	onBrokenLinks: 'warn',
-	onBrokenMarkdownLinks: 'warn',
 	trailingSlash: false,
 	presets: [
 		[
