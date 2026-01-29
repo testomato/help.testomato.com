@@ -10,7 +10,7 @@ sidebar_label: About
 to access checked websites, submit HTML Forms, downloads web pages and other resources that will be checked according to the 
 project configurations of Testomato's users.
 
-TestomatoBot using by default follow [User-Agent string](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent):
+TestomatoBot uses by default the following [User-Agent string](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent):
 
 ```text
 Testomatobot/1.0 (Linux x86_64; +https://www.testomato.com/testomatobot) minicrawler/5.1.2

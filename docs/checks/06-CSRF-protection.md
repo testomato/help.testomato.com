@@ -2,11 +2,11 @@
 title: CSRF protection
 ---
 
-## Testomato & CSRF protecion
+## Testomato & CSRF protection
 
-Can Testomato hadle forms with CSRF protecion. The simply answer is NO.
+Can Testomato handle forms with CSRF protection. The simply answer is NO.
 If your application is protected from cross-site request forgery attacks, it's also
-preventing Testomato from sending requests with [minicralwer](https://github.com/testomato/minicrawler), but we can try to 
+preventing Testomato from sending requests with [minicrawler](https://github.com/testomato/minicrawler), but we can try to 
 bridge the simplest type of protection by doubling the request.
 
 * **During the first request**, Testomato ignores HTTP response code - 
@@ -14,7 +14,7 @@ bridge the simplest type of protection by doubling the request.
   but we update all hidden form params values and save the session.
 * **The second request** is submitted within the same session in the hopes that one of the hidden params has a valid CSRF token
 
-## What's CSRF protecion
+## What's CSRF protection
 
 [Cross-site request forgeries](https://en.wikipedia.org/wiki/Cross-site_request_forgery) are a type of malicious
 exploit where unauthorized commands are performed on behalf of an authenticated user.

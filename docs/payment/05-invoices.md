@@ -5,7 +5,7 @@ sidebar_label: Invoices
 
 ## Can you email me a copy of my invoice?
 
-Yes. Testomato is always sending you an invoice copy to your email. You can add three additional emails that also getting invoice copy.
+Yes. Testomato is always sending you an invoice copy to your email. You can add three additional emails that also get invoice copies.
 Just change you preferences at [Your Profile > Billing & Payment > Billing Information](https://www.testomato.com/user/payments/billing)
 
 ![Invoice emails](/img/payment/invoice-emails.png)  
@@ -26,7 +26,7 @@ If you have any concerns on your invoice, please contact us by sending a message
  
 ## What's `fakturoid` in invoices URL?
 
-Some of our invoices URL leads outside Testomato domain, that's because we are using [Fakturoid](https://www.fakturoid.cz/) for Invoicing. 
+Some of our invoices URLs lead outside Testomato domain, that's because we are using [Fakturoid](https://www.fakturoid.cz/) for Invoicing. 
 [Fakturoid](https://www.fakturoid.cz/) is Czech well known invoice services. Our official account URL under Fakturoid:
 
 ```

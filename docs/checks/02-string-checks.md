@@ -4,7 +4,7 @@ title: String checks
 sidebar_label: String checks
 ---
 
-Testomato allow create string checks for two types of page content. Those simple checks can be created for:
+Testomato allows you to create string checks for two types of page content. Those simple checks can be created for:
 
 ![String checks](/img/checks/string-checks.png)
 
@@ -26,7 +26,7 @@ Then you can use following **operators**:
 
 ### How regular expressions are processed
 
-Testomato process and escape all users inputs including regular expressions. We are using `{` and `}` for wrapping your
+Testomato processes and escapes all users inputs including regular expressions. We are using `{` and `}` for wrapping your
 regex and also add following [Pattern Modifiers](https://www.php.net/manual/en/reference.pcre.pattern.modifiers.php):
 
 * `u` pattern and subject strings are treated as UTF-8. An invalid subject will cause the preg_* function to match nothing;

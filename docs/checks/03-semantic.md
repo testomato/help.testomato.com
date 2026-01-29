@@ -13,7 +13,7 @@ Testomato can check some basics [metadata](https://developer.mozilla.org/en-US/d
 ### Page title
 
 The [title tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title) is main and most important anchor for SEO.
-Check `Page <title>` allow you to check exact HTML `<title>` tag content:
+Check `Page <title>` allows you to check exact HTML `<title>` tag content:
 
 ```html
 <title>content...</title>
@@ -55,11 +55,11 @@ and without `og` prefixes
 
 ### Twitter Cards tags
 
-Testomato allow check [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) markup meta: 
+Testomato allows you to check [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) markup meta: 
 
 ![Twitter Semantic](/img/checks/semantic-checks-twitter.png)
 
-Currently are supported follow markups:
+Currently the following markups are supported:
  
 ```html
 <meta name="twitter:title" content="content..."/>

@@ -50,7 +50,7 @@ information.
 
 1. Click on the project you'd like to manage or select it from your All
    projects menu in the top right corner.
-2. Click to **edit button** near to uptime ![](/img/uptime-setup.png)
+2. Click the **edit button** near the uptime ![](/img/uptime-setup.png)
 4. Then select `OFF` in uptime interval menu, and confirm change ![](/img/uptime-disable.png)
 
 

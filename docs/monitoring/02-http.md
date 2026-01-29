@@ -62,13 +62,13 @@ administrator is working on the problem and that the server will be available la
 
 ## Why Testomato checking `/thisShouldNotExist` page?
 
-A `404` page is an page that appears when you click on a link that is broken 
+A `404` page is a page that appears when you click on a link that is broken 
 and is therefore no longer (or in fact, never was) available.
 
-Testomato is **generate this check automatically** for new Project and
-watch that your server response with correct `404  Not Found` response code.
-Because some servers might response with `200 OK` response codes even
-for non existing pages and that's harm SEO.
+Testomato **generates this check automatically** for new Project and
+watches that your server responds with correct `404  Not Found` response code.
+Because some servers might respond with `200 OK` response codes even
+for non-existent pages and that harms SEO.
 
 Content and links on `404` pages are so important because they give users a way out 
 of the error page. Instead of closing the window or navigating away from your site,
