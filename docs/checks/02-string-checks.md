@@ -4,7 +4,7 @@ title: String checks
 sidebar_label: String checks
 ---
 
-Testomato allow create string checks for two types of page content. Those simple checks can be created for:
+Testomato allows you to create string checks for two types of page content. Those simple checks can be created for:
 
 ![String checks](/img/checks/string-checks.png)
 

@@ -55,7 +55,7 @@ and without `og` prefixes
 
 ### Twitter Cards tags
 
-Testomato allow check [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) markup meta: 
+Testomato allows you to check [Twitter Card](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) markup meta: 
 
 ![Twitter Semantic](/img/checks/semantic-checks-twitter.png)
 

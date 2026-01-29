@@ -3,8 +3,8 @@ id: example-page
 title: Example page
 ---
 
-Testomato [provide page](https://www.testomato.com/example) that randomly 
-generate failing state of website like **timeouts**, **blank page**, **404 errors**, **500 errors**.
+Testomato [provides a page](https://www.testomato.com/example) that randomly 
+generates failing state of website like **timeouts**, **blank page**, **404 errors**, **500 errors**.
 This page can be very useful for API testing.
 
 ## [Errors](https://www.testomato.com/example/error)

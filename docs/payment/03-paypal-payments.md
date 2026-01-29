@@ -11,6 +11,6 @@ Chose **PayPal** from **Payment method**:
 
 ![](/img/payment/payment-methods.png)
 
-Click to PayPayl checkout button and follow PayPal instructions.
+Click to PayPal checkout button and follow PayPal instructions.
 
 ![](/img/payment/paypal.png)
