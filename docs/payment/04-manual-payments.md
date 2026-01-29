@@ -4,7 +4,7 @@ title: Manual payments
 
 ## Required billing information
 
-If you decide pay Testomato subscription manually via **Wire/bank transfer** or **PayPal** we
+If you decide to pay Testomato subscription manually via **Wire/bank transfer** or **PayPal** we
 will require following billing information from you:
 
 * **First name**

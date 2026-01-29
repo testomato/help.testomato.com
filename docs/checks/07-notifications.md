@@ -2,7 +2,7 @@
 title: Notifications and alerts
 ---
 
-Testomato send two types of notifications:
+Testomato sends two types of notifications:
 
 - **Warning** notifications are sent only when crawler timeouts, and
   we are not able to download any content.

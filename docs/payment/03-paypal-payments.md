@@ -7,7 +7,7 @@ method to PayPal at any time through the Testomato website at [Your Profile > Bi
 
 ## Pay with PayPal
 
-Chose **PayPal** from **Payment method**:
+Choose **PayPal** from **Payment method**:
 
 ![](/img/payment/payment-methods.png)
 

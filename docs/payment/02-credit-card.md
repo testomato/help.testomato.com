@@ -14,7 +14,7 @@ subscription-based businesses, and merchants that key in all of their credit car
 
 ## Pay with credit card
 
-Chose **Card** from **Payment method**: 
+Choose **Card** from **Payment method**: 
 
 ![](/img/payment/payment-methods.png)
 

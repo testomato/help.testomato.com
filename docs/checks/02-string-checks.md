@@ -26,7 +26,7 @@ Then you can use following **operators**:
 
 ### How regular expressions are processed
 
-Testomato process and escape all users inputs including regular expressions. We are using `{` and `}` for wrapping your
+Testomato processes and escapes all users inputs including regular expressions. We are using `{` and `}` for wrapping your
 regex and also add following [Pattern Modifiers](https://www.php.net/manual/en/reference.pcre.pattern.modifiers.php):
 
 * `u` pattern and subject strings are treated as UTF-8. An invalid subject will cause the preg_* function to match nothing;

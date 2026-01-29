@@ -9,7 +9,7 @@ This page can be very useful for API testing.
 
 ## [Errors](https://www.testomato.com/example/error)
 
-To getting randomly generated errors add to your Project **Testomato check** for follow URL: 
+To get randomly generated errors add to your Project **Testomato check** for the following URL: 
 
 ```
 https://www.testomato.com/example/error
@@ -17,7 +17,7 @@ https://www.testomato.com/example/error
 
 ## [Warnings (timeouts)](https://www.testomato.com/example/warning)
 
-To getting randomly generated timeouts add to your Project **Testomato check** for follow URL:
+To get randomly generated timeouts add to your Project **Testomato check** for the following URL:
 
 ```
 https://www.testomato.com/example/warning
