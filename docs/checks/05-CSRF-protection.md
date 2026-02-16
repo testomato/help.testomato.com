@@ -4,7 +4,7 @@ title: CSRF protection
 
 ## Testomato & CSRF protection
 
-Can Testomato handle forms with CSRF protection. The simply answer is NO.
+Can Testomato handle forms with CSRF protection? The simply answer is NO.
 If your application is protected from cross-site request forgery attacks, it's also
 preventing Testomato from sending requests with [minicrawler](https://github.com/testomato/minicrawler), but we can try to 
 bridge the simplest type of protection by doubling the request.
@@ -14,14 +14,16 @@ bridge the simplest type of protection by doubling the request.
   but we update all hidden form params values and save the session.
 * **The second request** is submitted within the same session in the hopes that one of the hidden params has a valid CSRF token
 
-## What's CSRF protection
+## What is CSRF protection
 
 [Cross-site request forgeries](https://en.wikipedia.org/wiki/Cross-site_request_forgery) are a type of malicious
 exploit where unauthorized commands are performed on behalf of an authenticated user.
 
 In case you're not familiar with cross-site request forgeries, let's discuss an example of how this
-vulnerability can be exploited. Imagine your application has a `/user/email` route that accepts a 
-`POST` request to change the authenticated user's email address. Most likely, this route expects
+vulnerability can be exploited. 
+
+Imagine your application has a `/user/email` route that accepts a 
+`POST` request to change the authenticated user's email address. This route most likely expects
 an email input field to contain the email address the user would like to begin using.
 
 Without CSRF protection, a malicious website could create an HTML form that points to your
@@ -39,7 +41,7 @@ application's `/user/email` route and submits the malicious user's own email add
 
 ### Preventing CSRF Requests
 
-You can generate CSRF "token" for each active user session managed by the application.
+You can generate a CSRF "token" for each active user session managed by the application.
 This token is used to verify that the authenticated user is the person actually making 
 the requests to the application. Since this token is stored in the user's session
 and changes each time the session is regenerated, a malicious application is unable to access it.
@@ -94,8 +96,8 @@ You can also change the name of the token variable or invalidate a token
 periodically in time. If you have a security requirement that each CSRF 
 token is allowed to be usable exactly once, the simplest strategy
 is to regenerate it after each successful validation. 
-However, doing so will invalidate every previous token which doesn't
-mix well with people who browse multiple tabs at once.
+However, doing so will invalidate every previous token, which can negatively
+impact the experience of users who browse multiple tabs simultaneously.
 
 ## Resources
 
