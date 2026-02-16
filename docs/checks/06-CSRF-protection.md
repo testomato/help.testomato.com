@@ -102,4 +102,4 @@ mix well with people who browse multiple tabs at once.
 * [Cross-site request forgeries](https://en.wikipedia.org/wiki/Cross-site_request_forgery)
 * [CSRF Protection with Laravel](https://laravel.com/docs/8.x/csrf#csrf-explanation)
 * [CSRF Protection with Symfony](https://symfony.com/doc/current/security/csrf.html)
-* [CSRF Protection with Express.js](http://expressjs.com/en/resources/middleware/csurf.html)
+* [CSRF Protection with Express.js](https://github.com/expressjs/csurf) 

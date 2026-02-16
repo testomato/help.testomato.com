@@ -23,7 +23,7 @@ https://www.php.net/manual/en/book.errorfunc.php
 
 #### Database Errors
 
-* [All MySQL error messages](https://dev.mysql.com/doc/refman/8.0/en/server-error-reference.html)
+* [All MySQL error messages](https://dev.mysql.com/doc/mysql-errors/8.4/en/server-error-reference.html)
 
 #### Database connection errors
 
