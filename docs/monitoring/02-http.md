@@ -1,78 +1,43 @@
 ---
-title: Hypertext Transfer Protocol
+title: HTTP Status Codes
 ---
 
-Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmitting hypermedia documents, 
-such as HTML. It was designed for communication between web browsers and web servers, but it can also be 
-used for other purposes. HTTP follows a classical client-server model, with a client opening a connection
-to make a request, then waiting until it receives a response. HTTP is a stateless protocol, 
-meaning that the server does not keep any data (state) between two requests. 
+Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmitting hypermedia documents, such as HTML. It was designed for communication between web browsers and web servers, but it can also be used for other purposes. HTTP follows a classical client-server model, with a client opening a connection to make a request, then waiting until it receives a response. HTTP is a stateless protocol, meaning that the server does not keep any data (state) between two requests.
 
-When accessing a web server or application, every [HTTP request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) that is received by a 
-server is responded to with an [HTTP status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
-Status codes come in the format of 3 digit numbers. The first digit marks the class of the status code:
+When accessing a web server or application, every [HTTP request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) that is received by a server is responded to with an [HTTP status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). Status codes are three-digit numbers where the first digit indicates the class of response:
 
 * `100–199` Informational responses
 * `200–299` Successful responses
 * `300–399` Redirects
 * `400–499` Client-side errors
-* and `500–599` Server errors - indicate problems on the server side 
+* `500–599` Server errors
 
-### [200 OK](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200)
+## [200 OK](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200)
 
-The request has succeeded. All the requested data was located on the web
-server and transferred to the client. Internet users do not usually see this code.
-The meaning of the success depends on the HTTP method, but this code always 
-announces a successful operation. 
+The request has succeeded and all requested data was located on the server and transferred to the client. This code is rarely visible to end users. The meaning of the success depends on the HTTP method used, but this code always indicates a successful operation.
 
-### [301 Moved Permanently](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301)
+## [301 Moved Permanently](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301)
 
-The `301` code means that the data requested from the client cannot be found under the
-given address since it has been moved permanently. Since the current location of the 
-requested content is delivered in the status report, the browser can request the 
-new address straightaway. The user is then forwarded to the new address and the old
-address is no longer valid. The `301` code also goes unnoticed because the URL
-in the address bar simply changes.
- 
-### [302 Moved Temporarily](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/302)
-  
-Unlike the `301` code, which is a permanent redirection, the 302 informs the user that the requested data 
-has temporarily been moved. With a `302` code the remaining information is specified so that an automatic
-redirection can take place. The old address remains valid.
+The requested resource has been permanently moved to a new URL, which is included in the response. The browser automatically redirects the user to the new address, and the old address is no longer valid. Like `200`, this code typically goes unnoticed by users as the redirect happens automatically.
 
-### [403 Forbidden](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403)
+## [302 Found](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/302)
 
-The HTTP status code `403` tells the client that the requested data is access-protected
-and that the request cannot be performed due to the client not having authority.
-An automatically generated HTML page will let the user know about the access problem.
+Officially called `302 Found`, this code is commonly referred to as a temporary redirect. The requested resource has been temporarily moved to a different URL. Unlike a `301`, the original address remains valid and the redirect is not permanent. The browser follows the redirect automatically.
 
-### [404 Not Found](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404)
+## [403 Forbidden](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403)
 
-The HTTP `404` **Not Found** client error response code indicates that the server
-can't find the requested resource. Links which lead to a `404` page are often called
-**broken** or **dead links**, and can be subject to link rot.
+The server understood the request but refuses to authorize it. The client does not have the necessary permissions to access the requested resource.
 
-### [500 Internal Server Error](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500)
+## [404 Not Found](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404)
 
-The `500` status code, or *Internal Server Error*, means that server cannot process 
-the request for an unknown reason. Sometimes this code will appear when more 
-specific `5xx` errors are more appropriate. Internet users can presume that an
-administrator is working on the problem and that the server will be available later on.
+The server cannot find the requested resource. Links that lead to a `404` page are often called **broken** or **dead links**. See [how Testomato uses `404` checks](#why-does-testomato-check-thisshouldnotexist) below.
 
+## [500 Internal Server Error](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500)
 
-## Why Testomato checking `/thisShouldNotExist` page?
+The server encountered an unexpected condition that prevented it from fulfilling the request. This is a generic catch-all error; more specific `5xx` codes may be more appropriate in some cases. Users can generally assume the issue is being investigated and the server will be available again later.
 
-A `404` page is a page that appears when you click on a link that is broken 
-and is therefore no longer (or in fact, never was) available.
+## Why does Testomato check `/thisShouldNotExist`?
 
-Testomato **generates this check automatically** for new Project and
-watches that your server responds with correct `404  Not Found` response code.
-Because some servers might respond with `200 OK` response codes even
-for non-existent pages and that harms SEO.
+Testomato **automatically generates a `404` check** for each new project to verify that your server correctly returns a `404 Not Found` response for non-existent pages. This matters because some servers return a `200 OK` response even for pages that don't exist — a pattern sometimes called a "soft 404" — which can harm your site's SEO.
 
-Content and links on `404` pages are so important because they give users a way out 
-of the error page. Instead of closing the window or navigating away from your site,
-the user is able to find helpful and potentially relevant resources on another page.
-
-Check out our 404 page https://www.testomato.com/404
-
+A well-configured `404` page also helps retain users who follow broken links, by offering helpful navigation options rather than a dead end. You can see an example of a good `404` page at [testomato.com/404](https://www.testomato.com/404).

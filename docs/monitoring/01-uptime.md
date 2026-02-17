@@ -3,54 +3,32 @@ id: uptime
 title: Uptime monitoring
 ---
 
-### Getting false timeouts
-
-Why Does Testomato Say My Site Is Down When It's Not? Testomato may
-occasionally report your site is down or unavailable, but everything
-looks fine when you go and investigate the problem for yourself.
-
-### Location Matters
-
-Uptime Monitoring in Testomato is done externally rather than internally
-This means that [Testomatobot](https://www.testomato.com) tests and
-monitors your site or server from a location that is outside the 
-local network where your server is hosted.
-
-In some cases, a project may be unavailable to Testomato a very short
-period of time due to problems with network latency, i.e. how long it
-takes data to get from one point to another.
-
-To help avoid sending alerts about false timeouts or short-term issues,
-we retest your project a second time before we send an alert if
-[Testomato](https://www.testomato.com) is unable to connect with your site or server.
-
-We have also started adding more testing locations in Testomato to help
-minimize the influence of our connection on your project test results.
-
-## Disable Uptime Monitoring
-
-Site downtime can mean loss of revenue and user trust, so it's important
-to stay one step ahead by knowing when your website is up or down.
-Uptime Monitoring & Response Time is automatically enabled for our:
-
-* **Professional Plan**
-* **Business Plan**
-* **Enterprise Plan**
-* and during a 30-day free trial period
+Uptime monitoring checks whether your site or server is reachable and measures its response time. It is automatically enabled on the **Professional**, **Business**, and **Enterprise** plans, and during the 30-day free trial.
 
 :::tip
-
-If your plan does not support uptime monitoring, please take a look at
-our [pricing plans](https://www.testomato.com/pricing) for more
-information.
-
+If your plan does not include uptime monitoring, see our [pricing plans](https://www.testomato.com/pricing) for more information.
 :::
 
-#### How to Disable Uptime Monitoring
+## How to disable uptime monitoring
 
-1. Click on the project you'd like to manage or select it from your All
-   projects menu in the top right corner.
-2. Click the **edit button** near the uptime ![](/img/uptime-setup.png)
-4. Then select `OFF` in uptime interval menu, and confirm change ![](/img/uptime-disable.png)
+1. Click on the project you'd like to manage, or select it from the **All Projects** menu in the top right corner.
+2. Click the **edit button** next to the uptime status. ![Testomato screenshot with a red callout pointing to the edit button](/img/uptime-setup.png)
+3. Select `OFF` in the uptime interval menu and confirm the change. ![Detail image of the interval select menu with multiple option](/img/uptime-disable.png)
 
+## Why does Testomato say my site is down when it's not?
 
+Testomato may occasionally report your site as down or unavailable even when everything looks fine when you investigate yourself. There are a few reasons this can happen.
+
+### Monitoring is done from an external location
+
+[Testomato Bot](https://www.testomato.com/bot) tests your site from outside the local network where your server is hosted. This means it is subject to the same network conditions as any external visitor, including latency — the time it takes data to travel from one point to another.
+
+In some cases, a brief network disruption between Testomato's monitoring location and your server can make your site appear unreachable, even if it is functioning normally for users in other locations.
+
+### Testomato retests before alerting
+
+To reduce false alerts caused by short-term issues, Testomato automatically retests your project a second time before sending a downtime notification. You will only receive an alert if the second test also fails.
+
+### More monitoring locations
+
+Testomato is continuously adding monitoring locations to reduce the influence of any single connection on your results. If you are seeing frequent false timeouts, this may improve over time as additional locations are added.
