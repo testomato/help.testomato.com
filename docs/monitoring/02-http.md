@@ -41,3 +41,11 @@ The server encountered an unexpected condition that prevented it from fulfilling
 Testomato **automatically generates a `404` check** for each new project to verify that your server correctly returns a `404 Not Found` response for non-existent pages. This matters because some servers return a `200 OK` response even for pages that don't exist — a pattern sometimes called a "soft 404" — which can harm your site's SEO.
 
 A well-configured `404` page also helps retain users who follow broken links, by offering helpful navigation options rather than a dead end. You can see an example of a good `404` page at [testomato.com/404](https://www.testomato.com/404).
+
+## Is Testomato a broken link checker?
+
+No. Testomato checks the HTTP status of URLs you have configured, but it does not crawl your website or examine HTML to proactively search for broken links.
+
+:::tip
+If you need a broken link checker, try the [Broken Link Checker Chrome Extension](https://chrome.google.com/webstore/detail/broken-link-checker/bjcoimpfplliplknnmgbffboiihamekf/related).
+:::
