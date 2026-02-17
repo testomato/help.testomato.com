@@ -4,9 +4,9 @@ title: Notifications and alerts
 
 Testomato sends two types of notifications:
 
-- **Warning** notifications are sent only when crawler timeouts, and
+- **Warning** notifications are sent only when crawler timeouts and
   we are not able to download any content.
-- **Error** notifications is sent to you when some [check failed](/checks/introduction).
+- **Error** notifications are sent to you when some check has failed.
 
 ## When are notifications sent?
 
@@ -14,8 +14,8 @@ Notifications are only sent if the check status changes. If you intentionally cr
 Testomato will not notify you, because you know about this condition.
 
 A notification is generated, for example, if the previous status was 200 OK and changed to 
-404 Page not found. We will then send you a notification. This helps us avoid being overwhelmed by
-notifications when setting up new check or change something.
+404 Page not found. We will then send you a notification. This helps you avoid being overwhelmed by
+notifications when setting up a new check or after changing an existing check.
 
 ## What notifications channels are supported? 
 

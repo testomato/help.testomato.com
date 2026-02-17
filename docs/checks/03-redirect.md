@@ -36,7 +36,7 @@ than the server level. They are usually slower, and not a recommended SEO techni
 ```
 
 :::info
-Testomato can't detect Meta refreshes redirects.
+Testomato can't detect Meta refreshes as redirects.
 :::
 
 
@@ -51,7 +51,7 @@ Enter the URL you want to check:
 ![Enter URL for check](/img/checks/redirect-enter-url.png)
 
 :::important
-This form always follow redirects. Do not worry, you can change that URL later. 
+This form sets the check to follow redirects by default. Do not worry, you can change that URL later. 
 :::  
 
 ### Check Redirect response code
@@ -68,6 +68,11 @@ Edit new **Page check**:
 2. Add expected response code
 3. Turn off **Follow redirects** 
 4. Save changes
+
+:::info Follow redirects
+When **disabled**, Testomato stops at the redirect response, allowing you to verify the redirect code and location URL are correct.
+:::
+
 
 ### Check Redirect location URL
 

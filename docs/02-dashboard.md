@@ -13,6 +13,12 @@ When you sign in to Testomato, we want you to be able to know if there
 are problems the minute you see your dashboard. That's why boxes will
 change color according to the status of each check.
 
+## Open selected Project
+
+By clicking on **Project Name** or **Checks** button.
+
+![Dashboard Open Project](/img/open-project.png)
+
 ## Check colors
 
 There are only **4 possible colors** for check boxes:
@@ -28,9 +34,3 @@ There are only **4 possible colors** for check boxes:
 There is another mode called _compact_, this mode is useful for long projects.
 
 ![Dashboard Compact](/img/dashboard-compact.png)
-
-## Open selected Project
-
-By clicking on **Project Name** or **Checks** button.
-
-![](/img/open-project.png)
