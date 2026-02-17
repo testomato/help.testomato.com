@@ -1,35 +1,27 @@
 ---
 id: about
-title: About TestomatoBot
-sidebar_label: About
+title: About
 ---
 
-### What is TestomatoBot?
+[TestomatoBot](https://www.testomato.com/bot) is the web crawler used by [Testomato](https://www.testomato.com) to access checked websites, submit HTML forms, and download web pages and other resources according to each project's configuration.
 
-[TestomatoBot](https://www.testomato.com/bot) is the web crawler software and toolset used by [Testomato](https://www.testomato.com)
-to access checked websites, submit HTML Forms, downloads web pages and other resources that will be checked according to the 
-project configurations of Testomato's users.
-
-TestomatoBot uses by default the following [User-Agent string](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent):
+TestomatoBot identifies itself with the following [User-Agent string](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent):
 
 ```text
 Testomatobot/1.0 (Linux x86_64; +https://www.testomato.com/testomatobot) minicrawler/5.1.2
 ```
 
 :::info
-   Get list of all TestomatoBot IP addresses: https://www.testomato.com/bot
+For a full list of TestomatoBot IP addresses, see [testomato.com/bot](https://www.testomato.com/bot).
 :::
 
-## Open source code
 
-[TestomatoBot](https://www.testomato.com/bot) uses [Minicrawler](https://github.com/testomato/minicrawler) to perform an HTTP requests for a given 
-URL to get an HTTP response, including headers. It was developed to have the smallest possible memory footprint, processor time consumption, 
-and fit the needs of [Testomato](https://www.testomato.com), as well as other internal projects. [Minicrawler](https://github.com/testomato/minicrawler) 
-is open-sourced under the AGPL License.
+## Open source
 
-We encourage you to check [Minicrawler](https://github.com/testomato/minicrawler) out and try it out for yourself. 
-We welcome any suggestions or feedback you might have for ways we can improve it!
+TestomatoBot uses [Minicrawler](https://github.com/testomato/minicrawler) to perform HTTP requests and retrieve responses, including headers. Minicrawler was developed to have the smallest possible memory and processor footprint, built specifically for Testomato's needs. It is open-sourced under the [AGPL License](https://www.gnu.org/licenses/agpl-3.0.html).
+
+We welcome any suggestions or contributions. Feel free to try it out and let us know what you think.
 
 :::tip
-   If you don't want Testomatobot to access your server (i.e. due to overloading), please contact us at [info@testomato.com](mailto:info@testomato.com).
+If you would like TestomatoBot to stop accessing your server, please contact us at [info@testomato.com](mailto:info@testomato.com).
 :::
