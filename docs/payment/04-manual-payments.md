@@ -2,10 +2,11 @@
 title: Manual payments
 ---
 
+Manual payments are an alternative to automatic credit card billing, and are suited to businesses or individuals who prefer to pay by wire/bank transfer or PayPal invoice. To get started, contact us at support@testomato.com so we can prepare everything on our end before sending you an invoice.
+
 ## Required billing information
 
-If you decide to pay Testomato subscription manually via **Wire/bank transfer** or **PayPal** we
-will require following billing information from you:
+We will require the following billing information from you:
 
 * **First name**
 * **Last name**
@@ -14,43 +15,29 @@ will require following billing information from you:
 * **Postal code**
 * **Country**
 
-and optional also
+Optional:
 
 * **Company name**
 * **VAT number**
 * **Registration number**
 
-Please contact us first at support@testomato.com, we have to prepare everything for you.
-
-
-## Pay received invoice
+## Paying a received invoice
 
 Once you have received an invoice from Testomato, click the **Pay via PayPal** or **Bank transfer** button and follow the steps:
 
-![](/img/payment/invoice.png)
+![Testomato invoice screenshot with red callouts pointing to the Pay by PayPal and Bank transfer buttons](/img/payment/invoice.png)
 
-## USD Bank Account:
+For PayPal, you will be redirected to PayPal's payment flow. For bank transfer, use the account details below.
 
-```
-Account number: 224721691 / 0600 (USD)
-SWIFT: AGBACZPP
-IBAN: CZ6306000000000224721691
-```
-## EUR Bank Account:
+## Bank account details
 
-```
-Account number: 229149815 / 0600 (EUR)
-SWIFT: AGBACZPP
-IBAN: CZ0506000000000229149815
-```
+The SWIFT code for all accounts is **AGBACZPP**.
 
-## CZK Bank Account:
-
-```
-Account number: 224721819/0600 (CZK)
-SWIFT: AGBACZPP
-IBAN: CZ0206000000000224721819
-```
+| Currency | Account number | IBAN |
+|----------|---------------|------|
+| USD | 224721691 / 0600 | CZ6306000000000224721691 |
+| EUR | 229149815 / 0600 | CZ0506000000000229149815 |
+| CZK | 224721819 / 0600 | CZ0206000000000224721819 |
 
 ## Bank address
 
