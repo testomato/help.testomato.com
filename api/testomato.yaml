@@ -6,14 +6,17 @@ openapi: 3.0.3
 info:
   title: "Testomato API"
   description: |
-    If you would like to participate in the future development of our
-    roadmap, please don't be shy! We'd love to hear your suggestions:
-    support@testomato.com
+    The Testomato [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) 
+    API provides simple interfaces for all important Testomato functionality. 
+    To use a **REST API**, your application makes an HTTP request and parses the 
+    **JSON** formatted response. All API endpoints require authentication via an **API token**.
 
+     If you'd like to participate in the future development of our roadmap, 
+     we'd love to hear your suggestions: support@testomato.com
   termsOfService: https://www.testomato.com/terms-of-service
-  version: 1.0.0
   contact:
     email: support@testomato.com
+  version: 1.0.0
 
 servers:
   - url: https://testomato.com/api
@@ -758,10 +761,10 @@ components:
     ApiToken:
       description: |
         The Testomato API Token can be obtained from the [User Profile](https://www.testomato.com/user/profile) 
-        or directly through the API by a `POST` request send to `/api/authenticate` visit 
-        [Get API token](/api/get-api-token) for more information.
+        or directly through the API by a `POST` request sent to `/api/authenticate`. 
+        Visit [Get API token](/api/get-api-token) for more information.
         
-        Testomato API token use [JWT schema](https://jwt.io/).
+        The Testomato API token uses the [JWT schema](https://jwt.io/).
       type: http
       scheme: bearer
       bearerFormat: JWT
