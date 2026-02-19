@@ -1,4 +1,4 @@
-description: Successful response - simplify project status
+description: Successful response - simplified project status
 content:
   application/json:
     schema:

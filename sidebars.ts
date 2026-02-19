@@ -47,6 +47,7 @@ const sidebars: SidebarsConfig = {
 				},
 			],
 		},
+		'glossary',
 		{
 			type: "category",
 			label: "API Reference",

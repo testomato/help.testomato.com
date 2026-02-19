@@ -3,28 +3,39 @@ properties:
   type:
     type: string
     default: text
-    description: Type of check
-    enum: [ text html status header location title meta-description meta-og:title meta-og:description meta-og:image meta-og:image meta-og:image meta-og:type meta-og:url meta-og:site_name meta-og:locale meta-og:updated_time meta-og:logo meta-article:modified_time meta-article:published_time meta-article:publisher meta-article:section meta-article:tag meta-twitter:title meta-twitter:image meta-twitter:image meta-twitter:description meta-twitter:card meta-twitter:site meta-twitter:creator meta-itemprop:name meta-itemprop:author meta-itemprop:description meta-itemprop:image ]
+    description: |
+      Type of check. Accepted values:
+        - *Plain content*: text, html, status, header, location, title, meta-description
+        - *Open Graph*: meta-og:title, meta-og:description, meta-og:image, meta-og:type, meta-og:url, meta-og:site_name, meta-og:locale, meta-og:updated_time, meta-og:logo
+        - *Article*: meta-article:modified_time, meta-article:published_time, meta-article:publisher, meta-article:section, meta-article:tag
+        - *Twitter*: meta-twitter:title, meta-twitter:image, meta-twitter:description, meta-twitter:card, meta-twitter:site, meta-twitter:creator
+        - *Item prop*: meta-itemprop:name, meta-itemprop:author, meta-itemprop:description, meta-itemprop:image
+    enum: [ text, html, status, header, location, title, meta-description, meta-og:title, meta-og:description, meta-og:image, meta-og:type, meta-og:url, meta-og:site_name, meta-og:locale, meta-og:updated_time, meta-og:logo, meta-article:modified_time, meta-article:published_time, meta-article:publisher, meta-article:section, meta-article:tag, meta-twitter:title, meta-twitter:image, meta-twitter:description, meta-twitter:card, meta-twitter:site, meta-twitter:creator, meta-itemprop:name, meta-itemprop:author, meta-itemprop:description, meta-itemprop:image ]
     example:
       text
   op:
     type: string
     enum: [ eq, sub, '!sub', match, '!match', xpath ]
     example: sub
-    description: >
-      Operators can be: `eq` is equal to, `sub` contains, `!sub` does not contains, 
-      `match` for exact match, `!match` for does not match and `xpath` for Xpath checks.
+    description: |
+      Operators can be:
+      - `eq` — equal to
+      - `sub` — contains
+      - `!sub` — does not contain
+      - `match` — exact match
+      - `!match` — does not match
+      - `xpath` — XPath checks.
   val:
     type: string
     example: 123456
-    description: Value that will be used for check
+    description: Value that will be used for the check.
   origin:
     type: string
     example: check
-    description: Original of the check
+    description: Origin of the check.
   templateId:
     type: string
-    description: Optional parameter if check use a Template
+    description: Optional parameter if the check uses a template.
   order:
     type: integer
     description: Order of the check

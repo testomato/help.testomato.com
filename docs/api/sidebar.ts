@@ -60,8 +60,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "api/simplify-project-status",
-          label: "Simplify project status",
+          id: "api/simplified-project-status",
+          label: "Simplified project status",
           className: "api-method get",
         },
         {
@@ -72,20 +72,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "api/starting-project-group",
-          label: "Starting project group",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
           id: "api/project-results",
           label: "Project results",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "api/project-groups",
-          label: "Project groups",
           className: "api-method get",
         },
         {
@@ -144,8 +132,8 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "api/starting-project-group",
-          label: "Starting project group",
+          id: "api/start-project-group",
+          label: "Start project group",
           className: "api-method get",
         },
         {

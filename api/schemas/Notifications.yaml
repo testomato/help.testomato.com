@@ -11,7 +11,7 @@ properties:
   email:
     type: boolean
     example: true
-    description: Send email notifications or not
+    description: Whether to send email notifications
   pagerduty:
     type: boolean
     example: true
@@ -19,7 +19,7 @@ properties:
   pushover:
     type: boolean
     example: true
-    description: Send [PushHover](https://pushover.net/) notifications
+    description: Send [Pushover](https://pushover.net/) notifications
   pushbullet:
     type: boolean
     example: true

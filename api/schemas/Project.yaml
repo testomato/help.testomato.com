@@ -12,7 +12,7 @@ properties:
     example: https://testomato.com
     type: string
   period:
-    description: Period of test checking - `false` means never check Test automatically.
+    description: Period of test checking — `false` means tests are not run automatically.
     default: 5 minutes
     enum: [ 5 minutes, 30 minutes, 1 hour, 8 hours, 1 day, 7 days, false ]
     type: string
@@ -50,13 +50,13 @@ properties:
     type: integer
     default: 3
   delay:
-    description: Bulk request delay in miliseconds
+    description: Bulk request delay in milliseconds
     type: integer
     format: int64
     default: 50
   userIds:
     type: array
-    description: Array of users ID's with access to the project
+    description: Array of user IDs with access to the project
     items:
       type: integer
   name:

@@ -132,7 +132,6 @@ module.exports = {
 					'testomato': {
 						specPath: 'api/testomato.yaml',
 						outputDir: 'docs/api',
-						//baseUrl: '/api',
 						sidebarOptions: {
 							groupPathsBy: 'tag',
 							categoryLinkSource: 'tag',

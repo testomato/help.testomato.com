@@ -20,7 +20,7 @@ properties:
     example: 0.037
   size:
     type: number
-    description: Size of response in case of check error
+    description: Size of the response (may be false in case of an error)
     example: false
   redirects:
     type: array
