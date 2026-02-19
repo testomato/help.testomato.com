@@ -6,13 +6,12 @@ openapi: 3.0.3
 info:
   title: "Testomato API"
   description: |
-    The Testomato [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) 
-    API provides simple interfaces for all important Testomato functionality. 
-    To use a **REST API**, your application makes an HTTP request and parses the 
-    **JSON** formatted response. All API endpoints require authentication via an **API token**.
+    The Testomato [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)
+    API provides simple interfaces for the core Testomato functionality.
+    To use this REST API, your application makes an HTTP request and parses the
+    **JSON**-formatted response. All API endpoints require authentication using an **API token**.
 
-     If you'd like to participate in the future development of our roadmap, 
-     we'd love to hear your suggestions: support@testomato.com
+    If you'd like to contribute to our roadmap, we'd love to hear your suggestions — support@testomato.com
   termsOfService: https://www.testomato.com/terms-of-service
   contact:
     email: support@testomato.com
@@ -26,7 +25,7 @@ paths:
   /authenticate:
     post:
       operationId: Get API token
-      description: Generate API Token
+      description: Generate API token
       tags:
         - Authenticate
       requestBody:
@@ -44,10 +43,9 @@ paths:
                   type: string
                   default: '+1 hour'
                   description: |
-                    Expiration string. We do not recommend using long expirations,
-                    it is always safer to request a new API token.
-                    
-                    Accept same values as PHP [datetime modify function](https://www.php.net/manual/en/datetime.modify.php)
+                    Expiration string. We do not recommend using long expirations; it's safer to request a new API token.
+
+                    Accepts the same values as PHP's DateTime::modify() function: https://www.php.net/manual/en/datetime.modify.php
 
       responses:
         200:
@@ -60,15 +58,15 @@ paths:
     get:
       operationId: Verify API token
       description: |
-        By calling this API endpoint you can verify the validity of your token.
-        Response contains user information like `email` and user `id`.
+        Calling this endpoint verifies the validity of your token.
+        The response contains user information such as `email` and `id`.
       tags:
         - Authenticate
       security:
         - ApiToken: [ ]
       responses:
         200:
-          description: Successfully authenticate with API token
+          description: Successfully authenticated using API token
           content:
             application/json:
               schema:
@@ -112,7 +110,7 @@ paths:
     post:
       operationId: New project
       description: |
-        Create a new project from given URL. Response will be a new project object or error message.
+        Create a new project from the provided URL. The response will be a project object or an error message.
       security:
         - ApiToken: [ ]
       tags:
@@ -130,20 +128,20 @@ paths:
                   example: "https://www.example.com"
                 addPresetChecks:
                   type: boolean
-                  description: Create empty project (`true`) or preset project (`false`)
+                  description: Whether to create an empty project (`true`) or a preset project (`false`).
                   default: false
                 checkInterval:
                   type: string
                   enum: [ 5 minutes, 30 minutes, 1 hour, 8 hours, 1 day, 7 days, false ]
                   description: |
-                    - `not set` - default value by subscription plan
-                    - `5 minutes` - every 5 minutes
-                    - `30 minutes` - every 30 minutes
-                    - `1 hour` - every hour
-                    - `8 hours` - every 8 hours
-                    - `1 day` - every day
-                    - `7 days` - every week
-                    - `false` - run manually, no schedule
+                    - `not set` — default value per subscription plan
+                    - `5 minutes` — every 5 minutes
+                    - `30 minutes` — every 30 minutes
+                    - `1 hour` — every hour
+                    - `8 hours` — every 8 hours
+                    - `1 day` — every day
+                    - `7 days` — every week
+                    - `false` — run manually, no schedule
                 urls:
                   type: array
                   description: Deprecated, use `url` instead
@@ -320,8 +318,8 @@ paths:
         description: A unique project ID
 
     get:
-      operationId: Simplify project status
-      description: Get simplify project status
+      operationId: Simplified project status
+      description: Get simplified project status
       tags:
         - Project
       security:
@@ -348,7 +346,7 @@ paths:
           schema:
             type: string
         - name: tests
-          description: Array of
+          description: Array of test IDs to run
           in: query
           required: false
           example: [ '55ae166c25b395537a8b6029', '510fa4a3bd96e74c0200000b' ]
@@ -382,7 +380,7 @@ paths:
 
     get:
       operationId: Start project group
-      description: Start a specific group of Checks from a project
+      description: Start a specific group of checks within a project
       tags:
         - Group
       security:
@@ -396,7 +394,7 @@ paths:
           schema:
             type: boolean
         - name: continue
-          description: Send the partial result and move on?
+          description: Send partial results and continue?
           required: false
           example: false
           in: query
@@ -436,7 +434,7 @@ paths:
 
     get:
       operationId: Project results
-      description: Retrieve latest project's checks results
+      description: Retrieve the latest checks results for a project
       tags:
         - Project
       security:
@@ -457,7 +455,7 @@ paths:
           type: string
     get:
       operationId: Project groups
-      description: Return list of project groups/areas
+      description: Return a list of project groups (areas)
       security:
         - ApiToken: [ ]
       tags:
@@ -485,7 +483,7 @@ paths:
 
     get:
       operationId: Project users
-      description: Return list of Users with access to the project
+      description: Return a list of users with access to the project
       security:
         - ApiToken: [ ]
       tags:
@@ -502,7 +500,7 @@ paths:
 
     post:
       operationId: Add user to project
-      description: Add new user to project
+      description: Add a new user to the project
       security:
         - ApiToken: [ ]
       tags:
@@ -525,7 +523,7 @@ paths:
                     `6` - Project Guest
       responses:
         200:
-          description: User was successfully add to the project
+          description: User was successfully added to the project
           content:
             application/json:
               schema:
@@ -543,7 +541,7 @@ paths:
           type: string
     get:
       operationId: Project roles
-      description: Get array of project roles
+      description: Get an array of project roles
       tags:
         - Project
       security:
@@ -564,7 +562,7 @@ paths:
           type: string
     get:
       operationId: Project notifications
-      description: Get project notifications settings for current user
+      description: Get project notification settings for the current user
       tags:
         - Project
       security:
@@ -579,7 +577,7 @@ paths:
                 $ref: schemas/Notifications.yaml
     post:
       operationId: Update notifications
-      description: Update Project notifications settings for current user
+      description: Update project notification settings for the current user
       tags:
         - Project
       security:
@@ -609,7 +607,7 @@ paths:
           type: string
 
       - name: start
-        description: Period start date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format
+        description: Period start date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
         example: 2022-10-31T00:00:00.000+01:00
         required: true
         in: query
@@ -618,7 +616,7 @@ paths:
 
       - name: end
         description: |
-          Period end date in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format (default `now`)
+          Period end date in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format (default `now`)
         example: 2022-10-31T00:00:00.000+01:00
         required: false
         in: query

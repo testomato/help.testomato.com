@@ -17,11 +17,11 @@ content:
           example: 0
         processed:
           type: boolean
-          description: Has this job already been processed
+          description: Whether this job has already been processed
           example: true
         persist:
           type: boolean
-          description: Is this job temporary of persist
+          description: Whether this job is temporary or persistent
           example: true
         startedAt:
           type: integer
@@ -40,7 +40,7 @@ content:
           items:
             type: string
         results:
-          description: Array of test results -- each result has a testId, testName etc.
+          description: Array of test results — each result includes a testId, testName, etc.
           type: array
           items:
             type: string

@@ -9,7 +9,7 @@ content:
           properties:
             id:
               type: string
-              description: A unique Project ID
+              description: A unique project ID
             lastRun:
               type: integer
               description: Unix timestamp of last run
@@ -20,13 +20,13 @@ content:
               example: 1665263416
             reported:
               type: string
-              description: Was reported
+              description: Reported status
               example: ok
             status:
               type: string
             msg:
               type: string
-              description: Longer message about project status
+              description: Detailed message about project status
               example: Server returned HTTP status 200
             shortMessage:
               type: string
@@ -38,11 +38,11 @@ content:
           example: 12
         failed:
           type: integer
-          description: How much check has failed
+          description: Number of failed checks
           example: 0
         now:
           type: integer
-          description: Current date time unix timestamp
+          description: Current datetime (unix timestamp)
           example: 1665407098
         tests:
           type: array

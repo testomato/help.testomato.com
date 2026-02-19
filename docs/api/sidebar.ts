@@ -60,8 +60,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "api/simplify-project-status",
-          label: "Simplify project status",
+          id: "api/simplified-project-status",
+          label: "Simplified project status",
           className: "api-method get",
         },
         {

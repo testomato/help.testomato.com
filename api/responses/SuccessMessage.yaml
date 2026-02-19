@@ -1,4 +1,4 @@
-description: Common success massage
+description: Common success message
 content:
   application/json:
     schema:

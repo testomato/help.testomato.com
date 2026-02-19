@@ -3,7 +3,7 @@ description: A group of checks
 properties:
   id:
     type: string
-    description: A unique Group/Areas ID
+    description: A unique group/area ID
     example: 54c0fe237c3391ac488b4567
   projectId:
     type: string
@@ -11,20 +11,26 @@ properties:
     example: 50a9f72f14db3be812000233
   name:
     type: string
-    description: Name of group
+    description: Name of the group
     example: Public
   public:
     description: |
-      Are the Check target URLs in the Group accessible without password protection or HTTP authentication?
-      
+      Are the check target URLs in the group accessible without password protection or HTTP authentication?
+
       * `true` means they are publicly accessible
       * `false` means they are protected
     type: boolean
     default: true
   rules:
-    description: Group rules that are applied to all checks in the **Group**. This is usually an empty array.
+    description: Group rules that are applied to all checks in the **Group**
     type: array
-    example: [ ]
+    example: [
+      {
+        "type": "title",
+        "op": "sub",
+        "val": "Wikipedia"
+      }
+    ]
     items:
       type: array
       items:
@@ -34,7 +40,7 @@ properties:
   httpAuth:
     type: object
     required: false
-    description: Password-protected areas may have a saved HTTP auth authentications
+    description: Password-protected areas may have saved HTTP authentication
     example:
       user: nice
       password: test

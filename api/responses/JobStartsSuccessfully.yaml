@@ -1,4 +1,4 @@
-description: Job starts successfully
+description: Job started successfully
 content:
   application/json:
     schema:
@@ -9,11 +9,11 @@ content:
           example: 5e95ddf7a39e5a44428b4581
         jobId:
           type: string
-          description: A unique ID for each Job
+          description: A unique ID for each job
           example: 5e9602e7a39e5a46428b457f
         start:
           type: string
-          description: Value `ok` means your tests have successfully started
+          description: Value `ok` indicates your tests have successfully started
           example: ok
         results:
           type: string
