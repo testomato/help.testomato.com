@@ -121,6 +121,7 @@ module.exports = {
 		},
 	},
 	plugins: [
+		'./plugins/webpack-fallbacks.js',
 		'docusaurus-lunr-search',
 		[
 			// @see https://github.com/PaloAltoNetworks/docusaurus-openapi-docs
