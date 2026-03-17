@@ -32,3 +32,7 @@ To reduce false alerts caused by short-term issues, Testomato automatically rete
 ### More monitoring locations
 
 Testomato is continuously adding monitoring locations to reduce the influence of any single connection on your results. If you are seeing frequent false timeouts, this may improve over time as additional locations are added.
+
+### Further reading
+
+* [What is Uptime Monitoring?](https://testomato.com/blog/what-is-uptime-monitoring/)
