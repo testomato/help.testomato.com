@@ -16,7 +16,9 @@ Testomato allows you to check redirect location and response codes.
 
 * 301, "Moved Permanently"—recommended for SEO
 * 302, "Found" or "Moved Temporarily"
-* Meta Refresh 
+* Meta Refresh
+
+For a deeper look at how these and other redirect codes work, see our [complete guide to HTTP status codes](https://testomato.com/blog/http-status-codes/#3xx--redirects).
 
 The HyperText Transfer Protocol (HTTP) **301 Moved Permanently** redirect status response code
 indicates that the resource requested has been definitively moved to the URL given by the Location headers.

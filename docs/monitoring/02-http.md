@@ -36,9 +36,11 @@ The server cannot find the requested resource. Links that lead to a `404` page a
 
 The server encountered an unexpected condition that prevented it from fulfilling the request. This is a generic catch-all error; more specific `5xx` codes may be more appropriate in some cases. Users can generally assume the issue is being investigated and the server will be available again later.
 
+For a detailed breakdown of the most common codes — with concrete examples and what each one means for monitoring — see our [HTTP status codes guide](https://testomato.com/blog/http-status-codes/).
+
 ## Why does Testomato check `/thisShouldNotExist`?
 
-Testomato **automatically generates a `404` check** for each new project to verify that your server correctly returns a `404 Not Found` response for non-existent pages. This matters because some servers return a `200 OK` response even for pages that don't exist — a pattern sometimes called a "soft 404" — which can harm your site's SEO.
+Testomato **automatically generates a `404` check** for each new project to verify that your server correctly returns a `404 Not Found` response for non-existent pages. This matters because some servers return a `200 OK` response even for pages that don't exist — a pattern sometimes called a ["soft 404"](https://testomato.com/blog/http-status-codes/#the-soft-404-problem) — which can harm your site's SEO.
 
 A well-configured `404` page also helps retain users who follow broken links, by offering helpful navigation options rather than a dead end. You can see an example of a good `404` page at [testomato.com/404](https://www.testomato.com/404).
 
