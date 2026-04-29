@@ -65,7 +65,7 @@ Add these once you're confident in your baseline:
 
 ## Resources
 
-<!-- TODO: uncomment after blog post is live - [How to Monitor Your Content-Security-Policy](https://testomato.com/blog/content-security-policy-monitoring/) — background, examples, and starter recipes -->
+- [How to Monitor Your Content-Security-Policy](https://testomato.com/blog/content-security-policy-monitoring/) — background, examples, and starter recipes
 - [MDN: Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) — full directive reference
 - [CSP Evaluator (Google)](https://csp-evaluator.withgoogle.com/) — audit your policy for known weaknesses
 - [Report URI](https://report-uri.com/) — violation reporting and policy building
