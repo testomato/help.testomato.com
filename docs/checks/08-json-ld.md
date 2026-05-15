@@ -116,7 +116,7 @@ The rule picker includes pre-built presets for the most common fields.
 
 ## Resources
 
-<!-- TODO: uncomment after post is published - [Monitoring JSON-LD Structured Data](https://testomato.com/blog/json-ld-monitoring/) — background, examples, and what to monitor first -->
+- [Monitoring JSON-LD Structured Data](https://testomato.com/blog/json-ld-monitoring/) — background, examples, and what to monitor first
 - [Google Rich Results Test](https://search.google.com/test/rich-results) — check eligibility for rich results
 - [Schema.org Validator](https://validator.schema.org/) — validate structured data against the schema.org vocabulary
 - [JSON-LD Playground](https://json-ld.org/playground/) — experiment with JSON-LD syntax interactively
