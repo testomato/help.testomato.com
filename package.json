@@ -21,9 +21,9 @@
     "api.regenerate": "yarn api.clean && yarn api"
   },
   "dependencies": {
-    "@docusaurus/core": "3.10.0",
-    "@docusaurus/plugin-sitemap": "^3.10.0",
-    "@docusaurus/preset-classic": "3.10.0",
+    "@docusaurus/core": "^3.10.1",
+    "@docusaurus/plugin-sitemap": "^3.10.1",
+    "@docusaurus/preset-classic": "^3.10.1",
     "@mdx-js/react": "^3.1.1",
     "classnames": "^2.5.1",
     "docusaurus-lunr-search": "^3.6.0",
@@ -34,7 +34,7 @@
     "react-dom": "^19.2.5"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.10.0",
+    "@docusaurus/module-type-aliases": "^3.10.1",
     "@tsconfig/docusaurus": "^2.0.9",
     "mock-to-openapi": "^1.4.0",
     "path-browserify": "^1.0.1",
