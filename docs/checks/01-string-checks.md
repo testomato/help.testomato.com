@@ -40,3 +40,7 @@ You can debug your regex with https://www.phpliveregex.com/ or https://phphub.ne
  
  `Text on page` is a subset of `HTML on page` - we just remove all markup (HTML tags,
   head, scripts etc.) and then apply all your checks. 
+
+:::note
+Need to check structure or counts instead of text — e.g. exactly one `<h1>`, or every `<img>` has `alt` text? See [XPath checks](xpath).
+:::
