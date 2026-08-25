@@ -3,7 +3,7 @@ id: uptime
 title: Uptime monitoring
 ---
 
-Uptime monitoring checks whether your site or server is reachable and measures its response time. It is automatically enabled on the **Professional**, **Business**, and **Enterprise** plans, and during the 30-day free trial.
+Uptime monitoring checks whether your site or server is reachable and measures its response time. It is automatically enabled on the **Professional**, **Business**, and **Enterprise** plans, and during the 14-day free trial.
 
 :::tip
 If your plan does not include uptime monitoring, see our [pricing plans](https://www.testomato.com/pricing) for more information.
