@@ -1,7 +1,14 @@
 {
   // This file is not used in compilation. It is here just for a nice editor experience.
-  "extends": "@tsconfig/docusaurus/tsconfig.json",
+  "extends": "@ozzyczech/tsconfig/dom",
   "compilerOptions": {
-    "baseUrl": "."
-  }
+    "noEmit": true,
+    "declaration": false,
+    "allowJs": true,
+    "types": ["node", "@docusaurus/module-type-aliases", "@docusaurus/theme-classic"],
+    "paths": {
+      "@site/*": ["${configDir}/*"]
+    }
+  },
+  "exclude": ["build", ".docusaurus", "gen", "node_modules"]
 }
