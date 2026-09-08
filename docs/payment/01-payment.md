@@ -31,6 +31,6 @@ You can cancel your account at any time, taking effect at the next payment date.
 
 ## What should I do if my bill payment fails?
 
-If your bill payment fails, you can try re-entering your credit card details under [Your Profile > Billing & Payment > Billing Information](https://www.testomato.com/user/payments/billing). Your card may have expired or the details may have changed, which can cause payments to fail.
+If your bill payment fails, you can try re-entering your credit card details under [Your profile > Billing > Billing details](https://www.testomato.com/user/payments/billing/details). Your card may have expired or the details may have changed, which can cause payments to fail.
 
 If you continue to have issues processing the payment, contact us at support@testomato.com.
