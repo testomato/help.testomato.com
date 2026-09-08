@@ -1,14 +1,7 @@
 {
-  // This file is not used in compilation. It is here just for a nice editor experience.
-  "extends": "@ozzyczech/tsconfig/dom",
-  "compilerOptions": {
-    "noEmit": true,
-    "declaration": false,
-    "allowJs": true,
-    "types": ["node", "@docusaurus/module-type-aliases", "@docusaurus/theme-classic"],
-    "paths": {
-      "@site/*": ["${configDir}/*"]
-    }
-  },
-  "exclude": ["build", ".docusaurus", "gen", "node_modules"]
+  // Astro ships the base config that wires up .astro files and the generated
+  // content-collection types; the shared @ozzyczech/tsconfig cannot do that.
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }

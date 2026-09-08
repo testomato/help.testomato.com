@@ -2,56 +2,28 @@
   "name": "help",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc",
-    "prettier": "prettier --config .prettierrc --write \"**/*.{js,md}\"",
-    "prettier:diff": "prettier --config .prettierrc --list-different \"**/*.{js,md}\"",
-    "api": "docusaurus gen-api-docs all",
-    "api.mocks": "mock-to-openapi api/mocks",
-    "api.clean": "docusaurus clean-api-docs all",
-    "api.regenerate": "yarn api.clean && yarn api"
+    "start": "astro dev",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "typecheck": "astro check",
+    "astro": "astro",
+    "prettier": "prettier --config .prettierrc --write \"**/*.{js,mjs,md,mdx}\"",
+    "prettier:diff": "prettier --config .prettierrc --list-different \"**/*.{js,mjs,md,mdx}\""
   },
   "dependencies": {
-    "@docusaurus/core": "^3.10.2",
-    "@docusaurus/plugin-sitemap": "^3.10.2",
-    "@docusaurus/preset-classic": "^3.10.2",
-    "@mdx-js/react": "^3.1.1",
-    "classnames": "^2.5.1",
-    "docusaurus-lunr-search": "^3.6.0",
-    "docusaurus-plugin-openapi-docs": "5.0.1",
-    "docusaurus-theme-openapi-docs": "5.0.1",
-    "prism-react-renderer": "^2.4.1",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "@astrojs/markdown-satteri": "^0.4.0",
+    "@astrojs/starlight": "^0.42.0",
+    "astro": "^7.3.1",
+    "starlight-openapi": "^0.26.2"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.10.2",
-    "@ozzyczech/tsconfig": "^2.1.0",
-    "mock-to-openapi": "^1.4.0",
-    "path-browserify": "^1.0.1",
+    "@astrojs/check": "^0.9.10",
+    "openapi-types": "^12.1.3",
     "prettier": "^3.9.6",
-    "typescript": "^7.0.2"
-  },
-  "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=24"
