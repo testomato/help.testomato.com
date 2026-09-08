@@ -1,0 +1,25 @@
+---
+import Default from '@astrojs/starlight/components/Head.astro';
+import { getCollection } from 'astro:content';
+import { docSlug } from '../markdown/path';
+
+// Points at the routes emitted by src/pages/[...slug].md.ts. Membership is
+// checked against the collection rather than inferred from the route, because
+// starlight-openapi pages carry a synthetic entry too — testing for one alone
+// advertised a .md for all 25 API pages, none of which exist.
+const slugs = new Set(
+	(await getCollection('docs'))
+		.filter((entry) => !entry.data.draft && docSlug(entry.id) !== '404')
+		.map((entry) => docSlug(entry.id)),
+);
+
+const slug = docSlug(Astro.locals.starlightRoute?.entry?.id ?? 'index');
+const mdUrl = slugs.has(slug)
+	? Astro.site
+		? new URL(`/${slug}.md`, Astro.site).href
+		: `/${slug}.md`
+	: null;
+---
+
+<Default><slot /></Default>
+{mdUrl && <link rel="alternate" type="text/markdown" href={mdUrl} />}

@@ -1,6 +1,10 @@
 import starlight from '@astrojs/starlight';
 import {defineConfig} from 'astro/config';
+import {satteri} from '@astrojs/markdown-satteri';
 import starlightOpenAPI, {openAPISidebarGroups} from 'starlight-openapi';
+
+import links from './src/markdown/links';
+import youtube from './src/markdown/youtube';
 
 // Every URL Docusaurus used to serve that starlight-openapi or Starlight now
 // places elsewhere. starlight-openapi keeps the operationId-derived slug, so the
@@ -37,7 +41,18 @@ const apiOperations = [
 export default defineConfig({
   site: 'https://help.testomato.com',
   trailingSlash: 'always',
-  markdown: {smartypants: false},
+  // Astro 7's default Markdown processor. `remarkPlugins`/`rehypePlugins` would
+  // silently swap it for the legacy unified pipeline, so the two plugins below
+  // are written against Sätteri's own visitor contract instead.
+  markdown: {
+    processor: satteri({
+      // Astro turns ' into ’ and " into “ ” by default; Docusaurus did not,
+      // and the docs were written with straight quotes.
+      features: {smartPunctuation: false},
+      mdastPlugins: [youtube()],
+      hastPlugins: [links()],
+    }),
+  },
   redirects: {
     // Destinations are emitted verbatim, so they carry the trailing slash the
     // host would otherwise add with a second 301.
@@ -56,6 +71,7 @@ export default defineConfig({
     starlight({
       title: 'Help & Docs',
       description: 'Welcome to Testomato Help & Docs',
+      components: {Head: './src/components/Head.astro'},
       customCss: ['./src/styles/testomato.css'],
       favicon: '/img/favicon.ico',
       logo: {src: './public/img/logo.svg', alt: 'Testomato'},

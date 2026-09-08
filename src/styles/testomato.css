@@ -153,3 +153,21 @@
 	font-size: var(--sl-text-sm);
 	padding-inline-start: 0;
 }
+
+/* Example code blocks: the plugin overrides Expressive Code's own background
+   with gray-5 and adds a gray-4 border, so an example stands out against the
+   filled grey panel it ships with. The panels above are transparent now, which
+   leaves those blocks two steps darker than every other code block on the site.
+   Hand them back to Expressive Code's variables. */
+.sl-markdown-content .sl-openapi-example div.expressive-code .frame pre {
+	background-color: var(--ec-frm-edBg);
+	border: 1px solid var(--ec-brdCol);
+}
+
+/* The rule down the left of a schema's key list is gray-4 (#9ca3af), several
+   steps darker than every other divider here, so it reads as a hard black line
+   against the panel. Same hairline as everything else. Scoped to the API
+   sections so `<details>` in prose keeps Starlight's own treatment. */
+.sl-markdown-content .sl-openapi-section details {
+	border-inline-start-color: var(--sl-color-hairline);
+}
