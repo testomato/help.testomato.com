@@ -74,7 +74,7 @@ export default defineConfig({
       favicon: '/img/favicon.ico',
       logo: {src: './public/img/logo.svg', alt: 'Testomato'},
       editLink: {
-        baseUrl: 'https://github.com/testomato/help.testomato.com/edit/master/',
+        baseUrl: 'https://github.com/testomato/help.testomato.com/edit/main/',
       },
       social: [
         {

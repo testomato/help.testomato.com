@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   workflow_dispatch:
 
 # Needed by actions/deploy-pages: `pages` to publish, `id-token` for its OIDC

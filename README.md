@@ -44,6 +44,6 @@ The API reference at `/api` is rendered at build time by [starlight-openapi](htt
 
 ### Deployment
 
-Pushing to `master` triggers `.github/workflows/deploy.yml`, which builds the site and publishes it to GitHub Pages. There is nothing to run by hand.
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the site and publishes it to GitHub Pages. There is nothing to run by hand.
 
 The repository's Pages source must be set to **GitHub Actions** rather than a branch. `public/CNAME` carries the custom domain and `public/.nojekyll` stops Pages from running the output through Jekyll.
