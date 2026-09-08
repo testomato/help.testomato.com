@@ -59,6 +59,71 @@ properties:
     description: Array of user IDs with access to the project
     items:
       type: integer
+  status:
+    description: Last known check status of the project. `null` until the first run.
+    type: string
+    nullable: true
+    example: ok
+  sslStatus:
+    description: |
+      Derived state of the TLS certificate:
+
+      - `ok` — valid, and more days left than `sslAlertPeriod`
+      - `soon` — valid, but expiring within `sslAlertPeriod`
+      - `expired` — no days left
+      - `nossl` — the project URL is not `https://`
+      - `noinfo` — not checked yet
+    type: string
+    enum: [ ok, soon, expired, nossl, noinfo ]
+    example: ok
+  sslExpiration:
+    description: Certificate expiry in ISO 8601. `null` when there is nothing to report.
+    type: string
+    format: date-time
+    nullable: true
+    example: "2026-12-31T23:59:59+00:00"
+  sslDaysLeft:
+    description: Days until the certificate expires. Absent until the first SSL check ran.
+    type: integer
+    example: 47
+  sslAlertPeriod:
+    description: How many days before expiry the certificate counts as expiring soon.
+    type: integer
+    example: 14
+  httpsRedirectEnabled:
+    description: Whether Testomato checks that the HTTP version redirects to HTTPS.
+    type: boolean
+    example: true
+  httpsRedirectStatus:
+    description: Result of the last HTTPS redirect check. `null` until it first ran.
+    type: string
+    enum: [ ok, failed, unreachable ]
+    nullable: true
+    example: ok
+  httpsRedirectFinalUrl:
+    description: URL the HTTP version ended on, after following redirects.
+    type: string
+    nullable: true
+    example: https://testomato.com/
+  httpsRedirectCheckedAt:
+    description: When the HTTPS redirect was last checked, in ISO 8601.
+    type: string
+    format: date-time
+    nullable: true
+    example: "2026-09-08T06:29:38+00:00"
+  webPushEnabled:
+    description: Whether browser push notifications are enabled for this project.
+    type: boolean
+    example: false
+  securityMonitoringEnabled:
+    description: Whether the security panel (including the Shodan network scan) is enabled.
+    type: boolean
+    example: false
+  isWordPress:
+    description: Whether the site was detected as WordPress. `null` before detection ran.
+    type: boolean
+    nullable: true
+    example: true
   name:
     description: Project name was replaced by Project title
     type: string

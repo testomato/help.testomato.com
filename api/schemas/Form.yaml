@@ -1,23 +1,52 @@
 type: object
-description: HTML Form
+description: |
+  An HTML form Testomato found on a page and can submit as part of a check.
+  Field types follow `document\test\FormDocument` in the application.
 properties:
-  checksum:
-    type: string
-  enabled:
-    type: boolean
-  action:
-    type: string
-  originalAction:
-    type: string
-  relativeAction:
-    type: string
-  method:
-    type: string
-  params:
-    type: string
-  html:
-    type: string
-  baseUrl:
-    type: string
   identifier:
     type: string
+    description: Stable identifier of the form within the page
+    example: login-form
+  enabled:
+    type: boolean
+    description: Whether Testomato submits this form during a check
+    default: false
+    example: true
+  method:
+    type: string
+    description: HTTP method the form submits with
+    default: GET
+    enum: [ GET, POST ]
+    example: POST
+  action:
+    type: string
+    description: |
+      Resolved URL the form submits to — the action itself for `POST`, or the
+      action with the parameters appended to the query string for `GET`.
+    example: https://www.example.com/login
+  originalAction:
+    type: string
+    description: The `action` attribute exactly as written in the HTML
+    example: /login
+  relativeAction:
+    type: string
+    description: The action resolved against `baseUrl`, still relative
+    example: /login
+  baseUrl:
+    type: string
+    description: URL of the page the form was found on
+    example: https://www.example.com/
+  params:
+    type: string
+    description: URL-encoded form fields Testomato submits
+    example: username=demo&password=secret
+  html:
+    type: string
+    description: Raw HTML of the form element
+    example: <form method="post" action="/login">…</form>
+  checksum:
+    type: string
+    description: |
+      Hash of the form markup. Testomato compares it between runs to notice that
+      the form changed.
+    example: 9f2c1ab4e7d3

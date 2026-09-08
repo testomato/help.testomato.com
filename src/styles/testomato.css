@@ -1,0 +1,173 @@
+/*
+ * Testomato design tokens mapped onto Starlight's own custom properties.
+ *
+ * Nothing here overrides a Starlight component or fights its CSS: Starlight
+ * derives every surface, border and nav colour from `--sl-color-gray-*`, the
+ * accent triplet and `white`/`black`, so redefining those is enough to retheme
+ * the navigation, sidebar and links.
+ *
+ * Note that Starlight inverts its gray ramp between themes -- in dark, gray-1
+ * is the lightest step; in light, gray-1 is the darkest -- and that `white` and
+ * `black` swap roles with it. The mapping below follows that, matching each
+ * step by lightness rather than by number.
+ *
+ * Source values: the Testomato design system export (tomato + gray ramps).
+ */
+
+/* Dark (Starlight's base theme) */
+:root,
+:root[data-theme='dark'] {
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: #f3f4f6; /* --fg1  */
+	--sl-color-gray-2: #c4c9d2; /* --fg2, body text */
+	--sl-color-gray-3: #8b92a0; /* --fg3, muted text */
+	--sl-color-gray-4: #374151; /* gray-700, borders */
+	--sl-color-gray-5: #1f2937; /* --bg-inset, inline code */
+	--sl-color-gray-6: #111827; /* --bg-alt, nav + sidebar */
+	--sl-color-black: #0b0f14; /* --bg, slate-950 */
+
+	--sl-color-accent-low: #5f1c16; /* tomato-800 */
+	--sl-color-accent: #e45f50; /* tomato-400, matches --link-hover */
+	--sl-color-accent-high: #f4a89f; /* tomato-200, link + active nav text */
+}
+
+/* Light */
+:root[data-theme='light'] {
+	--sl-color-white: #111827; /* strongest text */
+	--sl-color-gray-1: #1f2937;
+	--sl-color-gray-2: #374151; /* body text */
+	--sl-color-gray-3: #4b5563;
+	--sl-color-gray-4: #9ca3af; /* muted text */
+	--sl-color-gray-5: #d1d5db; /* borders */
+	--sl-color-gray-6: #e5e7eb; /* hairlines, inline code */
+	--sl-color-gray-7: #f8f9fa; /* --bg-alt, nav */
+	--sl-color-black: #ffffff; /* page background */
+
+	--sl-color-accent-low: #fdecea; /* tomato-50 */
+	--sl-color-accent: #d94839; /* tomato-500, the brand primary */
+	--sl-color-accent-high: #8f2b22; /* tomato-700 */
+
+	/*
+	 * Starlight points link and active-nav text at `accent` in light mode, but
+	 * tomato-500 on white is 4.25:1 -- fine for buttons and other large or
+	 * non-text elements, short of the 4.5:1 that body-size text needs. Keep the
+	 * brand primary as the accent surface and take text one step darker
+	 * (tomato-600, 5.74:1).
+	 */
+	--sl-color-text-accent: #b8392c;
+}
+
+/*
+ * No webfonts on purpose. The design system names Inter, Plus Jakarta Sans and
+ * JetBrains Mono, but loading them costs a third-party connection and a font
+ * swap on every first visit. Starlight's system stack renders from what the
+ * device already has, so leave `--sl-font` and `--sl-font-mono` untouched.
+ */
+:root {
+	/* Starlight's own token; 45rem (720px) by default. The screenshots in these
+	   docs are wide, so give them more room. */
+	--sl-content-width: 960px;
+}
+
+/*
+ * Starlight colours `tip` purple; Docusaurus used green, and the docs were
+ * written against that. Retarget the three properties its own rule sets --
+ * Starlight's green tokens, not invented values. The other three types already
+ * line up: note is blue like the old `:::info`, caution orange like `:::warning`
+ * and `:::important`, danger red.
+ */
+.starlight-aside--tip {
+	--sl-color-asides-text-accent: var(--sl-color-green-high);
+	--sl-color-asides-border: var(--sl-color-green);
+	background-color: var(--sl-color-green-low);
+}
+
+/*
+ * ── API reference ──────────────────────────────────────────────────────────
+ *
+ * starlight-openapi renders correct content in a heavy shell: every section is
+ * a filled grey panel, sections nest, so a response ends up as grey inside grey
+ * inside grey, and its headings inherit the h2/h3 scale meant for prose. Read
+ * next to a docs page it looks like a different site.
+ *
+ * These rules calm it down. They target the plugin's own `sl-openapi-*` class
+ * names, whose Astro scoping compiles to `:where(...)` and therefore adds no
+ * specificity -- one extra class is enough to win, no `!important` anywhere.
+ * The classes are the plugin's public surface but not a documented contract,
+ * so a major plugin bump is the moment to re-check this block.
+ */
+
+/* Panels: hairline instead of fill, and nested panels lose their frame entirely
+   so nesting reads as indentation rather than another box. */
+.sl-markdown-content .sl-openapi-section-panel {
+	background-color: transparent;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 0.5rem;
+}
+
+.sl-markdown-content .sl-openapi-section-panel .sl-openapi-section-panel {
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+}
+
+/* Section titles: the plugin asks for h2/h3, which is prose scale -- 35px and
+   29px against a 42px page title. "Authorizations", "Parameters" or a bare
+   status code are labels and want label scale. Selected by element + class
+   because Starlight wraps each one in `.sl-heading-wrapper`, so they are not
+   direct children of the section. */
+.sl-markdown-content h2.sl-openapi-heading {
+	font-size: var(--sl-text-h4);
+}
+
+.sl-markdown-content :is(h3, h4, h5).sl-openapi-heading {
+	font-size: var(--sl-text-h5);
+}
+
+/* Types read as links when they carry the accent colour. They are code, so give
+   them the code treatment and let the accent mean "link" again. */
+.sl-markdown-content .sl-openapi-type {
+	color: var(--sl-color-gray-2);
+	font-family: var(--sl-font-mono, monospace);
+	font-size: var(--sl-text-code-sm);
+	font-weight: 400;
+}
+
+/* `default: …`, `nullable`, `>= 3 characters`: chips, not empty input fields. */
+.sl-markdown-content .sl-openapi-tag {
+	background-color: var(--sl-color-gray-6);
+	border: 0;
+	border-radius: 0.25rem;
+	color: var(--sl-color-gray-2);
+	font-family: var(--sl-font-mono, monospace);
+	padding-block: 0.1rem;
+}
+
+/* The media-type row is a label, not a control. */
+.sl-markdown-content .sl-openapi-content-picker-select-value,
+.sl-markdown-content .sl-openapi-content-picker-select select {
+	background-color: transparent;
+	border: 0;
+	border-bottom: 1px solid var(--sl-color-hairline);
+	font-family: var(--sl-font-mono, monospace);
+	font-size: var(--sl-text-sm);
+	padding-inline-start: 0;
+}
+
+/* Example code blocks: the plugin overrides Expressive Code's own background
+   with gray-5 and adds a gray-4 border, so an example stands out against the
+   filled grey panel it ships with. The panels above are transparent now, which
+   leaves those blocks two steps darker than every other code block on the site.
+   Hand them back to Expressive Code's variables. */
+.sl-markdown-content .sl-openapi-example div.expressive-code .frame pre {
+	background-color: var(--ec-frm-edBg);
+	border: 1px solid var(--ec-brdCol);
+}
+
+/* The rule down the left of a schema's key list is gray-4 (#9ca3af), several
+   steps darker than every other divider here, so it reads as a hard black line
+   against the panel. Same hairline as everything else. Scoped to the API
+   sections so `<details>` in prose keeps Starlight's own treatment. */
+.sl-markdown-content .sl-openapi-section details {
+	border-inline-start-color: var(--sl-color-hairline);
+}

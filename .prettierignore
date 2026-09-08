@@ -1,3 +1,11 @@
 node_modules
-.docusaurus
-build
+dist
+.astro
+
+# Markdown content is left alone. `proseWrap: "never"` collapses paragraphs onto
+# one line, and Prettier does not understand `:::note` / `:::tip` directive
+# fences -- it joined the opening fence, the body and the closing `:::` into a
+# single line, which made every aside swallow the rest of the page.
+src/content/docs
+*.md
+*.mdx
