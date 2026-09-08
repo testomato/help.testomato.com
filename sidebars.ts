@@ -47,6 +47,7 @@ const sidebars: SidebarsConfig = {
 				},
 			],
 		},
+		'wordpress',
 		'glossary',
 		{
 			type: "category",
