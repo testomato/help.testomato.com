@@ -57,19 +57,16 @@
 	--sl-color-text-accent: #b8392c;
 }
 
-/* Typography from the same export. Drop these two declarations and the heading
-   rule below to go back to Starlight's system font stack. */
+/*
+ * No webfonts on purpose. The design system names Inter, Plus Jakarta Sans and
+ * JetBrains Mono, but loading them costs a third-party connection and a font
+ * swap on every first visit. Starlight's system stack renders from what the
+ * device already has, so leave `--sl-font` and `--sl-font-mono` untouched.
+ */
 :root {
-	--sl-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-	--sl-font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-
 	/* Starlight's own token; 45rem (720px) by default. The screenshots in these
 	   docs are wide, so give them more room. */
 	--sl-content-width: 960px;
-}
-
-:is(h1, h2, h3, h4, h5) {
-	font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
 }
 
 /*

@@ -70,28 +70,6 @@ export default defineConfig({
         },
       ],
       head: [
-        // Inter / Plus Jakarta Sans / JetBrains Mono, the three families the
-        // design system uses. The export embedded them as data URIs; served
-        // from Google Fonts here so the pages stay small.
-        {
-          tag: 'link',
-          attrs: {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
-        },
-        {
-          tag: 'link',
-          attrs: {
-            rel: 'preconnect',
-            href: 'https://fonts.gstatic.com',
-            crossorigin: true,
-          },
-        },
-        {
-          tag: 'link',
-          attrs: {
-            rel: 'stylesheet',
-            href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap',
-          },
-        },
         // Ported verbatim from the Docusaurus gtag preset option.
         {
           tag: 'script',
