@@ -71,3 +71,16 @@
 :is(h1, h2, h3, h4, h5) {
 	font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
 }
+
+/*
+ * Starlight colours `tip` purple; Docusaurus used green, and the docs were
+ * written against that. Retarget the three properties its own rule sets --
+ * Starlight's green tokens, not invented values. The other three types already
+ * line up: note is blue like the old `:::info`, caution orange like `:::warning`
+ * and `:::important`, danger red.
+ */
+.starlight-aside--tip {
+	--sl-color-asides-text-accent: var(--sl-color-green-high);
+	--sl-color-asides-border: var(--sl-color-green);
+	background-color: var(--sl-color-green-low);
+}
