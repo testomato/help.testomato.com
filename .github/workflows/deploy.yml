@@ -23,10 +23,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      # No `package-manager` input on purpose. The action detects pnpm from
+      # pnpm-lock.yaml and then defers the version to `packageManager` in
+      # package.json. Naming it without a version makes the action pass
+      # `version: latest` to pnpm/action-setup, which refuses to run alongside
+      # the `packageManager` pin: "Multiple versions of pnpm specified".
       - uses: withastro/action@v6
         with:
           node-version: 24
-          package-manager: pnpm
 
   deploy:
     needs: build
