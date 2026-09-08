@@ -46,6 +46,10 @@ paths:
                     Expiration string. We do not recommend using long expirations; it's safer to request a new API token.
 
                     Accepts the same values as PHP's DateTime::modify() function: https://www.php.net/manual/en/datetime.modify.php
+            example:
+              email: user@email.com
+              password: "your-password"
+              exp: "+1 hour"
 
       responses:
         200:
@@ -65,6 +69,10 @@ paths:
       security:
         - ApiToken: [ ]
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           description: Successfully authenticated using API token
           content:
@@ -154,8 +162,16 @@ paths:
                   deprecated: true
                   default: false
                   description: Deprecated, use `addPresetChecks` instead
+            example:
+              url: "https://www.example.com"
+              addPresetChecks: true
+              checkInterval: 30 minutes
 
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         402:
           description: You have reached the project limit of your subscription limit. Please upgrade your subscription before adding more projects.
           content:
@@ -227,6 +243,78 @@ paths:
                 allOf:
                   - $ref: schemas/Project.yaml
 
+    get:
+      operationId: New project from URL
+      description: |
+        Same operation as `POST /project/create`, with the parameters in the query
+        string instead of a JSON body. Handy for a quick call from a browser or
+        `curl`. `aiSuggestions` is body-only and therefore unavailable here.
+      security:
+        - ApiToken: [ ]
+      tags:
+        - Project
+      parameters:
+        - name: url
+          description: URL to be checked
+          example: "https://www.example.com"
+          required: true
+          in: query
+          schema:
+            type: string
+        - name: addPresetChecks
+          description: Whether to create a preset project (`true`) or an empty one (`false`).
+          required: false
+          in: query
+          schema:
+            type: boolean
+            default: false
+        - name: checkInterval
+          description: How often the checks run. Omit to use the subscription default.
+          required: false
+          in: query
+          schema:
+            type: string
+            enum: [ 5 minutes, 30 minutes, 1 hour, 8 hours, 1 day, 7 days, false ]
+      responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
+        200:
+          description: Project was successfully created.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: schemas/Project.yaml
+        402:
+          description: You have reached the project limit of your subscription.
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: You have reached the project limit of your subscription limit. Please upgrade your subscription before adding more projects.
+        410:
+          description: The supplied URL is invalid.
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: We're sorry! The URL https://url seems to be invalid.
+        434:
+          description: Missing mandatory parameter "url"
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: Missing mandatory parameter "url"
+
   /project/{id}:
     parameters:
       - name: id
@@ -246,6 +334,10 @@ paths:
       tags:
         - Project
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         404:
           $ref: responses/NotFound.yaml
         200:
@@ -271,7 +363,16 @@ paths:
           application/json:
             schema:
               $ref: schemas/Project.yaml
+            example:
+              title: Example site
+              period: 30 minutes
+              location: eu
+              checkDefaultErrors: true
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           $ref: responses/SuccessMessage.yaml
         404:
@@ -284,6 +385,10 @@ paths:
       security:
         - ApiToken: [ ]
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           $ref: responses/SuccessMessage.yaml
         404:
@@ -307,15 +412,23 @@ paths:
       security:
         - ApiToken: [ ]
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           $ref: responses/ProjectStatus.yaml
 
   /project/{id}/simple-status:
     parameters:
-      - in: path
-        required: true
-        name: id
+      - name: id
         description: A unique project ID
+        example: 5e9602e7a39e5a46428b457f
+        allowEmptyValue: false
+        required: true
+        in: path
+        schema:
+          type: string
 
     get:
       operationId: Simplified project status
@@ -325,6 +438,10 @@ paths:
       security:
         - ApiToken: [ ]
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           $ref: responses/ProjectSimpleStatus.yaml
 
@@ -356,6 +473,10 @@ paths:
               type: string
 
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           $ref: responses/JobStartsSuccessfully.yaml
 
@@ -410,6 +531,10 @@ paths:
             items:
               type: string
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           $ref: responses/JobStartsSuccessfully.yaml
 
@@ -440,6 +565,10 @@ paths:
       security:
         - ApiToken: [ ]
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           $ref: responses/ProjectJobResults.yaml
 
@@ -461,6 +590,10 @@ paths:
       tags:
         - Group
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           description: List of project groups/areas
           content:
@@ -489,6 +622,10 @@ paths:
       tags:
         - Project
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           description: Return array of User objects
           content:
@@ -521,13 +658,53 @@ paths:
                     `4` - Project Admin
                     `5` - Project Developer
                     `6` - Project Guest
+            example:
+              email: "admin@testomato.com"
+              role: 5
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           description: User was successfully added to the project
           content:
             application/json:
               schema:
                 $ref: schemas/User.yaml
+
+    delete:
+      operationId: Remove users from project
+      description: |
+        Revoke access for one or more accounts. The project owner cannot be removed
+        this way — delete the project instead.
+      security:
+        - ApiToken: [ ]
+      tags:
+        - Project
+      requestBody:
+        content:
+          application/json:
+            schema:
+              required:
+                - users
+              properties:
+                users:
+                  type: array
+                  description: IDs of the users to remove
+                  items:
+                    type: integer
+            example:
+              users: [ 4211, 4212 ]
+      responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
+        200:
+          $ref: responses/SuccessMessage.yaml
+        404:
+          $ref: responses/NotFound.yaml
 
   /project/{id}/roles:
     parameters:
@@ -547,6 +724,10 @@ paths:
       security:
         - ApiToken: [ ]
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           $ref: responses/ProjectRolesList.yaml
 
@@ -569,6 +750,10 @@ paths:
         - ApiToken: [ ]
 
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           description: Notification settings response
           content:
@@ -583,6 +768,10 @@ paths:
       security:
         - ApiToken: [ ]
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           description: Notification settings response
           content:
@@ -594,6 +783,10 @@ paths:
           application/json:
             schema:
               $ref: schemas/Notifications.yaml
+            example:
+              email: true
+              slack: false
+              webPush: true
 
   /project/{id}/responseTimes:
     parameters:
@@ -630,6 +823,10 @@ paths:
       security:
         - ApiToken: [ ]
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         405:
           description: |
             Start time is empty or invalid (use [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date format)
@@ -698,6 +895,10 @@ paths:
       security:
         - ApiToken: [ ]
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           description: Response times
           content:
@@ -722,6 +923,10 @@ paths:
       security:
         - ApiToken: [ ]
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           description: Return user permissions
           content:
@@ -739,12 +944,87 @@ paths:
         schema:
           type: string
 
+    put:
+      operationId: Update test
+      description: |
+        Update a check. Only the supplied fields change. A check that has no URL yet
+        must be given one.
+      tags:
+        - Checks
+      security:
+        - ApiToken: [ ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: schemas/Test.yaml
+            example:
+              name: Homepage
+              url: https://www.example.com/
+              enabled: true
+      responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
+        200:
+          description: The updated check
+          content:
+            application/json:
+              schema:
+                $ref: schemas/Test.yaml
+        400:
+          description: Validation failed — for example a missing or invalid URL.
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: Sorry, you must specify URL
+        404:
+          $ref: responses/NotFound.yaml
+    delete:
+      operationId: Delete test
+      description: Permanently delete a check.
+      tags:
+        - Checks
+      security:
+        - ApiToken: [ ]
+      responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
+        200:
+          description: Check was successfully deleted
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: Check was successfully deleted
+                  success:
+                    type: boolean
+                    default: true
+                  error:
+                    type: boolean
+                    default: false
+        404:
+          $ref: responses/NotFound.yaml
     get:
       operationId: Get test
       description: Retrieve Checks (referred to as `tests` in API endpoints) by unique test ID
       tags:
         - Checks
+      security:
+        - ApiToken: [ ]
       responses:
+        401:
+          $ref: responses/Unauthorized.yaml
+        403:
+          $ref: responses/Forbidden.yaml
         200:
           description: Test response
           content:
@@ -761,6 +1041,12 @@ components:
         Visit [Get API token](/api/get-api-token) for more information.
         
         The Testomato API token uses the [JWT schema](https://jwt.io/).
+
+        **Retired: `?apikey=` in the query string.** Older integrations authenticated
+        by appending an API key to the URL. That is rejected now — the API answers
+        `API key authentication is deprecated. Switch to the JWT token instead.`
+        Request a token from `POST /api/authenticate` and send it as
+        `Authorization: Bearer <token>`.
       type: http
       scheme: bearer
       bearerFormat: JWT

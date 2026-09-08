@@ -1,0 +1,21 @@
+description: |
+  The API token is missing, malformed or expired. Request a new one from
+  `POST /api/authenticate`.
+content:
+  application/json:
+    schema:
+      properties:
+        message:
+          description: Error message text
+          default: Access denied! Please log in to access this resource.
+          type: string
+        code:
+          description: Error code number
+          default: 401
+          type: integer
+        ok:
+          type: boolean
+          default: false
+        error:
+          type: boolean
+          default: true

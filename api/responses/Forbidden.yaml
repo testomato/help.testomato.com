@@ -1,0 +1,26 @@
+description: |
+  The token is valid but the operation is not allowed. Two distinct causes:
+
+  - **the subscription plan does not include API access** — every endpoint
+    returns this, regardless of the resource
+  - **the account lacks the required role on the project** — reading needs
+    `read`, changing checks needs `editTests`, and so on. See
+    [Project permissions](/api/operations/project-permissions/).
+content:
+  application/json:
+    schema:
+      properties:
+        message:
+          description: Error message text
+          default: Sorry! Your current plan does not support access to Testomato API.
+          type: string
+        code:
+          description: Error code number
+          default: 403
+          type: integer
+        ok:
+          type: boolean
+          default: false
+        error:
+          type: boolean
+          default: true
