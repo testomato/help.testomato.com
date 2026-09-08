@@ -4,7 +4,7 @@ title: Testomato Dashboard
 sidebar_label: Dashboard
 ---
 
-**Dashboard** is meant to help you get a basic overview of what's
+[**Dashboard**](https://testomato.com/app/dashboard) is meant to help you get a basic overview of what's
 going on in your projects in a quick way.
 
 ![Dashboard](/img/dashboard.png)

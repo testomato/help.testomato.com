@@ -17,10 +17,10 @@ content:
                 enum: [ OK, Error message ]
           example:
             - name: Homepage
-              url: https://www.testomato.com
+              url: https://testomato.com
               status: OK
             - name: Contact
-              url: https://www.testomato.com/contact
+              url: https://testomato.com/contact
               status: Missing "example" in Website TEXT
         total:
           description: Total count of checks

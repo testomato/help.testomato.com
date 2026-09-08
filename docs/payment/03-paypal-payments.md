@@ -3,7 +3,7 @@ title: PayPal payments
 ---
 
 Testomato accepts [PayPal](https://paypal.com/) in addition to Visa, Mastercard, and Discover. You can change your payment 
-method to PayPal at any time through the Testomato website at [Your profile > Billing > Billing details](https://www.testomato.com/user/payments/billing/details).
+method to PayPal at any time through the Testomato website at [Your profile > Billing > Billing details](https://testomato.com/user/payments/billing/details).
 
 ## Pay with PayPal
 

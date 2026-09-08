@@ -7,7 +7,7 @@ description: Install and use Testomato Monitoring, the official WordPress and Wo
 
 **Testomato Monitoring** is the official WordPress plugin. It connects your WordPress or WooCommerce site to Testomato in about thirty seconds — you enter an email address, the plugin creates your account and a project for the site, and a widget on your WordPress dashboard shows the current status.
 
-The checks themselves never run on your server. Testomato tests your site from its own machines in [nine locations](https://www.testomato.com/monitoring-locations), which is why the alert still arrives when WordPress, PHP or the whole host is down.
+The checks themselves never run on your server. Testomato tests your site from its own machines in [nine locations](https://testomato.com/monitoring-locations), which is why the alert still arrives when WordPress, PHP or the whole host is down.
 
 :::tip
 

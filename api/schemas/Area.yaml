@@ -44,7 +44,7 @@ properties:
     example:
       user: nice
       password: test
-      url: https://www.testomato.com/httpauth
+      url: https://testomato.com/httpauth
     properties:
       user:
         type: string

@@ -12,7 +12,7 @@ info:
     **JSON**-formatted response. All API endpoints require authentication using an **API token**.
 
     If you'd like to contribute to our roadmap, we'd love to hear your suggestions — support@testomato.com
-  termsOfService: https://www.testomato.com/terms-of-service
+  termsOfService: https://testomato.com/terms-of-service
   contact:
     email: support@testomato.com
   version: 1.0.0
@@ -728,7 +728,7 @@ paths:
             application/json:
               schema:
                 $ref: schemas/Permissions.yaml
-  /tests/{id}:
+  /test/{id}:
     parameters:
       - name: id
         description: A unique test ID
@@ -756,7 +756,7 @@ components:
   securitySchemes:
     ApiToken:
       description: |
-        The Testomato API Token can be obtained from the [User Profile](https://www.testomato.com/user/profile) 
+        The Testomato API Token can be obtained from the [Account settings](https://testomato.com/app/user/settings) 
         or directly through the API by a `POST` request sent to `/api/authenticate`. 
         Visit [Get API token](/api/get-api-token) for more information.
         

@@ -8,7 +8,7 @@ sidebar_label: Account
 
 You can reset your login password if you forget it, or if you want to keep your account more secure.
 
-https://www.testomato.com/forgot-password
+https://testomato.com/forgot-password
 
 ## How can I delete Testomato Account?
 
@@ -29,9 +29,9 @@ and once it's gone, there's no bringing it back.
 
 ### Deleting an account
 
-1.  Open [Profile Settings](https://www.testomato.com/user/profile).
-2.  On your User Profile page, scroll down to **Delete my Account** section.
-3.  Click **Delete my Account** button.
-4.  [Confirm Account Remove request](https://www.testomato.com/user/delete/confirm).
-5.  Visit your email and click on the **Confirm Delete Account** button.
+1.  Open [Account settings](https://testomato.com/app/user/settings).
+2.  Scroll down to the **Delete account** section.
+3.  Click **Delete your account**.
+4.  On the confirmation page, click **Yes, Delete My Account**.
+5.  Open the email we send you and click **Delete my account**.
 

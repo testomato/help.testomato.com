@@ -3,7 +3,7 @@ id: common-server-errors
 title: Common Server Errors
 ---
 
-[Testomato](https://www.testomato.com) is sensitive to **Common Server Error Messages**. They are a marker
+[Testomato](https://testomato.com) is sensitive to **Common Server Error Messages**. They are a marker
 for us to indicate that something is broken on your website.
 
 #### PHP Errors
@@ -44,7 +44,7 @@ https://www.php.net/manual/en/book.errorfunc.php
 :::note
 
 We have a page that shows randomly generated examples of some of the
-most common error messages: https://www.testomato.com/example/error
+most common error messages: https://testomato.com/example/error
 
 :::
 

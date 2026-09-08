@@ -43,7 +43,7 @@ properties:
     format: date-time
   userAgent:
     description: User agent
-    default: Testomatobot/1.0 (Linux x86_64; +https://www.testomato.com/testomatobot) minicrawler/5.2.2
+    default: Testomatobot/1.0 (Linux x86_64; +https://testomato.com/bot) minicrawler/5.2.7
     type: string
   timeout:
     description: Cumulated project timeout in seconds

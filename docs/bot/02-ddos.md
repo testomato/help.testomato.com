@@ -9,7 +9,7 @@ A [Denial-of-service (DoS) attack](https://en.wikipedia.org/wiki/Denial-of-servi
 
 ## Can Testomato trigger DDoS protection?
 
-Yes. [Testomatobot](https://www.testomato.com/bot) accesses checked websites very frequently — for example, every minute — and depending on your project settings, may download multiple URLs from the same website simultaneously. This pattern of behaviour can resemble a DDoS attack and may trigger automated protections on your server or hosting provider.
+Yes. [Testomatobot](https://testomato.com/bot) accesses checked websites very frequently — for example, every minute — and depending on your project settings, may download multiple URLs from the same website simultaneously. This pattern of behaviour can resemble a DDoS attack and may trigger automated protections on your server or hosting provider.
 
 :::note
 Read more [about Testomatobot](/bot/about).
@@ -18,7 +18,7 @@ Read more [about Testomatobot](/bot/about).
 Since all Testomato servers use fixed IP addresses, you can avoid this by whitelisting those addresses in your firewall.
 
 :::info
-For a full list of Testomatobot IP addresses, see [testomato.com/bot](https://www.testomato.com/bot).
+For a full list of Testomatobot IP addresses, see [testomato.com/bot](https://testomato.com/bot).
 :::
 
 ## Cloudflare Access denied (Error 1020)
@@ -34,7 +34,7 @@ Error 1020 means that Testomatobot has been blocked by a [Cloudflare Firewall Ru
 1. Log in to the [Cloudflare Dashboard](https://dash.cloudflare.com/login).
 2. Temporarily [pause Cloudflare on your site](https://support.cloudflare.com/hc/en-us/articles/203118044#h_8654c523-e31e-4f40-a3c7-0674336a2753).
 3. Go to the **Firewall** page.
-4. Search for the **RAY ID** or [Testomato IP addresses](https://www.testomato.com/bot) in **Firewall Events** to identify the blocking rule.
+4. Search for the **RAY ID** or [Testomato IP addresses](https://testomato.com/bot) in **Firewall Events** to identify the blocking rule.
 5. Update the rule to allow Testomatobot through, or add Testomato's IP addresses to your allowlist.
 
 ### Further reading

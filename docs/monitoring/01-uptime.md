@@ -6,7 +6,7 @@ title: Uptime monitoring
 Uptime monitoring checks whether your site or server is reachable and measures its response time. It is automatically enabled on the **Professional**, **Business**, and **Enterprise** plans, and during the 14-day free trial.
 
 :::tip
-If your plan does not include uptime monitoring, see our [pricing plans](https://www.testomato.com/pricing) for more information.
+If your plan does not include uptime monitoring, see our [pricing plans](https://testomato.com/pricing) for more information.
 :::
 
 ## How to disable uptime monitoring
@@ -21,7 +21,7 @@ Testomato may occasionally report your site as down or unavailable even when eve
 
 ### Monitoring is done from an external location
 
-[Testomato Bot](https://www.testomato.com/bot) tests your site from outside the local network where your server is hosted. This means it is subject to the same network conditions as any external visitor, including latency — the time it takes data to travel from one point to another.
+[Testomato Bot](https://testomato.com/bot) tests your site from outside the local network where your server is hosted. This means it is subject to the same network conditions as any external visitor, including latency — the time it takes data to travel from one point to another.
 
 In some cases, a brief network disruption between Testomato's monitoring location and your server can make your site appear unreachable, even if it is functioning normally for users in other locations.
 

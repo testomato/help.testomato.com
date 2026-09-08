@@ -3,16 +3,16 @@ id: about
 title: About
 ---
 
-[Testomatobot](https://www.testomato.com/bot) is the web crawler used by [Testomato](https://www.testomato.com) to access checked websites, submit HTML forms, and download web pages and other resources according to each project's configuration.
+[Testomatobot](https://testomato.com/bot) is the web crawler used by [Testomato](https://testomato.com) to access checked websites, submit HTML forms, and download web pages and other resources according to each project's configuration.
 
-Testomatobot identifies itself with the following [User-Agent string](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent):
+Testomatobot identifies itself with the following [User-Agent string](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent). The platform and `minicrawler` version vary between checks, so match on `Testomatobot` rather than on the whole string:
 
 ```text
-Testomatobot/1.0 (Linux x86_64; +https://www.testomato.com/testomatobot) minicrawler/5.1.2
+Testomatobot/1.0 (Linux x86_64; +https://testomato.com/bot) minicrawler/<version>
 ```
 
 :::info
-For a full list of Testomatobot IP addresses, see [testomato.com/bot](https://www.testomato.com/bot).
+For a full list of Testomatobot IP addresses, see [testomato.com/bot](https://testomato.com/bot).
 :::
 
 

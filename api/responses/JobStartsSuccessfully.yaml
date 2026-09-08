@@ -18,4 +18,4 @@ content:
         results:
           type: string
           description: The URL where you can view your results
-          example: https://www.testomato.com/api/project/5e95ddf7a39e5a44428b4581/job/5e9602e7a39e5a46428b457f/results?apikey=4PJAOwTK
+          example: https://testomato.com/api/project/5e95ddf7a39e5a44428b4581/job/5e9602e7a39e5a46428b457f/results?apikey=4PJAOwTK

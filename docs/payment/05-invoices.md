@@ -5,13 +5,13 @@ sidebar_label: Invoices
 
 ## Where can I find my invoices?
 
-All Testomato invoices can be downloaded under [Your profile > Billing > Invoices](https://www.testomato.com/user/payments/billing/invoices).
+All Testomato invoices can be downloaded under [Your profile > Billing > Invoices](https://testomato.com/user/payments/billing/invoices).
 
 ## Can you email me a copy of my invoice?
 
 Yes. Invoices go to every address listed under **Invoice delivery**. You can set up to four invoice recipients, and each one receives a PDF copy of every invoice.
 
-Change your preferences at [Your profile > Billing > Billing details](https://www.testomato.com/user/payments/billing/details).
+Change your preferences at [Your profile > Billing > Billing details](https://testomato.com/user/payments/billing/details).
 
 ![Invoice delivery section with the Invoice recipients field listing four email addresses](/img/payment/invoice-emails.png)
 

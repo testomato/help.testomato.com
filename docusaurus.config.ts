@@ -91,11 +91,11 @@ module.exports = {
 						},
 						{
 							label: 'Testomato Team',
-							href: 'https://www.testomato.com/team',
+							href: 'https://testomato.com/team',
 						},
 						{
 							label: 'About Testomato',
-							href: 'https://www.testomato.com/about',
+							href: 'https://testomato.com/about',
 						},
 					],
 				},
