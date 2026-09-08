@@ -3,16 +3,15 @@ title: HTTP Status Codes
 sidebar:
   order: 2
 ---
-
 Hypertext Transfer Protocol (HTTP) is an application-layer protocol for transmitting hypermedia documents, such as HTML. It was designed for communication between web browsers and web servers, but it can also be used for other purposes. HTTP follows a classical client-server model, with a client opening a connection to make a request, then waiting until it receives a response. HTTP is a stateless protocol, meaning that the server does not keep any data (state) between two requests.
 
 When accessing a web server or application, every [HTTP request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) that is received by a server is responded to with an [HTTP status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). Status codes are three-digit numbers where the first digit indicates the class of response:
 
-- `100–199` Informational responses
-- `200–299` Successful responses
-- `300–399` Redirects
-- `400–499` Client-side errors
-- `500–599` Server errors
+* `100–199` Informational responses
+* `200–299` Successful responses
+* `300–399` Redirects
+* `400–499` Client-side errors
+* `500–599` Server errors
 
 ## [200 OK](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200)
 
@@ -50,4 +49,6 @@ A well-configured `404` page also helps retain users who follow broken links, by
 
 No. Testomato checks the HTTP status of URLs you have configured, but it does not crawl your website or examine HTML to proactively search for broken links.
 
-:::tip If you need a broken link checker, try the [Broken Link Checker Chrome Extension](https://chrome.google.com/webstore/detail/broken-link-checker/bjcoimpfplliplknnmgbffboiihamekf/related). :::
+:::tip
+If you need a broken link checker, try the [Broken Link Checker Chrome Extension](https://chrome.google.com/webstore/detail/broken-link-checker/bjcoimpfplliplknnmgbffboiihamekf/related).
+:::

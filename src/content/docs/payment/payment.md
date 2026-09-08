@@ -4,20 +4,20 @@ sidebar:
   label: Payment methods
   order: 1
 ---
-
 ## Which payment methods are accepted?
 
 Testomato accepts **automatic payments** by credit/debit card or PayPal or **manual payments** by check, wire/bank transfer.
-
-- [Credit card payment](credit-card)
-- [PayPal payment](paypal-payments)
-- [Manual payments](manual-payments)
+* [Credit card payment](/payment/credit-card/)
+* [PayPal payment](/payment/paypal-payments/) 
+* [Manual payments](/payment/manual-payments/)
 
 ## What is the difference between annual and monthly billing?
 
 The difference between annual and monthly billing is the frequency at which your billing information will be charged.
 
-:::tip Compare all plans and pricing on our [pricing page](https://testomato.com/pricing). :::
+:::tip
+Compare all plans and pricing on our [pricing page](https://testomato.com/pricing).
+:::
 
 ### Annual billing
 

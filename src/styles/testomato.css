@@ -1,0 +1,73 @@
+/*
+ * Testomato design tokens mapped onto Starlight's own custom properties.
+ *
+ * Nothing here overrides a Starlight component or fights its CSS: Starlight
+ * derives every surface, border and nav colour from `--sl-color-gray-*`, the
+ * accent triplet and `white`/`black`, so redefining those is enough to retheme
+ * the navigation, sidebar and links.
+ *
+ * Note that Starlight inverts its gray ramp between themes -- in dark, gray-1
+ * is the lightest step; in light, gray-1 is the darkest -- and that `white` and
+ * `black` swap roles with it. The mapping below follows that, matching each
+ * step by lightness rather than by number.
+ *
+ * Source values: the Testomato design system export (tomato + gray ramps).
+ */
+
+/* Dark (Starlight's base theme) */
+:root,
+:root[data-theme='dark'] {
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: #f3f4f6; /* --fg1  */
+	--sl-color-gray-2: #c4c9d2; /* --fg2, body text */
+	--sl-color-gray-3: #8b92a0; /* --fg3, muted text */
+	--sl-color-gray-4: #374151; /* gray-700, borders */
+	--sl-color-gray-5: #1f2937; /* --bg-inset, inline code */
+	--sl-color-gray-6: #111827; /* --bg-alt, nav + sidebar */
+	--sl-color-black: #0b0f14; /* --bg, slate-950 */
+
+	--sl-color-accent-low: #5f1c16; /* tomato-800 */
+	--sl-color-accent: #e45f50; /* tomato-400, matches --link-hover */
+	--sl-color-accent-high: #f4a89f; /* tomato-200, link + active nav text */
+}
+
+/* Light */
+:root[data-theme='light'] {
+	--sl-color-white: #111827; /* strongest text */
+	--sl-color-gray-1: #1f2937;
+	--sl-color-gray-2: #374151; /* body text */
+	--sl-color-gray-3: #4b5563;
+	--sl-color-gray-4: #9ca3af; /* muted text */
+	--sl-color-gray-5: #d1d5db; /* borders */
+	--sl-color-gray-6: #e5e7eb; /* hairlines, inline code */
+	--sl-color-gray-7: #f8f9fa; /* --bg-alt, nav */
+	--sl-color-black: #ffffff; /* page background */
+
+	--sl-color-accent-low: #fdecea; /* tomato-50 */
+	--sl-color-accent: #d94839; /* tomato-500, the brand primary */
+	--sl-color-accent-high: #8f2b22; /* tomato-700 */
+
+	/*
+	 * Starlight points link and active-nav text at `accent` in light mode, but
+	 * tomato-500 on white is 4.25:1 -- fine for buttons and other large or
+	 * non-text elements, short of the 4.5:1 that body-size text needs. Keep the
+	 * brand primary as the accent surface and take text one step darker
+	 * (tomato-600, 5.74:1).
+	 */
+	--sl-color-text-accent: #b8392c;
+}
+
+/* Typography from the same export. Drop these two declarations and the heading
+   rule below to go back to Starlight's system font stack. */
+:root {
+	--sl-font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	--sl-font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+	/* Starlight's own token; 45rem (720px) by default. The screenshots in these
+	   docs are wide, so give them more room. */
+	--sl-content-width: 960px;
+}
+
+:is(h1, h2, h3, h4, h5) {
+	font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+}

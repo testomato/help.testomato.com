@@ -4,7 +4,6 @@ sidebar:
   label: Invoices
   order: 5
 ---
-
 ## Where can I find my invoices?
 
 All Testomato invoices can be downloaded under [Your profile > Billing > Invoices](https://testomato.com/user/payments/billing/invoices).
@@ -21,9 +20,9 @@ Change your preferences at [Your profile > Billing > Billing details](https://te
 
 If you have any concerns about your invoice, contact us at support@testomato.com with the following details:
 
-- Invoice number
-- Your account ID or email address
-- Reason for dispute
+* Invoice number
+* Your account ID or email address
+* Reason for dispute
 
 We will review your invoice and, if a correction is needed, reissue it and send you an updated copy.
 

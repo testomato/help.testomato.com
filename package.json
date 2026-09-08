@@ -10,8 +10,8 @@
     "preview": "astro preview",
     "typecheck": "astro check",
     "astro": "astro",
-    "prettier": "prettier --config .prettierrc --write \"**/*.{js,mjs,md,mdx}\"",
-    "prettier:diff": "prettier --config .prettierrc --list-different \"**/*.{js,mjs,md,mdx}\""
+    "prettier": "prettier --config .prettierrc --write \"**/*.{js,mjs,ts,css}\"",
+    "prettier:diff": "prettier --config .prettierrc --list-different \"**/*.{js,mjs,ts,css}\""
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.0",

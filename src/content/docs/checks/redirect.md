@@ -4,32 +4,43 @@ sidebar:
   label: Redirect check
   order: 3
 ---
-
 ### Check Redirect Location
 
-Every page on the Internet has an address called a URL - which stands for `Uniform Resource Locator`. Sometimes, content moves from one URL to another URL. That’s when you need a redirect. A redirect automatically makes a browser go from one URL to another URL.
+Every page on the Internet has an address called a URL - which stands for `Uniform Resource Locator`.
+Sometimes, content moves from one URL to another URL. That’s when you need a redirect.
+A redirect automatically makes a browser go from one URL to another URL.
 
 Testomato allows you to check redirect location and response codes.
 
 ### Types of Redirects
 
-- 301, "Moved Permanently"—recommended for SEO
-- 302, "Found" or "Moved Temporarily"
-- Meta Refresh
+* 301, "Moved Permanently"—recommended for SEO
+* 302, "Found" or "Moved Temporarily"
+* Meta Refresh
 
 For a deeper look at how these and other redirect codes work, see our [complete guide to HTTP status codes](https://testomato.com/blog/http-status-codes/#3xx--redirects).
 
-The HyperText Transfer Protocol (HTTP) **301 Moved Permanently** redirect status response code indicates that the resource requested has been definitively moved to the URL given by the Location headers. The 301 redirect is the best method for implementing redirects on a website. Get more info [about 301 redirects](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301).
+The HyperText Transfer Protocol (HTTP) **301 Moved Permanently** redirect status response code
+indicates that the resource requested has been definitively moved to the URL given by the Location headers.
+The 301 redirect is the best method for implementing redirects on a website. 
+Get more info [about 301 redirects](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301).
 
-The **302 Found redirect** status response code indicates that the resource requested has been temporarily moved to the URL given by the Location header. Get more info [about 302 redirects](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/302).
+The **302 Found redirect** status response code indicates that the resource requested 
+has been temporarily moved to the URL given by the Location header. 
+Get more info [about 302 redirects](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/302).
 
-**Meta refreshes** are a type of redirect executed on the page level rather than the server level. They are usually slower, and not a recommended SEO technique.
+
+**Meta refreshes** are a type of redirect executed on the page level rather
+than the server level. They are usually slower, and not a recommended SEO technique.   
 
 ```html
-<http-equiv ="refresh" content="0; url=https://example.com/"></http-equiv>
+<http-equiv="refresh" content="0; url=https://example.com/">
 ```
 
-:::note Testomato can't detect Meta refreshes as redirects. :::
+:::note
+Testomato can't detect Meta refreshes as redirects.
+:::
+
 
 ### Create new Page check
 
@@ -41,7 +52,9 @@ Enter the URL you want to check:
 
 ![Enter URL for check](/img/checks/redirect-enter-url.png)
 
-:::caution This form sets the check to follow redirects by default. Do not worry, you can change that URL later. :::
+:::caution
+This form sets the check to follow redirects by default. Do not worry, you can change that URL later. 
+:::  
 
 ### Check Redirect response code
 
@@ -55,10 +68,13 @@ Edit new **Page check**:
 
 1. Change check URL if needed
 2. Add expected response code
-3. Turn off **Follow redirects**
+3. Turn off **Follow redirects** 
 4. Save changes
 
-:::note[Follow redirects] When **disabled**, Testomato stops at the redirect response, allowing you to verify the redirect code and location URL are correct. :::
+:::note[Follow redirects]
+When **disabled**, Testomato stops at the redirect response, allowing you to verify the redirect code and location URL are correct.
+:::
+
 
 ### Check Redirect location URL
 

@@ -3,10 +3,11 @@ title: Uptime monitoring
 sidebar:
   order: 1
 ---
-
 Uptime monitoring checks whether your site or server is reachable and measures its response time. It is automatically enabled on the **Professional**, **Business**, and **Enterprise** plans, and during the 14-day free trial.
 
-:::tip If your plan does not include uptime monitoring, see our [pricing plans](https://testomato.com/pricing) for more information. :::
+:::tip
+If your plan does not include uptime monitoring, see our [pricing plans](https://testomato.com/pricing) for more information.
+:::
 
 ## How to disable uptime monitoring
 
@@ -34,4 +35,4 @@ Testomato is continuously adding monitoring locations to reduce the influence of
 
 ### Further reading
 
-- [What is Uptime Monitoring?](https://testomato.com/blog/what-is-uptime-monitoring/)
+* [What is Uptime Monitoring?](https://testomato.com/blog/what-is-uptime-monitoring/)

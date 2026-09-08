@@ -3,7 +3,6 @@ title: DDoS protection
 sidebar:
   order: 2
 ---
-
 ## What is a DDoS attack?
 
 A [Denial-of-service (DoS) attack](https://en.wikipedia.org/wiki/Denial-of-service_attack) is a cyber-attack in which the perpetrator makes a machine or network resource unavailable to its intended users by disrupting services of a host connected to the internet. This is typically accomplished by flooding the target with superfluous requests in an attempt to overload the system and prevent legitimate requests from being fulfilled. A distributed denial-of-service (DDoS) attack does this using multiple compromised systems as sources of attack traffic.
@@ -12,11 +11,15 @@ A [Denial-of-service (DoS) attack](https://en.wikipedia.org/wiki/Denial-of-servi
 
 Yes. [Testomatobot](https://testomato.com/bot) accesses checked websites very frequently — for example, every minute — and depending on your project settings, may download multiple URLs from the same website simultaneously. This pattern of behaviour can resemble a DDoS attack and may trigger automated protections on your server or hosting provider.
 
-:::note Read more [about Testomatobot](/bot/about). :::
+:::note
+Read more [about Testomatobot](/bot/about).
+:::
 
 Since all Testomato servers use fixed IP addresses, you can avoid this by whitelisting those addresses in your firewall.
 
-:::note For a full list of Testomatobot IP addresses, see [testomato.com/bot](https://testomato.com/bot). :::
+:::note
+For a full list of Testomatobot IP addresses, see [testomato.com/bot](https://testomato.com/bot).
+:::
 
 ## Cloudflare Access denied (Error 1020)
 
@@ -36,8 +39,8 @@ Error 1020 means that Testomatobot has been blocked by a [Cloudflare Firewall Ru
 
 ### Further reading
 
-- [What is a Firewall?](https://www.cloudflare.com/learning/security/what-is-a-firewall/)
-- [What is a DDoS Attack?](https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/)
-- [What is a Web Application Firewall (WAF)?](https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/)
-- [What is Data Scraping?](https://www.cloudflare.com/learning/bots/what-is-data-scraping/)
-- [Cloudflare Bot Management](https://www.cloudflare.com/products/bot-management/)
+* [What is a Firewall?](https://www.cloudflare.com/learning/security/what-is-a-firewall/)
+* [What is a DDoS Attack?](https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/)
+* [What is a Web Application Firewall (WAF)?](https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/)
+* [What is Data Scraping?](https://www.cloudflare.com/learning/bots/what-is-data-scraping/)
+* [Cloudflare Bot Management](https://www.cloudflare.com/products/bot-management/)
