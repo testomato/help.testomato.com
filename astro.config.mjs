@@ -56,8 +56,6 @@ export default defineConfig({
   redirects: {
     // Destinations are emitted verbatim, so they carry the trailing slash the
     // host would otherwise add with a second 301.
-    // Docusaurus served the docs at the root via a client-side <Redirect>.
-    '/': '/introduction/',
     // The OpenAPI info page is now the schema Overview.
     '/api/testomato-api': '/api/',
     // preset-classic shipped an empty blog listing nobody asked for; the real
