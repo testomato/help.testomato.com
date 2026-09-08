@@ -11,9 +11,9 @@ If your plan does not include uptime monitoring, see our [pricing plans](https:/
 
 ## How to disable uptime monitoring
 
-1. Click on the project you'd like to manage, or select it from the **All Projects** menu in the top right corner.
-2. Click the **edit button** next to the uptime status. ![Testomato screenshot with a red callout pointing to the edit button](/img/uptime-setup.png)
-3. Select `OFF` in the uptime interval menu and confirm the change. ![Detail image of the interval select menu with multiple option](/img/uptime-disable.png)
+1. Open the project you'd like to manage from the list in the left sidebar.
+2. Click the **pencil** next to the uptime status in the **Uptime** panel on the right. ![Testomato project page with a red callout pointing to the pencil beside the uptime status](/img/uptime-setup.png)
+3. In **Uptime settings**, pick `disabled` from the **Uptime monitoring** menu and save. ![The Uptime settings dialog with the Uptime monitoring menu open on the disabled option](/img/uptime-disable.png)
 
 ## Why does Testomato say my site is down when it's not?
 

@@ -30,5 +30,10 @@ Testomato supports several services:
 
 The most popular service at Testomato is Slack:
 
-<iframe width="100%" height="480" src="https://www.youtube.com/embed/L11cP3qViKM"
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe
+src="https://www.youtube.com/embed/L11cP3qViKM"
+title="Testomato has a new Slack app that simplifies notification settings"
+style="width: 100%; aspect-ratio: 16 / 9; border: 0;"
+loading="lazy"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen></iframe>
