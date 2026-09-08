@@ -1,0 +1,5 @@
+# pnpm 10+ refuses to run a dependency's install scripts until it is named here.
+# esbuild links Vite's platform binary in its postinstall, so Astro cannot build
+# without it. Written by `pnpm approve-builds esbuild`.
+allowBuilds:
+  esbuild: true
