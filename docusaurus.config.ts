@@ -24,7 +24,7 @@ module.exports = {
 					// docs only https://v2.docusaurus.io/docs/docs/#docs-only-mode
 					routeBasePath: '/',
 					sidebarPath: './sidebars.ts',
-					editUrl: 'https://github.com/testomato/help.testomato.com/edit/master/',
+					editUrl: 'https://github.com/testomato/help.testomato.com/edit/main/',
 					docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
 					showLastUpdateTime: true,
 				},
