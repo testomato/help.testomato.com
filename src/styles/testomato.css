@@ -81,3 +81,75 @@
 	--sl-color-asides-border: var(--sl-color-green);
 	background-color: var(--sl-color-green-low);
 }
+
+/*
+ * ── API reference ──────────────────────────────────────────────────────────
+ *
+ * starlight-openapi renders correct content in a heavy shell: every section is
+ * a filled grey panel, sections nest, so a response ends up as grey inside grey
+ * inside grey, and its headings inherit the h2/h3 scale meant for prose. Read
+ * next to a docs page it looks like a different site.
+ *
+ * These rules calm it down. They target the plugin's own `sl-openapi-*` class
+ * names, whose Astro scoping compiles to `:where(...)` and therefore adds no
+ * specificity -- one extra class is enough to win, no `!important` anywhere.
+ * The classes are the plugin's public surface but not a documented contract,
+ * so a major plugin bump is the moment to re-check this block.
+ */
+
+/* Panels: hairline instead of fill, and nested panels lose their frame entirely
+   so nesting reads as indentation rather than another box. */
+.sl-markdown-content .sl-openapi-section-panel {
+	background-color: transparent;
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 0.5rem;
+}
+
+.sl-markdown-content .sl-openapi-section-panel .sl-openapi-section-panel {
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+}
+
+/* Section titles: the plugin asks for h2/h3, which is prose scale -- 35px and
+   29px against a 42px page title. "Authorizations", "Parameters" or a bare
+   status code are labels and want label scale. Selected by element + class
+   because Starlight wraps each one in `.sl-heading-wrapper`, so they are not
+   direct children of the section. */
+.sl-markdown-content h2.sl-openapi-heading {
+	font-size: var(--sl-text-h4);
+}
+
+.sl-markdown-content :is(h3, h4, h5).sl-openapi-heading {
+	font-size: var(--sl-text-h5);
+}
+
+/* Types read as links when they carry the accent colour. They are code, so give
+   them the code treatment and let the accent mean "link" again. */
+.sl-markdown-content .sl-openapi-type {
+	color: var(--sl-color-gray-2);
+	font-family: var(--sl-font-mono, monospace);
+	font-size: var(--sl-text-code-sm);
+	font-weight: 400;
+}
+
+/* `default: …`, `nullable`, `>= 3 characters`: chips, not empty input fields. */
+.sl-markdown-content .sl-openapi-tag {
+	background-color: var(--sl-color-gray-6);
+	border: 0;
+	border-radius: 0.25rem;
+	color: var(--sl-color-gray-2);
+	font-family: var(--sl-font-mono, monospace);
+	padding-block: 0.1rem;
+}
+
+/* The media-type row is a label, not a control. */
+.sl-markdown-content .sl-openapi-content-picker-select-value,
+.sl-markdown-content .sl-openapi-content-picker-select select {
+	background-color: transparent;
+	border: 0;
+	border-bottom: 1px solid var(--sl-color-hairline);
+	font-family: var(--sl-font-mono, monospace);
+	font-size: var(--sl-text-sm);
+	padding-inline-start: 0;
+}
