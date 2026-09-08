@@ -119,7 +119,7 @@ The plugin contacts the Testomato API at `https://testomato.com/api` and sends:
 
 The tokens returned by the API are stored in the WordPress options table under the `testomato_monitor_` prefix.
 
-Service terms: [www.testomato.com/terms](https://www.testomato.com/terms) · Privacy policy: [www.testomato.com/privacy](https://www.testomato.com/privacy)
+Service terms: [testomato.com/terms-of-service](https://testomato.com/terms-of-service) · Privacy policy: [testomato.com/privacy-policy](https://testomato.com/privacy-policy)
 
 ## Troubleshooting
 
