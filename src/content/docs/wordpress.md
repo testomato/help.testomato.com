@@ -99,9 +99,9 @@ If you don't want the widget, use the **Screen Options** menu at the top of the 
 The plugin bootstraps the project; everything after that is managed in Testomato. Click **Open Testomato dashboard** and you can:
 
 - add or remove monitored URLs, including pages behind a login;
-- define the text, HTML, headers or [structured data](/checks/json-ld) that must be present on a page — see [Checks](/checks/string-checks);
+- define the text, HTML, headers or [structured data](/checks/json-ld/) that must be present on a page — see [Checks](/checks/string-checks/);
 - set response-time thresholds and the check interval;
-- choose where alerts go — email, Slack, webhooks and the other [notification channels](/checks/notifications);
+- choose where alerts go — email, Slack, webhooks and the other [notification channels](/checks/notifications/);
 - invite colleagues to the project.
 
 Changes made in the dashboard are not written back to WordPress. The plugin reads status only.
@@ -126,7 +126,7 @@ The plugin contacts the Testomato API at `https://testomato.com/api` and sends:
 | While setting up | Your site's public home URL, so the test suggestion service can propose pages to monitor. |
 | While connected | The project or user identifier, to read the status, uptime, response times and remaining trial days shown in the dashboard widget. |
 
-**No content of your posts, users, comments or media is ever sent.** Testomato then crawls the public pages of your site from its own servers, the same way a search-engine crawler does — see [TestomatoBot](/bot/about).
+**No content of your posts, users, comments or media is ever sent.** Testomato then crawls the public pages of your site from its own servers, the same way a search-engine crawler does — see [TestomatoBot](/bot/about/).
 
 The tokens returned by the API are stored in the WordPress options table under the `testomato_monitoring_` prefix.
 
@@ -136,7 +136,7 @@ Service terms: [testomato.com/terms-of-service](https://testomato.com/terms-of-s
 
 ### Connect fails because the site is not reachable
 
-Testomato validates the URL by fetching it before creating the project, so the site must be reachable from the public internet. A site on `localhost`, on a private IP range, behind basic auth or behind a firewall that blocks unknown crawlers cannot be connected. Allow [TestomatoBot](/bot/about) through and try again.
+Testomato validates the URL by fetching it before creating the project, so the site must be reachable from the public internet. A site on `localhost`, on a private IP range, behind basic auth or behind a firewall that blocks unknown crawlers cannot be connected. Allow [TestomatoBot](/bot/firewall/) through and try again — Wordfence and Cloudflare are the usual culprits.
 
 ### The email address already has a Testomato account
 
@@ -152,11 +152,11 @@ The code is only sent when the address is signing up for a brand-new Testomato a
 
 ### The widget shows "no data yet"
 
-The first check results need a few minutes to appear after connecting. If the widget is still empty after ten minutes, open the Testomato dashboard and confirm the project has tests and that uptime monitoring is enabled — see [Uptime monitoring](/monitoring/uptime).
+The first check results need a few minutes to appear after connecting. If the widget is still empty after ten minutes, open the Testomato dashboard and confirm the project has tests and that uptime monitoring is enabled — see [Uptime monitoring](/monitoring/uptime/).
 
 ### The widget reports a problem but the site looks fine
 
-Testomato tests from outside your network, so it sees what an external visitor sees — including latency, geo-blocking and rate limiting that never affect you locally. [Why does Testomato say my site is down when it's not?](/monitoring/uptime) covers the usual causes.
+Testomato tests from outside your network, so it sees what an external visitor sees — including latency, geo-blocking and rate limiting that never affect you locally. [Why does Testomato say my site is down when it's not?](/monitoring/uptime/) covers the usual causes.
 
 ### The status is stale
 
@@ -164,4 +164,4 @@ Status is cached for a few minutes. Use the refresh button in the widget to fetc
 
 ## Getting help
 
-Write to [support@testomato.com](mailto:support@testomato.com) with your site URL and, if the problem is in the connect flow, the exact error message from the settings page. See also [Support](/support).
+Write to [support@testomato.com](mailto:support@testomato.com) with your site URL and, if the problem is in the connect flow, the exact error message from the settings page. See also [Support](/support/).

@@ -1,7 +1,8 @@
 ---
 title: DDoS protection
+description: Why Testomato's monitoring traffic can look like an attack to a firewall, and how to tell a real outage from a check that was blocked.
 sidebar:
-  order: 2
+  order: 5
 ---
 ## What is a DDoS attack?
 
@@ -11,36 +12,43 @@ A [Denial-of-service (DoS) attack](https://en.wikipedia.org/wiki/Denial-of-servi
 
 Yes. [Testomatobot](https://testomato.com/bot) accesses checked websites very frequently — for example, every minute — and depending on your project settings, may download multiple URLs from the same website simultaneously. This pattern of behaviour can resemble a DDoS attack and may trigger automated protections on your server or hosting provider.
 
+Three things about a monitoring check make it look suspicious to an automated defence:
+
+* **The frequency.** A human visitor does not request the same page every sixty seconds, from the same address, indefinitely.
+* **The client.** Testomatobot is not a browser. It does not run JavaScript, so it cannot solve the challenges that bot protections use to tell a person from a script.
+* **The pattern.** Checks arrive from several monitoring locations, which to a rate limiter counting by network can look like a small distributed burst.
+
 :::note
-Read more [about Testomatobot](/bot/about).
+Read more [about Testomatobot](/bot/about/).
 :::
 
-Since all Testomato servers use fixed IP addresses, you can avoid this by whitelisting those addresses in your firewall.
+Since all Testomato servers use fixed IP addresses, you can avoid all of this by allowing those addresses through. [Firewall and allowlisting](/bot/firewall/) has the address list and the rules to copy.
 
-:::note
-For a full list of Testomatobot IP addresses, see [testomato.com/bot](https://testomato.com/bot).
-:::
+## Is the site down, or is the check blocked?
 
-## Cloudflare Access denied (Error 1020)
+A blocked check is reported as a failure, so the first question is which of the two you are looking at. Open the failing check in Testomato and compare the response it received with what you see yourself:
 
-[Cloudflare](https://www.cloudflare.com/) may block Testomatobot and return an **Access denied (Error 1020)** response, as it can mistake monitoring traffic for data scraping.
+| What Testomato received | What it usually means |
+| --- | --- |
+| `403`, or a challenge or error page from your CDN | The check was blocked. Allow the addresses through |
+| `429` | Rate limiting. Allow the addresses through, or raise the threshold |
+| `5xx` while the site loads for you | A real problem that only affects some requests — a failing origin behind a load balancer, or a resource limit |
+| A timeout | Either a real outage or a firewall dropping the packets silently |
 
-![Cloudflare Error 1020 access denied screen](/img/bot/error-1020.png)
+Your access log settles it: a request that reached the web server is in there with the status it got, and a request that is missing entirely was stopped before it, by a network firewall or a CDN. [Checking that it worked](/bot/firewall/#checking-that-it-worked) walks through this.
 
-Error 1020 means that Testomatobot has been blocked by a [Cloudflare Firewall Rule](https://developers.cloudflare.com/firewall/cf-firewall-rules). To resolve this, you will need to update your Cloudflare firewall settings to allow Testomato's IP addresses through.
+## Where the rule lives
 
-### How to fix Error 1020
+Protections stack, and the one that blocked the check is not always the one you think. Work from the outside in — the request has to pass every layer in this order:
 
-1. Log in to the [Cloudflare Dashboard](https://dash.cloudflare.com/login).
-2. Temporarily [pause Cloudflare on your site](https://support.cloudflare.com/hc/en-us/articles/203118044#h_8654c523-e31e-4f40-a3c7-0674336a2753).
-3. Go to the **Firewall** page.
-4. Search for the **RAY ID** or [Testomato IP addresses](https://testomato.com/bot) in **Firewall Events** to identify the blocking rule.
-5. Update the rule to allow Testomatobot through, or add Testomato's IP addresses to your allowlist.
+1. Your **CDN or hosting platform**, which filters before anything reaches your server. This is where most blocks happen: see [Cloudflare](/bot/cloudflare/) and [Vercel](/bot/vercel/).
+2. Your **server firewall** — ufw, iptables, fail2ban.
+3. Your **web server** and its rate limiting.
+4. Your **application** — a security plugin such as Wordfence, or your own bot detection.
 
-### Further reading
+Each of these is covered in [Firewall and allowlisting](/bot/firewall/).
 
-* [What is a Firewall?](https://www.cloudflare.com/learning/security/what-is-a-firewall/)
+## Further reading
+
 * [What is a DDoS Attack?](https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/)
-* [What is a Web Application Firewall (WAF)?](https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/)
-* [What is Data Scraping?](https://www.cloudflare.com/learning/bots/what-is-data-scraping/)
-* [Cloudflare Bot Management](https://www.cloudflare.com/products/bot-management/)
+* [What is a Firewall?](https://www.cloudflare.com/learning/security/what-is-a-firewall/)

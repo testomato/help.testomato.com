@@ -1,5 +1,6 @@
 ---
 title: About
+description: What Testomatobot is, the user agent it identifies itself with, and where to find its IP addresses.
 sidebar:
   order: 1
 ---
@@ -11,10 +12,13 @@ Testomatobot identifies itself with the following [User-Agent string](https://de
 Testomatobot/1.0 (Linux x86_64; +https://testomato.com/bot) minicrawler/<version>
 ```
 
-:::note
-For a full list of Testomatobot IP addresses, see [testomato.com/bot](https://testomato.com/bot).
-:::
+## IP addresses
 
+Testomatobot runs from a fixed set of addresses, listed with their locations on [testomato.com/bot](https://testomato.com/bot) and as plain text, one address per line, at [`ipv4.txt`](https://testomato.com/bot/ipv4.txt) and [`ipv4-ipv6.txt`](https://testomato.com/bot/ipv4-ipv6.txt).
+
+:::tip
+If a firewall, a WAF or a rate limiter is blocking the bot, see [Firewall and allowlisting](/bot/firewall/) for rules you can copy.
+:::
 
 ## Open source
 
