@@ -4,11 +4,11 @@ title: Glossary
 This glossary clarifies terminology used in the documentation and UI. Where applicable, the API schema name is shown as a synonym.
 
 ## Group 
-**Definition**: A named grouping of checks used to organise monitoring within a project.
+**Definition**: A named set of checks within a project that share rules, a monitoring interval, extra HTTP headers, and sign-in settings.
 
 API schemas and paths sometimes refer to this entity as `Area`. When reading API reference pages, treat `Area` as equivalent to `Group`.
 
-See: [Project Groups](/api/project-groups/)
+See: [Groups](/monitoring/groups/), [Project Groups](/api/project-groups/)
 
 ## Check
 **Definition**: A single monitoring action that evaluates a condition (for example, an HTTP check or Redirect check).
