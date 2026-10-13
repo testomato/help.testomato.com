@@ -171,3 +171,73 @@
 .sl-markdown-content .sl-openapi-section details {
 	border-inline-start-color: var(--sl-color-hairline);
 }
+
+/* Opt-in frame for UI screenshots: wrap the Markdown image in
+   <div class="screenshot"> (blank lines inside) so it reads as a picture of
+   the app, not live UI. */
+.sl-markdown-content .screenshot {
+	max-width: 28rem;
+	padding: 0.75rem;
+	border: 1px solid var(--sl-color-hairline-shade);
+	border-radius: 0.5rem;
+	background-color: var(--sl-color-bg-nav);
+}
+
+.sl-markdown-content .screenshot p {
+	margin: 0;
+}
+
+.sl-markdown-content .screenshot img {
+	display: block;
+	border-radius: 0.25rem;
+}
+
+/* Opt-in: wrap consecutive .screenshot blocks in <div class="screenshot-sequence">
+   to show them as steps, with an accent arrow between them. Stacked with a
+   down arrow on narrow screens, side by side with a right arrow from 50rem. */
+.sl-markdown-content .screenshot-sequence {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2.5rem;
+}
+
+.sl-markdown-content .screenshot-sequence > .screenshot {
+	position: relative;
+	margin: 0;
+	max-width: 28rem;
+	width: 100%;
+}
+
+.sl-markdown-content .screenshot-sequence > .screenshot:not(:last-child)::after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	width: 1.5rem;
+	height: 1.5rem;
+	margin: 0.5rem 0 0 -0.75rem;
+	background-color: var(--sl-color-accent);
+	mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 5v14M5 12l7 7 7-7'/%3E%3C/svg%3E")
+		center / contain no-repeat;
+}
+
+@media (min-width: 50rem) {
+	.sl-markdown-content .screenshot-sequence {
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.sl-markdown-content .screenshot-sequence > .screenshot {
+		flex: 1;
+	}
+
+	.sl-markdown-content
+		.screenshot-sequence
+		> .screenshot:not(:last-child)::after {
+		top: 50%;
+		left: 100%;
+		margin: -0.75rem 0 0 0.5rem;
+		transform: rotate(-90deg);
+	}
+}
