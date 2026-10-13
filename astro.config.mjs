@@ -110,7 +110,7 @@ export default defineConfig({
       sidebar: [
         {slug: 'introduction'},
         {slug: 'dashboard'},
-        {slug: 'account'},
+        {label: 'Account', items: [{autogenerate: {directory: 'account'}}]},
         {
           label: 'Billing & Payment',
           items: [{autogenerate: {directory: 'payment'}}],

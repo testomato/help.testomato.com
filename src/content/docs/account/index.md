@@ -1,13 +1,16 @@
 ---
 title: Testomato Account
 sidebar:
-  label: Account
+  label: Password and deletion
+  order: 1
 ---
 ## How can I reset my password?
 
 You can reset your login password if you forget it, or if you want to keep your account more secure.
 
 https://testomato.com/forgot-password
+
+Changing or resetting your password revokes all your [personal access tokens](/account/api-tokens/).
 
 ## How can I delete Testomato Account?
 

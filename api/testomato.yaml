@@ -9,7 +9,7 @@ info:
     The Testomato [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)
     API provides simple interfaces for the core Testomato functionality.
     To use this REST API, your application makes an HTTP request and parses the
-    **JSON**-formatted response. All API endpoints require authentication using an **API token**.
+    **JSON**-formatted response. Every endpoint except `POST /authenticate` requires an [API token](/account/api-tokens/).
 
     If you'd like to contribute to our roadmap, we'd love to hear your suggestions — support@testomato.com
   termsOfService: https://testomato.com/terms-of-service
@@ -25,7 +25,9 @@ paths:
   /authenticate:
     post:
       operationId: Get API token
-      description: Generate API token
+      description: |
+        Get a login token with your email and password. It expires after 1 hour by default.
+        For long-lived access, create a [personal access token](/account/api-tokens/) instead.
       tags:
         - Authenticate
       requestBody:
@@ -43,9 +45,7 @@ paths:
                   type: string
                   default: '+1 hour'
                   description: |
-                    Expiration string. We do not recommend using long expirations; it's safer to request a new API token.
-
-                    Accepts the same values as PHP's DateTime::modify() function: https://www.php.net/manual/en/datetime.modify.php
+                    Token lifetime as a relative time, for example `+8 hours`. Longer values are capped at 1 day.
             example:
               email: user@email.com
               password: "your-password"
@@ -69,10 +69,8 @@ paths:
       security:
         - ApiToken: [ ]
       responses:
-        401:
-          $ref: responses/Unauthorized.yaml
-        403:
-          $ref: responses/Forbidden.yaml
+        400:
+          description: The token is missing, invalid, expired or revoked.
         200:
           description: Successfully authenticated using API token
           content:
@@ -93,12 +91,16 @@ paths:
                     example: user@email.com
                   exp:
                     type: integer
-                    description: Expiration date
+                    description: Expiration time. Missing on personal access tokens with no expiration.
                     example: 1825840726
-                  tid:
+                  jti:
                     type: string
-                    description: Token identifier
-                    example: "e2ew1g30xl"
+                    description: Personal access token ID. Missing on login tokens.
+                    example: "2"
+                  iss:
+                    type: string
+                    description: Token issuer
+                    example: testomato.com/api
                   iat:
                     type: integer
                     example: 1668074326
@@ -106,7 +108,7 @@ paths:
                       The "iat" (issued at) claim identifies the time at which the JWT was
                       issued.  This claim can be used to determine the age of the JWT.
                   nbf:
-                    type: string
+                    type: integer
                     example: 1668074326
                     description: |
                       The "nbf" (not before) claim identifies the time before which the JWT
@@ -1036,17 +1038,16 @@ components:
   securitySchemes:
     ApiToken:
       description: |
-        The Testomato API Token can be obtained from the [Account settings](https://testomato.com/app/user/settings) 
-        or directly through the API by a `POST` request sent to `/api/authenticate`. 
-        Visit [Get API token](/api/get-api-token) for more information.
-        
-        The Testomato API token uses the [JWT schema](https://jwt.io/).
+        Send an API token as `Authorization: Bearer <token>`. Create a personal access token in
+        [Account settings](https://testomato.com/app/user/settings#api), or get a login token from
+        `POST /authenticate`. See [API tokens](/account/api-tokens/).
+
+        The token is a [JWT](https://jwt.io/).
 
         **Retired: `?apikey=` in the query string.** Older integrations authenticated
         by appending an API key to the URL. That is rejected now — the API answers
         `API key authentication is deprecated. Switch to the JWT token instead.`
-        Request a token from `POST /api/authenticate` and send it as
-        `Authorization: Bearer <token>`.
+        Use an [API token](/account/api-tokens/) instead.
       type: http
       scheme: bearer
       bearerFormat: JWT
