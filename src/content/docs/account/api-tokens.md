@@ -80,9 +80,7 @@ Create a new token and replace the old one wherever you use it.
 ## Which token to use
 
 - **Login token** for scripts that log in with your email and password each time they run. See [Get API token](/api/operations/get-api-token/).
-- **Personal access token** for CI pipelines, integrations and AI clients connected through the MCP server.
-
-<!-- TODO: link "MCP server" above to the MCP page once it exists: https://github.com/testomato/help.testomato.com/issues/18 -->
+- **Personal access token** for CI pipelines, integrations and AI clients connected through the [MCP server](/mcp/).
 
 ## Keep tokens safe
 
