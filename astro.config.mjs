@@ -123,6 +123,7 @@ export default defineConfig({
         {label: 'Checks', items: [{autogenerate: {directory: 'checks'}}]},
         {slug: 'wordpress'},
         {slug: 'glossary'},
+        {slug: 'mcp'},
         ...openAPISidebarGroups,
         {slug: 'support'},
       ],
