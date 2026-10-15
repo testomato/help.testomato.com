@@ -10,6 +10,7 @@ info:
     API provides simple interfaces for the core Testomato functionality.
     To use this REST API, your application makes an HTTP request and parses the
     **JSON**-formatted response. Every endpoint except `POST /authenticate` requires an [API token](/account/api-tokens/).
+    To use the API from an AI assistant, see [MCP server](/mcp/).
 
     If you'd like to contribute to our roadmap, we'd love to hear your suggestions — support@testomato.com
   termsOfService: https://testomato.com/terms-of-service
