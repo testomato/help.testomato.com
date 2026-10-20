@@ -1,10 +1,10 @@
 ---
 title: MCP server
-description: Connect an AI assistant to Testomato through the MCP server to check uptime and incidents and manage checks.
+description: Connect an AI assistant to Testomato through the MCP server to check uptime and incidents and manage projects and checks.
 ---
 MCP ([Model Context Protocol](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro)) is an open standard for connecting AI assistants to other services.
 
-The Testomato MCP server lets an AI assistant use your Testomato account for you. Ask it about uptime, incidents and checks, or have it add, change, delete and run checks.
+The Testomato MCP server lets an AI assistant use your Testomato account for you. Ask it about uptime, incidents and checks, or have it add and change projects and add, change, delete and run checks.
 
 Ask your assistant what it can do with Testomato, and it lists the [tools](#tools) below.
 
@@ -89,6 +89,8 @@ You don't need to use the tool names. Ask in your own words, and the assistant p
 
 | Tool | What it does |
 | --- | --- |
+| `create_project` | Adds a project for a website |
+| `update_project` | Changes a project's settings, such as its title, how often checks run or uptime monitoring |
 | `create_test` | Adds a check |
 | `update_test` | Changes a check's URL or name |
 | `delete_test` | Deletes a check, after you confirm |
@@ -102,6 +104,8 @@ Before deleting a check or running checks, the assistant shows what will happen 
 
 - *What was the uptime of my site last week?*
 - *List incidents in the last 3 days.*
+- *Add a project for https://example.com.*
+- *Run the checks of my site every hour.*
 - *Add a check for https://example.com/pricing.*
 - *Delete the check for https://example.com/pricing.*
 
@@ -117,5 +121,6 @@ A check created through MCP gets one rule: the page returns HTTP status 200. To 
 | --- | --- |
 | Every request fails with 401 | Your token expired or was revoked. [Check the token](/account/api-tokens/#use-a-token). |
 | "Your current plan does not include access to the Testomato API." | Your account has no plan of its own. This happens when you were invited to someone else's project. |
+| "You have reached the project limit of your plan." | Your plan has no room for another project. [Upgrade the plan](https://testomato.com/user/payments/plan) or delete a project you no longer need. |
 | "Project … not found or not accessible." | The ID is wrong, or your role in that project doesn't allow the action. |
 | "Confirmation token expired." | You confirmed after more than 2 minutes. Ask the assistant to try again. |
