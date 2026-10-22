@@ -61,6 +61,8 @@ export default defineConfig({
     // preset-classic shipped an empty blog listing nobody asked for; the real
     // blog lives on the marketing site.
     '/blog': 'https://testomato.com/blog/',
+    // Notifications got their own section.
+    '/checks/notifications': '/notifications/',
     ...Object.fromEntries(
       apiOperations.map((op) => [`/api/${op}`, `/api/operations/${op}/`]),
     ),
@@ -121,6 +123,10 @@ export default defineConfig({
         },
         {label: 'TestomatoBot', items: [{autogenerate: {directory: 'bot'}}]},
         {label: 'Checks', items: [{autogenerate: {directory: 'checks'}}]},
+        {
+          label: 'Notifications',
+          items: [{autogenerate: {directory: 'notifications'}}],
+        },
         {slug: 'wordpress'},
         {slug: 'glossary'},
         {slug: 'mcp'},

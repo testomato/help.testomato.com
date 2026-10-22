@@ -101,7 +101,7 @@ The plugin bootstraps the project; everything after that is managed in Testomato
 - add or remove monitored URLs, including pages behind a login;
 - define the text, HTML, headers or [structured data](/checks/json-ld/) that must be present on a page — see [Checks](/checks/string-checks/);
 - set response-time thresholds and the check interval;
-- choose where alerts go — email, Slack, webhooks and the other [notification channels](/checks/notifications/);
+- choose where alerts go — email, Slack, webhooks and the other [notification channels](/notifications/channels/);
 - invite colleagues to the project.
 
 Changes made in the dashboard are not written back to WordPress. The plugin reads status only.

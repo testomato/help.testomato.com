@@ -44,7 +44,7 @@ pnpm prettier:diff    # Check formatting (dry-run)
 
 ## Sidebar and ordering
 
-The sidebar is defined explicitly in `astro.config.mjs`. Groups (Billing & Payment, Monitoring, TestomatoBot, Checks) use `items: [{ autogenerate: { directory: ... } }]`; ordering inside them comes from `sidebar.order` in each page's frontmatter, which replaced the old numeric filename prefixes. The API Reference group is injected by `openAPISidebarGroups`.
+The sidebar is defined explicitly in `astro.config.mjs`. Groups (Account, Billing & Payment, Monitoring, TestomatoBot, Checks, Notifications) use `items: [{ autogenerate: { directory: ... } }]`; ordering inside them comes from `sidebar.order` in each page's frontmatter, which replaced the old numeric filename prefixes. The API Reference group is injected by `openAPISidebarGroups`.
 
 ## Frontmatter
 
