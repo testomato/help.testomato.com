@@ -1,16 +1,10 @@
 ---
 title: Notification channels
-description: Connect Email, Slack, Discord, Google Chat, Telegram, SMS and other services, then choose which of them alert you for each project.
+description: Connect Email, Slack, Discord, Google Chat, Telegram, SMS (Twilio) and other services to receive incident alerts.
 sidebar:
-  order: 7
+  order: 2
 ---
-Testomato can alert you about incidents in several places at once. You connect each service once, on your account, and then choose for every project which of the connected channels it uses.
-
-All of it lives on one page: open the user menu and click **Notifications**. The page has three parts:
-
-- **Alert delay** — how long an incident must last before you are notified.
-- **Channels & integrations** — the services you connect.
-- **Project delivery** — which channels each project uses and how sensitive its alerts are.
+Testomato can alert you about incidents in several places at once. You connect each service once, on your account, and then [choose for every project](/notifications/settings/) which of the connected channels it uses.
 
 ## Supported channels
 
@@ -32,7 +26,7 @@ Every connected channel has a **Test** button that sends a sample alert, so you 
 
 ## Connect a channel
 
-Open **Notifications** and click the channel in **Channels & integrations** to expand it. The steps for each one follow.
+Open the user menu, click **Notifications** and click the channel in **Channels & integrations** to expand it. The steps for each one follow.
 
 ### Email
 
@@ -140,20 +134,4 @@ Text messages are sent through your own [Twilio](https://www.twilio.com) account
 Twilio bills every message to your account. A Twilio trial account sends only to verified numbers and adds a trial notice to each message.
 :::
 
-## Choose channels for each project
-
-Connecting a channel doesn't send any alerts by itself. In **Project delivery**, expand a project and switch on the channels it should use. Only connected channels are listed.
-
-- **Mute all** stops every alert for the project; **Unmute all** turns them back on.
-- **Apply to all projects** copies the project's channels and sensitivity to all your other projects.
-- **Alert sensitivity** decides what you are notified about:
-  - **Errors only** (the default) — hard failures such as downtime, error responses or missing content.
-  - **Errors + warnings** — also timeouts and slow responses, before they become hard errors.
-
-You can change the same settings for a single project under **Notifications** in its project settings.
-
-## Alert delay
-
-Short outages that fix themselves don't need to wake anyone. **Alert delay** sets how long an incident must last before Testomato notifies you: any length, 5, 10 or 20 minutes. It applies to every channel and every project.
-
-See [Notifications and alerts](/checks/notifications/) for when Testomato sends a notification in the first place.
+Once a channel is connected, switch it on for your projects in [Alert settings](/notifications/settings/).
