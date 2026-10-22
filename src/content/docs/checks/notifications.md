@@ -18,16 +18,20 @@ A notification is generated, for example, if the previous status was 200 OK and 
 404 Page not found. We will then send you a notification. This helps you avoid being overwhelmed by
 notifications when setting up a new check or after changing an existing check.
 
-## What notifications channels are supported? 
+## What notification channels are supported?
 
-Testomato supports several services:
+Testomato can send alerts to:
 
+* Email
+* Browser push
 * Slack
+* Discord
+* Google Chat
+* Telegram
+* Webhook
 * PagerDuty
 * Pushover
 * Pushbullet
+* SMS (Twilio)
 
-
-The most popular service at Testomato is Slack:
-
-https://www.youtube.com/watch?v=L11cP3qViKM
+See [Notification channels](/checks/notification-channels/) for how to connect each of them and choose which ones alert you for each project.
