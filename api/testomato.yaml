@@ -221,7 +221,8 @@ paths:
                     type: string
                     default: Missing mandatory parameter "url"
         400:
-          description: Project creation failed with validation error.
+          description: |
+            Validation failed: a parameter of the wrong type (for example `Parameter "aiSuggestions" must be an array`), a URL Testomato refuses to monitor, or a homepage that cannot be downloaded.
           content:
             application/json:
               schema:
@@ -771,6 +772,15 @@ paths:
       security:
         - ApiToken: [ ]
       responses:
+        400:
+          description: The body names no known channel and no `severity`.
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    type: string
+                    default: Invalid input
         401:
           $ref: responses/Unauthorized.yaml
         403:
