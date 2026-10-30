@@ -17,8 +17,10 @@
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.0",
     "@astrojs/starlight": "^0.42.0",
+    "@readme/openapi-parser": "^4.1.2",
     "astro": "^7.3.1",
-    "starlight-openapi": "^0.26.2"
+    "starlight-openapi": "^0.26.2",
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",

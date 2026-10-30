@@ -39,7 +39,6 @@ properties:
     $ref: Form.yaml
   httpAuth:
     type: object
-    required: false
     description: Password-protected areas may have saved HTTP authentication
     example:
       user: nice
