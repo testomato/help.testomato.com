@@ -773,7 +773,7 @@ paths:
         - ApiToken: [ ]
       responses:
         400:
-          description: The body names no known channel and no `severity`.
+          description: The body names no known channel and no `severity`, or its `severity` is not 1–3.
           content:
             application/json:
               schema:
