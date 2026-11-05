@@ -29,6 +29,16 @@ In some cases, a brief network disruption between Testomato's monitoring locatio
 
 To reduce false alerts caused by short-term issues, Testomato automatically retests your project a second time before sending a downtime notification. You will only receive an alert if the second test also fails.
 
+### Choose a monitoring location
+
+Each project is checked from one main monitoring location. When you add a project, Testomato picks the location that reaches your site fastest.
+
+If Testomato can't connect to your site from that location, it tries again from a nearby backup location before it alerts you.
+
+You can change the main location on every plan. Open the project's **Settings** and pick a city under **Monitoring location** in the **Monitoring** section. The change is saved right away.
+
+A location close to your server or to your visitors shortens the network route, which helps when a long route causes false timeouts. See all [monitoring locations](https://testomato.com/monitoring-locations/).
+
 ### More monitoring locations
 
 Testomato is continuously adding monitoring locations to reduce the influence of any single connection on your results. If you are seeing frequent false timeouts, this may improve over time as additional locations are added.
