@@ -31,7 +31,7 @@ Open the user menu, click **Notifications** and click the channel in **Channels 
 
 ### Email
 
-Email is connected from the start and alerts go to the address you sign in with. To send them somewhere else, enter a different address under **Send to a custom address instead**. Clear the field to go back to your sign-in address.
+Email is connected from the start and alerts go to the address you sign in with. To send them somewhere else, enter a different address under **Send to a custom address instead** and click **Save**. Testomato emails a confirmation link to that address, and alerts go there only after you click it. Clear the field to go back to your sign-in address.
 
 ### Browser push
 
