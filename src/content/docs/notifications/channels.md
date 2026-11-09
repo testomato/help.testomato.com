@@ -1,6 +1,6 @@
 ---
 title: Notification channels
-description: Connect Email, Slack, Discord, Google Chat, Telegram, SMS (Twilio) and other services to receive incident alerts.
+description: Connect Email, Slack, Discord, Google Chat, Microsoft Teams, Telegram, SMS (Twilio) and other services to receive incident alerts.
 sidebar:
   order: 2
 ---
@@ -15,6 +15,7 @@ Testomato can alert you about incidents in several places at once. You connect e
 | [Slack](#slack) | Posts incidents to a Slack channel | One click, Slack sign-in |
 | [Discord](#discord) | Posts incidents to a Discord channel | Webhook URL |
 | [Google Chat](#google-chat) | Posts incidents to a Google Chat space | Webhook URL |
+| [Microsoft Teams](#microsoft-teams) | Posts incidents to a Microsoft Teams channel | Workflows webhook URL |
 | [Telegram](#telegram) | The Testomato bot messages you or your group | Press **Start** in Telegram |
 | [Webhook](#webhook) | Sends incidents as JSON to any URL | Your URL |
 | [PagerDuty](#pagerduty) | Triggers on-call incidents | Service API key |
@@ -68,6 +69,16 @@ Google Chat alerts are posted to a space through its webhook. Incoming webhooks 
 :::note
 If **Add webhook** is greyed out, your Workspace admin has not allowed incoming webhooks, or you can't manage the space. Ask the admin to allow them, or ask a space manager to add the webhook for you.
 :::
+
+### Microsoft Teams
+
+Microsoft Teams alerts are posted to a channel through a Workflows webhook.
+
+1. In Teams, [create a webhook with Workflows](https://support.microsoft.com/en-us/workflows/send-messages-in-teams-using-incoming-webhooks) that posts to the channel for the alerts.
+2. Copy the webhook URL.
+3. In Testomato, paste it into **Teams Workflows webhook URL** and click **Save**.
+
+Old connector URLs (`webhook.office.com`) no longer work.
 
 ### Telegram
 

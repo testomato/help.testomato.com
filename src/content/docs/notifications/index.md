@@ -33,6 +33,7 @@ Testomato can send alerts to:
 * [Slack](/notifications/channels/#slack)
 * [Discord](/notifications/channels/#discord)
 * [Google Chat](/notifications/channels/#google-chat)
+* [Microsoft Teams](/notifications/channels/#microsoft-teams)
 * [Telegram](/notifications/channels/#telegram)
 * [Webhook](/notifications/channels/#webhook)
 * [PagerDuty](/notifications/channels/#pagerduty)
