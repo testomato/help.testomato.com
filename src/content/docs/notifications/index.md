@@ -7,8 +7,7 @@ sidebar:
 ---
 Testomato sends two types of notifications:
 
-- **Warning** notifications are sent only when crawler timeouts and
-  we are not able to download any content.
+- **Warning** notifications are sent only when the crawler times out and can't download any content.
 - **Error** notifications are sent to you when some check has failed.
 
 Which of them you get is set per project by [alert sensitivity](/notifications/settings/#alert-sensitivity).
