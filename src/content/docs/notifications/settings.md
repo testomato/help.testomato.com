@@ -17,7 +17,7 @@ Connecting a channel doesn't send any alerts by itself. In **Project delivery**,
 - **Mute all** stops every alert for the project; **Unmute all** turns them back on.
 - **Apply to all projects** copies the project's channels and sensitivity to all your other projects.
 
-You can change the same settings for a single project under **Notifications** in its project settings.
+You can change the same settings for a single project under **Notifications** in its project settings. Browser push notifications can be toggled from **Project-wide settings**.
 
 ## Alert sensitivity
 
