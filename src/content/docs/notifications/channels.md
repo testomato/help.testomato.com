@@ -23,7 +23,7 @@ Testomato can alert you about incidents in several places at once. You connect e
 | [Pushbullet](#pushbullet) | Push notifications | Access token |
 | [SMS (Twilio)](#sms-twilio) | Text messages through your own Twilio account | Twilio credentials |
 
-Every connected channel has a **Test** button that sends a sample alert, so you can check the setup right away.
+Every connected channel except Email has a test button that sends a sample alert, so you can check the setup right away.
 
 ## Connect a channel
 
